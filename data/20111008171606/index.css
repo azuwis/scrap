@@ -1,0 +1,46 @@
+/* ::::: http://pages.github.com/shared/css/documentation.css ::::: */
+
+html { height: 100%; }
+body { font: 13px/1.4em helvetica,arial,freesans,clean,sans-serif; background-color: rgb(255, 255, 255); color: rgb(57, 57, 57); margin: 0px; padding: 0px; height: 100%; }
+p { margin: 1em 0pt; }
+h1 { font-size: 20px; border-bottom: 1px solid rgb(204, 204, 204); padding: 0.5em 0pt; margin: 2em 0pt 1em; }
+h1:first-child { margin: 0pt 0pt 1em; }
+h2 { font-size: 16px; color: rgb(51, 51, 51); margin: 2em auto 1em; }
+h3 { font-size: 14px; color: rgb(51, 51, 51); margin: 1.5em 0pt 0.5em; }
+a { color: rgb(65, 131, 196); text-decoration: none; }
+a:hover, a:active { text-decoration: underline; }
+blockquote { margin: 0pt -5px; padding: 0px 20px; }
+ul, ol { margin: 0px; padding: 0px; }
+a img { border: 0px none; }
+#header-wrapper { margin-bottom: 0pt; clear: both; height: 91px; background: url('background-v2.png') repeat-x scroll 0pt 0pt white; }
+#header { margin: 0pt auto; width: 920px; }
+#header a.logo { float: left; margin-top: 15px; display: inline-block; }
+#header ul.nav { float: right; padding: 8px 3px 8px 2px; font-weight: bold; text-shadow: 1px 1px 0px white; font-size: 12px; margin-top: 18px; background: -moz-linear-gradient(270deg, rgb(252, 252, 252), rgb(236, 236, 236)) repeat scroll 0% 0% transparent; border-width: 1px; border-style: solid; border-color: rgb(233, 233, 233) rgb(233, 233, 233) rgb(245, 245, 245); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; -moz-border-image: none; border-radius: 5px 5px 5px 5px; box-shadow: 0pt 1px 1px rgba(0, 0, 0, 0.2); }
+#header ul.nav li:first-child { background: none repeat scroll 0% 0% transparent; }
+#header ul.nav li { float: left; margin: 0pt; padding: 0px 11px 0px 13px; list-style-type: none; background: url('nav-rule.png') no-repeat scroll 0px 50% transparent; line-height: 1.4em; }
+#header a { outline: medium none; text-decoration: none; }
+#footer { position: relative; bottom: 0pt; font-size: 13px; color: rgb(99, 99, 99); margin: 45px 0pt 0pt; }
+#footer a:hover { text-decoration: underline; }
+#footer li { list-style: none outside none; }
+.footer_inner { width: 960px; position: relative; margin: 0pt auto; }
+#footer .upper_footer { min-height: 160px; overflow: hidden; background: url('bg_footer_top.png') repeat-x scroll 0% 0% rgb(248, 248, 248); }
+#footer #blacktocat { height: 130px; width: 164px; float: left; background: url('blacktocat.png') no-repeat scroll left top transparent; text-indent: -5000px; margin: 15px 20px 0pt 0pt; }
+#footer .upper_footer ul.footer_nav { position: relative; float: left; width: 164px; margin: 20px 10px; }
+#footer .upper_footer ul.footer_nav h4 { margin: 0pt 0pt 5px; padding-bottom: 5px; border-bottom: thin solid rgb(225, 225, 225); }
+#footer .lower_footer { position: relative; background: url('bg_footer_bottom.png') repeat-x scroll 0% 0% rgb(255, 255, 255); overflow: hidden; clear: both; }
+#footer .lower_footer .home { display: block; position: absolute; background: url('footer-logo.png') no-repeat scroll left top transparent; width: 100px; height: 50px; text-indent: -5000px; }
+#footer .lower_footer #legal { float: left; width: 500px; height: 50px; line-height: 8px; margin: 25px 0pt 0pt 17px; }
+#footer .lower_footer #legal #legal_links { margin-left: 177px; }
+#footer .lower_footer div ul { float: left; display: inline; margin-top: 15px; }
+#footer .lower_footer div ul li { display: inline; float: left; margin: 0pt 10px 0pt 0pt; }
+#footer .lower_footer div p { display: inline; float: left; clear: both; margin: 10px 0pt 0pt 177px; }
+#footer .lower_footer .sponsor { width: 295px; float: right; margin-top: 35px; padding-bottom: 25px; }
+#footer .lower_footer .sponsor .logo { float: left; margin: 0pt 10px 0pt 0pt; }
+#footer .lower_footer .sponsor a { color: rgb(0, 0, 0); }
+#wrapper { padding: 20px 25px; overflow: hidden; height: auto; width: 920px; margin: -20px auto 0pt; background: url('background-white.png') no-repeat scroll 0pt 0pt transparent; }
+.content .verseblock-content, .content .sectionbody .dlist dt, .content p > tt, .content dl code, .content ul code, p code { font: 12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace; color: rgb(82, 89, 93); border-radius: 3px 3px 3px 3px; background-clip: padding-box; border: 1px solid rgb(204, 204, 204); background-color: rgb(249, 249, 249); padding: 0px 3px; display: inline-block; }
+code { white-space: nowrap; }
+pre { border: 1px solid rgb(202, 202, 202); font: 12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace; padding: 10px; overflow: auto; border-radius: 3px 3px 3px 3px; background-clip: padding-box; background-color: rgb(250, 250, 251); color: rgb(57, 57, 57); margin: 0px; }
+pre code { white-space: pre; }
+/* ::::: http://pages.github.com/shared/css/pygments.css ::::: */
+

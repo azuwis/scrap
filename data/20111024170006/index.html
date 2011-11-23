@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Captcha Buffering System - JCaptcha Confluence</title>
+
+        
+        
+
+                        
+    
+            
+<meta id="confluence-context-path" name="confluence-context-path" content="/confluence">
+<meta id="atlassian-token" name="atlassian-token" content="h7xS0RKukU">
+<meta id="confluence-space-key" name="confluence-space-key" content="general">
+
+
+
+    
+
+<!-- include system css resources -->
+
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/confluence/s/1725/7/1/_/download/superbatch/css/batch.css?ieonly=true" media="all">
+<![endif]-->
+
+
+
+
+
+<!-- end system css resources -->
+
+    
+
+    <meta name="confluence-request-time" content="1319445390508">
+
+<meta name="loggedInUsername" content="">
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" type="image/png" href="confluence_16.png">
+
+<link rel="search" type="application/opensearchdescription+xml" href="http://jcaptcha.octo.com/confluence/opensearch/osd.action" title="JCaptcha Confluence">
+
+        <!-- include system javascript resources -->
+                        
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- end system javascript resources -->
+
+    
+
+
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body id="com-atlassian-confluence">
+<div id="PageContent">
+<table cellpadding="0" cellspacing="0" width="100%">
+<tbody>
+<tr>
+<td valign="top" width="100%">
+<table cellpadding="2" cellspacing="0" width="100%">
+<tbody>
+<tr>
+<td id="mainViewPane">
+<div id="content">
+<div class="wiki-content" style="margin-right: 10px;">
+<!--DOCUMENT_FRAGMENT-->
+<h1><a name="CaptchaBufferingSystem-Interestofabufferingsystem"></a>Interest of a buffering system</h1>
+
+<p>A captcha (picture or sound) needs a lot of computing time comparing to the time usually required to generate a web page. The more captchas are hard to crack by computers, the more it takes time to create.</p>
+
+<h2><a name="CaptchaBufferingSystem-Conceptualsolution"></a>Conceptual solution</h2>
+
+<p>Pre generating captcha can prevent web site overloading. Considering the need, there is two possible solutions:</p>
+<ul>
+	<li>Captchas can      be stored in volatile memory to prevent overload, this solution fits well for quick response time but require lot of RAM.</li>
+	<li>Captchas can      be stored in persistent memory, like database, or simple files, this solution fits well for large volume of captcha.</li>
+</ul>
+
+
+<p>The JCaptcha buffering system implements the two solutions with</p>
+<ul>
+	<li>scheduled captcha swapping : captcha can be automaticaly moved between buffer</li>
+	<li>scheduled buffer feeding : automatic captcha generation</li></ul>
+<!--/DOCUMENT_FRAGMENT-->
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>

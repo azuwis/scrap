@@ -1,0 +1,36 @@
+/* ::::: http://www.sourcepole.com/stylesheets/sp_mobile.css ::::: */
+
+body { background-color: rgb(87, 87, 87); font-size: 12px; font-family: Arial,SunSans-Regular,Sans-Serif; color: white; padding: 0px; margin: 0px; }
+img { border: 0pt none; }
+a { color: rgb(0, 255, 255); text-decoration: none; }
+a:visited { color: rgb(0, 255, 255); }
+a:hover { color: rgb(0, 255, 255); }
+a:active { color: rgb(0, 0, 0); }
+h2 { font-size: 18px; font-weight: normal; margin: 0px; }
+h2 a { color: white; }
+h2 a:visited { color: white; }
+h2 a:hover { color: rgb(0, 255, 255); }
+h2 a:active { color: rgb(0, 255, 255); }
+#banner { background-color: rgb(35, 35, 35); padding: 12px 0pt 10px 20px; margin: 0px; }
+#menu { position: absolute; top: 36px; left: 260px; width: 380px; text-transform: uppercase; font-size: 11px; letter-spacing: 0.1em; }
+#menu img { margin-left: 10px; margin-right: 2px; }
+#menu a { color: white; }
+#menu a:visited { color: white; }
+#menu a:hover { color: rgb(0, 255, 255); }
+.tagcloud { position: absolute; top: 0pt; left: 650px; height: 64px; width: 330px; overflow: hidden; line-height: 1em; border-left: 1px solid rgb(87, 87, 87); padding: 6px 0pt 8px 20px; margin: 0pt; }
+.tagcloud a { color: rgb(87, 87, 87); }
+.tagcloud a:visited { color: rgb(87, 87, 87); }
+.tagcloud a:hover { color: rgb(0, 255, 255); }
+.tagcloud .weight-1 { font-size: 10px; }
+.tagcloud .weight-2 { font-size: 11px; }
+.tagcloud .weight-3 { font-size: 12px; }
+.tagcloud .weight-4 { font-size: 13px; }
+.tagcloud .weight-5 { font-size: 14px; }
+#content { padding: 0px; margin-left: 0px; }
+.nopageimage { margin-bottom: 50px; }
+.article { padding-left: 20px; border-bottom: 1px solid rgb(119, 119, 119); }
+.article-content { padding-left: 42px; margin-top: 5px; margin-bottom: 5px; min-height: 40px; background: url('pfeil_rechts.gif') no-repeat scroll 2px 0pt transparent; }
+.section2 .article-content { background-image: url('pfeil_rechts2.gif'); }
+.article-excerpt { margin-top: 1em; margin-bottom: 1em; max-width: 720px; width: 80%; }
+.article-content p { max-width: 720px; width: 80%; }
+div#qTip { padding: 8px; border-right-width: 2px; border-bottom-width: 2px; display: none; background: none repeat scroll 0% 0% rgb(35, 35, 35); color: rgb(255, 255, 255); font-size: 10px; text-align: left; position: absolute; z-index: 1000; max-width: 70%; opacity: 0.8; }

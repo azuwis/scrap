@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <title>Automaticlly install pptpd on Amazon EC2 Amazon Linux — Gist</title>
+
+    <meta content="authenticity_token" name="csrf-param">
+<meta content="2d5dc0ba323bbebb7bd21add68c1f1abf2aba37a" name="csrf-token">
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+  <link href="https://github.com/api/oembed?format=json&amp;url=https%3A%2F%2Fgist.github.com%2F666241" rel="alternate" title="gist: 666241" type="application/json+oembed">
+  
+
+  
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body class="">
+<div id="main">
+<div class="site">
+<div class="main">
+<div id="files" class="instapaper_body">
+<div class="file" id="file_pptpd.sh">
+<div class="data type-shell">
+<table class="lines" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td width="100%">
+<div class="highlight">
+<pre>
+<!--DOCUMENT_FRAGMENT-->
+<div class="line" id="LC1"><span class="c"># Automaticlly install pptpd on Amazon EC2 Amazon Linux</span></div><div class="line" id="LC2"><span class="c"># </span></div><div class="line" id="LC3"><span class="c"># Ripped from http://blog.diahosting.com/linux-tutorial/pptpd/</span></div><div class="line" id="LC4"><span class="c"># pptpd source rpm packing by it's authors</span></div><div class="line" id="LC5"><span class="c">#</span></div><div class="line" id="LC6"><span class="c"># WARNING:</span></div><div class="line" id="LC7"><span class="c"># first ms-dns setting to 172.16.0.23, 172.16.0.23 was showing on my</span></div><div class="line" id="LC8"><span class="c"># /etc/resolv.conf, I'm not sure this is the same on all Amazon AWS zones.</span></div><div class="line" id="LC9"><span class="c">#</span></div><div class="line" id="LC10"><span class="c"># You need to adjust your "Security Groups" which you are using too.</span></div><div class="line" id="LC11"><span class="c"># The security rules which I'm using looks like:</span></div><div class="line" id="LC12"><span class="c"># =================================</span></div><div class="line" id="LC13"><span class="c"># ALL  tcp  0  65535 0.0.0.0/0 </span></div><div class="line" id="LC14"><span class="c"># ALL  udp  0  65535 0.0.0.0/0 </span></div><div class="line" id="LC15"><span class="c"># =================================</span></div><div class="line" id="LC16"><span class="c"># </span></div><div class="line" id="LC17"><span class="c"># Authors: yinhm</span></div><div class="line" id="LC18"><span class="c"># Version: 0.1.0</span></div><div class="line" id="LC19"><span class="c"># URL: http://yinhm.appspot.com/</span></div><div class="line" id="LC20"><br></div><div class="line" id="LC21"><br></div><div class="line" id="LC22">yum remove -y pptpd ppp</div><div class="line" id="LC23">iptables --flush POSTROUTING --table nat</div><div class="line" id="LC24">iptables --flush FORWARD</div><div class="line" id="LC25">rm -rf /etc/pptpd.conf</div><div class="line" id="LC26">rm -rf /etc/ppp</div><div class="line" id="LC27"><br></div><div class="line" id="LC28"><br></div><div class="line" id="LC29">yum -y install rpm-build gcc</div><div class="line" id="LC30">yum -y install ppp</div><div class="line" id="LC31"><br></div><div class="line" id="LC32">mkdir ~/src</div><div class="line" id="LC33"><span class="nb">cd</span> ~/src</div><div class="line" id="LC34">wget http://yinhm.github.com/downloads/pptpd-1.3.4-1.amzn1.src.rpm</div><div class="line" id="LC35"><br></div><div class="line" id="LC36">rpmbuild --rebuild pptpd-1.3.4-1.amzn1.src.rpm</div><div class="line" id="LC37">rpm -i ../rpmbuild/RPMS/i386/pptpd-1.3.4-1.*.i386.rpm</div><div class="line" id="LC38"><br></div><div class="line" id="LC39">sed -i <span class="s1">'s/^logwtmp/#logwtmp/g'</span> /etc/pptpd.conf</div><div class="line" id="LC40"><br></div><div class="line" id="LC41">sed -i <span class="s1">'s/^net.ipv4.ip_forward = 0/net.ipv4.ip_forward = 1/g'</span> /etc/sysctl.conf</div><div class="line" id="LC42">sysctl -p</div><div class="line" id="LC43"><span class="nb">echo</span> <span class="s2">"localip 192.168.240.1"</span> &gt;&gt; /etc/pptpd.conf</div><div class="line" id="LC44"><span class="nb">echo</span> <span class="s2">"remoteip 192.168.240.2-100"</span> &gt;&gt; /etc/pptpd.conf</div><div class="line" id="LC45"><span class="nb">echo</span> <span class="s2">"ms-dns 172.16.0.23"</span> &gt;&gt; /etc/ppp/options.pptpd</div><div class="line" id="LC46"><span class="nb">echo</span> <span class="s2">"ms-dns 8.8.8.8"</span> &gt;&gt; /etc/ppp/options.pptpd</div><div class="line" id="LC47"><br></div><div class="line" id="LC48"><span class="nv">pass</span><span class="o">=</span><span class="sb">`</span>openssl rand 8 -base64<span class="sb">`</span></div><div class="line" id="LC49"><span class="k">if</span> <span class="o">[</span> <span class="s2">"$1"</span> !<span class="o">=</span> <span class="s2">""</span> <span class="o">]</span></div><div class="line" id="LC50"><span class="k">then </span><span class="nv">pass</span><span class="o">=</span><span class="nv">$1</span></div><div class="line" id="LC51"><span class="k">fi</span></div><div class="line" id="LC52"><br></div><div class="line" id="LC53"><span class="nb">echo</span> <span class="s2">"vpn pptpd ${pass} *"</span> &gt;&gt; /etc/ppp/chap-secrets</div><div class="line" id="LC54"><br></div><div class="line" id="LC55">iptables -t nat -A POSTROUTING -s 192.168.240.0/24 -j SNAT --to-source <span class="sb">`</span>ifconfig  | grep <span class="s1">'inet addr:'</span>| grep -v <span class="s1">'127.0.0.1'</span> | cut -d: -f2 | awk <span class="s1">'NR==1 { print $1}'</span><span class="sb">`</span></div><div class="line" id="LC56">iptables -A FORWARD -p tcp --syn -s 192.168.240.0/24 -j TCPMSS --set-mss 1356</div><div class="line" id="LC57">service iptables save</div><div class="line" id="LC58"><br></div><div class="line" id="LC59">chkconfig iptables on</div><div class="line" id="LC60">chkconfig pptpd on</div><div class="line" id="LC61"><br></div><div class="line" id="LC62">service iptables start</div><div class="line" id="LC63">service pptpd start</div><div class="line" id="LC64"><br></div><div class="line" id="LC65"><span class="nb">echo</span> -e <span class="s2">"VPN service is installed, your VPN username is \033[1mvpn\033[0m, VPN password is \033[1m${pass}\033[1m"</span></div>
+<!--/DOCUMENT_FRAGMENT-->
+</pre>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

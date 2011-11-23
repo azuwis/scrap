@@ -1,0 +1,143 @@
+/* ::::: http://i3.technet.microsoft.com/Global/Global-bn20110926.css ::::: */
+
+body { font-family: Verdana,Arial,Helvetica,sans-serif; color: rgb(0, 0, 0); font-size: 68.75%; }
+a { text-decoration: none; color: rgb(0, 51, 204); }
+a:link { color: rgb(0, 51, 204); }
+a:visited { color: rgb(128, 0, 128); }
+a:hover { color: rgb(255, 102, 0); }
+a:active { color: rgb(128, 0, 128); }
+a img { border: medium none; }
+H3 { font-size: 110%; font-weight: 700; }
+H4, H5, H6 { font-size: 100%; font-weight: 700; }
+li { margin-bottom: 3px; margin-left: 0pt; }
+p { margin: 0pt 0pt 10px; padding: 0pt; }
+ul { line-height: 140%; list-style-position: outside; list-style-type: disc; margin-bottom: 15px; }
+ul ul { line-height: 140%; list-style-type: disc; margin-bottom: 4px; margin-left: 17px; margin-top: 3px; }
+.HeaderCaptionText, .title { color: rgb(0, 0, 0); font-family: Arial,Helvetica,sans-serif; font-size: 190%; font-style: normal; font-variant: normal; font-weight: bold; line-height: normal; margin: 0pt 0pt 10px; }
+/* ::::: http://i3.technet.microsoft.com/Platform/MasterPages/Library/Library-bn20110926.css ::::: */
+
+html { height: 100%; margin: 0pt; overflow: hidden; padding: 0pt; }
+body { background-color: rgb(255, 255, 255); background-position: left top; background-repeat: repeat-x; height: 100%; margin: 0pt; overflow: hidden; padding: 0pt; }
+#rheader { background: none repeat scroll 0% 0% transparent; height: 160px; position: absolute; top: 0pt; width: 100%; z-index: 5; }
+#contents { background: none repeat scroll 0% 0% transparent; bottom: 0pt; right: 0pt; position: fixed; left: 0pt; top: 160px; z-index: 1; }
+.resizableArea { background: none repeat scroll 0% 0% transparent; border: medium none; bottom: 0pt; display: block; height: auto; position: absolute; top: 0pt; width: 100%; }
+.RightPanel { margin: 0pt; padding: 0pt; vertical-align: top; width: auto; }
+.ContentBar { padding-bottom: 20px; padding-right: 7px; padding-top: 7px; }
+DIV.ContentArea { line-height: 140%; margin: 20px; }
+.ContentArea .topic ul li { list-style-image: url('b.gif'); }
+.RightPanel { vertical-align: top; font-family: Verdana,Arial,Helvetica,sans-serif; width: auto; padding: 0pt; margin: 0pt; }
+.ContentBar { padding-bottom: 20px; padding-left: 7px; padding-top: 7px; }
+DIV.ContentArea { margin: 0pt; padding: 5px; line-height: normal; }
+.ContentArea .section table td ul li, .ContentArea .subSection ul li, .ContentArea .topic ul li { list-style-image: url('b.gif'); }
+.LWVS_Loband { border: medium none; position: absolute; font-size: 160%; padding: 5px; top: 100px; right: 0pt; background-color: transparent; color: rgb(255, 255, 255); }
+.LWVS_Loband .LWVS_Link, .LWVS_Loband .LWVS_DisabledLink { color: rgb(255, 255, 255); }
+.LWVS_Loband .LWVS_DisabledLink { border: 1px solid rgb(255, 255, 255); color: rgb(255, 255, 255); }
+.internav { float: none ! important; }
+/* ::::: http://i3.technet.microsoft.com/Platform/MasterPages/Library/technet.Library-bn20110926.css ::::: */
+
+.LWVS_Loband { top: 108px; color: rgb(0, 51, 204); right: 12px; }
+.LWVS_Loband .LWVS_Link, .LWVS_Loband .LWVS_DisabledLink { color: rgb(0, 51, 204); }
+.LWVS_Loband .LWVS_DisabledLink { border: 1px solid rgb(0, 51, 204); }
+/* ::::: http://i3.technet.microsoft.com/en-us/library/mtps-bn20110926.css?l=en-us&i=library&ct=AlternateSelector;CCEditor;CCSection;CCTagEditor;ContentFallback;DropDownFilter;ExpandCollapseAll;Eyebrow;Footer;InstrumentedLink;InteractiveToolbar;iRootBrand;LocaleManagementFlyout;lwViewSwitcher;MastheadLibrary;MemberlistFrameworksFilter;MemberlistMembersFilter;MtpsLoginStatus;MtpsRating;MtViewDropDown;Omniture;RedVelvetInstrumentedLink;RelatedPages;ResizeableAreaD10;StoSearch;StoTabStripLibrary;SurveyLauncher;TagCloud;TemplatedFlyout;Tickler;Toc;UserRecognition;WebMetrix;WebTrends&clustimg=1 ::::: */
+
+.LibC_o { background: url('libc.gif') repeat scroll 0pt 0pt transparent; width: 16px; height: 16px; }
+.LibC_e { background: url('libc.gif') repeat scroll -16px 0pt transparent; width: 16px; height: 16px; }
+.LibC_c { background: url('libc.gif') repeat scroll -32px 0pt transparent; width: 16px; height: 16px; }
+.LibC_rtg_email { background: url('libc.gif') repeat scroll -114px 0pt transparent; width: 16px; height: 16px; }
+.LibC_rtg_print { background: url('libc.gif') repeat scroll -130px 0pt transparent; width: 16px; height: 16px; }
+.LibC_lib_grippy { background: url('libc.gif') repeat scroll -178px 0pt transparent; width: 5px; height: 20px; }
+.LibC_popdownarrow { background: url('libc.gif') repeat scroll -345px 0pt transparent; width: 7px; height: 4px; }
+.technet_TabC_mslogo { background: url('technet.tabc.png') repeat scroll 0pt 0pt transparent; width: 132px; height: 29px; }
+div.stat, div.statHover { border: 1px solid transparent ! important; display: inline; float: left; height: auto ! important; line-height: 16px; margin: 0pt; padding: 3px 21px 3px 5px; vertical-align: bottom; white-space: nowrap; }
+div.nochildstat { display: inline; float: left; height: auto ! important; line-height: 16px; margin: 0pt; padding: 4px 21px 3px 5px; vertical-align: bottom; white-space: nowrap; }
+div.stat { background: url('botharrow.gif') no-repeat scroll right -20px transparent; }
+div.stat a, div.statHover a { background-color: transparent; border: 0pt none; margin: 0pt; padding: 0pt; text-decoration: none; }
+div.stat a:visited, div.stat a:link, div.stat a:active { color: rgb(0, 0, 238); }
+div.popup { background-color: rgb(255, 255, 255); border: 1px solid rgb(184, 184, 184); overflow: auto; z-index: 1; }
+div.popup a:visited, div.popup a:link, div.popup a:active, div.popup a:hover { background-color: rgb(255, 255, 255); border: 1px solid rgb(255, 255, 255); color: rgb(0, 0, 0); display: block; margin: 0pt 2px; padding: 3px; text-decoration: none; }
+div.popup ul.toc li a:hover { background-color: rgb(240, 247, 253); border: 1px solid rgb(173, 219, 239); color: rgb(0, 0, 0); }
+div.popup ul.toc { line-height: 125%; list-style: none outside none; margin: 0pt; padding: 3px 6px; width: auto; position: absolute; }
+div.popup ul.toc li { margin-left: 3px; }
+div.popup ul.toc li img { display: none; visibility: hidden; }
+TD.MTPS_FooterFade { font-weight: bold; width: 100%; height: 57px; margin: 0pt; padding: 2px 2px 6px 12px; }
+DIV.MTPS_FooterLinks { margin-bottom: 10px; }
+A.MTPS_FooterLinks, DIV.MTPS_FooterLinks A { color: rgb(0, 51, 204); font-weight: normal; }
+A.MTPS_FooterLinks:hover, DIV.MTPS_FooterLinks A:hover { color: rgb(255, 102, 0); }
+.MTPS_FooterCopyright { font-size: 7pt; font-weight: normal; color: rgb(0, 0, 0); }
+.MTPS_FooterLinks { font-size: 7pt; }
+.itPrint { font-size: 100% ! important; }
+.itSend { font-size: 100% ! important; }
+Div.miniRatings { background-color: rgb(240, 240, 240); border-bottom: 1px solid rgb(192, 192, 192); text-align: left; vertical-align: bottom; margin: 0pt; padding: 0pt; line-height: normal; height: 28px; width: 100%; }
+div.miniRatings_left { padding-top: 5px; padding-bottom: 4px; padding-left: 2px; float: left; position: absolute; background-color: rgb(240, 240, 240); z-index: 190; }
+div.miniRatings_left a { padding: 2px 5px 3px 2px; text-decoration: none; color: rgb(0, 51, 204); border: 1px solid rgb(240, 240, 240); }
+div.miniRatings_left a:hover, head div.miniRatings_left a:hover { background-color: rgb(227, 235, 242); color: rgb(0, 51, 204); border: 1px solid rgb(161, 198, 235); }
+div.miniRatings_left a:visited, head div.miniRatings_left a:visited { color: rgb(0, 51, 204); }
+div.miniRatings_left a img { vertical-align: text-bottom; margin-left: 3px; }
+div.miniRatings_right { float: right; z-index: 99; }
+div.miniRatings_right td { text-decoration: none; color: rgb(0, 51, 204); border: 1px solid rgb(240, 240, 240); padding: 3px 0pt 0pt; }
+div.miniRatings_right a:hover { background-color: rgb(227, 235, 242); }
+div.miniRatings_right a:visited { color: rgb(0, 51, 204); }
+.ratingStar { font-size: 0pt; width: 16px; height: 16px; margin: 0pt; padding: 0pt; cursor: pointer; display: block; background-repeat: no-repeat; }
+.filledRatingStar { background: url('libc.gif') repeat scroll -288px 0pt transparent; }
+.emptyRatingStar { background: url('libc.gif') repeat scroll -304px 0pt transparent; }
+.ratingFlyoutStatic { white-space: nowrap; }
+.ratingFlyoutStatic TABLE { font-size: 100%; float: right; }
+.tbFont { white-space: nowrap; }
+.ratingFlyoutPopup { margin: 0pt; vertical-align: middle; border: 1px solid rgb(122, 122, 122); background-color: white; height: 220px; width: 450px; }
+.ratingFlyoutPopup .OptionalText, .ratingFlyoutPopup .WarningMessage { float: left; margin-left: 25px; font-size: 10pt; margin-top: 10px; margin-bottom: 10px; }
+.ratingFlyoutPopup .Comment { margin-left: 25px; width: 396px; height: 132px; display: block; clear: both; margin-bottom: 10px; }
+.ratingFlyoutPopup .Button { float: right; margin-right: 25px; padding-top: 0.2em; }
+.LocaleManagementFlyoutPopup { border: 1px solid rgb(102, 102, 102); text-align: left; background-color: rgb(255, 255, 255); z-index: 10; padding: 3px; }
+.LocaleManagementFlyoutPopup A, .LocaleManagementFlyoutPopup A:visited { font-size: 0.9em; color: rgb(0, 0, 0); border: 1px solid rgb(255, 255, 255); height: 15px; text-align: left; text-decoration: none; white-space: nowrap; display: block; padding: 1px 3px; }
+.LocaleManagementFlyoutPopup A:hover, .LocaleManagementFlyoutPopup A:active { background-color: rgb(240, 247, 253); color: rgb(0, 0, 0); border: 1px solid rgb(173, 219, 239); height: 15px; text-decoration: none; white-space: nowrap; display: block; padding: 1px 3px; }
+.LocaleManagementFlyoutPopupHr { height: 1px; background: none repeat scroll 0% 0% rgb(208, 224, 240); margin: 0pt 11px 21px; }
+.LocaleManagementFlyoutPopArrow { margin: 4px 0pt 0pt; }
+.LocaleManagementFlyoutStatic, .LocaleManagementFlyoutStaticHover { font-family: Tahoma,Verdana,Arial,Helvetica,sans-serif; color: rgb(255, 255, 255); white-space: nowrap; text-decoration: none; cursor: default; display: inline; border: 1px solid rgb(255, 255, 255); margin: 1px; padding: 1px 3px; }
+A.LocaleManagementFlyoutStaticLink, A.LocaleManagementFlyoutStaticLink:visited, A.LocaleManagementFlyoutStaticLink:hover, A.LocaleManagementFlyoutStaticLink:active { font-family: Tahoma,Verdana,Arial,Helvetica,sans-serif; color: rgb(0, 0, 0); white-space: nowrap; text-decoration: none; cursor: default; display: inline; }
+.LWVS_DisabledLink, .LWVS_DisabledLink:active, .LWVS_DisabledLink:visited, .LWVS_DisabledLink:hover { vertical-align: middle; text-decoration: none; font-weight: bold; }
+.mastheadfontbase { font-size: 62.5%; }
+.GlobalBar { float: left; font-size: 10px; padding-bottom: 6px; width: 100%; background-color: rgb(255, 255, 255); }
+.GlobalBarRight { float: right; margin: 0pt; padding: 0pt; border: 0pt none; }
+.GlobalBar .Teaser { float: left; padding-top: 4px; padding-left: 4px; }
+.GlobalBar .PassportScarab { float: left; font-weight: bold; border-left: 1px solid rgb(8, 8, 8); padding: 2px 2px 2px 12px; font-family: Verdana; }
+.GlobalBar .LocaleFlyout { float: left; font-weight: normal; margin-right: 8px; padding: 2px 4px 2px 12px; }
+.GlobalBar .SiteMap { float: left; color: rgb(8, 8, 8); border-left: 1px solid rgb(8, 8, 8); margin-right: 8px; padding: 2px 4px 2px 12px; cursor: pointer; }
+.classicTopNav { clear: both; background-image: url('technet.classic_top_slice.gif'); background-repeat: repeat-x; padding-top: 2px; overflow: hidden; }
+.ThinNavBox { width: 100%; background-image: url('technet.bg1.jpg'); background-color: Transparent; background-repeat: no-repeat; background-position: right center; height: 58px; overflow: hidden; white-space: nowrap; border-left: 2px solid rgb(100, 157, 209); }
+.BrandLogo { float: left; cursor: pointer; background-image: url('technet_logo.gif'); background-repeat: no-repeat; height: 42px; width: 312px; margin-top: 10px; margin-left: 16px; padding-bottom: 4px; }
+.evergreenLinks { float: right; width: 31%; }
+.ClearLeft { clear: left; }
+.Clear { clear: both; }
+.SiteMapLink:link { color: Black; }
+.SiteMapLink:visited { color: Black; }
+.SiteMapLink:hover { color: Black; text-decoration: underline; }
+.Search { float: left; width: 33.8%; margin-top: 18px; }
+.SearchBox { float: right; }
+.MTPS_GlobalToolbarLinks_msdn { border-left: 1px solid rgb(8, 8, 8); padding: 2px 4px 2px 8px; font-weight: bold; color: rgb(52, 52, 52); text-decoration: none; }
+.resizableArea .leftSection { display: block; float: left; position: relative; width: 300px; height: 100%; background: none repeat scroll 0% 0% rgb(249, 249, 249); overflow: auto; z-index: 1; margin: 0pt 4px 0pt 0pt; padding: 0pt; }
+.resizableArea .splitter { width: 4px; position: absolute; display: block; cursor: e-resize; left: 250px; height: 100%; z-index: 11; background-position: center center; background-repeat: no-repeat; background-color: rgb(187, 187, 187); vertical-align: middle; margin: 0pt; padding: 0pt; }
+.resizableArea .rightSection { overflow: auto; height: 100%; border: 0pt none; background: none repeat scroll 0% 0% rgb(255, 255, 255); position: relative; z-index: 10; margin: 0pt; padding: 0pt; }
+.SearchBox { background-color: rgb(255, 255, 255); border: 1px solid rgb(52, 107, 148); float: left; height: 22px; margin: 0pt 0pt 12px; width: 314px; }
+.SearchBox ul { z-index: 999; display: block; font-size: 9pt; list-style: none outside none; }
+.TextBoxSearch { border: medium none; color: black; float: left; font-size: 13px; font-style: normal; margin: 0pt; padding: 4px 0pt 0pt 5px; vertical-align: top; width: 232px; }
+.Bing { background: url('bing.png') no-repeat scroll 0pt 0pt rgb(255, 255, 255); display: inline-block; float: right; height: 22px; overflow: hidden; text-align: right; width: 47px; }
+.SearchButton { background: url('bing.png') no-repeat scroll 0pt -22px rgb(255, 255, 255); display: inline-block; border-width: 0pt; cursor: pointer; float: right; height: 21px; margin: 0pt; padding: 0pt; text-align: right; vertical-align: top; width: 21px; }
+.NavigationBox { float: left; height: 48px; width: 100%; background-color: Transparent; background-image: url('technet.glassbg.jpg'); background-repeat: no-repeat; background-position: right top; border-left: 2px solid rgb(100, 157, 209); border-bottom: 1px solid rgb(171, 217, 234); }
+.Sponsor { float: right; height: 19px; width: 114px; margin-top: 6px; margin-right: 35px; }
+.HeaderTitle { float: left; font-family: 'Segoe UI',Tahoma,Verdana,Arial,Helvetica; font-size: 16px; margin-left: 20px; color: white; }
+.internav { font-family: 'Segoe UI','Lucida Grande',Verdana,Arial,Helvetica,sans-serif; font-size: 14px; height: 23px; margin: 0pt 0pt 0pt 17px; max-width: 936px; overflow: hidden; padding: 3px 0pt 0pt; position: relative; white-space: nowrap; }
+.leftcap { background-color: rgb(100, 157, 209); height: 27px; left: 0pt; position: absolute; width: 19px; }
+.internav a { color: rgb(0, 0, 0); float: left; margin: 0pt; padding: 2px 9px; white-space: nowrap; text-decoration: none; }
+.internav a, .internav a:link, .internav a:visited, .internav a:hover, .internav a:active { color: rgb(0, 0, 0); }
+.internav a:hover { background: none repeat scroll 0% 0% rgb(255, 255, 254); }
+.internav a.active, .internav a.active:hover, .internav a.active:visited { background-color: rgb(85, 85, 85); color: rgb(255, 255, 255); }
+.TFlyPopupAnimate { position: absolute; display: block; border: 1px solid gray; overflow: hidden; visibility: hidden; margin: 0pt; padding: 0pt; z-index: 1; }
+.slLink { display: none; font-family: Verdana; }
+.toc li { font-family: Verdana,Arial,Helvetica,sans-serif; list-style: none inside none; margin: 3px 0pt; overflow: visible; white-space: nowrap; }
+.toc li a:hover { background-color: rgb(204, 204, 204); color: rgb(0, 0, 0); text-decoration: none; }
+div.rootToc ul.toc, ul.toc li ul.toc { list-style: none outside none; margin-bottom: 0pt; margin-left: 0pt; margin-top: 0pt; padding-left: 2em; padding-top: 0pt; text-indent: -2em; }
+.toc img { height: 16px; margin-right: 7px; vertical-align: middle; width: 16px; }
+.hidden { display: none; visibility: hidden; }
+.toc li a.tocSelected { background-color: rgb(142, 144, 156); color: rgb(255, 255, 255); }
+.toc li a, .toc li a:visited { border: 1px solid rgb(249, 249, 249); color: rgb(0, 0, 0); text-decoration: none; }
+.UserRecognitionStaticText { font-weight: 700; color: rgb(0, 0, 0); font-family: Tahoma,Verdana,Arial,Helvetica,sans-serif; white-space: nowrap; margin: 1px 0pt 1px 1px; padding: 1px; }

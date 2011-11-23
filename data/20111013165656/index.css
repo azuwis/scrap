@@ -1,0 +1,40 @@
+/* ::::: http://glandium.org/blog/wp-content/themes/glandium/style.css ::::: */
+
+html { margin: 0.3em 3em; padding: 0pt; min-width: 42em; font-family: sans-serif; background: none repeat scroll 0% 0% rgb(255, 255, 255); line-height: 1.3em; }
+a { text-decoration: none; color: rgb(153, 0, 0); }
+div#header { width: 100%; height: 72px; min-height: 2.5em; position: relative; background: none repeat scroll 0% 0% rgb(0, 0, 0); border-top: 1px solid rgb(0, 0, 0); }
+div#header div#glandium { background: none repeat scroll 0% 0% rgb(255, 238, 170); position: absolute; height: 100%; width: 100%; }
+div#header div#glandium a { display: block; background: url('glandium.png') repeat scroll 0% 0% transparent; height: 42px; margin: 0px; width: 138px; padding: 42px 0pt 0pt; color: rgb(0, 0, 0); overflow: hidden; position: absolute; bottom: 7px; left: 5px; }
+div#header div#glandium > a { height: 0pt; }
+ul#navigation { margin: 0pt; padding: 0pt; background: none repeat scroll 0% 0% rgb(255, 204, 136); float: left; border-top: 1px solid rgb(0, 0, 0); border-bottom: 1px solid rgb(0, 0, 0); width: 100%; font-weight: bold; }
+ul#navigation li { list-style: none outside none; display: block; float: left; padding: 0pt 10px; border-left: 1px solid rgb(0, 0, 0); border-right: 1px solid rgb(0, 0, 0); margin-left: 12px; margin-right: -13px; }
+ul#navigation li:first-child { border-left: 1px solid transparent; }
+ul#navigation li + li { border-right: 1px solid transparent; }
+ul#navigation li a { color: rgb(204, 0, 0); }
+ul#navigation li#current { background: none repeat scroll 0% 0% rgb(255, 255, 255); border-bottom: 1px solid rgb(255, 255, 255); margin-bottom: -1px; border-right: 1px solid rgb(0, 0, 0); }
+ul#navigation li#current:first-child { border-left: 1px solid rgb(0, 0, 0); }
+ul#navigation li:hover { background: none repeat scroll 0% 0% rgb(255, 238, 170); border-right: 1px solid rgb(0, 0, 0); }
+ul#navigation li:hover:first-child { border-left: 1px solid rgb(0, 0, 0); }
+h1, h2, h3 { font-family: serif; margin: 0.2em 0pt 0.6em; }
+h2 { font-style: italic; font-size: 1.4em; }
+h3 { font-size: 1.2em; }
+ol, ul { padding-left: 2em; }
+p, ol, ul { margin-top: 0.8em; margin-bottom: 0.8em; }
+blockquote { margin: 0.8em 2em; font-style: italic; }
+div#content div div { text-align: center; }
+div#content div div *, div#content div div div { text-align: left; }
+#footer { clear: both; font-size: 0.7em; color: rgb(119, 119, 119); border-top: 1px solid rgb(204, 204, 204); text-align: left; }
+#footer hr { display: none; }
+div#sidebar, div#sidebar h1, div#sidebar div { background: none repeat scroll 0% 0% rgb(255, 255, 221); }
+div#content .subject, div#content .date { text-align: right; font-size: 0.8em; color: rgb(119, 119, 119); font-style: italic; margin-top: 0pt; margin-bottom: 0pt; padding-top: 0pt; padding-bottom: 0pt; }
+div#content .subject { color: rgb(170, 170, 170); }
+div#content div p, div#content div ul, div#content div ol, div#content div dl, div#content div div { padding: 0pt 0.5em 0pt 1.5em; }
+div#content { float: left; width: 68%; }
+div#sidebar { float: right; width: 30%; }
+div#content, div#sidebar { padding: 0.3em 0.2em; }
+div#sidebar div { font-size: 0.9em; }
+div#sidebar div div { font-size: 1em; }
+div#content div, div#sidebar div { margin-bottom: 1.5em; }
+div#content div div, div#sidebar div div { margin-bottom: 0pt; }
+div#sidebar div p, div#sidebar div div { padding-left: 2em; padding-right: 1em; }
+blockquote code, blockquote pre { font-size: 0.8em; }

@@ -1,0 +1,35 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Netfilter &amp; iproute - marking packets</title><meta name="GENERATOR" content="Modular DocBook HTML Stylesheet Version 1.7"><link rel="HOME" title="Linux Advanced Routing &amp; Traffic Control HOWTO" href="http://www.tldp.org/HOWTO/Adv-Routing-HOWTO/index.html"><link rel="PREVIOUS" title="Other possibilities" href="http://www.tldp.org/HOWTO/Adv-Routing-HOWTO/lartc.loadshare.other.html"><link rel="NEXT" title="Advanced filters for (re-)classifying packets" href="http://www.tldp.org/HOWTO/Adv-Routing-HOWTO/lartc.adv-filter.html"></head>
+<body class="CHAPTER" alink="#0000FF" bgcolor="#FFFFFF" link="#0000FF" text="#000000" vlink="#840084">
+<div class="CHAPTER">
+<!--DOCUMENT_FRAGMENT-->
+<p>As an example, this command marks all packets destined for port 25, outgoing
+mail:</p><p><table bgcolor="#E0E0E0" border="1" width="100%"><tbody><tr><td><font color="#000000"><pre class="SCREEN"># iptables -A PREROUTING -i eth0 -t mangle -p tcp --dport 25 \
+ -j MARK --set-mark 1</pre></font></td></tr></tbody></table></p><p>Let's say that we have multiple connections, one that is fast (and
+expensive, per megabyte) and one that is slower, but flat fee. We would most
+certainly like outgoing mail to go via the cheap route.</p><p>We've already marked the packets with a '1', we now instruct the routing
+policy database to act on this:</p><p><table bgcolor="#E0E0E0" border="1" width="100%"><tbody><tr><td><font color="#000000"><pre class="SCREEN"># echo 201 mail.out &gt;&gt; /etc/iproute2/rt_tables
+# ip rule add fwmark 1 table mail.out
+# ip rule ls
+0:	from all lookup local 
+32764:	from all fwmark        1 lookup mail.out 
+32766:	from all lookup main 
+32767:	from all lookup default </pre></font></td></tr></tbody></table></p><p>Now we generate the mail.out table with a route to the slow but cheap link:
+
+<table bgcolor="#E0E0E0" border="1" width="100%"><tbody><tr><td><font color="#000000"><pre class="SCREEN"># /sbin/ip route add default via 195.96.98.253 dev ppp0 table mail.out</pre></font></td></tr></tbody></table></p><p>And we are done. Should we want to make exceptions, there are lots of ways
+to achieve this. We can modify the netfilter statement to exclude certain
+hosts, or we can insert a rule with a lower priority that points to the main
+table for our excepted hosts.</p><p>We can also use this feature to honour TOS bits by marking packets with a
+different type of service with different numbers, and creating rules to act
+on that. This way you can even dedicate, say, an ISDN line to interactive
+sessions.</p><p>Needless to say, this also works fine on a host that's doing NAT
+('masquerading').</p><p>IMPORTANT: We received a report that MASQ and SNAT at least collide
+with marking packets. Rusty Russell explains it in
+<a href="http://lists.samba.org/pipermail/netfilter/2000-November/006089.html" target="_top">this posting</a>. Turn off the reverse path filter to make it work
+properly.</p>
+<!--/DOCUMENT_FRAGMENT-->
+</div>
+</body>
+</html>

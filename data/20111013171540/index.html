@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    
+    <meta name="author" content="James Brechtel">
+    <meta name="viewport" content="width=device-width; user-scalable=no">
+    <title>Building Android Apps with Scala - pre-requisites</title>
+    
+    
+    <link href="http://nevercertain.com/atom.xml" rel="alternate" type="application/atom+xml" title="Atom feed for nevercertain.com">
+  
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body>
+<article>
+<!--DOCUMENT_FRAGMENT-->
+<header><a href="http://nevercertain.com/2011/02/03/scala-android-intellij-win-part-1-prerequisites.html">Building Android Apps with Scala - pre-requisites</a>
+    <br><span class="date">February  3, 2011</span>
+  </header>
+  <p>This is the first in a series of blog posts about getting started with
+<a href="http://developer.android.com/sdk/index.html">Android</a>, <a href="http://www.scala-lang.org/">Scala</a>, <a href="http://www.jetbrains.com/idea/">IntelliJ</a> and <a href="http://code.google.com/p/simple-build-tool/">simple-build-tool</a>. &nbsp;Hopefully
+this will help people who are interested in building Android apps, but don't
+want to write Java get started. &nbsp;Also, if you're already building Android
+apps, but would like a more expressive language while staying close to the
+metal then Scala is a great alternative to Java. &nbsp;By the end of this series,
+you should be able to build, deploy and package your Scala Android apps both
+from the command line and IntelliJ. My primary development environment is
+Ubuntu Linux but I will provide <strong>platform specific instructions</strong> where
+appropriate. These instructions assume that you have Java 1.6 installed and
+its environment variables setup. We'll be putting everything (except for
+IntelliJ on Windows and OSX) into the same directory on your system. &nbsp;On my
+development machine that directory is /home/jbrechtel/opt. &nbsp;Throughout this
+post I'll refer to this directory as $opt. I would suggest the following
+locations for $opt, by platform</p>
+
+<table>
+    <tbody><tr>
+        <th>Linux</th>
+        <td>
+        /home/username/opt
+        </td>
+    </tr>
+    <tr>
+        <th>
+        OS X
+        </th>
+        <td>
+        /Users/username/opt
+        </td>
+    </tr>
+    <tr>
+        <th>
+        Windows
+        </th>
+        <td>
+        C:\Users\username\opt
+        </td>
+    </tr>
+</tbody></table>
+
+
+<p>Ok, let's start with..</p>
+
+<h2>Getting Scala</h2>
+
+<p>Head over to<a href="http://www.scala-lang.org/downloads"> http://www.scala-
+lang.org/downloads</a> and download the package for your platform.</p>
+
+<ul>
+<li>Extract the Scala package to $root/scala.</li>
+<li>Set the SCALA_HOME environment variable to $root/scala
+
+<ul>
+<li>Linux: Add “export SCALA_HOME=$root/scala” to your .bash_profile</li>
+<li>OS X: See <a href="http://snipurl.com/apple_environment">http://snipurl.com/apple_environment</a></li>
+<li>Windows: Start -&gt; Run -&gt; “setx SCALA_HOME=$root/scala”</li>
+</ul>
+</li>
+<li>Add $root/scala/bin to your system’s path</li>
+</ul>
+
+
+<p>Now, that’s it for Scala. &nbsp;You should now be able to start a command prompt on
+your OS and type ‘scala’ to get a handy Scala REPL for testing things out.</p>
+
+<h2>Getting IntelliJ IDEA</h2>
+
+<p>Next we’ll get our IDE. &nbsp;IntelliJ IDEA has pretty
+good Scala support though it’s not without its flaws as we’ll see throughout
+this series. First, point your browser at
+<a href="http://www.jetbrains.com/idea/download/index.html">http://www.jetbrains.com/idea/download/index.html</a> and download IntelliJ
+for your platform. &nbsp;As of version 10.0 the Community Edition (read: Free) of
+IntelliJ IDEA supports both Android and Scala development. &nbsp;For great justice!
+Install the IntelliJ IDEA package. &nbsp;For Windows and OSX, IntelliJ installs
+like a normal application which I presume you already know how to do. For
+those of you on Linux:</p>
+
+<ul>
+<li><strong>Extract the tar.gz for IntelliJ to $root/opt/idea</strong></li>
+<li><strong>To launch IntelliJ just execute $root/opt/idea/bin/idea.sh</strong></li>
+</ul>
+
+
+<p>I suggest creating a menu shortcut in Gnome, KDE, or XFCE to the idea.sh
+script. &nbsp;There are a number of IntelliJ icons in that bin folder which you can
+use for the menu icon. &nbsp;The files are named idea_CE{16-128}.png.</p>
+
+<h2>Getting the Android SDK</h2>
+
+<p>Let’s go get the Android SDK. &nbsp;Obviously we need this to build
+Android applications. &nbsp;We’ll only be grabbing the Android 2.1 platform here,
+but the Android SDK manager makes the other platform versions easy to get and
+install. The Android SDK can be found here:<a href="http://developer.android.com/sdk/index.html">http://developer.android.com/sdk/index.html</a>.
+Download the package for your platform from that site.</p>
+
+<p><em>Note for Windows users: &nbsp;It looks like Google
+has made things easier on you by providing an installer. &nbsp;I’m not familiar
+with the installer, but it probably does everything you need it to do.
+However, the instructions below are written with the zip package in mind.</em></p>
+
+<ul>
+<li>Extract the downloaded file to $root/opt/android-sdk</li>
+<li>Set the ANDROID_SDK_HOME environment variable to $root/opt/android-sdk
+
+<ul>
+<li>See the ‘Getting Scala’ section above for instructions per platform.</li>
+</ul>
+</li>
+<li>Launch the Android SDK Manager
+
+<ul>
+<li>Linux: <strong>$root/opt/android-sdk/tools/android</strong></li>
+<li>OSX: <strong>$root/opt/android-sdk/tools/android</strong></li>
+<li>Windows: <strong>$root/opt/android-sdk/SDK Manager.exe</strong></li>
+</ul>
+</li>
+</ul>
+
+
+<p>The Android SDK Manager is used to download the various Android platforms and
+other third party addons such as the Google Maps SDK and the Samsung Galaxy
+Tab SDK. &nbsp;For now we're just concerned with the Android 2.1 platform. Once the
+SDK Manager is running follow these steps:</p>
+
+<ul>
+<li>Click 'Available Packages'</li>
+<li>Expand 'Android Repository'</li>
+<li>Check the box that says 'Android SDK Tools, revision 7'</li>
+<li>Click 'Install Selected'</li>
+<li>Click 'Accept All' to accept all licenses</li>
+<li>Click 'Install'</li>
+</ul>
+
+
+<p>Now the SDK Manager will download the Android 2.1 platform (also known as
+revision 7 or API Level 7 in Android parlance). &nbsp;If you receive a prompt about
+ADB needing to be restarted then just click ‘Yes’. &nbsp;Afterwards you can close
+any dialogs and the SDK Manager. Once that is complete, move on to the next
+section.</p>
+
+<h2>simple-build-tool</h2>
+
+<p><a href="http://www.jetbrains.com/idea/download/index.html">simple-build-tool</a> / SBT is a (as the name
+suggests) build tool for Scala. &nbsp;It provides all the things you might expect
+from a modern build system such as:</p>
+
+<ul>
+<li>dependency management (both managed and unmanaged dependencies are supported)</li>
+<li>a DSL (in Scala) for configuring your targets and other aspects of the project</li>
+<li>testing integration</li>
+</ul>
+
+
+<p>simple-build-tool has a few things that I consider killer features:</p>
+
+<ul>
+<li>A console/REPL with your entire project at your fingertips.</li>
+<li>Triggered task execution (e.g. run tests automatically when source changes)</li>
+</ul>
+
+
+<p>Download SBT by going <a href="http://code.google.com/p/simple-build-tool/">http://code.google.com/p/simple-build-tool/</a> then
+download the latest version in the ‘Downloads’ section on the right side of
+the page. SBT has really good instructions for getting started on their
+project site. &nbsp;Check it out <a href="http://code.google.com/p/simple-build-tool/wiki/Setup">http://code.google.com/p/simple-build-
+tool/wiki/Setup</a></p>
+
+<h2>jberkel’s android-plugin for SBT</h2>
+
+<p>Once you have SBT
+installed, you should grab the awesome android plugin for SBT. &nbsp;This plugin
+primarily provides two things</p>
+
+<ul>
+<li>A script for creating a new Android project that SBT can compile</li>
+<li>Several handy SBT targets for doing things like packaging your app for the market and deploying to your device.</li>
+</ul>
+
+
+<p>You can find this plugin on GitHub <a href="https://github.com/jberkel/android-plugin">https://github.com/jberkel/android-plugin</a>.
+Go there then click on 'Downloads'.  Download verion 0.5.1 (newer version should work if available).</p>
+
+<ul>
+<li>Go to <a href="https://github.com/jberkel/android-plugin">https://github.com/jberkel/android-plugin</a></li>
+<li>Click Downloads</li>
+<li>Download the latest version (at the time of writing that was 0.5.1)</li>
+<li>Extract it to $root/opt/android-plugin</li>
+</ul>
+
+
+<p>Then you'll have the latest version of the Android project plugin locally.
+We'll use this in the next post to create our Sbt project with Android support.</p>
+
+<p><strong>That’s it for now!</strong></p>
+
+<p>Now, at this point you've got all of the required software installed.
+Let's review.</p>
+
+<ul>
+<li><em>IntelliJ</em>
+
+<ul>
+<li>If you're using OS X or Windows then IntelliJ is installed as a regular application.</li>
+<li>If you're using Linux then IntelliJ is installed in $root/opt/intellij</li>
+</ul>
+</li>
+<li><em>Scala 2.8.1</em> is installed to $root/opt/scala</li>
+<li><em>Android SDK (and the Android 2.1 platform)</em> is installed to $root/opt /android-sdk</li>
+<li><em>simple-build-tool</em> is installed according to the instructions on their site</li>
+<li>jberkel’s android-plugin for SBT</li>
+</ul>
+
+
+<p>Next time we’ll cover creating the Android SBT project using jberkel’s
+fantastic android-plugin and also doing things like deploying the app to your
+phone and packaging it for the market. In the third post we’ll talk about
+setting up IntelliJ to edit the code in that project and launch your SBT
+targets. In the final post of this series we’ll go over how getting started
+unit testing in IntelliJ with ScalaTest. See you next time</p>
+<!--/DOCUMENT_FRAGMENT-->
+</article>
+</body>
+</html>

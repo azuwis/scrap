@@ -1,0 +1,30 @@
+/* ::::: http://fai-project.org/fai-guide/docbook-xsl.css ::::: */
+
+span.strong { font-weight: bold; }
+html body { margin: 1em 5%; line-height: 1.2; }
+body div { margin: 0pt; }
+h1, h2, h3, h4, h5, h6, div.toc p b, div.list-of-figures p b, div.list-of-tables p b, div.abstract p.title { color: rgb(82, 123, 189); font-family: tahoma,verdana,sans-serif; }
+div.toc p:first-child, div.list-of-figures p:first-child, div.list-of-tables p:first-child, div.example p.title { margin-bottom: 0.2em; }
+body h2 { margin: 0.5em 0pt 0pt -4%; line-height: 1.3; border-bottom: 2px solid silver; }
+body h3 { margin: 0.8em 0pt 0pt -3%; line-height: 1.3; }
+body hr { border: medium none; }
+div.footnotes hr { border: 1px solid silver; }
+div.navheader th, div.navheader td, div.navfooter td { font-family: sans-serif; font-size: 0.9em; font-weight: bold; color: rgb(82, 123, 189); }
+div.navheader a, div.navfooter a { font-weight: normal; }
+div.navfooter hr { border: 1px solid silver; }
+body td { line-height: 1.2; }
+body th { line-height: 1.2; }
+ul, body dir, body menu { line-height: 1.2; }
+html { margin: 0pt; padding: 0pt; }
+body h1, body h2, body h3, body h4, body h5, body h6 { margin-left: 0pt; }
+tt.literal, code.literal { color: navy; }
+dl { margin: 0.8em 0pt; line-height: 1.2; }
+dt { margin-top: 0.5em; }
+dt span.term { font-style: normal; }
+div.variablelist dd p { margin-top: 0pt; }
+div.itemizedlist li, div.orderedlist li { margin-left: -0.8em; margin-top: 0.5em; }
+ul, ol { list-style-position: outside; }
+div.revhistory table { border-collapse: collapse; border: medium none; }
+div.revhistory th { border: medium none; color: rgb(82, 123, 189); font-family: tahoma,verdana,sans-serif; }
+div.revhistory td { border: 1px solid silver; }
+div.toc dl, div.toc dt, div.list-of-figures dl, div.list-of-figures dt, div.list-of-tables dl, div.list-of-tables dt, div.indexdiv dl, div.indexdiv dt { line-height: normal; margin-top: 0pt; margin-bottom: 0pt; }

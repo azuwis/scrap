@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+
+<title>glandium.org  » Blog Archive   » SSH through jump hosts</title>
+
+<meta name="generator" content="WordPress 3.2.1"> <!-- leave this for stats -->
+
+
+<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://glandium.org/blog/?feed=rss2">
+<link rel="alternate" type="text/xml" title="RSS .92" href="http://glandium.org/blog/?feed=rss">
+<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="http://glandium.org/blog/?feed=atom">
+<link rel="pingback" href="http://glandium.org/blog/xmlrpc.php">
+
+	<link rel="archives" title="October 2011" href="http://glandium.org/blog/?m=201110">
+	<link rel="archives" title="September 2011" href="http://glandium.org/blog/?m=201109">
+	<link rel="archives" title="August 2011" href="http://glandium.org/blog/?m=201108">
+	<link rel="archives" title="July 2011" href="http://glandium.org/blog/?m=201107">
+	<link rel="archives" title="June 2011" href="http://glandium.org/blog/?m=201106">
+	<link rel="archives" title="May 2011" href="http://glandium.org/blog/?m=201105">
+	<link rel="archives" title="April 2011" href="http://glandium.org/blog/?m=201104">
+	<link rel="archives" title="March 2011" href="http://glandium.org/blog/?m=201103">
+	<link rel="archives" title="February 2011" href="http://glandium.org/blog/?m=201102">
+	<link rel="archives" title="January 2011" href="http://glandium.org/blog/?m=201101">
+	<link rel="archives" title="December 2010" href="http://glandium.org/blog/?m=201012">
+	<link rel="archives" title="November 2010" href="http://glandium.org/blog/?m=201011">
+	<link rel="archives" title="October 2010" href="http://glandium.org/blog/?m=201010">
+	<link rel="archives" title="September 2010" href="http://glandium.org/blog/?m=201009">
+	<link rel="archives" title="July 2010" href="http://glandium.org/blog/?m=201007">
+	<link rel="archives" title="June 2010" href="http://glandium.org/blog/?m=201006">
+	<link rel="archives" title="May 2010" href="http://glandium.org/blog/?m=201005">
+	<link rel="archives" title="April 2010" href="http://glandium.org/blog/?m=201004">
+	<link rel="archives" title="March 2010" href="http://glandium.org/blog/?m=201003">
+	<link rel="archives" title="February 2010" href="http://glandium.org/blog/?m=201002">
+	<link rel="archives" title="January 2010" href="http://glandium.org/blog/?m=201001">
+	<link rel="archives" title="December 2009" href="http://glandium.org/blog/?m=200912">
+	<link rel="archives" title="November 2009" href="http://glandium.org/blog/?m=200911">
+	<link rel="archives" title="October 2009" href="http://glandium.org/blog/?m=200910">
+	<link rel="archives" title="September 2009" href="http://glandium.org/blog/?m=200909">
+	<link rel="archives" title="August 2009" href="http://glandium.org/blog/?m=200908">
+	<link rel="archives" title="July 2009" href="http://glandium.org/blog/?m=200907">
+	<link rel="archives" title="June 2009" href="http://glandium.org/blog/?m=200906">
+	<link rel="archives" title="May 2009" href="http://glandium.org/blog/?m=200905">
+	<link rel="archives" title="April 2009" href="http://glandium.org/blog/?m=200904">
+	<link rel="archives" title="March 2009" href="http://glandium.org/blog/?m=200903">
+	<link rel="archives" title="February 2009" href="http://glandium.org/blog/?m=200902">
+	<link rel="archives" title="January 2009" href="http://glandium.org/blog/?m=200901">
+	<link rel="archives" title="December 2008" href="http://glandium.org/blog/?m=200812">
+	<link rel="archives" title="November 2008" href="http://glandium.org/blog/?m=200811">
+	<link rel="archives" title="October 2008" href="http://glandium.org/blog/?m=200810">
+	<link rel="archives" title="September 2008" href="http://glandium.org/blog/?m=200809">
+	<link rel="archives" title="July 2008" href="http://glandium.org/blog/?m=200807">
+	<link rel="archives" title="June 2008" href="http://glandium.org/blog/?m=200806">
+	<link rel="archives" title="May 2008" href="http://glandium.org/blog/?m=200805">
+	<link rel="archives" title="April 2008" href="http://glandium.org/blog/?m=200804">
+	<link rel="archives" title="March 2008" href="http://glandium.org/blog/?m=200803">
+	<link rel="archives" title="February 2008" href="http://glandium.org/blog/?m=200802">
+	<link rel="archives" title="January 2008" href="http://glandium.org/blog/?m=200801">
+	<link rel="archives" title="December 2007" href="http://glandium.org/blog/?m=200712">
+	<link rel="archives" title="November 2007" href="http://glandium.org/blog/?m=200711">
+	<link rel="archives" title="October 2007" href="http://glandium.org/blog/?m=200710">
+	<link rel="archives" title="September 2007" href="http://glandium.org/blog/?m=200709">
+	<link rel="archives" title="August 2007" href="http://glandium.org/blog/?m=200708">
+	<link rel="archives" title="July 2007" href="http://glandium.org/blog/?m=200707">
+	<link rel="archives" title="June 2007" href="http://glandium.org/blog/?m=200706">
+	<link rel="archives" title="May 2007" href="http://glandium.org/blog/?m=200705">
+	<link rel="archives" title="April 2007" href="http://glandium.org/blog/?m=200704">
+	<link rel="archives" title="March 2007" href="http://glandium.org/blog/?m=200703">
+	<link rel="archives" title="February 2007" href="http://glandium.org/blog/?m=200702">
+	<link rel="archives" title="January 2007" href="http://glandium.org/blog/?m=200701">
+	<link rel="archives" title="December 2006" href="http://glandium.org/blog/?m=200612">
+	<link rel="archives" title="November 2006" href="http://glandium.org/blog/?m=200611">
+	<link rel="archives" title="October 2006" href="http://glandium.org/blog/?m=200610">
+	<link rel="archives" title="September 2006" href="http://glandium.org/blog/?m=200609">
+	<link rel="archives" title="August 2006" href="http://glandium.org/blog/?m=200608">
+	<link rel="archives" title="July 2006" href="http://glandium.org/blog/?m=200607">
+	<link rel="archives" title="June 2006" href="http://glandium.org/blog/?m=200606">
+	<link rel="archives" title="March 2006" href="http://glandium.org/blog/?m=200603">
+	<link rel="archives" title="February 2006" href="http://glandium.org/blog/?m=200602">
+	<link rel="archives" title="January 2006" href="http://glandium.org/blog/?m=200601">
+	<link rel="archives" title="December 2005" href="http://glandium.org/blog/?m=200512">
+	<link rel="archives" title="November 2005" href="http://glandium.org/blog/?m=200511">
+	<link rel="archives" title="October 2005" href="http://glandium.org/blog/?m=200510">
+	<link rel="archives" title="September 2005" href="http://glandium.org/blog/?m=200509">
+	<link rel="archives" title="August 2005" href="http://glandium.org/blog/?m=200508">
+	<link rel="archives" title="March 2005" href="http://glandium.org/blog/?m=200503">
+	<link rel="archives" title="February 2005" href="http://glandium.org/blog/?m=200502">
+	<link rel="archives" title="January 2005" href="http://glandium.org/blog/?m=200501">
+	<link rel="archives" title="November 2004" href="http://glandium.org/blog/?m=200411">
+
+<link rel="alternate" type="application/rss+xml" title="glandium.org » SSH through jump hosts Comments Feed" href="http://glandium.org/blog/?feed=rss2&amp;p=303">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://glandium.org/blog/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://glandium.org/blog/wp-includes/wlwmanifest.xml"> 
+<link rel="index" title="glandium.org" href="http://glandium.org/blog">
+<link rel="start" title="Welcome back" href="http://glandium.org/blog/?p=1">
+<link rel="prev" title="Detecting per-process namespaces" href="http://glandium.org/blog/?p=293">
+<link rel="next" title="Following up on SSH through jump hosts" href="http://glandium.org/blog/?p=308">
+<meta name="generator" content="WordPress 3.2.1">
+<link rel="canonical" href="http://glandium.org/blog/?p=303">
+
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body id="glandium-org">
+<div id="content">
+<div class="post" id="post-303">
+<!--DOCUMENT_FRAGMENT-->
+<h2><a href="http://glandium.org/blog/?p=303" rel="bookmark" title="Permanent Link: SSH through jump hosts">SSH through jump hosts</a></h2>
+	
+			<div class="entrytext">
+				<p>I often need to connect to a server with ssh from another server because I don’t have direct access. I even gave a small <a href="http://glandium.org/blog/?p=223">configuration example</a> to use such jump hosts using <code>ProxyCommand</code>s.</p>
+<p>A while ago, I got fed up to have to add new entries for each host I wanted to join with a jump server, especially when I only need these entries sporadicly, and decided to write a generic configuration. I ended up with this setup:</p>
+<blockquote><p><code>Host *%*<br>
+ProxyCommand ssh $(echo %h | cut -d%% -f1) nc -w1 $(echo %h | cut -d%% -f2) %p</code></p></blockquote>
+<p>The trick here is that you can use subshell expansions in a <code>ProxyCommand</code>. So, when I <code>ssh</code> to “host1%host2″, the first subshell expansion returns “host1″ and the second “host2″, this setup ends up being the equivalent of :</p>
+<blockquote><p><code>Host host1%host2<br>
+ProxyCommand ssh host1 nc -w1 host2 %p</code></p></blockquote>
+<p>which is quite similar to the setup from my previous post.</p>
+<p>Later on, I came up with an even more powerful implementation:</p>
+<blockquote><p><code>Host *%*<br>
+ProxyCommand ssh $(echo %h | awk -F%% '{OFS="%%"; NF--; print $0}') nc $(echo %h | awk -F%% '{print $NF}') %p</code></p></blockquote>
+<p>Here, the first <code>awk</code> splits at the % characters and returns all fields except the last one, and the second <code>awk</code> returns only the last field. As a consequence, <code>ssh</code>ing to “host1%host2%host3%host4″ will have the first subshell expansion return “host1%host2%host3″ and the second “host4″. The setup will then be equivalent to:</p>
+<blockquote><p><code>Host host1%host2%host3%host4<br>
+ProxyCommand ssh host1%host2%host3 nc -w1 host4 %p</code></p></blockquote>
+<p>The ssh in the ProxyCommand will, in turn, trigger the rule again so that the result is that host4 will be contacted from host3, which is contacted from host2 that we contacted from host1.</p>
+<p>In the meanwhile, I decided % was not that nice a separator, and switched to using /, which also allows for a nicer setup with the same recursive effect:</p>
+<blockquote><p><code>Host */*<br>
+ProxyCommand ssh $(dirname %h) nc -w1 $(basename %h) %p</code></p></blockquote>
+<p>Finally, since some remote hosts don’t have <code>nc</code> installed, I usually copy it in my <code>$HOME</code> on these servers and changed my setup to:</p>
+<blockquote><p><code>Host */*<br>
+ProxyCommand ssh $(dirname %h) PATH=.:\$PATH nc -w1 $(basename %h) %p</code></p></blockquote>
+<p>The main drawback of this method is that the more jump hosts you use, the more your ssh traffic is encapsulated (recursively) in other ssh traffic. The advantage, though, is that you don’t need to forward an agent onto untrusted servers to use ssh key authentication on any of the jump or final servers, nor to forward X11 or tunnel multiple times.</p>
+	
+					
+				<p class="date">2009-04-09 23:19:34+0200</p>
+				<p class="subject"><a href="http://glandium.org/blog/?cat=5" title="View all posts in p.d.o" rel="category">p.d.o</a></p></div>
+<!--/DOCUMENT_FRAGMENT-->
+</div>
+</div>
+</body>
+</html>

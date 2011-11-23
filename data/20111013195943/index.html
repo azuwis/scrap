@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<meta name="description" content="A Git user's first (and hopefully last) foray into SVN-land I belong to a rare breed of programmers: I was born and raised on Git. It’s the only version-control system that I’ve ever used. This is my...">
+	
+	<title>GarlicSim blog - A Git user's first (and hopefully last) foray into SVN-land</title>
+	<link rel="icon" href="avatar_7fa44544e3dd_16.png">
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.garlicsim.org/rss">
+	<meta name="viewport" content="width=775"> <!-- iPhone -->
+	<meta name="if:Show post notes" content="1">
+	<meta name="if:Enable text shadow" content="1">
+	
+	<!-- Custom Colours -->
+	<meta name="color:Background" content="#2b2b2b">
+	<meta name="color:Header Text" content="#ffc6a5">
+	<meta name="color:Body Text" content="#f2e3c6">
+	<meta name="color:Links" content="#e6324b">
+	
+	
+
+
+<meta http-equiv="x-dns-prefetch-control" content="off">
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body>
+<div id="container">
+<div id="content-column">
+<div class="post text">
+<!--DOCUMENT_FRAGMENT-->
+<h2><a href="http://blog.garlicsim.org/post/9583964892/a-git-users-first-and-hopefully-last-foray-into">A Git user’s first (and hopefully last) foray into SVN-land</a></h2>
+				<p><img src="jump_fail.jpg" alt="By Asthma Helper at flickr.com" align="right" height="237" width="213">I belong to a rare breed of programmers: I was born and raised on Git. It’s the only version-control system that I’ve ever used. This is my personal story of how I had to use SVN temporarily for a contract project.</p>
+<p>Now, I know there are a million of blog posts out there saying “Ooh, look how much better Git is than SVN!” I’m not trying to tell people something they don’t already know about Git, SVN, and the difference between them— I’ll just be telling my own personal story and my own impressions of SVN.<!-- more --></p>
+<h2>Beginnings</h2>
+<p>I started my programming comeback about 3 years ago. When I was a child, I programmed a lot— I was taught Basic in third grade, and I spent a lot of time of my elementary school and junior high making various little programs in C and Pascal. But I took a long hiatus from programming starting at about 10th grade, because I was frustrated with how many stupid technical details were involved in programming.</p>
+<p>That hiatus ended about 3 years ago as I started learning Python, programming computer simulations for my Physics research, and about a year after that became a professional programmer. By the way, the main reason I chose Python is because&nbsp;<a href="http://paulgraham.com/">Paul Graham</a>&nbsp;mentioned it favorably in one of his essays.</p>
+<h2>Starting out with Git</h2>
+<p>How did I start out with version control? I saw the term “GitHub” being thrown around a lot on <a href="http://news.ycombinator.com/">Hacker News</a>. It seemed to be something everyone liked, so I figured I’ll try putting my project <a href="http://garlicsim.org/">GarlicSim</a> there. I learned Git. It took a while, because I was still not very technical, but eventually I got the hang of it enough to work in a single branch.</p>
+<p>After a while, I understood what branches meant. I understood that I was able to create alternate versions of my code, work on them as much as I want, and decide at my leisure whether they should be merged into <code>master</code> and become an official part of my project.</p>
+<p>I was happy. Branches are awesome.</p>
+<h2>I heard about SVN…</h2>
+<p>At some point I heard about SVN. I heard that it was something like a predecessor to Git.</p>
+<p>What I imagined in my mind was that SVN was to Git what Windows 98 was to Windows XP. I imagined that SVN was just a crappier version of Git. Like, same idea, same workflow, just with more annoyances and less polish.</p>
+<p>That perception changed when I got my first programming job.</p>
+<h2>First contact with SVN</h2>
+<p>Then I started programming professionally. I was hired by an Israeli startup to work on a Django project. I was kinda surprised to learn that they were using SVN. I figured that a technology startup would, you know, <em>care about technology</em>. But I said, “Meh, so I’ll just have to use Windows 98 for a while instead of XP, I could live with that.”</p>
+<p>Oh boy.</p>
+<p>So I was just about to learn SVN. This is a dramatization of the conversation I had with that company’s chief developer: (I ask you to read the text in <em>italics</em>&nbsp;in John Cleese’s famous <a href="http://youtu.be/sFBOQzSk14c?t=59s">surprised voice</a>.)</p>
+<blockquote>
+<p>Me: Hey man, I wanna make a small change to the code to add [Feature X], I’ll just make a little branch, alright?</p>
+<p>Chief developer: <em>What?!</em>&nbsp;You’re gonna make a <em>branch</em>?!</p>
+<p>Me (taken back): Eh, yeah, a branch. So, you know, I could make changes in it without affecting our <code>master</code>, or <code>trunk</code>, or whatever?</p>
+<p>Chief developer: And how are we supposed to put the changes back into our <code>trunk</code>?!</p>
+<p>Me (totally freaked out at this point): Eh, merge them back?</p>
+<p>Chief developer: <em>Merge? MERGE?!</em> That’s a mighty big word for someone your size!</p>
+</blockquote>
+<p>And then followed a conversation in which he explained to me that branching-n-merging in SVN is really fucking complicated. I don’t remember exactly what he said was required, but it changed my perception of SVN from:</p>
+<blockquote>
+<p>“SVN is a slightly crappier version of Git.”</p>
+</blockquote>
+<p>To:</p>
+<blockquote>
+<p>“SVN is a version of Git in which every time you want to start a branch or merge it back, you have to sacrifice a young virgin to the source-control gods.”</p>
+</blockquote>
+<p>I was not happy.</p>
+<p>Luckily, the chief developer was considerate of me, and the company was small enough (only a handful of people), so he agreed that we’ll just move our entire product to Git.</p>
+<p>I was saved at last moment from the atrocities of SVN.</p>
+<p>Until now.</p>
+<h2>SVN strikes back</h2>
+<p>Recently I got a nice contract job. And, like any other contract job after my initial trauma with SVN, I made sure to ask that the job was in Git <em>before</em>&nbsp;I started the job. Unfortunately, despite being told that the job was in Git, it turned out that the job was in SVN, and that we’d move to Git “after the deadline.”</p>
+<p>I was not happy. It turned out that I had to learn SVN after all.</p>
+<p>I had my brother give me a crash course on SVN via phone. My brother’s a C++/Java programmer, and he had to use SVN for a while, so he agreed to help me with it. He has experience with Git so he was in a good position to explain the differences between the two. I primarily remember him explaining to me about branches.</p>
+<p>Now, I remember seeing the “branches” folder in the SVN repo. I thought it was pretty weird to keep branches in a folder, but whatever. I assumed that the stuff in the “branches” folder was like the stuff in the “.git” folder in Git: Magic data that contains all your branches and allows you to switch to them at will.</p>
+<p>Then my brother explained to me that this is not the case. I remember this part of our phone conversation pretty well, because at that point I was sitting on my knees on the carpet, with my head in my hands, looking down into the seat of my office chair. He explained that SVN doesn’t <em>really</em> have branches, it’s just a folder called “branches” that you manually copy your code into.</p>
+<p>I was not happy.</p>
+<p>Though, on the other hand, it was kind of a relief; it was relieving to know that SVN doesn’t even <em>try</em> to do branches. Because God knows how badly they would fuck it up if they would have tried to. Copy-pasting folders is major bullshit, but at the very least it’s predictable; when you use <code>mv</code> or <code>cp</code>, you know exactly what you’re getting, which is something you can’t say about <code>svn</code>.</p>
+<p>That partial relief nonwithstanding, the whole “branches” thing in SVN is utterly ridiculous. In the past when people told me “SVN has branches too!” I knew that something wasn’t right and I just assumed that SVN branches suck, but now with this new knowledge I can answer in confidence, “No, SVN does <em>not</em>&nbsp;have branches, it merely has a folder called “branches”, which is a far cry from having actual branches.”</p>
+<p>You know what SVN’s “branches” folder is like? It’s like taking an A4 paper from your printer, drawing a <a href="http://en.wikipedia.org/wiki/DeLorean_time_machine#Flux_capacitor">Flux Capacitor</a>&nbsp;on it, hanging it in your car and declaring with a satisfied grin, “My car’s a DeLorean time machine! I can go back in time!”</p>
+<h2>SVN Ignore</h2>
+<p>One other thing I had to deal with in SVN was doing “SVN ignore” (I don’t know the SVN jargon for it.) Basically I was looking for the SVN equivalent of <code>.gitignore</code>: A list of file patterns that do not get source-controlled, ever. This is very useful for build products, files containing passwords, user-uploaded static content, etc.</p>
+<p>Now in Git, you just have a file called <code>.gitignore</code> in the root of your repo, and in that file you write the file patterns that should be git-ignored, like <code>*.pyc</code> or <code>build</code>. You save the file, and that’s it. I assumed that there would be a similar mechanism in SVN.</p>
+<p>You can probably guess where this is going by now.</p>
+<p>It turned out that SVN’s ignoring mechanism is far more complicated than that. It basically holds a list of SVN-ignored file for <em>every</em>, <em>single</em>, <em>folder</em> in your repo, and there is no convenient way to edit all these rules for the enitre repo, or even just view them. You have to run <a href="http://stackoverflow.com/questions/1252270/how-do-i-view-all-ignored-patterns-set-with-svnignore-recursively-in-an-svn-repo/1252303#1252303">this baffling command</a>&nbsp;in order to even <em>view</em>&nbsp;the ignore rules. Also, when you edit the ignore rules for a folder, you’re not just editing a text file like in Git, you have to actually set the rules using <code>svn</code>. I tried actually going into the dreaded <code>.svn</code>&nbsp;folder and edit the text file that holds the ignore rules myself, but it was encoded in a really stupid encoding, and in order to write rules there manually I would have had to count the number of characters in my ruleset and type it as part of the text file.</p>
+<h2>Back to Git</h2>
+<p>Eventually my new client saw how bad of an effect SVN was having on me, and he let me move us to Git. So over the weekend I used <a href="https://github.com/nirvdrum/svn2git">svn2git</a> to convert our repo to Git and now we manage all our code in Git. Uninstalling TortoiseSVN from my machine was quite a happy moment.</p>
+<p>Goodbye SVN, may we never meet again.</p>
+<!--/DOCUMENT_FRAGMENT-->
+</div>
+</div>
+</div>
+</body>
+</html>

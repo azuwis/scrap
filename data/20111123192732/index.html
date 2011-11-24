@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>DELL PERC5/i Integrated - Emergency Cheat Sheet</title>
+
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)">
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)">
+<!-- html -->
+<meta name="src" content="perc-cheat-sheet.tex">
+<meta name="date" content="2008-05-19 22:22:00">
+
+
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body>
+
+<div style="float: right; margin-left: 20px; margin-top: 50px;">
+
+
+</div>
+
+<div class="center">
+<!--l. 126--><p class="noindent">
+<!--l. 127--></p><p class="noindent"><span class="cmbx-12x-x-144">DELL PERC5/i Integrated (LSI Logic MegaRAID)</span><br>
+<span class="cmr-17">– Emergency Cheat Sheet –</span><br>
+<br><span class="cmr-12x-x-120">Moritz Mertinkat</span><br>
+<span class="cmtt-12x-x-120">moritz AT mertinkat DOT net</span><br><br>
+<span class="cmr-12x-x-120">Version 1.3, 2008-05-20</span><br>
+<span class="obeylines-h"><a href="http://tools.rapidsoft.de/perc" class="url"><span class="cmtt-12x-x-120">http://tools.rapidsoft.de/perc</span></a></span><br><br>
+</p></div>
+  <h3 class="sectionHead"><span class="titlemark">1  </span> <a id="x1-10001"></a>Requirements and general information</h3>
+<!--l. 139--><p class="noindent">DELL’s PowerEdge RAID Controller (PERC) is a special LSI Logic SAS/SATA RAID Controller
+and thus the LSI management utility called <span class="cmti-12">MegaCli </span>also works for this controller. <span id="textcolor1">For older
+controllers like PERC4 and PERC3 please refer to <span class="obeylines-h"><a href="http://linux.dell.com/storage.shtml" class="url"><span class="cmtt-12">http://linux.dell.com/storage.shtml</span></a></span>
+(keyword DellMgr).</span>
+<br class="newline">
+<br class="newline">MegaCli is available for Linux, DOS, Windows, Netware and Solaris.
+<br class="newline">You can get it from LSI’s website (search for MegaRAID SAS) or download it here: <span class="obeylines-h"><a href="http://www.lsi.com/support/downloads/megaraid/miscellaneous/linux/1.01.40_Linux_Cli.zip" class="url"><span class="cmtt-12">http://www.lsi.com/support/downloads/megaraid/miscellaneous/linux/1.01.40_Linux_Cli.zip</span></a></span>.
+<br class="newline">
+<br class="newline">Inside the ZIP file you’ll find an RPM archive which contains the <span class="cmtt-12">MegaCli </span>and <span class="cmtt-12">MegaCli64 </span>binaries
+(will be installed to <span class="cmtt-12">/opt/MegaRAID/MegaCli</span>).
+<br class="newline">
+<br class="newline"><span class="cmbx-12">Please note:</span>
+<br class="newline">This emergency cheat sheet is not exhaustive, but it should be sufficient in most
+cases. For a complete reference either call <span class="cmtt-12">MegaCli -h </span>or refer to the manual at: <span class="obeylines-h"><a href="http://www.lsi.com/files/docs/techdocs/storage_stand_prod/sas/mr_sas_sw_ug.pdf" class="url"><span class="cmtt-12">http://www.lsi.com/files/docs/techdocs/storage_stand_prod/sas/mr_sas_sw_ug.pdf</span></a></span>
+(Chapter 3 – MegaRAID Command Tool).
+<!--l. 150--></p><p class="noindent">
+  </p><h3 class="sectionHead"><span class="titlemark">2  </span> <a id="x1-20002"></a>MegaCli conventions</h3>
+<!--l. 152--><p class="noindent">While there are a lot of different parameters for MegaCli, some of them are always identical. These
+are described here in short.
+
+
+      </p><ul class="itemize1">
+      <li class="itemize"><span class="cmbx-12">Adapter parameter </span><span class="cmtt-12">-aN</span>
+      <!--l. 157--><p class="noindent">The parameter <span class="cmtt-12">-a</span><span class="cmitt-10x-x-120">N </span>(where <span class="cmti-12">N  </span>is a number starting with zero or the string <span class="cmti-12">ALL</span>)
+      specifies the PERC5/i adapter ID. If you have only one controller it’s safe to use <span class="cmti-12">ALL</span>
+      instead of a specific ID, but you’re encouraged to use the ID for everything that makes
+      changes to your RAID configuration.
+      </p></li>
+      <li class="itemize"><span class="cmbx-12">Physical drive parameter </span><span class="cmtt-12">-PhysDrv [E:S]</span>
+      <!--l. 161--><p class="noindent">For  commands  that  operate  on  one  or  more  pysical  drives,  the  <span class="cmtt-12">-PhysDrv [</span><span class="cmitt-10x-x-120">E</span><span class="cmtt-12">:</span><span class="cmitt-10x-x-120">S</span><span class="cmtt-12">]</span>
+      parameter is used, where <span class="cmti-12">E </span>is the enclosure device ID in which the drive resides and
+      <span class="cmti-12">S  </span>the slot number (starting with zero). You can get the enclosure device ID using
+      „<span class="cmtt-12">MegaCli -EncInfo -aALL</span>“. The <span class="cmti-12">E:S </span>syntax is also used for specifying the physical
+      drives when creating a new RAID virtual drive (see 5).
+      </p></li>
+      <li class="itemize"><span class="cmbx-12">Virtual drive parameter </span><span class="cmtt-12">-Lx</span>
+      <!--l. 165--><p class="noindent">The parameter <span class="cmtt-12">-L</span><span class="cmitt-10x-x-120">x </span>is used for specifying the virtual drive (where <span class="cmti-12">x </span>is a number starting
+      with zero or the string <span class="cmti-12">all</span>).</p></li></ul>
+<!--l. 169--><p class="noindent">
+  </p><h3 class="sectionHead"><span class="titlemark">3  </span> <a id="x1-30003"></a>Gather information</h3>
+      <ul class="itemize1">
+      <li class="itemize"><span class="cmbx-12">Controller information</span>
+      <!--l. 175--><p class="noindent"><span class="cmtt-12">MegaCli -AdpAllInfo -aALL</span>
+      <br class="newline"><span class="cmtt-12">MegaCli -CfgDsply -aALL</span>
+      <br class="newline"><span class="cmtt-12">MegaCli -AdpEventLog -GetEvents -f events.log -aALL &amp;&amp; cat events.log</span>
+      </p></li>
+      <li class="itemize"><span class="cmbx-12">Enclosure information</span>
+      <!--l. 181--><p class="noindent"><span class="cmtt-12">MegaCli -EncInfo -aALL</span>
+      </p></li>
+      <li class="itemize"><span class="cmbx-12">Virtual drive information</span>
+      <!--l. 185--><p class="noindent"><span class="cmtt-12">MegaCli -LDInfo -Lall -aALL</span>
+      </p></li>
+      <li class="itemize"><span class="cmbx-12">Physical drive information</span>
+      <!--l. 189--><p class="noindent"><span class="cmtt-12">MegaCli -PDList -aALL</span>
+      <br class="newline"><span class="cmtt-12">MegaCli -PDInfo -PhysDrv [E:S] -aALL</span>
+
+
+      </p></li>
+      <li class="itemize"><span class="cmbx-12">Battery backup information</span>
+      <!--l. 194--><p class="noindent"><span class="cmtt-12">MegaCli -AdpBbuCmd -aALL</span>
+      </p></li></ul>
+<!--l. 198--><p class="noindent">
+  </p><h3 class="sectionHead"><span class="titlemark">4  </span> <a id="x1-40004"></a>Controller management</h3>
+      <ul class="itemize1">
+      <li class="itemize"><span class="cmbx-12">Silence active alarm</span>
+      <!--l. 204--><p class="noindent"><span class="cmtt-12">MegaCli -AdpSetProp AlarmSilence -aALL</span>
+      </p></li>
+      <li class="itemize"><span class="cmbx-12">Disable alarm</span>
+      <!--l. 208--><p class="noindent"><span class="cmtt-12">MegaCli -AdpSetProp AlarmDsbl -aALL</span>
+      </p></li>
+      <li class="itemize"><span class="cmbx-12">Enable alarm</span>
+      <!--l. 212--><p class="noindent"><span class="cmtt-12">MegaCli -AdpSetProp AlarmEnbl -aALL</span>
+      </p></li></ul>
+<!--l. 217--><p class="noindent">
+  </p><h3 class="sectionHead"><span class="titlemark">5  </span> <a id="x1-50005"></a>Virtual drive management</h3>
+      <ul class="itemize1">
+      <li class="itemize"><span class="cmbx-12">Create RAID 0, 1, 5 drive</span>
+      <!--l. 224--><p class="noindent"><span class="cmtt-12">MegaCli -CfgLdAdd -r(0|1|5) [E:S, E:S, ...] -aN</span>
+      </p></li>
+      <li class="itemize"><span class="cmbx-12">Create RAID 10 drive</span>
+      <!--l. 228--><p class="noindent"><span class="cmtt-12">MegaCli -CfgSpanAdd -r10 -Array0[E:S,E:S] -Array1[E:S,E:S] -aN</span>
+      </p></li>
+      <li class="itemize"><span class="cmbx-12">Remove drive</span>
+      <!--l. 232--><p class="noindent"><span class="cmtt-12">MegaCli -CfgLdDel -Lx -aN</span>
+      </p></li></ul>
+
+
+<!--l. 237--><p class="noindent">
+  </p><h3 class="sectionHead"><span class="titlemark">6  </span> <a id="x1-60006"></a>Physical drive management</h3>
+      <ul class="itemize1">
+      <li class="itemize"><span class="cmbx-12">Set state to offline</span>
+      <!--l. 243--><p class="noindent"><span class="cmtt-12">MegaCli -PDOffline -PhysDrv [E:S] -aN</span>
+      </p></li>
+      <li class="itemize"><span class="cmbx-12">Set state to online</span>
+      <!--l. 247--><p class="noindent"><span class="cmtt-12">MegaCli -PDOnline -PhysDrv [E:S] -aN</span>
+      </p></li>
+      <li class="itemize"><span class="cmbx-12">Mark as missing</span>
+      <!--l. 251--><p class="noindent"><span class="cmtt-12">MegaCli -PDMarkMissing -PhysDrv [E:S] -aN</span>
+      </p></li>
+      <li class="itemize"><span class="cmbx-12">Prepare for removal</span>
+      <!--l. 255--><p class="noindent"><span class="cmtt-12">MegaCli -PdPrpRmv -PhysDrv [E:S] -aN</span>
+      </p></li>
+      <li class="itemize"><span class="cmbx-12">Replace missing drive</span>
+      <!--l. 259--><p class="noindent"><span class="cmtt-12">MegaCli -PdReplaceMissing -PhysDrv [E:S] -ArrayN -rowN -aN</span>
+      <br class="newline">The number <span class="cmti-12">N </span>of the array parameter is the <span class="cmti-12">Span Reference </span>you get using „<span class="cmtt-12">MegaCli</span>
+      <span class="cmtt-12">-CfgDsply -aALL</span>“ and the number <span class="cmti-12">N  </span>of the row parameter is the <span class="cmti-12">Physical Disk </span>in
+      that span or array starting with zero (it’s <span class="cmti-12">not </span>the physical disk’s slot!).
+      </p></li>
+      <li class="itemize"><span class="cmbx-12">Rebuild drive</span>
+      <!--l. 264--><p class="noindent"><span class="cmtt-12">MegaCli -PDRbld -Start -PhysDrv [E:S] -aN</span>
+      <br class="newline"><span class="cmtt-12">MegaCli -PDRbld -Stop -PhysDrv [E:S] -aN</span>
+      <br class="newline"><span class="cmtt-12">MegaCli -PDRbld -ShowProg -PhysDrv [E:S] -aN</span>
+      </p></li>
+      <li class="itemize"><span class="cmbx-12">Clear drive</span>
+      <!--l. 270--><p class="noindent"><span class="cmtt-12">MegaCli -PDClear -Start -PhysDrv [E:S] -aN</span>
+      <br class="newline"><span class="cmtt-12">MegaCli -PDClear -Stop -PhysDrv [E:S] -aN</span>
+      <br class="newline"><span class="cmtt-12">MegaCli -PDClear -ShowProg -PhysDrv [E:S] -aN</span>
+      </p></li>
+      <li class="itemize"><span class="cmbx-12">Bad to good</span>
+      <!--l. 276--><p class="noindent"><span class="cmtt-12">MegaCli -PDMakeGood -PhysDrv[E:S] -aN</span>
+      <br class="newline">Changes drive in state <span class="cmti-12">Unconfigured-Bad </span>to <span class="cmti-12">Unconfigured-Good</span>.
+      </p></li></ul>
+
+
+<!--l. 282--><p class="noindent">
+  </p><h3 class="sectionHead"><span class="titlemark">7  </span> <a id="x1-70007"></a>Hot spare management</h3>
+      <ul class="itemize1">
+      <li class="itemize"><span class="cmbx-12">Set global hot spare</span>
+      <!--l. 288--><p class="noindent"><span class="cmtt-12">MegaCli -PDHSP -Set -PhysDrv [E:S] -aN</span>
+      </p></li>
+      <li class="itemize"><span class="cmbx-12">Remove hot spare</span>
+      <!--l. 292--><p class="noindent"><span class="cmtt-12">MegaCli -PDHSP -Rmv -PhysDrv [E:S] -aN</span>
+      </p></li>
+      <li class="itemize"><span class="cmbx-12">Set dedicated hot spare</span>
+      <!--l. 296--><p class="noindent"><span class="cmtt-12">MegaCli -PDHSP -Set -Dedicated -ArrayN,M,... -PhysDrv [E:S] -aN</span>
+      </p></li></ul>
+<!--l. 301--><p class="noindent">
+  </p><h3 class="sectionHead"><span class="titlemark">8  </span> <a id="x1-80008"></a>Walkthrough: Change/replace a drive</h3>
+<!--l. 304--><p class="noindent">
+      </p><ol class="enumerate1">
+      <li class="enumerate" id="x1-8002x1"><span class="cmbx-12">Set the drive offline, if it is not already offline due to an error</span>
+      <!--l. 307--><p class="noindent"><span class="cmtt-12">MegaCli -PDOffline -PhysDrv [E:S] -aN</span>
+      </p></li>
+      <li class="enumerate" id="x1-8004x2"><span class="cmbx-12">Mark the drive as missing</span>
+      <!--l. 311--><p class="noindent"><span class="cmtt-12">MegaCli -PDMarkMissing -PhysDrv [E:S] -aN</span>
+      </p></li>
+      <li class="enumerate" id="x1-8006x3"><span class="cmbx-12">Prepare drive for removal</span>
+      <!--l. 315--><p class="noindent"><span class="cmtt-12">MegaCli -PDPrpRmv -PhysDrv [E:S] -aN</span>
+      </p></li>
+      <li class="enumerate" id="x1-8008x4"><span class="cmbx-12">Change/replace the drive</span>
+      </li>
+      <li class="enumerate" id="x1-8010x5"><span class="cmbx-12">If you’re using hot spares then the replaced drive should become your new</span>
+      <span class="cmbx-12">hot spare drive</span>
+      <!--l. 321--><p class="noindent"><span class="cmtt-12">MegaCli -PDHSP -Set -PhysDrv [E:S] -aN</span>
+
+
+      </p></li>
+      <li class="enumerate" id="x1-8012x6"><span class="cmbx-12">In case you’re </span><span class="cmbxti-10x-x-120">not </span><span class="cmbx-12">working with hot spares, you must re-add the new drive</span>
+      <span class="cmbx-12">to your RAID virtual drive and start the rebuilding</span>
+      <!--l. 325--><p class="noindent"><span class="cmtt-12">MegaCli -PdReplaceMissing -PhysDrv [E:S] -ArrayN -rowN -aN</span>
+      <br class="newline"><span class="cmtt-12">MegaCli -PDRbld -Start -PhysDrv [E:S] -aN</span>
+      </p></li></ol>
+
+
+</body>
+</html>

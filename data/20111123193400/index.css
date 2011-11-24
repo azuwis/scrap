@@ -1,0 +1,110 @@
+/* ::::: http://hwraid.le-vert.net/chrome/common/css/trac.css ::::: */
+
+body { background: none repeat scroll 0% 0% rgb(255, 255, 255); color: rgb(0, 0, 0); margin: 10px; padding: 0pt; }
+body, th, tr { font: 13px Verdana,Arial,'Bitstream Vera Sans',Helvetica,sans-serif; }
+h1, h2, h3, h4 { font-family: Arial,Verdana,'Bitstream Vera Sans',Helvetica,sans-serif; font-weight: bold; letter-spacing: -0.018em; page-break-after: avoid; }
+h1 { font-size: 19px; margin: 0.15em 1em 0.5em 0pt; }
+h2 { font-size: 16px; }
+h3 { font-size: 14px; }
+hr { border-right: medium none; border-width: 1px medium medium; border-style: solid none none; border-color: rgb(204, 204, 187) -moz-use-text-color -moz-use-text-color; -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; -moz-border-image: none; margin: 2em 0pt; }
+img { border: medium none; }
+:link, :visited { text-decoration: none; color: rgb(187, 0, 0); border-bottom: 1px dotted rgb(187, 187, 187); }
+:link:hover, :visited:hover { background-color: rgb(238, 238, 238); color: rgb(85, 85, 85); }
+h1 :link, h1 :visited, h2 :link, h2 :visited, h3 :link, h3 :visited, h4 :link, h4 :visited, h5 :link, h5 :visited, h6 :link, h6 :visited { color: inherit; }
+.trac-rawlink { border-bottom: medium none; }
+.anchor:link, .anchor:visited { border: medium none; color: rgb(215, 215, 215); font-size: 0.8em; vertical-align: text-top; }
+* > .anchor:link, * > .anchor:visited { visibility: hidden; }
+h1:hover .anchor, h2:hover .anchor, h3:hover .anchor, h4:hover .anchor, h5:hover .anchor, h6:hover .anchor, span:hover .anchor { visibility: visible; }
+@media screen {
+  a.ext-link .icon { background: url('extlink.gif') no-repeat scroll center center transparent; padding-left: 12px; }
+  a.mail-link .icon { background: url('envelope.png') no-repeat scroll center center transparent; padding-left: 14px; }
+}
+input, textarea, select { margin: 2px; }
+input, select { vertical-align: middle; }
+input[type="button"], input[type="submit"], input[type="reset"] { background: none repeat scroll 0% 0% rgb(238, 238, 238); color: rgb(34, 34, 34); border: 1px outset rgb(204, 204, 204); padding: 0.1em 0.5em; }
+input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover { background: none repeat scroll 0% 0% rgb(204, 204, 187); }
+input[type="text"], input.textwidget, textarea { border: 1px solid rgb(215, 215, 215); }
+input[type="text"], input.textwidget { padding: 0.25em 0.5em; }
+input[type="text"]:focus, input.textwidget:focus, textarea:focus { border: 1px solid rgb(136, 136, 102); }
+#header img { border: medium none; margin: 0pt 0pt -3em; }
+#header :link, #header :visited, #header :link:hover, #header :visited:hover { background: none repeat scroll 0% 0% transparent; color: rgb(85, 85, 85); margin-bottom: 2px; border: medium none; padding: 0pt; }
+#search { clear: both; font-size: 10px; height: 2.2em; margin: 0pt 0pt 1em; text-align: right; }
+#search input { font-size: 10px; }
+#search label { display: none; }
+.nav h2, .nav hr { display: none; }
+.nav ul { font-size: 10px; list-style: none outside none; margin: 0pt; text-align: right; }
+.nav li { border-right: 1px solid rgb(215, 215, 215); display: inline; padding: 0pt 0.75em; white-space: nowrap; }
+.nav li.last { border-right: medium none; }
+#mainnav { background: url('topbar_gradient.png') repeat scroll 0pt 0pt rgb(255, 255, 255); border: 1px solid rgb(0, 0, 0); font: 10px verdana,'Bitstream Vera Sans',helvetica,arial,sans-serif; margin: 0.66em 0pt 0.33em; padding: 0.2em 0pt; }
+#mainnav li { border-right: medium none; padding: 0.25em 0pt; }
+#mainnav :link, #mainnav :visited { background: url('dots.gif') no-repeat scroll 0pt 0pt transparent; border-right: 1px solid rgb(255, 255, 255); border-bottom: medium none; border-left: 1px solid rgb(85, 85, 85); color: rgb(0, 0, 0); padding: 0.2em 20px; }
+#mainnav :link:hover, #mainnav :visited:hover { background-color: rgb(204, 204, 204); border-right: 1px solid rgb(221, 221, 221); }
+#mainnav .active :link, #mainnav .active :visited { background: url('topbar_gradient2.png') repeat-x scroll 0pt 0pt rgb(0, 0, 0); border-top: medium none; border-right: 1px solid rgb(0, 0, 0); color: rgb(238, 238, 238); font-weight: bold; }
+#mainnav .active :link:hover, #mainnav .active :visited:hover { border-right: 1px solid rgb(0, 0, 0); }
+#ctxtnav { min-height: 1em; }
+#altlinks { clear: both; text-align: center; }
+#altlinks h3 { font-size: 12px; letter-spacing: normal; margin: 0pt; }
+#altlinks ul { list-style: none outside none; margin: 0pt; padding: 0pt 0pt 1em; }
+#altlinks li { border-right: 1px solid rgb(215, 215, 215); display: inline; font-size: 11px; line-height: 1.5; padding: 0pt 1em; white-space: nowrap; }
+#altlinks li.last { border-right: medium none; }
+#altlinks li :link, #altlinks li :visited { background-repeat: no-repeat; color: rgb(102, 102, 102); border: medium none; padding: 0pt 0pt 2px; }
+#footer { clear: both; color: rgb(187, 187, 187); font-size: 10px; border-top: 1px solid; height: 31px; padding: 0.25em 0pt; }
+#footer :link, #footer :visited { color: rgb(187, 187, 187); }
+#footer hr { display: none; }
+#footer #tracpowered { border: 0pt none; float: left; }
+#footer #tracpowered:hover { background: none repeat scroll 0% 0% transparent; }
+#footer p { margin: 0pt; }
+#footer p.left { float: left; margin-left: 1em; padding: 0pt 1em; border-left: 1px solid rgb(215, 215, 215); border-right: 1px solid rgb(215, 215, 215); }
+#footer p.right { float: right; text-align: right; }
+#content { padding-bottom: 2em; position: relative; }
+.foldable :link, .foldable :visited { background: url('expanded.png') no-repeat scroll 0pt 50% transparent; border: medium none; padding-left: 16px; }
+.foldable :link:hover, .foldable :visited:hover { background-color: transparent; }
+.collapsed > .foldable :link, .collapsed > .foldable :visited { background-image: url('collapsed.png'); }
+.collapsed > div, .collapsed > table, .collapsed > ul, .collapsed > dl { display: none; }
+.wikipage { padding-left: 18px; }
+.wikipage h1, .wikipage h2, .wikipage h3 { margin-left: -18px; }
+a.missing:link, a.missing:visited, a.missing, span.missing, a.forbidden, span.forbidden { color: rgb(153, 153, 136); }
+a.missing:hover { color: rgb(0, 0, 0); }
+table.wiki { border: 1px solid rgb(204, 204, 204); border-collapse: collapse; border-spacing: 0pt; }
+table.wiki td { border: 1px solid rgb(204, 204, 204); padding: 0.1em 0.25em; }
+@media screen {
+  .searchword0 { background: none repeat scroll 0% 0% rgb(255, 255, 153); }
+  .searchword1 { background: none repeat scroll 0% 0% rgb(204, 255, 204); }
+  .searchword2 { background: none repeat scroll 0% 0% rgb(204, 255, 255); }
+  .searchword3 { background: none repeat scroll 0% 0% rgb(204, 204, 255); }
+  .searchword4 { background: none repeat scroll 0% 0% rgb(255, 204, 255); }
+}
+@media print {
+  #header, #altlinks, #footer, #help { display: none; }
+  .nav, form, .buttons form, form .buttons, form .inlinebuttons, .noprint, .trac-rawlink, .trac-nav, .trac-topnav { display: none; }
+  form.printableform { display: block; }
+}
+/* ::::: http://hwraid.le-vert.net/chrome/common/css/wiki.css ::::: */
+
+/* ::::: http://hwraid.le-vert.net/chrome/common/css/code.css ::::: */
+
+#wikipage { clear: both; }
+#pagepath { font-size: 10px; float: left; }
+#pagepath :link, #pagepath :visited { margin: 0pt 0.2em; }
+#pagepath .first:link, #pagepath .first:visited { color: rgb(153, 153, 136); }
+#pagepath .pathentry { float: left; }
+@media print {
+  th.diff, td.diff { display: none; }
+}
+div.trac-modifiedby { margin: 0.3em 0.5em; color: rgb(136, 136, 136); font-size: 80%; font-style: italic; text-align: right; float: right; }
+div.trac-modifiedby :link, div.trac-modifiedby :visited { color: inherit; }
+/* ::::: http://hwraid.le-vert.net/chrome/site/css/main.css ::::: */
+
+:link, :visited { color: rgb(0, 153, 0); }
+:link:hover, :visited:hover { color: rgb(0, 153, 0); }
+#mainnav { color: black; margin: 32px 0px 4px; height: 14px; }
+#metanav { padding: 0px; margin: 0px; height: 14px; }
+#ctxtnav { padding: 0px; margin: 0px; }
+h1 :link, h1 :visited { color: rgb(0, 153, 0); }
+input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover { background: none repeat scroll 0% 0% rgb(0, 153, 0); }
+#search { display: none; }
+#header { display: none; }
+#banner { padding: 0px; margin: 0px; }
+#hwraidlogo { position: absolute; display: inline; padding: 0px; margin: 0px; }
+#content { margin-top: 60px; }
+#sitefooter { text-align: center; margin-top: -36px; }

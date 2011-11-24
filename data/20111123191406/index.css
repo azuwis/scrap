@@ -1,0 +1,37 @@
+/* ::::: http://matthewwild.co.uk/lib/exe/css.php?s=all ::::: */
+
+/* ::::: http://matthewwild.co.uk/lib/exe/css.php ::::: */
+
+div.clearer { clear: both; line-height: 0px; height: 0pt; overflow: hidden; }
+div.no { display: inline; margin: 0pt; padding: 0pt; }
+div.dokuwiki .bar-left { float: left; }
+div.dokuwiki .bar-right { float: right; text-align: right; }
+* { padding: 0pt; margin: 0pt; }
+body { font: 80% "Lucida Grande",Verdana,Lucida,Helvetica,Arial,sans-serif; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); }
+div.dokuwiki div.page { margin: 4px 2em 0pt 1em; text-align: justify; }
+div.dokuwiki img { border: 0pt none; }
+div.dokuwiki p, div.dokuwiki blockquote, div.dokuwiki table, div.dokuwiki pre { margin: 0pt 0pt 1em; }
+div.dokuwiki form { border: medium none; display: inline; }
+div.dokuwiki input.button, div.dokuwiki button.button { border: 1px solid rgb(140, 172, 187); color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); vertical-align: middle; text-decoration: none; font-size: 100%; cursor: pointer; margin: 1px; padding: 0.125em 0.4em; }
+html > body div.dokuwiki input.button, html > body div.dokuwiki button.button { background: url('buttonshadow.png') repeat-x scroll center bottom rgb(255, 255, 255); }
+div.dokuwiki a:link, div.dokuwiki a:visited { color: rgb(67, 105, 118); text-decoration: none; }
+div.dokuwiki a:hover, div.dokuwiki a:active { color: rgb(0, 0, 0); text-decoration: underline; }
+div.dokuwiki h1 a, div.dokuwiki h2 a, div.dokuwiki h3 a, div.dokuwiki h4 a, div.dokuwiki h5 a, div.dokuwiki a.nolink { color: rgb(0, 0, 0) ! important; text-decoration: none ! important; }
+div.dokuwiki a.urlextern { background: url('link_icon.gif') no-repeat scroll 0px 1px transparent; padding: 1px 0px 1px 16px; }
+div.dokuwiki a.urlextern:link, div.dokuwiki a.windows:link, div.dokuwiki a.interwiki:link { color: rgb(67, 105, 118); }
+div.dokuwiki a.urlextern:visited, div.dokuwiki a.windows:visited, div.dokuwiki a.interwiki:visited { color: purple; }
+div.dokuwiki a.urlextern:hover, div.dokuwiki a.urlextern:active, div.dokuwiki a.windows:hover, div.dokuwiki a.windows:active, div.dokuwiki a.interwiki:hover, div.dokuwiki a.interwiki:active { color: rgb(0, 0, 0); }
+div.dokuwiki img.middle { vertical-align: middle; }
+div.dokuwiki acronym { cursor: help; border-bottom: 1px dotted rgb(0, 0, 0); }
+div.dokuwiki h1, div.dokuwiki h2, div.dokuwiki h3, div.dokuwiki h4, div.dokuwiki h5 { color: rgb(0, 0, 0); background-color: inherit; font-size: 100%; font-weight: normal; margin: 0pt 0pt 1em; padding: 0.5em 0pt 0pt; border-bottom: 1px solid rgb(140, 172, 187); clear: left; }
+div.dokuwiki h1 { font-size: 160%; margin-left: 0px; font-weight: bold; }
+div.dokuwiki h2 { font-size: 150%; margin-left: 20px; }
+div.dokuwiki div.level1 { margin-left: 3px; }
+div.dokuwiki div.level2 { margin-left: 23px; }
+html, body { width: 100%; }
+#header { width: 100%; height: 169px; background-image: url('header_repeat.png'); }
+#header img { float: right; }
+.dokuwiki { position: relative ! important; min-height: 100% ! important; }
+.dokuwiki .page { padding-bottom: 35px; }
+#footer { bottom: 0px; width: 100%; height: 35px; background-image: url('footer.png'); }
+html, body, #header, #footer { margin: 0px; padding: 0px; }

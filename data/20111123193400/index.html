@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>
+      DebianPackages – HWraid
+    </title>
+    
+        <link rel="search" href="http://hwraid.le-vert.net/search">
+        <link rel="help" href="http://hwraid.le-vert.net/wiki/TracGuide">
+        <link rel="alternate" href="http://hwraid.le-vert.net/wiki/DebianPackages?format=txt" type="text/x-trac-wiki" title="Plain Text">
+        <link rel="start" href="http://hwraid.le-vert.net/wiki">
+        
+        <link rel="shortcut icon" href="trac.ico" type="image/x-icon">
+        <link rel="icon" href="trac.ico" type="image/x-icon">
+      <link type="application/opensearchdescription+xml" rel="search" href="http://hwraid.le-vert.net/search/opensearch" title="Search HWraid">
+    
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    
+    
+  
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body>
+    <div id="siteheader">
+<div id="logobanner">
+        <a href="http://hwraid.le-vert.net/">
+                <div id="hwraidlogo"><img src="hwraid_banner.png"></div>
+        </a>
+</div>
+    </div>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="http://hwraid.le-vert.net/"><img src="hwraid_banner.png" alt="hwraid_logo"></a>
+      </div>
+      <form id="search" action="http://hwraid.le-vert.net/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input id="proj-search" name="q" size="18" value="" type="text">
+          <input value="Search" type="submit">
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="http://hwraid.le-vert.net/login">Login</a></li><li><a href="http://hwraid.le-vert.net/prefs">Preferences</a></li><li><a href="http://hwraid.le-vert.net/wiki/TracGuide">Help/Guide</a></li><li class="last"><a href="http://hwraid.le-vert.net/about">About Trac</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="http://hwraid.le-vert.net/wiki">Wiki</a></li><li><a href="http://hwraid.le-vert.net/timeline">Timeline</a></li><li><a href="http://hwraid.le-vert.net/roadmap">Roadmap</a></li><li><a href="http://hwraid.le-vert.net/browser">Browse Source</a></li><li><a href="http://hwraid.le-vert.net/report">View Tickets</a></li><li><a href="http://hwraid.le-vert.net/newticket">New Ticket</a></li><li class="last"><a href="http://hwraid.le-vert.net/search">Search</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="pagepath" class="noprint">
+  <a class="pathentry first" title="View WikiStart" href="http://hwraid.le-vert.net/wiki">wiki:</a><a class="pathentry" href="http://hwraid.le-vert.net/wiki/DebianPackages" title="View DebianPackages">DebianPackages</a>
+</div>
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="http://hwraid.le-vert.net/wiki/WikiStart">Start Page</a></li><li><a href="http://hwraid.le-vert.net/wiki/TitleIndex">Index</a></li><li class="last"><a href="http://hwraid.le-vert.net/wiki/DebianPackages?action=history">History</a></li>
+          </ul>
+        <hr>
+      </div>
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          
+          <div class="trac-modifiedby"><a href="http://hwraid.le-vert.net/wiki/DebianPackages?action=diff&amp;version=43" title="Version 43 by gandalf">Last modified</a> <a class="timeline" href="http://hwraid.le-vert.net/timeline?from=2011-10-31T16%3A42%3A47%2B01%3A00&amp;precision=second" title="2011-10-31T16:42:47+01:00 in Timeline">3 weeks</a> ago</div>
+          <div id="wikipage"><h1 id="DebianPackages">Debian Packages<a title="Link to this section" href="#DebianPackages" class="anchor"> ¶</a></h1>
+<p>
+<a style="padding: 0pt; border: medium none;" href="http://hwraid.le-vert.net/attachment/wiki/DebianPackages/debian_logo.png"><img src="debian_logo.png" alt="debian_logo" title="debian_logo"></a> <a style="padding: 0pt; border: medium none;" href="http://hwraid.le-vert.net/attachment/wiki/DebianPackages/ubuntu_logo.png"><img src="ubuntu_logo.png" alt="ubuntu_logo" title="ubuntu_logo"></a>
+<br><br>
+</p>
+<p>
+We provide a Debian repository containing all packages to install proprietary and opensource tools for you RAID card.
+</p>
+<p>
+Please add <strong>deb <a href="http://hwraid.le-vert.net/distrib">http://hwraid.le-vert.net/distrib</a> branch main</strong> to <strong>/etc/apt/sources.list</strong> to access all packages.
+</p>
+<p>
+<em>distrib</em> can be either debian or ubuntu.
+<br><em>branch</em> can be lenny, squeeze, wheezy and sid for debian, or hardy, intrepid, jaunty and lucid for ubuntu.
+</p>
+<p>
+In example, for current Debian stable release (Squeeze):
+<br><strong>deb <a href="http://hwraid.le-vert.net/debian">http://hwraid.le-vert.net/debian</a> squeeze main</strong>
+</p>
+<p>
+Theses packages are available for <strong>amd64 and i386</strong> architectures. Sources packages are available as well (replace deb with deb-src).
+</p>
+<p>
+<br>
+</p>
+<h1 id="Packageslist">Packages list<a title="Link to this section" href="#Packageslist" class="anchor"> ¶</a></h1>
+<p>
+Here is a quick list of the available binary packages:
+</p>
+<table class="wiki">
+<tbody><tr><td> <strong>name</strong> </td><td> <strong>version</strong> </td><td> <strong>target</strong> </td><td> <strong>amd64</strong> </td><td> <strong>i386</strong> 
+</td></tr><tr><td> 3ware-status </td><td> 0.3 </td><td> 3Ware Eskalad 7000/8000/9000 </td><td>X</td><td>X
+</td></tr><tr><td> tw-cli </td><td> 2.00.09.012+9.5.2-2 </td><td> 3Ware Eskalad 7000/8000/9000 </td><td>X</td><td>X
+</td></tr><tr><td> 3dm2 </td><td> 2.09.00.009+9.5.2-2 </td><td> 3Ware Eskalad 7000/8000/9000 </td><td>X</td><td>X
+</td></tr><tr><td> aacraid-status </td><td> 0.17 </td><td> Adaptec AACRaid </td><td>X</td><td>X
+</td></tr><tr><td> adaptec-storage-manager-agent </td><td> 7.00.18781-1 </td><td> Adaptec AACRaid </td><td>X</td><td>X
+</td></tr><tr><td> adaptec-storage-manager-common </td><td> 7.00.18781-1 </td><td> Adaptec AACRaid </td><td>X</td><td>X
+</td></tr><tr><td> adaptec-storage-manager-gui </td><td> 7.00.18781-1 </td><td> Adaptec AACRaid </td><td>X</td><td>X
+</td></tr><tr><td> arcconf </td><td> 7.00.18781-1 </td><td> Adaptec AACRaid </td><td>X</td><td>X
+</td></tr><tr><td> hrconf </td><td style="text-align: right;">  7.00.18781-1</td><td> Adaptec AACRaid </td><td>X</td><td>X
+</td></tr><tr><td> adaptec-universal-storage-snmpd </td><td> 7.00.18781-1 </td><td> Adaptec AACRaid </td><td>X</td><td>X
+</td></tr><tr><td> adaptec-universal-storage-mib </td><td> 7.00.18781-1 </td><td> Adaptec AACRaid </td><td>X</td><td>X
+</td></tr><tr><td> cciss-vol-status </td><td> 1.03-1 </td><td> HP/Compaq SmartArray </td><td>X</td><td>X
+</td></tr><tr><td> hpacucli </td><td> 8.25.5-1 </td><td> HP/Compaq SmartArray </td><td>X</td><td>X
+</td></tr><tr><td> megaraid-status </td><td> 0.9 </td><td> LSI MegaRAID / MegaRAID SAS </td><td>X</td><td>X
+</td></tr><tr><td> megactl </td><td> 0.4.1+svn20090725.<a class="missing changeset" title="No changeset 6 in the repository">r6</a>-1 </td><td> LSI MegaRAID / MegaRAID SAS </td><td>X</td><td>X
+</td></tr><tr><td> megamgr </td><td> 5.20-1 </td><td> LSI MegaRAID </td><td>X</td><td>X
+</td></tr><tr><td> dellgmr </td><td> 5.31-1 </td><td> LSI MegaRAID (Dell cards only) </td><td>X</td><td>X
+</td></tr><tr><td> megaclisas-status </td><td> 0.7 </td><td> LSI MegaRAID SAS </td><td>X</td><td>X
+</td></tr><tr><td> megacli </td><td> 5.00.12-1 </td><td> LSI MegaRAID SAS </td><td>X</td><td>X
+</td></tr><tr><td> megaide-status </td><td> 0.2 </td><td> LSI MegaIDE </td><td>X</td><td>X
+</td></tr><tr><td> megaide-spyd </td><td> 7.24.26-3 </td><td> LSI MegaIDE </td><td> </td><td>X
+</td></tr><tr><td> mpt-status </td><td> 1.2.0-4.2.hwraid1 </td><td> LSI FusionMPT </td><td>X</td><td>X
+</td></tr><tr><td> lsiutil </td><td> 1.60-1 </td><td> LSI FusionMPT </td><td>X</td><td>X
+</td></tr><tr><td> sas2ircu </td><td> 5.00.00.00-1 </td><td> LSI FusionMPT SAS2 </td><td>X</td><td>X
+</td></tr><tr><td> sas2ircu-status </td><td> 0.3 </td><td> LSI FusionMPT SAS2 </td><td>X</td><td>X
+</td></tr></tbody></table>
+<p>
+<br><br>
+</p>
+</div>
+        
+        
+      </div>
+      
+    <div class="collapsed" id="attachments">
+        <h3 class="foldable"><a id="no1" href="#no1">Attachments</a></h3>
+        <ul>
+            <li>
+    <a href="http://hwraid.le-vert.net/attachment/wiki/DebianPackages/debian_logo.png" title="View attachment">debian_logo.png</a>
+      <a href="http://hwraid.le-vert.net/raw-attachment/wiki/DebianPackages/debian_logo.png" class="trac-rawlink" title="Download"><img src="download.png" alt="Download"></a>
+       (<span title="759 bytes">759 bytes</span>) -
+      added by <em>gandalf</em> <a class="timeline" href="http://hwraid.le-vert.net/timeline?from=2008-08-25T17%3A59%3A31%2B02%3A00&amp;precision=second" title="2008-08-25T17:59:31+02:00 in Timeline">3 years</a> ago.
+              <q>debian_logo</q>
+            </li>
+            <li>
+    <a href="http://hwraid.le-vert.net/attachment/wiki/DebianPackages/ubuntu_logo.png" title="View attachment">ubuntu_logo.png</a>
+      <a href="http://hwraid.le-vert.net/raw-attachment/wiki/DebianPackages/ubuntu_logo.png" class="trac-rawlink" title="Download"><img src="download.png" alt="Download"></a>
+       (<span title="4791 bytes">4.7 KB</span>) -
+      added by <em>gandalf</em> <a class="timeline" href="http://hwraid.le-vert.net/timeline?from=2009-04-27T23%3A41%3A17%2B02%3A00&amp;precision=second" title="2009-04-27T23:41:17+02:00 in Timeline">3 years</a> ago.
+              <q>ubuntu_logo</q>
+            </li>
+        </ul>
+    </div>
+
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://hwraid.le-vert.net/wiki/DebianPackages?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" xml:lang="en" lang="en"><hr>
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="trac_logo_mini.png" alt="Trac Powered" height="30" width="107"></a>
+      <p class="left">Powered by <a href="http://hwraid.le-vert.net/about"><strong>Trac 0.12.2</strong></a><br>
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.</p>
+      <p class="right">Visit the Trac open source project at<br><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+    <div id="sitefooter">
+<!-- Google Analytics -->
+  
+  
+<!-- Google Analytics End -->
+<!-- Paypal Button -->
+  <form action="https://www.paypal.com/cgi-bin/webscr" method="post"><div><input name="__FORM_TOKEN" value="c54597e8dce81e38e6201175" type="hidden"></div>
+  <input name="cmd" value="_s-xclick" type="hidden">
+  <input name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7----- " type="hidden">
+  <input src="btn_donatecc_lg.gif" name="submit" alt="PayPal - The safer, easier way to pay online!" border="0" type="image">
+  <img alt="" src="pixel.gif" id="paypal_button" border="0" height="1" width="1">
+  </form>
+<!-- Paypal Button End -->
+    </div>
+  
+</body>
+</html>

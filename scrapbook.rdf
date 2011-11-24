@@ -5,6 +5,8 @@
   <RDF:Seq RDF:about="urn:scrapbook:item20111011135411">
     <RDF:li RDF:resource="urn:scrapbook:item20111008171606"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111013165656"/>
+    <RDF:li RDF:resource="urn:scrapbook:item20111123191406"/>
+    <RDF:li RDF:resource="urn:scrapbook:item20111123193400"/>
   </RDF:Seq>
   <RDF:Description RDF:about="urn:scrapbook:item20111011135411"
                    NS1:id="20111011135411"
@@ -22,6 +24,25 @@
                    NS1:comment=""
                    NS1:source="http://lxc.sourceforge.net/"
                    NS1:icon="resource://scrapbook/data/20111008110717/favicon.ico" />
+  <RDF:Description RDF:about="urn:scrapbook:item20111123193400"
+                   NS1:id="20111123193400"
+                   NS1:type=""
+                   NS1:title="DebianPackages – HWraid"
+                   NS1:chars="UTF-8"
+                   NS1:comment=""
+                   NS1:source="http://hwraid.le-vert.net/wiki/DebianPackages"
+                   NS1:icon="resource://scrapbook/data/20111123193400/trac.ico" />
+  <RDF:Seq RDF:about="urn:scrapbook:item20111123192724">
+    <RDF:li RDF:resource="urn:scrapbook:item20111123192732"/>
+  </RDF:Seq>
+  <RDF:Description RDF:about="urn:scrapbook:item20111123192724"
+                   NS1:id="20111123192724"
+                   NS1:type="folder"
+                   NS1:title="tool"
+                   NS1:chars=""
+                   NS1:icon=""
+                   NS1:source=""
+                   NS1:comment="" />
   <RDF:Seq RDF:about="urn:scrapbook:item20111011025119">
     <RDF:li RDF:resource="urn:scrapbook:item20111011025049"/>
   </RDF:Seq>
@@ -49,6 +70,14 @@
                    NS1:comment=""
                    NS1:source="http://www.tldp.org/HOWTO/Adv-Routing-HOWTO/lartc.netfilter.html"
                    NS1:icon="resource://scrapbook/data/20111013172255/favicon.ico" />
+  <RDF:Description RDF:about="urn:scrapbook:item20111123191406"
+                   NS1:id="20111123191406"
+                   NS1:type=""
+                   NS1:title="Verse is a Jabber/XMPP library for Lua. It is suited to both high-level "
+                   NS1:chars="UTF-8"
+                   NS1:comment=""
+                   NS1:source="http://matthewwild.co.uk/projects/verse/home"
+                   NS1:icon="resource://scrapbook/data/20111123191406/favicon.ico" />
   <RDF:Description RDF:about="urn:scrapbook:item20111011030037"
                    NS1:id="20111011030037"
                    NS1:type=""
@@ -65,6 +94,14 @@
                    NS1:comment=""
                    NS1:source="http://nevercertain.com/2011/02/03/scala-android-intellij-win-part-1-prerequisites.html"
                    NS1:icon="resource://scrapbook/data/20111013171540/favicon.ico" />
+  <RDF:Description RDF:about="urn:scrapbook:item20111123192732"
+                   NS1:id="20111123192732"
+                   NS1:type=""
+                   NS1:title="DELL PERC5/i Integrated - Emergency Cheat Sheet"
+                   NS1:chars="UTF-8"
+                   NS1:comment=""
+                   NS1:icon=""
+                   NS1:source="http://tools.rapidsoft.de/perc/perc-cheat-sheet.html" />
   <RDF:Seq RDF:about="urn:scrapbook:item20111009164221">
     <RDF:li RDF:resource="urn:scrapbook:item20111009165128"/>
   </RDF:Seq>
@@ -237,6 +274,14 @@
                    NS1:comment=""
                    NS1:source="http://code.google.com/p/disruptor/"
                    NS1:icon="resource://scrapbook/data/20111013170931/phosting.ico" />
+  <RDF:Description RDF:about="urn:scrapbook:item20111124104437"
+                   NS1:id="20111124104437"
+                   NS1:type="note"
+                   NS1:chars="UTF-8"
+                   NS1:comment=""
+                   NS1:icon=""
+                   NS1:source=""
+                   NS1:title="test" />
   <RDF:Description RDF:about="urn:scrapbook:item20111028114616"
                    NS1:id="20111028114616"
                    NS1:type=""
@@ -286,6 +331,7 @@
                    NS1:source=""
                    NS1:comment="" />
   <RDF:Seq RDF:about="urn:scrapbook:root">
+    <RDF:li RDF:resource="urn:scrapbook:item20111123192724"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111013200025"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111013195938"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111013195551"/>
@@ -299,5 +345,6 @@
     <RDF:li RDF:resource="urn:scrapbook:item20111011025119"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111011135350"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111009164221"/>
+    <RDF:li RDF:resource="urn:scrapbook:item20111124104437"/>
   </RDF:Seq>
 </RDF:RDF>

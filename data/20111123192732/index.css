@@ -1,0 +1,26 @@
+/* ::::: http://tools.rapidsoft.de/perc/perc-cheat-sheet.css ::::: */
+
+.cmr-17 { font-size: 141%; }
+.cmbx-12x-x-144 { font-size: 144%; font-weight: bold; }
+.cmbx-12x-x-144 { font-weight: bold; }
+.cmr-12x-x-120 { font-size: 120%; }
+.cmtt-12x-x-120 { font-size: 120%; font-family: monospace; }
+.cmtt-12x-x-120 { font-family: monospace; }
+.cmtt-12x-x-120 { font-family: monospace; }
+.cmbx-12 { font-weight: bold; }
+.cmbx-12 { font-weight: bold; }
+.cmtt-12 { font-family: monospace; }
+.cmtt-12 { font-family: monospace; }
+.cmtt-12 { font-family: monospace; }
+.cmti-12 { font-style: italic; }
+.cmitt-10x-x-120 { font-family: monospace; font-style: italic; }
+.cmbxti-10x-x-120 { font-weight: bold; font-style: italic; }
+p.noindent { text-indent: 0em; }
+@media print {
+  div.crosslinks { visibility: hidden; }
+}
+.enumerate1 { list-style-type: decimal; }
+.obeylines-h, .obeylines-v { white-space: nowrap; }
+div.center, div.center div.center { text-align: center; margin-left: 1em; margin-right: 1em; }
+span#textcolor1 { color: rgb(153, 153, 153); }
+span#textcolor1 { color: rgb(153, 153, 153); }

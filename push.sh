@@ -11,4 +11,4 @@ do
 done
 
 git add . >& /dev/null
-git commit --all --file .git/AUTO_COMMIT_MSG >& /dev/null && git push git@github.com:azuwis/scrap.git gh-pages
+git commit --all --file .git/AUTO_COMMIT_MSG >& /dev/null && git push --quiet git@github.com:azuwis/scrap.git gh-pages

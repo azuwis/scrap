@@ -11,4 +11,4 @@ do
 done
 
 git add .
-git commit -a --file .git/AUTO_COMMIT_MSG && git push git@github.com:azuwis/scrap.git gh-pages
+git commit -q -a --file .git/AUTO_COMMIT_MSG && git push git@github.com:azuwis/scrap.git gh-pages

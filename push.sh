@@ -1,5 +1,5 @@
 #!/bin/bash
-echo > .git/AUTO_COMMIT_MSG
+echo "AUTO COMMIT\n" > .git/AUTO_COMMIT_MSG
 git status --porcelain | awk '/^\?\? data/ {print $2}' | while read d
 do
 	if [ -e $d/index.dat ]; then
@@ -9,5 +9,5 @@ do
 done
 
 git add .
-git commit --file .git/AUTO_COMMIT_MSG
+git commit -a --file .git/AUTO_COMMIT_MSG
 #git push

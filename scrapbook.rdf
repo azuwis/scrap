@@ -274,14 +274,6 @@
                    NS1:comment=""
                    NS1:source="http://code.google.com/p/disruptor/"
                    NS1:icon="resource://scrapbook/data/20111013170931/phosting.ico" />
-  <RDF:Description RDF:about="urn:scrapbook:item20111124104437"
-                   NS1:id="20111124104437"
-                   NS1:type="note"
-                   NS1:chars="UTF-8"
-                   NS1:comment=""
-                   NS1:icon=""
-                   NS1:source=""
-                   NS1:title="test" />
   <RDF:Description RDF:about="urn:scrapbook:item20111028114616"
                    NS1:id="20111028114616"
                    NS1:type=""
@@ -345,6 +337,5 @@
     <RDF:li RDF:resource="urn:scrapbook:item20111011025119"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111011135350"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111009164221"/>
-    <RDF:li RDF:resource="urn:scrapbook:item20111124104437"/>
   </RDF:Seq>
 </RDF:RDF>

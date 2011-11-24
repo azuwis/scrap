@@ -1,4 +1,5 @@
 #!/bin/bash
+cd `dirname $0`
 echo "AUTO COMMIT" > .git/AUTO_COMMIT_MSG
 echo >> .git/AUTO_COMMIT_MSG
 git status --porcelain | awk '/^\?\? data/ {print $2}' | while read d

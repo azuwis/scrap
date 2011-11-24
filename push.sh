@@ -1,5 +1,6 @@
 #!/bin/bash
-echo "AUTO COMMIT\n" > .git/AUTO_COMMIT_MSG
+echo "AUTO COMMIT" > .git/AUTO_COMMIT_MSG
+echo >> .git/AUTO_COMMIT_MSG
 git status --porcelain | awk '/^\?\? data/ {print $2}' | while read d
 do
 	if [ -e $d/index.dat ]; then

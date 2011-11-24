@@ -10,5 +10,4 @@ do
 done
 
 git add .
-git commit -a --file .git/AUTO_COMMIT_MSG
-#git push
+git commit -a --file .git/AUTO_COMMIT_MSG && git push

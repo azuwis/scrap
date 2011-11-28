@@ -163,6 +163,7 @@
                    NS1:icon="resource://scrapbook/data/20111011025049/favicon.ico" />
   <RDF:Seq RDF:about="urn:scrapbook:item20111013195938">
     <RDF:li RDF:resource="urn:scrapbook:item20111013195943"/>
+    <RDF:li RDF:resource="urn:scrapbook:item20111128131253"/>
   </RDF:Seq>
   <RDF:Description RDF:about="urn:scrapbook:item20111013195938"
                    NS1:id="20111013195938"
@@ -183,6 +184,14 @@
                    NS1:icon=""
                    NS1:source=""
                    NS1:comment="" />
+  <RDF:Description RDF:about="urn:scrapbook:item20111128131253"
+                   NS1:id="20111128131253"
+                   NS1:type=""
+                   NS1:title="Change Git Author/Committer Name and eMail in the History"
+                   NS1:chars="UTF-8"
+                   NS1:comment=""
+                   NS1:source="http://pubmem.wordpress.com/2011/04/09/change-git-authorcommitter-name-and-email-in-the-history/"
+                   NS1:icon="resource://scrapbook/data/20111128131253/93c06af18032e21b7df794c647fc8804" />
   <RDF:Description RDF:about="urn:scrapbook:item20111013170931"
                    NS1:id="20111013170931"
                    NS1:type=""

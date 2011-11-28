@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="shortcut icon" href="favicon.ico">
+
+
+<meta name="robots" content="noindex,nofollow">
+
+<title>DebianOnFreeRunner - Debian Wiki</title>
+
+
+
+
+
+
+
+
+
+
+
+<!-- css only for MS IE6/IE7 browsers -->
+<!--[if lt IE 8]>
+   <link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="/htdocs/debwiki/css/msie.css">
+<![endif]-->
+
+
+
+
+
+<link rel="Start" href="http://wiki.debian.org/FrontPage">
+<link rel="Alternate" title="Wiki Markup" href="http://wiki.debian.org/DebianOnFreeRunner?action=raw">
+<link rel="Alternate" media="print" title="Print View" href="http://wiki.debian.org/DebianOnFreeRunner?action=print">
+<link rel="Search" href="http://wiki.debian.org/FindPage">
+<link rel="Index" href="http://wiki.debian.org/TitleIndex">
+<link rel="Glossary" href="http://wiki.debian.org/WordIndex">
+<link rel="Help" href="http://wiki.debian.org/HelpOnFormatting">
+
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body dir="ltr" lang="en">
+<div id="page" dir="ltr" lang="en">
+<div dir="ltr" id="content" lang="en">
+<!--DOCUMENT_FRAGMENT-->
+<p class="line874">To build packages for armel with <strong class="highlight">qemubuilder</strong>, you can use this setup (everything run as root) <span class="anchor" id="line-533"></span><span class="anchor" id="line-534"></span></p><ul><li>Get <strong class="highlight">qemubuilder</strong> v0.48 or newer (otherwise <strong class="highlight">qemubuilder</strong> does not know the armel architecture) <span class="anchor" id="line-535"></span></li><li><p class="line862">Get a kernel from <a class="http" href="http://ftp.us.debian.org/debian/dists/sid/main/installer-armel/current/images/versatile/netboot/vmlinuz-2.6.30-2-versatile">http://ftp.us.debian.org/debian/dists/sid/main/installer-armel/current/images/versatile/netboot/vmlinuz-2.6.30-2-versatile</a> <span class="anchor" id="line-536"></span></p></li><li><p class="line862">Create  a configuration file <tt>armel-rc</tt> with this content (adjust paths to your liking): <span class="anchor" id="line-537"></span><span class="anchor" id="line-538"></span><span class="anchor" id="line-539"></span><span class="anchor" id="line-540"></span><span class="anchor" id="line-541"></span><span class="anchor" id="line-542"></span><span class="anchor" id="line-543"></span></p><pre><span class="anchor" id="line-1-33"></span>KERNEL_IMAGE=/var/cache/pbuilder/armel/vmlinuz-2.6.30-2-versatile
+<span class="anchor" id="line-2-10"></span>ARCH=armel
+<span class="anchor" id="line-3-7"></span>BASEPATH=/var/cache/pbuilder/armel/base.qemu
+<span class="anchor" id="line-4-5"></span>MEMORY_MEGS=256
+<span class="anchor" id="line-5-3"></span>MIRRORSITE=http://the-mirror-of-your-choice/debian</pre><span class="anchor" id="line-544"></span><ul><li><p class="line862">With <tt>MEMORY_MEGS=512</tt>, qemu-system-arm may segfault and <strong class="highlight">qemubuilder</strong> hang. See <a class="interwiki open-bug" href="http://bugs.debian.org/503091" title="Open in cowdancer/0.48: #503091: qemubuilder hangs when child qemu segfaults">503091</a> and <a class="interwiki closed-bug" href="http://bugs.debian.org/527264" title="Closed in qemu/0.10.4-1: #527264: qemu-system-arm: segfaults when launched with &gt; 256 MB of RAM">527264</a>. -- <a href="http://wiki.debian.org/StephaneGlondu">StephaneGlondu</a> 2009-05-06 14:17:59 <span class="anchor" id="line-545"></span></p></li></ul></li><li><p class="line862">Run <tt><strong class="highlight">qemubuilder</strong>&nbsp;--configfile&nbsp;armel-rc&nbsp;&nbsp;--create</tt> <span class="anchor" id="line-546"></span></p></li><li><p class="line862">Run <tt><strong class="highlight">qemubuilder</strong>&nbsp;--configfile&nbsp;armel-rc&nbsp;&nbsp;--login&nbsp;--save-after-login</tt> and adjust the apt-sources (see above) <span class="anchor" id="line-547"></span></p></li><li><p class="line862">Run <tt><strong class="highlight">qemubuilder</strong>&nbsp;--configfile&nbsp;armel-rc&nbsp;&nbsp;--update</tt> <span class="anchor" id="line-548"></span></p></li><li><p class="line862">Build packages with <tt><strong class="highlight">qemubuilder</strong>&nbsp;--configfile&nbsp;armel-rc&nbsp;&nbsp;--build&nbsp;package.dsc</tt> <span class="anchor" id="line-549"></span></p></li><li>Extra tip: If you copy armel-rc as ~/.pbuilderrc you don't need to specify "--build armel-rc" every time you use <strong class="highlight">qemubuilder</strong>. <span class="anchor" id="line-550"></span></li><li><p class="line891"><strong>NOTE</strong>: If you are getting a kernel panic with an error like <em>Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(0,0)</em>, then you may want to try using an older kernel version at <a class="http" href="http://people.debian.org/%7Eaurel32/qemu/armel/">http://people.debian.org/~aurel32/qemu/armel/</a>. <span class="anchor" id="line-551"></span></p></li><li><p class="line891"><strong>NOTE</strong>: after having some trouble with setting up <strong class="highlight">qemubuilder</strong>, i've put working instructions and a working kernel image to <a class="http" href="http://yoush.homelinux.org:8079/tech/setting-up-armel-qemubuilder">http://yoush.homelinux.org:8079/tech/setting-up-armel-<strong class="highlight">qemubuilder</strong></a> -- <a class="nonexistent" href="http://wiki.debian.org/NikitaYoushchenko">NikitaYoushchenko</a> 2009-01-03 15:37:00 <span class="anchor" id="line-552"></span></p></li></ul><p class="line862"><strong class="highlight">Qemubuilder</strong> always starts from a clean base image and installs only build dependencies needed by the package that is being built. This is nice for repeatable builds but can be slow if you only need to make test many small changes or want to debug the builds process interactively. For this reason you might want to fetch a complete arm installation from e.g. <a class="http" href="http://people.debian.org/%7Eaurel32/qemu/armel/">http://people.debian.org/~aurel32/qemu/armel/</a>. </p>
+<!--/DOCUMENT_FRAGMENT-->
+</div>
+</div>
+</body>
+</html>

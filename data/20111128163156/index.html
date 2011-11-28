@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" class="cufon-active cufon-loading">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  	
+  	<title>Documentation | Puppet Labs - Inventory Service</title>
+  	<meta name="description" content="The open source leader in data center automation">
+  	<link rel="alternate" type="text/xml" title="Puppet Labs RSS 0.92 Feed" href="http://puppetlabs.com/feed/rss/">
+  	<link rel="alternate" type="application/atom+xml" title="Puppet Labs Atom Feed" href="http://puppetlabs.com/feed/atom/">
+  	<link rel="alternate" type="application/rss+xml" title="Puppet Labs RSS 2.0 Feed" href="http://puppetlabs.com/feed/">
+  	<link rel="pingback" href="http://puppetlabs.com/xmlrpc.php">
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://puppetlabs.com/xmlrpc.php?rsd">
+    <link rel="index" title="Puppet Labs" href="http://docs.puppetlabs.com/">
+
+<!-- Google stats -->
+
+
+<!-- End Google stats -->
+
+
+    <!-- FIXME: absolute paths -->
+
+    
+    
+    
+    
+    
+    
+
+     <!--Add rotation jQuery Script -->
+	 	
+    
+
+    <!-- All in One SEO Pack 1.6.10.1 by Michael Torbert of Semper Fi Web Design[127,146] -->
+    <meta name="keywords" content="Puppet, puppet labs, reductive labs, open source, system administrator, ruby, data center, automation, support">
+    <link rel="canonical" href="http://docs.puppetlabs.com/">
+    <!-- /all in one seo pack -->
+	
+    <!-- FIXME: absolute paths -->
+
+     
+     <!-- index -->
+    
+
+    <!--[if IE 7]>
+	  <link rel="stylesheet" type="text/css" href="/files/stylesheets/ie_7.css" media="screen"> <!-- index -->
+    <!--[endif]---->
+  
+    <!--[if IE 8]>
+	    <link rel="stylesheet" type="text/css" href="/files/stylesheets/ie_8.css" media="screen"> <!-- index -->
+    <!--[endif]---->		
+
+  	
+
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body id="puppetlabsdocs" class="docs">
+  		
+  <!--[if IE 8]>
+    <style type="text/css">h1, h2{ visibility : visible }</style>
+  <![endif]-->		
+
+  	<header id="header">
+      <div class="site-width">
+    		<h1><a href="http://puppetlabs.com/"><span>Puppet Labs</span></a></h1>
+        <a class="screen-reader-content" href="#content">Skip navigation</a>
+        <nav>
+    		<ul id="global-navigation">
+          <li id="puppet-tab" class="with-submenu">
+            <a href="http://www.puppetlabs.com/puppet/">
+              <span>Products</span>
+
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>            
+              <li>
+                <ul>
+<li class="page_item page-item-769"><a href="http://www.puppetlabs.com/puppet/puppet-enterprise/" title="Puppet Enterprise">Puppet Enterprise</a></li>
+<li class="page_item page-item-757"><a href="http://www.puppetlabs.com/puppet/introduction/" title="Puppet">Puppet</a></li>
+<li class="page_item page-item-956"><a href="http://www.puppetlabs.com/puppet/how-to-buy/" title="How to Buy">How to Buy</a></li>
+<li class="page_item page-item-1159"><a href="http://forge.puppetlabs.com/" title="Module Forge">Module Forge</a></li>
+
+<li class="page_item page-item-2415"><a href="http://www.puppetlabs.com/mcollective/introduction/" title="MCollective">MCollective</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="services-tab" class="with-submenu">
+            <a href="http://www.puppetlabs.com/services/">
+              <span>Services</span>
+              <span class="drop-down-trigger"></span>
+
+            </a>
+            <ul>
+              <li class="page_item page-item-783"><a href="http://www.puppetlabs.com/services/overview/" title="Overview">Overview</a></li>
+<li class="page_item page-item-839"><a href="http://www.puppetlabs.com/services/support/" title="Enterprise Support">Enterprise Support</a></li>
+<li class="page_item page-item-845"><a href="http://www.puppetlabs.com/services/training-workshops/" title="On-Site Training &amp; Consulting">On-Site Training <span class="ampersand">&amp;</span> Consulting</a></li>
+<li class="page_item page-item-849"><a href="http://docs.puppetlabs.com/category/events/upcoming/" title="Events &amp; Public Training">Events <span class="ampersand">&amp;</span> Public Training</a></li>
+<li class="page_item page-item-851"><a href="http://www.puppetlabs.com/services/partners/" title="Partners">Partners</a></li>
+<li class="page_item page-item-1037"><a href="http://docs.puppetlabs.com/resources/customer-support" title="Customer Support">Customer Support</a></li>
+            </ul>
+          </li>
+          <li id="resources-tab" class="with-submenu">
+            <a href="http://www.puppetlabs.com/resources/">
+              <span>Resources</span>
+
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-1048"><a href="http://www.puppetlabs.com/resources/overview-2/" title="Overview">Overview</a></li>
+<li class="page_item page-item-1052"><a href="http://www.puppetlabs.com/resources/customer-support/" title="Customer Support">Customer Support</a></li>
+<li class="page_item page-item-1040"><a href="http://docs.puppetlabs.com/" title="Documentation">Documentation</a></li>
+<li class="page_item page-item-872"><a href="http://info.puppetlabs.com/register-download" title="Downloads">Downloads</a></li>
+<li class="page_item page-item-1961"><a href="http://forge.puppetlabs.com/" title="Module Forge">Module Forge</a></li>
+<li class="page_item page-item-835"><a href="http://info.puppetlabs.com/request-whitepapers.html" title="White Papers">White Papers</a></li>
+<li class="page_item page-item-1967"><a href="http://projects.puppetlabs.com/projects/puppet/wiki" title="Wiki">Wiki</a></li>
+            </ul>
+
+          </li>
+
+<li id="customer-tab" class="with-submenu">
+            <a href="http://www.puppetlabs.com/customers/companies/">
+              <span>Customers</span>
+
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-1048"><a href="http://www.puppetlabs.com/customers/companies/" title="Overview">Companies</a></li>
+<li class="page_item page-item-1052"><a href="http://www.puppetlabs.com/customers/case-studies/" title="Case Studies">Case Studies</a></li>
+<li class="page_item page-item-1040"><a href="http://www.puppetlabs.com/customers/product-testimonials/" title="Product Testimonials">Product Testimonials</a></li>
+<li class="page_item page-item-872"><a href="http://www.puppetlabs.com/customers/what-customers-are-saying/" title="ervice Testimonials">Service Testimonials</a></li>
+	</ul>
+          </li>
+         <li id="community-tab" class="with-submenu">
+            <a href="http://www.puppetlabs.com/community/">
+              <span>Community</span>
+
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-2195"><a href="http://www.puppetlabs.com/community/overview/" title="Overview">Overview</a></li>
+<li class="page_item page-item-2195"><a href="http://www.puppetlabs.com/blog" title="Blog">Blog</a></li>
+<li class="page_item page-item-2264"><a href="http://www.puppetlabs.com/community/puppet-camp/" title="Puppet Camp">Puppet Camp</a></li>
+<li class="page_item page-item-2249"><a href="http://www.puppetlabs.com/community/user-groups-and-devops-groups/" title="User Groups &amp; DevOps Groups">User Groups <span class="ampersand">&amp;</span> DevOps Groups</a></li>
+<li class="page_item page-item-2215"><a href="http://www.puppetlabs.com/community/presentations/" title="Presentations">Presentations</a></li>
+
+<li class="page_item page-item-2217"><a href="http://www.puppetlabs.com/community/videos/" title="Videos">Videos</a></li>
+<li class="page_item page-item-2217"><a href="http://www.puppetlabs.com/community/badges/" title="Badges">Badges</a></li>
+            </ul>
+          </li>
+
+          <li id="company-tab" class="with-submenu">
+            <a href="http://www.puppetlabs.com/company/">
+              <span>Company</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+
+            <ul>
+              <li class="page_item page-item-2316"><a href="http://www.puppetlabs.com/company/overview/" title="Overview">Overview</a></li>
+<li class="page_item page-item-2179"><a href="http://www.puppetlabs.com/company/news/" title="News">News</a></li>
+<li class="page_item page-item-1571"><a href="http://www.puppetlabs.com/company/jobs/" title="Jobs">Jobs</a></li>
+<li class="page_item page-item-2313"><a href="http://www.puppetlabs.com/company/contact-us/" title="Contact Us">Contact Us</a></li>
+            </ul>
+          </li>
+    		</ul>	   
+          <div id="misc-navigation">
+
+			  <ul>
+				<li><a href="http://puppetlabs.com/security/">Security</a></li>
+				<li><a href="http://docs.puppetlabs.com/">Documentation</a></li>
+				<li><a href="http://puppetlabs.com/resources/customer-support/">Support</a></li>
+				<li><a href="http://projects.puppetlabs.com/">Bug Tracker</a></li>
+				<li><a href="http://puppetlabs.com/company/#contact">Contact Us</a></li>
+				<li><a href="http://info.puppetlabs.com/download-pe2.html" class="gateway">Download</a></li>
+			  </ul>
+			<form action="http://www.google.com/cse" id="cse-search-box">
+
+			  <div>
+				<input name="cx" value="017884045025332504017:1mnj-dlgfcc" type="hidden">
+				<input name="ie" value="UTF-8" type="hidden">
+				<input value="" style="background: url('google_custom_search_watermark.gif') no-repeat scroll left center rgb(255, 255, 255);" name="q" size="31" type="text">
+				<input name="sa" class="searchbtn" value="Search" type="submit">
+			  </div>
+			<input value="docs.puppetlabs.com/guides/inventory_service.html" name="siteurl" type="hidden"></form>
+			
+
+          </div>
+      </nav>
+    	</div>
+    </header>  
+
+      <section id="masthead">
+        <div class="site-width">
+          <h1>Docs: <span class="section-name">Inventory Service</span></h1>
+          <ul id="doc-navigation">
+            <li><a href="http://docs.puppetlabs.com/">Docs Home</a></li>
+            <li class="with-submenu">
+              <a href="#">
+                <span>Quick Nav</span>
+                <span class="drop-down-trigger"></span>
+              </a>
+               <!-- the following links can't be relative, unfortunately -->
+               <!-- future: add some JS to disable this if running from file:// -->
+               	            <dl>
+	              <dt>Puppet Guides</dt>
+                      <dd><a href="http://docs.puppetlabs.com/index.html">Index</a></dd>
+                  <dt>Puppet References</dt>
+                      <dd><a href="http://docs.puppetlabs.com/references/stable/type.html">Resource Types</a></dd>
+                      <dd><a href="http://docs.puppetlabs.com/references/stable/function.html">Functions</a></dd>
+                      <dd><a href="http://docs.puppetlabs.com/references/stable/metaparameter.html">Metaparameters</a></dd>
+                      <dd><a href="http://docs.puppetlabs.com/references/stable/configuration.html">Configuration</a></dd>
+                      <dt>References By Version</dt>
+                      <dd><a href="http://docs.puppetlabs.com/references/2.7.6/">2.7.6</a></dd>
+                      <dd><a href="http://docs.puppetlabs.com/references/2.6.12/">2.6.12</a></dd>
+                      <dd><a href="http://docs.puppetlabs.com/references/0.25.5/">0.25.5</a></dd>
+                      <dd><a href="http://docs.puppetlabs.com/references/0.24.8/">0.24.8</a></dd>
+                      <dd><a href="http://docs.puppetlabs.com/references/">Other Versions</a></dd>
+                  <dt>MCollective</dt>
+                      <dd><a href="http://docs.puppetlabs.com/mcollective/index.html">Index</a></dd>
+                      <dd><a href="http://docs.puppetlabs.com/mcollective/simplerpc/index.html">SimpleRPC</a></dd>
+                      <dd><a href="http://docs.puppetlabs.com/mcollective/roadmap/index.html">Roadmap</a></dd>
+                      <dd><a href="http://docs.puppetlabs.com/mcollective/releasenotes.html">Release Notes</a></dd>
+                      <dd><a href="http://docs.puppetlabs.com/mcollective/reference/index.html">References</a></dd>
+	            </dl>
+
+            </li>
+            <li><a href="http://docs.puppetlabs.com/contribute.html">Contribute</a></li>
+          </ul>
+        </div>
+      </section>
+    
+      <section id="content">
+        <div class="site-width">
+          <div class="primary-secondary-content">
+            <div class="primary-content">
+              <h1 id="inventory-service">Inventory Service</h1>
+
+<p>Set up and begin using the inventory service with one or more puppet master servers. <strong>This document refers to a feature currently under development.</strong></p>
+
+<hr>
+
+<p>Puppet 2.6.7 adds support for maintaining, reading, and searching an inventory of nodes. This can be used to generate reports about the composition of your site, to drastically extend the capabilities of your external node classifier, and probably to do a lot of things we haven’t even thought of yet. This service is designed as a <em>hackable public API.</em></p>
+
+<h2 id="why">Why</h2>
+
+<p>In order to compile and serve a catalog to an agent node, the puppet master has to collect a large amount of information about that node, in the form of Facter facts. If that info is written to a persistent store whenever it’s collected, it suddenly becomes a fairly detailed inventory of every node that Puppet controls or has controlled at a given site! This can be tremendously useful: Imagine being able to instantly find out which computers are still running CentOS 4.5 and need to be upgraded, or which computers have less than a certain amount of physical memory, or what percentage of your current infrastructure is in the cloud on EC2 instances. Build a good enough interface to the inventory, and the data becomes <em>knowledge.</em> That knowledge can then drive other tools; for example, you could let your provisioning system or node classifier make decisions about new hardware based on the properties of the existing infrastructure. </p>
+
+<p>Several users have built custom inventory functionality by directly reading either the puppet master’s YAML fact cache or the optional <a href="http://projects.puppetlabs.com/projects/1/wiki/Using_Stored_Configuration">storeconfigs</a> database. But both of these approaches were non-optimal:</p>
+
+<ul>
+  <li>The YAML cache is strictly local to one puppet master, and isn’t an accurate inventory in multi-master environments. Furthermore, repeatedly deserializing YAML is terribly slow, which can cause real problems depending on the use case. (Searching by fact, in particular, is basically not an option.)</li>
+  <li>Storeconfigs, on the other hand, is global to the site, but it’s essentially a private API: Since the only officially supported use of it is for sharing exported resources, the only way to get fact data out of it is to read the database directly, and there’s been no guarantee against the schema changing. Furthermore, storeconfigs is too heavyweight for users who just want an inventory, since it stores every resource and tag in each node’s catalog in addition to the node’s facts, and even the “thin” storeconfigs option stores a LOT of data. Implementing storeconfigs at a reasonable scale demands setting up a message queue, and even that extra infrastructure doesn’t necessarily make it viable at a very large scale.</li>
+</ul>
+
+<p>Thus, the Puppet inventory service: a relatively speedy implementation that does one thing well and exposes a public network API.</p>
+
+<h2 id="what-it-is">What It Is</h2>
+
+<p>The <em>inventory</em> is a collection of node facts. The <em>inventory service</em> is a retrieval, storage, and search API exposed to the network by the puppet master. </p>
+
+<p>The puppet master updates the inventory when agent nodes report their facts, which happens every time puppet agent requests a catalog. Optionally, additional puppet masters can use the REST API to send facts from their agents to the central inventory. </p>
+
+<p>Other tools, including Puppet Dashboard, can query the inventory via the puppet master’s REST API. An API call can return:</p>
+
+<ul>
+  <li>Complete facts for a single node</li>
+</ul>
+
+<p>or </p>
+
+<ul>
+  <li>A list of nodes whose facts meet some search condition</li>
+</ul>
+
+<p>Information in the inventory is never automatically expired, but it is timestamped. </p>
+
+<h3 id="consumers-of-the-inventory-service">Consumers of the Inventory Service</h3>
+
+<p>The inventory service is primarily meant for external applications, and its data is not currently read by any part of Puppet. The only application which currently consumes the inventory data is Puppet Dashboard version 1.1.0, which can display facts in node views and provides a web interface for searching the inventory by fact.</p>
+
+<h2 id="using-the-inventory-service">Using the Inventory Service</h2>
+
+<p>The inventory service is plain vanilla REST: Submit HTTP requests, get back structured fact or host data. </p>
+
+<p>To read from the inventory, submit secured HTTP requests to the puppet master’s <code>facts</code> and <code>facts_search</code> REST endpoints in the appropriate environment. Your API client will have to have an SSL certificate signed by the puppet master’s CA.</p>
+
+<p>Full documentation of these endpoints can be found <a href="http://docs.puppetlabs.com/guides/rest_api.html#facts">here</a>, but a summary follows:</p>
+
+<ul>
+  <li>To retrieve the facts for testnode.localdomain, send a GET request to <a href="https://puppet:8140/production/facts/testnode.localdomain">https://puppet:8140/production/facts/testnode.localdomain</a>. </li>
+  <li>To retrieve a list of all Ubuntu nodes with two or more processors, send a GET request to <a href="https://puppet:8140/production/facts_search/search?facts.processorcount.ge=2&amp;facts.operatingsystem=Ubuntu">https://puppet:8140/production/facts_search/search?facts.processorcount.ge=2<span class="ampersand">&amp;</span>facts.operatingsystem=Ubuntu</a>. </li>
+</ul>
+
+<p>In both cases, be sure to specify an <code>Accept: pson</code> or <code>Accept: yaml</code> header.</p>
+
+<h2 id="setting-up-the-inventory-service">Setting Up the Inventory Service</h2>
+
+<h3 id="configuring-the-inventory-backend">Configuring the Inventory Backend</h3>
+
+<p>The inventory service’s backend is configured with the <code>facts_terminus</code> setting in the puppet master’s section of <code>puppet.conf</code>.</p>
+
+<h4 id="for-prototyping-yaml">For Prototyping: YAML</h4>
+
+<pre><code>[master]
+    facts_terminus = yaml
+</code></pre>
+
+<p>You can actually start using the inventory service with the YAML backend immediately — <code>yaml</code> is the default value for <code>facts_terminus</code>, and the YAML cache of any previously used puppet master will already be populated with fact information. Just configure access (see below) and you’re good to go.</p>
+
+<h4 id="for-production-database">For Production: Database</h4>
+
+<pre><code>[master]
+    facts_terminus = inventory_active_record
+    dblocation = {sqlite file path (sqlite only)}
+    dbadapter = {sqlite3|mysql|postgresql|oracle_enhanced}
+    dbname = {database name (all but sqlite)}
+    dbuser = {database user (all but sqlite)}
+    dbpassword = {database password (all but sqlite)}
+    dbserver = {database server (MySQL and PostgreSQL only)}
+    dbsocket = {database socket file (MySQL only; optional)}
+</code></pre>
+
+<p>Before using the database facts backend, you’ll have to fulfill a number of requirements: </p>
+
+<ul>
+  <li>Puppet master will need access to both a database and a user account with all privileges on that database; setting that up is outside the scope of this document. The database server can be remote or on the local host. </li>
+  <li>You’ll need to ensure that the copy of Ruby in use by puppet master is able to communicate with your chosen type of database server. This will <em>always</em> entail ensuring that Rails is installed, and will <em>likely</em> require installing a specific Ruby library to interface with the database (e.g. the <code>libmysql-ruby</code> package on Debian and Ubuntu or the <code>mysql</code> gem on other operating systems). </li>
+</ul>
+
+<p>These requirements are essentially identical to those used by storeconfigs, so <a href="http://projects.puppetlabs.com/projects/1/wiki/Using_Stored_Configuration">the Puppet wiki page for storeconfigs</a> can be helpful. Getting MySQL on the local host configured is very well-documented; other options, less so.</p>
+
+<h4 id="for-multiple-puppet-masters-rest">For Multiple Puppet Masters: REST</h4>
+
+<pre><code>[master]
+    facts_terminus = rest
+    inventory_server = {inventorying puppet master; defaults to "puppet"}
+    inventory_port = 8140 (unless changed)
+</code></pre>
+
+<p>In addition to writing to its local YAML cache, any puppet master with a <code>facts_terminus</code> of <code>rest</code> will submit facts to another puppet master, which is hopefully using the <code>inventory_active_record</code> backend. </p>
+
+<h3 id="configuring-access">Configuring Access</h3>
+
+<p>By default, the inventory service is not accessible! This is sane. The inventory service exposes sensitive information about your infrastructure over the network, so you’ll need to carefully control access with the <a href="http://docs.puppetlabs.com/guides/rest_auth_conf.html"><code>rest_authconfig</code> (a.k.a. <code>auth.conf</code>)</a> file.</p>
+
+<p>For prototyping your inventory application on a scratch puppet master, you can just permit all access to the <code>facts</code> endpoint:</p>
+
+<pre><code>path /facts
+auth any
+method find, search
+allow *
+</code></pre>
+
+<p>(Note that this will allow access to both <code>facts</code> and <code>facts_search</code>, since the path is read as a prefix.)</p>
+
+<p>For production deployment, you’ll need to allow find and search access for your application, allow save access for any other puppet masters at your site (so they can submit their nodes’ facts), and deny access to all other machines. (Since agent nodes submit their facts as part of their request to the <code>catalog</code> resource, they don’t require access to the <code>facts</code> or <code>facts_search</code> resources.) One such possible ACL set would be:</p>
+
+<pre><code>path /facts
+auth yes
+method find, search
+allow custominventorybrowser.puppetlabs.lan
+
+path /facts
+auth yes
+method save
+allow puppetmaster1.puppetlabs.lan, puppetmaster2.puppetlabs.lan, puppetmaster3.puppetlabs.lan
+</code></pre>
+
+<h3 id="configuring-certificates">Configuring Certificates</h3>
+
+<p>To connect your application securely, you’ll need a certificate signed by your site’s puppet CA. There are two main ways to get this: </p>
+
+<ul>
+  <li><strong>On the puppet master:</strong> 
+    <ul>
+      <li>Run <code>puppet cert --generate {certname for application}</code>.</li>
+      <li>Then, retrieve the private key (<code>{ssldir}/certs/{certname}.pem</code>) and the signed certificate (<code>{ssldir}/private_keys/{certname}.pem</code>) and move them to your application server. </li>
+    </ul>
+  </li>
+  <li><strong>Manually:</strong> 
+    <ul>
+      <li>Generate an RSA private key: <code>openssl genrsa -out {certname}.pem 1024</code>.</li>
+      <li>Generate a certificate signing request (CSR): <code>openssl req -new -key {certname}.pem -subj "/CN={certname}" -out request.csr</code>.</li>
+      <li>Submit the CSR to the puppet master for signing: <code>curl -k -X PUT -H "Content-Type: text/plain" --data-binary @request.csr https://puppet:8140/production/certificate_request/no_key</code>.</li>
+      <li>Sign the certificate on the puppet master: <code>puppet cert --sign {certname}</code>.</li>
+      <li>Retrieve the certificate: <code>curl -k -H -o {certname}.pem "Accept: s" https://puppet:8140/production/certificate/{certname}</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p>For one-off applications, generating it on the master is obviously easier, but if you’re building a tool for distribution elsewhere, your users will appreciate it if you script the manual method and emulate the way puppet agent gets a cert.</p>
+
+<p>Protect your application’s private key appropriately, since it’s the gateway to your inventory data. </p>
+
+<p>In the event of a security breach, the application’s certificate is revokable the same way any puppet agent certificate would be.</p>
+
+<h2 id="testing-the-inventory-service">Testing the Inventory Service</h2>
+
+<p>On a machine that you’ve authorized to access the facts and facts_search resources, you can test the API using <code>curl</code>, as described in the <a href="http://docs.puppetlabs.com/guides/rest_api.html#facts">REST API docs</a>. To retrieve facts for a node:</p>
+
+<pre><code>curl -k -H "Accept: yaml" https://puppet:8140/production/facts/{node certname}
+</code></pre>
+
+<p>To insert facts for a fictional node into the inventory:</p>
+
+<pre><code>curl -k -X PUT -H 'Content-Type: text/yaml' --data-binary @/var/lib/puppet/yaml/facts/hostname.yaml https://puppet:8140/production/facts/{node certname}
+</code></pre>
+
+<p>To find out which nodes at your site are Intel Macs:</p>
+
+<pre><code>curl -k -H "Accept: pson" https://puppet:8140/production/facts_search/search?facts.hardwaremodel=i386<span class="ampersand">&amp;</span>facts.kernel=Darwin
+</code></pre>
+
+
+            </div>
+            <div class="secondary-content">
+                  <div id="subCol">
+                  
+                  
+                      <h3 class="chapter">Contents</h3>
+                      
+<ol class="toc">
+  <li class="toc-lv2"><a href="#why">Why</a></li>
+  <li class="toc-lv2"><a href="#what-it-is">What It Is</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#consumers-of-the-inventory-service">Consumers of the Inventory Service</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#using-the-inventory-service">Using the Inventory Service</a></li>
+  <li class="toc-lv2"><a href="#setting-up-the-inventory-service">Setting Up the Inventory Service</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#configuring-the-inventory-backend">Configuring the Inventory Backend</a></li>
+   <li class="toc-lv3"><a href="#configuring-access">Configuring Access</a></li>
+   <li class="toc-lv3"><a href="#configuring-certificates">Configuring Certificates</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#testing-the-inventory-service">Testing the Inventory Service</a></li>
+</ol>
+                  
+                                        <!-- New Ads are inserted here -->
+		  			<div id="bannerImage" style="display: block;">&nbsp;</div>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+		<footer id="footer">
+      <div class="site-width">
+
+        <div class="primary-secondary-content">
+          <div class="primary-content">
+            <section id="newsletter">
+                 <h4>Puppet Labs is Hiring</h4>
+                 <p><a href="http://www.puppetlabs.com/company/jobs/">Engineers, developers <span class="ampersand">&amp;</span> consultants</a>
+                  </p><p>  
+		</p><h4>Newsletter</h4>
+
+              <p>Stay up to date on all things puppet</p>
+              
+				<form class="lpeRegForm formNotEmpty" method="post" enctype="application/x-www-form-urlencoded" action="http://info.puppetlabs.com/index.php/leadCapture/save" ;="" id="mktForm_1013" name="mktForm_1013">
+				
+				<label>Email Address:</label><span class="mktInput"><input class="mktFormText mktFormEmail" name="Email" id="Email" value="" maxlength="255" type="text"><span class="mktFormMsg"></span></span>
+				
+				<input id="mktFrmSubmit" class="btn" style="width: auto; overflow: visible; padding-left: 0.25em; padding-right: 0.25em;" value="Subscribe" name="submitButton" onclick='formSubmit(document.getElementById("mktForm_1013")); return false;' type="submit">
+				
+				<input style="display: none;" id="mktFrmReset" value="Clear" name="resetButton" onclick='formReset(document.getElementById("mktForm_1013")); return false;' type="reset">
+	
+				<span style="display: none;"><input name="_marketo_comments" value="" type="text"></span>
+				<input name="lpId" value="-1" type="hidden">
+				<input name="subId" value="100" type="hidden">
+
+				<input name="kw" value="" type="hidden">
+				<input name="cr" value="" type="hidden">
+				
+				<input name="searchstr" value="" type="hidden">
+				<input name="lpurl" value="http://info.puppetlabs.com/testsubscription.html?cr={creative}&amp;kw={keyword}" ;="" type="hidden">
+				<input name="formid" value="1013" type="hidden">
+				<input name="returnURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/" ;="" type="hidden">
+				<input name="retURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/" ;="" type="hidden">
+				<input name="_mkt_disp" value="return" type="hidden">
+				<input name="_mkt_trk" value="id:307-QLA-991&amp;token:_mch-puppetlabs.com-1313481325661-80231" type="hidden">
+
+				</form>
+				
+				
+				
+              
+<a href="http://info.puppetlabs.com/puppet-enterprise" class="fbtn">Try Puppet Enterprise FREE</a>
+
+            </section>
+            <section id="elsewhere">
+              <h4>Get Involved</h4>
+              <ul>
+
+                <li class="chat"><a href="http://webchat.freenode.net/?channels=puppet" rel="external"><span class="indicator"></span><span>Chat with us on IRC</span></a></li>
+		<li class="discussion"><a href="http://groups.google.com/group/puppet-dev" rel="external"><span class="indicator"></span><span>Join the Puppet Developer List</span></a></li>
+                <li class="discussion"><a href="http://groups.google.com/group/puppet-users?pli=1" rel="external"><span class="indicator"></span><span>Join the Puppet User List</span></a></li>
+                
+                <li class="linkedin"><a href="http://www.linkedin.com/groups?about=&amp;gid=696467&amp;trk=anet_ug_grppro" rel="external"><span class="indicator"></span><span>Join the Puppet Users LinkedIn group</span></a></li>	
+
+              </ul>
+		<p>
+		              		</p><h4>Follow us…</h4>
+
+              		<ul class="followus">
+
+					
+			<li><a href="http://feeds.feedburner.com/PuppetLabs" target="_top"><img src="rss.png" border="0"></a></li>
+			<li><a href="http://www.facebook.com/pages/Puppet-Labs/219089920711" target="_top"><img src="facebook.png" border="0"></a></li>
+			<li><a href="http://www.twitter.com/puppetlabs" target="_top"><img src="twitter.png" border="0"></a></li>
+			<li><a href="http://www.linkedin.com/groups?about=&amp;gid=696467&amp;trk=anet_ug_grppro" target="_top"><img src="linkedin_in_icon_32px.png" border="0"></a></li>    <li><a href="https://github.com/puppetlabs" target="_top"><img src="github_icon.png" border="0"></a></li>
+					</ul>
+
+              	<p></p>
+
+            </section>
+          </div>
+          <div class="secondary-content">
+            <section id="book-it">
+              <h4>Get the book!</h4>
+
+              <p>Written by James Turnbull and Jeff McCune, <a href="http://www.apress.com/9781430230571" rel="nofollow">Pro Puppet</a> is a comprehensive and up-to-date look at Puppet and MCollective. </p>
+              <a href="http://www.apress.com/9781430230571" rel="nofollow"><img src="propuppetthumb.png"></a>
+            </section>
+          </div>
+        </div>
+      </div>
+		</footer>
+
+    <div id="copyright">
+      <div class="site-width">
+        © 2011 <a href="http://www.puppetlabs.com/" title="Puppet Labs">Puppet Labs</a>
+        <span class="vcard">
+         <span class="org"></span>
+         <a class="email" href="mailto:info@puppetlabs.com">info@puppetlabs.com</a>
+
+          <span class="adr">
+           <span class="street-address">411 NW Park Avenue</span>
+           /
+           <span class="locality">Portland</span>, 
+           <span class="region">OR</span>
+           <span class="postal-code">97209</span>
+
+          </span>
+
+         <span class="tel">1-877-575-9775</span>
+        </span>          
+      </div>
+    </div>
+      
+    
+  	
+  	
+
+	
+        
+</body>
+</html>

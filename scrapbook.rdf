@@ -35,6 +35,17 @@
                    NS1:icon=""
                    NS1:source=""
                    NS1:comment="" />
+  <RDF:Seq RDF:about="urn:scrapbook:item20111128163146">
+    <RDF:li RDF:resource="urn:scrapbook:item20111128163156"/>
+  </RDF:Seq>
+  <RDF:Description RDF:about="urn:scrapbook:item20111128163146"
+                   NS1:id="20111128163146"
+                   NS1:type="folder"
+                   NS1:title="puppet"
+                   NS1:chars=""
+                   NS1:icon=""
+                   NS1:source=""
+                   NS1:comment="" />
   <RDF:Description RDF:about="urn:scrapbook:item20111008110717"
                    NS1:id="20111008110717"
                    NS1:type=""
@@ -51,6 +62,14 @@
                    NS1:comment=""
                    NS1:source="http://hwraid.le-vert.net/wiki/DebianPackages"
                    NS1:icon="resource://scrapbook/data/20111123193400/trac.ico" />
+  <RDF:Description RDF:about="urn:scrapbook:item20111128165627"
+                   NS1:id="20111128165627"
+                   NS1:type=""
+                   NS1:title="Welcome to the irqbalance website | Documentation"
+                   NS1:chars="UTF-8"
+                   NS1:comment=""
+                   NS1:icon=""
+                   NS1:source="http://irqbalance.org/documentation.html" />
   <RDF:Seq RDF:about="urn:scrapbook:item20111123192724">
     <RDF:li RDF:resource="urn:scrapbook:item20111123192732"/>
   </RDF:Seq>
@@ -289,6 +308,14 @@
                    NS1:icon=""
                    NS1:source=""
                    NS1:comment="" />
+  <RDF:Description RDF:about="urn:scrapbook:item20111128163156"
+                   NS1:id="20111128163156"
+                   NS1:type=""
+                   NS1:title="Documentation | Puppet Labs - Inventory Service"
+                   NS1:chars="UTF-8"
+                   NS1:comment=""
+                   NS1:icon=""
+                   NS1:source="http://docs.puppetlabs.com/guides/inventory_service.html" />
   <RDF:Description RDF:about="urn:scrapbook:item20111013195229"
                    NS1:id="20111013195229"
                    NS1:type=""
@@ -350,6 +377,7 @@
     <RDF:li RDF:resource="urn:scrapbook:item20111013170931"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111024170006"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111123190331"/>
+    <RDF:li RDF:resource="urn:scrapbook:item20111128165627"/>
   </RDF:Seq>
   <RDF:Description RDF:about="urn:scrapbook:item20111013170925"
                    NS1:id="20111013170925"
@@ -362,6 +390,7 @@
   <RDF:Seq RDF:about="urn:scrapbook:root">
     <RDF:li RDF:resource="urn:scrapbook:item20111128092900"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111123192724"/>
+    <RDF:li RDF:resource="urn:scrapbook:item20111128163146"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111013200025"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111013195938"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111013195551"/>

@@ -1,0 +1,28 @@
+/* ::::: http://irqbalance.org/style.css ::::: */
+
+body { margin: 0pt; padding: 0pt; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); font: 80% Verdana,Arial,Helvetica,sans-serif; }
+h1, h2, h3, h4, h5, h6 { margin-bottom: 0.5em; }
+h1 { font-size: 1.3em; }
+h2 { font-size: 1.2em; }
+h3, h4, h5, h6 { font-size: 1.1em; }
+p { margin-top: 0.5em; margin-bottom: 0.9em; }
+a { text-decoration: none; font-weight: bold; }
+a:link { color: rgb(51, 153, 204); }
+a:visited { color: rgb(51, 102, 153); }
+a:hover { color: rgb(51, 153, 204); text-decoration: underline; }
+table { font-size: 1em; }
+.pagetitle { font-size: 1.4em; color: rgb(34, 34, 34); }
+#header, #content { width: 100%; }
+#header { background-color: rgb(102, 153, 204); }
+#logo { vertical-align: middle; border: 0pt none; }
+#logo img { float: left; padding: 0em 1em; border: 0pt none; }
+#menu { padding: 0.5em 0.5em 0pt; text-align: right; vertical-align: middle; }
+.site-name { margin: 0.6em 0em 0em; padding: 0em; font-size: 2em; }
+.site-slogan { font-size: 1em; color: rgb(238, 238, 238); display: block; margin: 0em; font-style: italic; font-weight: bold; }
+#main { padding: 10px; }
+#sidebar-left, #sidebar-right { width: 16em; padding: 10px; vertical-align: top; background: url('grayback.jpg') repeat fixed 0% 0% transparent; }
+#footer { background-color: rgb(238, 238, 238); padding: 1em; font-size: 0.8em; }
+.title, .title a { font-weight: bold; font-size: 1em; color: rgb(119, 119, 119); margin: 0pt auto; }
+.block, .box { padding: 0pt 0pt 1.5em; }
+.block { border-bottom: 1px solid rgb(187, 187, 187); padding-bottom: 0.75em; margin-bottom: 1.5em; }
+.block .title { margin-bottom: 0.25em; }

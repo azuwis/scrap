@@ -92,6 +92,17 @@
                    NS1:icon=""
                    NS1:source=""
                    NS1:comment="" />
+  <RDF:Seq RDF:about="urn:scrapbook:item20111128170103">
+    <RDF:li RDF:resource="urn:scrapbook:item20111128170109"/>
+  </RDF:Seq>
+  <RDF:Description RDF:about="urn:scrapbook:item20111128170103"
+                   NS1:id="20111128170103"
+                   NS1:type="folder"
+                   NS1:title="lvs"
+                   NS1:chars=""
+                   NS1:icon=""
+                   NS1:source=""
+                   NS1:comment="" />
   <RDF:Description RDF:about="urn:scrapbook:item20111123190331"
                    NS1:id="20111123190331"
                    NS1:type=""
@@ -132,6 +143,14 @@
                    NS1:comment=""
                    NS1:icon=""
                    NS1:source="http://tools.rapidsoft.de/perc/perc-cheat-sheet.html" />
+  <RDF:Description RDF:about="urn:scrapbook:item20111128170109"
+                   NS1:id="20111128170109"
+                   NS1:type=""
+                   NS1:title="LVS-HOWTO"
+                   NS1:chars="UTF-8"
+                   NS1:comment=""
+                   NS1:icon=""
+                   NS1:source="http://www.austintek.com/LVS/LVS-HOWTO/HOWTO/" />
   <RDF:Description RDF:about="urn:scrapbook:item20111123191406"
                    NS1:id="20111123191406"
                    NS1:type=""
@@ -396,6 +415,7 @@
     <RDF:li RDF:resource="urn:scrapbook:item20111013195551"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111013195223"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111013172803"/>
+    <RDF:li RDF:resource="urn:scrapbook:item20111128170103"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111013172247"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111013171535"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111013170925"/>

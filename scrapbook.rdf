@@ -145,6 +145,14 @@
                    NS1:comment=""
                    NS1:source="http://sourceforge.net/apps/trac/lxc-provider/"
                    NS1:icon="resource://scrapbook/data/20111028114616/trac.ico" />
+  <RDF:Description RDF:about="urn:scrapbook:item20111128133251"
+                   NS1:id="20111128133251"
+                   NS1:type=""
+                   NS1:title="Git notes - Noah.org"
+                   NS1:chars="UTF-8"
+                   NS1:comment=""
+                   NS1:source="http://www.noah.org/wiki/Git_notes"
+                   NS1:icon="resource://scrapbook/data/20111128133251/favicon.ico" />
   <RDF:Description RDF:about="urn:scrapbook:item20111009165128"
                    NS1:id="20111009165128"
                    NS1:type=""
@@ -164,6 +172,7 @@
   <RDF:Seq RDF:about="urn:scrapbook:item20111013195938">
     <RDF:li RDF:resource="urn:scrapbook:item20111013195943"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111128131253"/>
+    <RDF:li RDF:resource="urn:scrapbook:item20111128133251"/>
   </RDF:Seq>
   <RDF:Description RDF:about="urn:scrapbook:item20111013195938"
                    NS1:id="20111013195938"

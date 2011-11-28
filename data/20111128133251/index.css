@@ -1,0 +1,47 @@
+/* ::::: http://www.noah.org/mediawiki/skins/monoclean/main.css?207 ::::: */
+
+#column-google { width: 120px; clear: left; position: absolute; padding: 5px 0px 0px; left: 0px; top: 60px; }
+#column-content { position: relative; top: 0.1em; left: 1.4em; right: 10px; width: 95%; }
+#content { position: relative; z-index: 2; margin: 0.1em 0.5em 0.1em 130px; border: medium none; }
+body { font: 10pt sans-serif; color: rgb(0, 221, 0); background: url('green_screen_bg.png') repeat scroll 0% 0% transparent; margin: 0pt; padding: 0pt; }
+.visualClear { clear: both; }
+table { font-size: 100%; color: rgb(0, 221, 0); background: url('green_screen_bg.png') repeat scroll 0% 0% transparent; }
+a { text-decoration: none; color: rgb(170, 170, 0); background: none repeat scroll 0% 0% transparent; }
+a:visited { color: rgb(255, 255, 0); }
+a:active { color: rgb(255, 255, 0); }
+a:hover { color: rgb(255, 255, 0); text-decoration: underline; }
+p { margin: 1em 0pt 0.5em; line-height: 1.2em; }
+hr { height: 1px; color: rgb(0, 221, 0); background-color: rgb(0, 0, 0); border: 0pt none; margin: 0.2em 0pt; }
+h1, h2, h3, h4, h5, h6 { color: rgb(0, 221, 0); background: none repeat scroll 0% 0% transparent; font-weight: bold; margin: 0pt; border-top: 1px solid rgb(255, 255, 0); }
+h3, h4, h5, h6 { border-top: 1px dashed rgb(119, 119, 0); }
+h1 { font-size: 188%; }
+h2 { font-size: 150%; }
+h3 { font-size: 120%; }
+ul { line-height: 1.5em; list-style-type: square; margin: 0.3em 0pt 0pt 1.5em; padding: 0pt; list-style-image: url('bullet.gif'); }
+ol { line-height: 1.5em; margin: 0.3em 0pt 0pt 3.2em; padding: 0pt; list-style-image: none; }
+li { margin-bottom: 0.1em; }
+form { border: medium none; margin: 0pt; }
+input, button { padding-left: 5px; padding-right: 5px; background: none repeat scroll 0% 0% rgb(0, 0, 0); color: rgb(255, 255, 0); border: 0px solid; border-radius: 1em 1em 1em 1em; }
+pre { padding: 1em; color: rgb(0, 221, 0); background-color: rgb(0, 0, 0); line-height: 1.1em; border-radius: 1em 1em 1em 1em; }
+#siteSub { display: none; }
+#jump-to-nav { display: none; }
+#contentSub, #contentSub2 { font-size: 84%; line-height: 1.2em; margin: 0pt 0pt 1.4em 1em; color: rgb(119, 119, 119); width: auto; }
+#bodyContent h1, #bodyContent h2, #bodyContent h3, #bodyContent h4, #bodyContent h5 { margin-bottom: 0.5em; margin-left: -0.15em; font-weight: bold; background: none repeat scroll 0% 0% rgb(0, 34, 0); color: rgb(255, 255, 0); }
+.firstHeading { margin-bottom: 0.1em; font-weight: bold; }
+#catlinks { font-size: 95%; background-color: rgb(0, 0, 0); padding-left: 3px; clear: both; border-radius: 1em 1em 1em 1em; }
+#toc, .toc, .mw-warning { background-color: rgb(34, 34, 0); padding-left: 3px; font-size: 95%; border-radius: 1em 1em 1em 1em; }
+#toc h2, .toc h2 { background-color: rgb(34, 34, 0); display: inline; border: medium none; padding: 0pt; font-size: 100%; font-weight: bold; }
+#toc #toctitle, .toc #toctitle, #toc .toctitle, .toc .toctitle { background-color: rgb(34, 34, 0); text-align: center; }
+#toc ul, .toc ul { background-color: rgb(34, 34, 0); list-style-type: none; list-style-image: none; margin-left: 0pt; padding-left: 0pt; text-align: left; }
+#toc ul ul, .toc ul ul { background-color: rgb(34, 34, 0); margin: 0pt 0pt 0pt 2em; }
+#bodyContent a.external, #bodyContent a[href^="gopher://"] { background: url('external.png') no-repeat scroll right center transparent; padding-right: 13px; }
+#bodyContent a[href^="https://"], .link-https { background: url('lock_icon.gif') no-repeat scroll right center transparent; padding-right: 16px; }
+#bodyContent a.external { color: rgb(255, 0, 0); }
+.pBody { font-size: 85%; border-collapse: collapse; border: medium none; padding: 0pt 0.8em 0.3em 0em; margin: 1.1em 125px 0pt 0em; }
+input.searchButton { margin-top: 1px; font-size: 95%; background-color: rgb(51, 51, 0); }
+#searchInput { width: 10.9em; margin: 0pt; font-size: 95%; background-color: rgb(51, 51, 0); }
+.prefsection textarea, input, button, select { background-color: rgb(51, 51, 0); color: rgb(255, 255, 0); }
+.printfooter { display: none; }
+/* ::::: http://www.noah.org/mediawiki/skins/monoclean/KHTMLFixes.css ::::: */
+
+#column-content { margin-left: 0pt; }

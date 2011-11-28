@@ -1,0 +1,400 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" dir="ltr" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<!-- monoclean skin -->        
+<meta name="ROBOTS" content="NOARCHIVE">
+<!-- here so Google can verify that I am the site owner for their webmaster tools. -->
+<meta name="verify-v1" content="PuIm25rVhTEBVD4hA7h2XKKuuzWnb7zvLQ+9i5P1FbE=">
+<!-- Head Scripts -->
+
+<meta http-equiv="Content-Style-Type" content="text/css">
+		<meta name="generator" content="MediaWiki 1.15.1">
+		<meta name="keywords" content="Git notes">
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="search" type="application/opensearchdescription+xml" href="http://www.noah.org/mediawiki/opensearch_desc.php" title="Noah.org (en)">
+		<link rel="copyright" href="http://www.noah.org/wiki/Copyright">
+		<link rel="alternate" type="application/rss+xml" title="Noah.org RSS Feed" href="http://www.noah.org/mediawiki/index.php?title=Special:RecentChanges&amp;feed=rss">
+		<link rel="alternate" type="application/atom+xml" title="Noah.org Atom Feed" href="http://www.noah.org/mediawiki/index.php?title=Special:RecentChanges&amp;feed=atom">
+
+<title>Git notes - Noah.org</title>
+
+
+
+
+<!--[if lt IE 5.5000]><style type="text/css">@import "/mediawiki/skins/monoclean/IE50Fixes.css?207";</style><![endif]-->
+<!--[if IE 5.5000]><style type="text/css">@import "/mediawiki/skins/monoclean/IE55Fixes.css?207";</style><![endif]-->
+<!--[if IE 6]><style type="text/css">@import "/mediawiki/skins/monoclean/IE60Fixes.css?207";</style><![endif]-->
+<!--[if IE 7]><style type="text/css">@import "/mediawiki/skins/monoclean/IE70Fixes.css?207";</style><![endif]-->
+<!--[if lt IE 7]><script type="text/javascript" src="/mediawiki/skins/common/IEFixes.js?207"></script>
+<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+		
+
+    
+
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body class="mediawiki  ltr ns-0 ns-subject page-Git_notes">
+<div id="column-content">
+    <div class="pBody">
+<!--
+<div class="portlet" id="p-logo">
+    <a style="background-image: url(http://www.noah.org/noah_logo_100x100.png);" href="/wiki/Main_Page" title="Visit the main page"></a>
+</div>
+-->
+                <a href="http://www.noah.org/wiki/index.php/Main_Page" title="Visit the Main Page [z]" accesskey="z">Main Page</a>
+
+            - <a href="http://www.noah.org/mediawiki/index.php?title=Special:UserLogin&amp;returnto=Git_notes" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a>
+- <button onclick="window.location='http://www.noah.org/email/'" title="Send me email.">Email me</button>
+        <form action="http://www.noah.org/wiki/Special:Search" id="searchform">
+            <input id="searchInput" name="search" title="Search Noah.org [ctrl-f]" accesskey="f" value="" type="text">
+<!--            <input type='submit' name="go" class="searchButton" id="searchGoButton" value="Go" />&nbsp; -->
+            <input name="fulltext" class="searchButton" id="mw-searchButton" value="Search" type="submit">
+        </form>
+    </div> <!-- end of pBody -->
+
+<div id="content">
+    <a name="top" id="top"></a>
+<!-- start body content -->
+<div id="catlinks"><div id="catlinks" class="catlinks"><div id="mw-normal-catlinks"><a href="http://www.noah.org/wiki/Special:Categories" title="Special:Categories">Category</a>: <span dir="ltr"><a href="http://www.noah.org/wiki/Category:Engineering" title="Category:Engineering">Engineering</a></span></div></div></div>    <h1 class="firstHeading">Git notes</h1>
+        <div id="bodyContent">
+            <h3 id="siteSub">From Noah.org</h3>
+            <div id="contentSub"></div>
+                                    <div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>
+<!-- start bodytext -->
+<p><br>
+</p>
+<table id="toc" class="toc" summary="Contents"><tbody><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#git_notes"><span class="tocnumber">1</span> <span class="toctext">git notes</span></a>
+<ul>
+<li class="toclevel-2"><a href="#git_remote"><span class="tocnumber">1.1</span> <span class="toctext">git remote</span></a></li>
+<li class="toclevel-2"><a href="#convert_clean_repository_to_.27bare.27"><span class="tocnumber">1.2</span> <span class="toctext">convert clean repository to 'bare'</span></a></li>
+<li class="toclevel-2"><a href="#git_clone"><span class="tocnumber">1.3</span> <span class="toctext">git clone</span></a></li>
+<li class="toclevel-2"><a href="#config"><span class="tocnumber">1.4</span> <span class="toctext">config</span></a></li>
+<li class="toclevel-2"><a href="#git_archive"><span class="tocnumber">1.5</span> <span class="toctext">git archive</span></a></li>
+<li class="toclevel-2"><a href="#fix_commits_with_the_wrong_committer.2Fauthor_name_or_email_address"><span class="tocnumber">1.6</span> <span class="toctext">fix commits with the wrong committer/author name or email address</span></a></li>
+<li class="toclevel-2"><a href="#Git_Commit:_git.2Fsvn_commit_differences_are_confusing_to_newbies"><span class="tocnumber">1.7</span> <span class="toctext">Git Commit: git/svn commit differences are confusing to newbies</span></a></li>
+<li class="toclevel-2"><a href="#git-svn"><span class="tocnumber">1.8</span> <span class="toctext">git-svn</span></a></li>
+<li class="toclevel-2"><a href="#VCS_command_translation"><span class="tocnumber">1.9</span> <span class="toctext">VCS command translation</span></a></li>
+<li class="toclevel-2"><a href="#Cheat_Sheet"><span class="tocnumber">1.10</span> <span class="toctext">Cheat Sheet</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></tbody></table>
+<a name="git_notes" id="git_notes"></a><h1> <span class="mw-headline"> git notes </span></h1>
+<p>Git is my current favorite VCS (or RCS or SCCS or SCMS or VC or whatever). I'm trying to phase out Subversion in favor of Git. Subversion is fundamentally flawed. What it does do it does well, but it does not do things in a way that makes sense (to me). It's slow and uses a lot of disk space. In the past I discounted the disk space wasting as irrelevant because storage is cheap, but now I've changed my mind. There have been many times when all that wasted disk space was a problem.
+</p><p><a href="https://git.wiki.kernel.org/index.php/QuickStart" class="external text" title="https://git.wiki.kernel.org/index.php/QuickStart" rel="nofollow">Kernel.org git QuickStart</a>
+</p>
+<a name="git_remote" id="git_remote"></a><h2> <span class="mw-headline"> git remote </span></h2>
+<p>When using git-remote over <i>ssh</i> it seems that you have to use the full path on the remote server, and not the path relative to the user you are connecting as. <b>Also, you must put a trailing slash on the path.</b> For example:
+</p>
+<pre>git ls-remote ssh://username@www.example.org/home/username/repositorium/engineering/
+</pre>
+<a name="convert_clean_repository_to_.27bare.27" id="convert_clean_repository_to_.27bare.27"></a><h2> <span class="mw-headline"> convert clean repository to 'bare' </span></h2>
+<pre>git config --bool core.bare true
+</pre>
+<p>Or do this:
+</p>
+<pre>git reset --hard HEAD
+</pre>
+<p>When pushing to a remote repository that you have cloned from you might get an error like this:
+</p>
+<pre>remote: error: refusing to update checked out branch: refs/heads/master
+remote: error: By default, updating the current branch in a non-bare repository
+remote: error: is denied, because it will make the index and work tree inconsistent
+remote: error: with what you pushed, and will require 'git reset --hard' to match
+remote: error: the work tree to HEAD.
+</pre>
+<p>Converting the remote repository to a bare repository will fix this.
+</p>
+<a name="git_clone" id="git_clone"></a><h2> <span class="mw-headline"> git clone </span></h2>
+<pre>git clone
+git fetch
+git pull
+</pre>
+<a name="config" id="config"></a><h2> <span class="mw-headline"> config </span></h2>
+<pre>git config --global user.name "Noah Spurrier"
+git config --global user.email noah@noah.org
+git config --global core.editor vim
+git config --global color.ui auto
+git config --global merge.tool vimdiff
+</pre>
+<a name="git_archive" id="git_archive"></a><h2> <span class="mw-headline"> git archive </span></h2>
+<p>This is like an export. It retrieves a remote git repository without the .git metadata (history).
+</p>
+<pre>git archive --remote=ssh://username@www.example.org/home/username/repositorium/engineering/ HEAD &gt; git_archive.tar
+</pre>
+<p>You can also use this to retrieve subdirectories of repositories. The follow retrieves only the subdirectory "dotfiles". Note that the selection of subdirectory is made after <b>HEAD:</b>:
+</p>
+<pre>git archive --remote=ssh://username@www.example.org/home/username/repositorium/engineering/ --prefix=dotfiles/ HEAD:dotfiles &gt; dotfiles_archive.tar
+</pre>
+<a name="fix_commits_with_the_wrong_committer.2Fauthor_name_or_email_address" id="fix_commits_with_the_wrong_committer.2Fauthor_name_or_email_address"></a><h2> <span class="mw-headline"> fix commits with the wrong committer/author name or email address </span></h2>
+<p>This basically completely rewrites your history. All of your git hashes will change.
+</p>
+<pre>git filter-branch --env-filter 'GIT_AUTHOR_NAME="Noah Spurrier";GIT_AUTHOR_EMAIL="noah@noah.org";GIT_COMMITTER_NAME="Noah Spurrier";GIT_COMMITTER_EMAIL="noah@noah.org";' HEAD
+</pre>
+<a name="Git_Commit:_git.2Fsvn_commit_differences_are_confusing_to_newbies" id="Git_Commit:_git.2Fsvn_commit_differences_are_confusing_to_newbies"></a><h2> <span class="mw-headline"> Git Commit: git/svn commit differences are confusing to newbies </span></h2>
+<p><b>Do a `git commit -a` in most cases.</b>
+</p><p>Git stages commits into an index before they are committed, so a commit is a two step process. The `git-status` command will show which modifications have been indexed for the next commit. The `git-add` command will index a modified or new file for the next commit.
+</p><p>A `git fetch` also is done as a two step process. <b>I especially like this feature</b>. When you do a `git fetch` files are pulled from a remote server, but they are not immediately merged into your working copy. <b>I despise this about SVN.</b> Instead the remote files (actually their diffs) are held in the index where you can browse them and choose which parts to merge into your working copy.
+</p><p>Notice that the message below from `git-status` says two things. It shows files that have been modified and it shows which of those changes have been added to the commit. Notice here that one file is modified, but no changes have actually been added to the commit.
+</p>
+<pre>$ git-status
+# On branch master
+# Changed but not updated:
+#   (use "git add &lt;file&gt;..." to update what will be committed)
+#
+#       modified:   dotfiles/.vimrc
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+</pre>
+<p>You can have git automatically index all modified files with `git commit -a`. This is usually what most SVN users expect.
+</p>
+<a name="git-svn" id="git-svn"></a><h2> <span class="mw-headline"> git-svn </span></h2>
+<p>dcommit
+</p>
+<ol><li> When you want to do "svn up", instead do "git svn rebase". If you have conflicts use `git mergetool` then `git rebase --continue`.
+</li><li> When you have everything up-to-date do `git svn dcommit`.
+</li><li> If git complains about files not being up-to-date do `git svn rebase` again.
+</li></ol>
+<a name="VCS_command_translation" id="VCS_command_translation"></a><h2> <span class="mw-headline"> VCS command translation </span></h2>
+<p>See also this table in Wikipedia: <a href="http://en.wikipedia.org/wiki/Comparison_of_revision_control_software#Commands" class="external text" title="http://en.wikipedia.org/wiki/Comparison_of_revision_control_software#Commands" rel="nofollow">VCS commands</a>
+</p>
+<table border="1">
+<caption> Rosetta table gives git and Subversion equivalent commands
+</caption><tbody><tr>
+<th> git </th><th> subversion </th><th> <i>notes</i>
+</th></tr>
+<tr>
+<td> git clone <b>url</b> </td><td> svn checkout <b>url</b> </td><td> `git+ssh` works just like `svn+ssh`<br> git clone git+ssh://noah@www.example.org/home/noah/src
+</td></tr>
+<tr>
+<td> git pull </td><td> svn update </td><td>
+</td></tr>
+<tr>
+<td> git status </td><td> svn status </td><td> The output from git is more clear.
+</td></tr>
+<tr>
+<td> git -f checkout <b>path</b> </td><td> svn revert <b>path</b> </td><td> This <b>deletes</b> your local changes.
+</td></tr>
+<tr>
+<td> git add <b>fil</b>e </td><td> svn add <b>file</b> </td><td>
+</td></tr>
+<tr>
+<td> git rm <b>file</b> </td><td> svn rm <b>file</b> </td><td>
+</td></tr>
+<tr>
+<td> git mv <b>file</b> </td><td> svn mv <b>file</b> </td><td>
+</td></tr>
+<tr>
+<td> git commit -a </td><td> svn commit </td><td>
+</td></tr>
+<tr>
+<td> git log </td><td> svn log </td><td>
+</td></tr>
+<tr>
+<td> git show <b>rev:path/to/file</b> </td><td> svn cat <b>url</b> </td><td>
+</td></tr>
+<tr>
+<td> git show <b>rev:path/to/directory</b> </td><td> svn list <b>url</b> </td><td>
+</td></tr>
+<tr>
+<td> git show <b>rev</b> </td><td> svn log -r<b>rev</b> <b>url</b> </td><td>
+</td></tr>
+<tr>
+<td> git branch <b>branch_name</b> </td><td> svn copy <a href="http://example.com/svn/trunk" class="external free" title="http://example.com/svn/trunk" rel="nofollow">http://example.com/svn/trunk</a> <a href="http://example.com/svn/branches/branch_name" class="external free" title="http://example.com/svn/branches/branch_name" rel="nofollow">http://example.com/svn/branches/branch_name</a> </td><td>
+</td></tr>
+<tr>
+<td> git merge --no-commit <b>branch_name</b> </td><td> svn merge -r 20:HEAD <a href="http://example.com/svn/branches/branch_name" class="external free" title="http://example.com/svn/branches/branch_name" rel="nofollow">http://example.com/svn/branches/branch_name</a> </td><td> This is reason #1 why SVN sucks. Merge tracking is crap. As of version 1.5 they have some limited support for merge tracking, but it still blows.
+</td></tr>
+<tr>
+<td> git tag -a <b>tag_name</b> </td><td> svn copy <a href="http://example.com/svn/trunk" class="external free" title="http://example.com/svn/trunk" rel="nofollow">http://example.com/svn/trunk</a> <a href="http://example.com/svn/tags/tag_name" class="external free" title="http://example.com/svn/tags/tag_name" rel="nofollow">http://example.com/svn/tags/tag_name</a> </td><td> SVN doesn't really have tags. Most people just use copy. The downside is that people can commit to tags, which kind of defeats the purpose.
+</td></tr>
+</tbody></table>
+<a name="Cheat_Sheet" id="Cheat_Sheet"></a><h2> <span class="mw-headline"> Cheat Sheet </span></h2>
+<p>Originally from <a href="http://cheat.errtheblog.com/s/git" class="external free" title="http://cheat.errtheblog.com/s/git" rel="nofollow">http://cheat.errtheblog.com/s/git</a>
+</p><p>Setup
+</p>
+<hr>
+<p>git clone &lt;repo&gt;
+</p>
+<pre> clone the repository specified by &lt;repo&gt;; this is similar to "checkout" in
+ some other version control systems such as Subversion and CVS
+</pre>
+<p>Add colors to your ~/.gitconfig file:
+</p>
+<pre>  [color]
+    ui = auto
+  [color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+  [color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+  [color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+</pre>
+<p>Highlight whitespace in diffs
+</p>
+<pre>  [color]
+    ui = true
+  [color "diff"]
+    whitespace = red reverse
+  [core]
+    whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+</pre>
+<p>Add aliases to your ~/.gitconfig file:
+</p><p>&lt;/pre&gt;
+</p>
+<pre> [alias]
+   st = status
+   ci = commit
+   br = branch
+   co = checkout
+   df = diff
+   lg = log -p
+   lol = log --graph --decorate --pretty=oneline --abbrev-commit
+   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+   ls = ls-files
+</pre>
+<p>&lt;/pre&gt;
+</p><p>Configuration
+</p>
+<hr>
+<p>git config -e [--global]
+</p>
+<pre> edit the .git/config [or ~/.gitconfig] file in your $EDITOR
+</pre>
+<p>git config --global user.name 'John Doe'
+git config --global user.email johndoe@example.com
+</p>
+<pre> sets your name and email for commit messages
+</pre>
+<p>git config branch.autosetupmerge true
+</p>
+<pre> tells git-branch and git-checkout to setup new branches so that git-pull(1)
+ will appropriately merge from that remote branch.  Recommended.  Without this,
+ you will have to add --track to your branch command or manually merge remote
+ tracking branches with "fetch" and then "merge".
+</pre>
+<p>git config core.autocrlf true
+</p>
+<pre> This setting tells git to convert the newlines to the system’s standard
+ when checking out files, and to LF newlines when committing in
+</pre>
+<p>You can add "--global" after "git config" to any of these commands to make it
+apply to all git repos (writes to ~/.gitconfig).
+</p><p><br>
+Info
+</p>
+<hr>
+<p>git reflog 
+</p>
+<pre> Use this to recover from *major* fuck ups! It's basically a log of the
+ last few actions and you might have luck and find old commits that
+ have been lost by doing a complex merge.
+</pre>
+<p>git diff
+</p>
+<pre> show a diff of the changes made since your last commit
+ to diff one file: "git diff -- &lt;filename&gt;"
+ to show a diff between staging area and HEAD: `git diff --cached`
+</pre>
+<p>git status
+</p>
+<pre> show files added to the staging area, files with changes, and untracked files
+</pre>
+<p>git log
+</p>
+<pre> show recent commits, most recent on top. Useful options:
+ --color       with color
+ --graph       with an ASCII-art commit graph on the left
+ --decorate    with branch and tag names on appropriate commits
+ --stat        with stats (files changed, insertions, and deletions)
+ -p            with full diffs
+ --author=foo  only by a certain author
+ --after="MMM DD YYYY" ex. ("Jun 20 2008") only commits after a certain date
+ --before="MMM DD YYYY" only commits that occur before a certain date
+ --merge       only the commits involved in the current merge conflicts
+</pre>
+<p>git log <sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup>
+</p>
+<!-- 
+NewPP limit report
+Preprocessor node count: 59/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key noah_org_wikidb:pcache:idhash:1835-0!1!0!!en!2!edit=0 and timestamp 20111128051142 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.noah.org/wiki/Git_notes">http://www.noah.org/wiki/Git_notes</a>"</div>
+<!-- end bodytext -->
+
+            <!-- end body content -->
+            <div class="visualClear"></div>
+        </div> <!-- end of bodyContent -->
+    </div> <!-- end of content -->
+
+<!-- Google adsense -->
+<div id="column-google">
+<!-- These are here mainly to fix spacing on the iPhone and iPad. -->
+<!-- The ads were covering the SEARCH text input. -->
+<br>
+<br>
+
+
+
+
+
+<!-- Include the Google Friend Connect javascript library. -->
+
+<!-- Define the div tag where the gadget will be inserted. -->
+<div class="gadgets-gadget-container" id="div-1228534779740" style="width: 120px; border: 1px solid rgb(204, 204, 204); visibility: visible;"><div style="height: 421px;" id="gfc_iframe_1622363464_0_body"><iframe src="index_1.html" id="gfc_iframe_1622363464_0" name="gfc_iframe_1622363464_0" style="width: 100%; height: 421px;" allowtransparency="true" frameborder="0" scrolling="no"></iframe></div></div>
+<!-- Render the gadget into a div. -->
+
+</div>
+<!-- end of column-google -->
+
+</div> <!-- end of column-content -->
+
+<div class="visualClear"></div>
+
+<!--
+<div id="footer">
+                <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/mediawiki/skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+                 This page was last modified on 23 November 2011, at 00:54.                This page has been accessed 3,857 times.                Content is available under <a href="/wiki/Copyright" title="Copyright">Copyright</a>.                <a href="/wiki/Noah.org:Privacy_policy" title="Noah.org:Privacy policy">Privacy policy</a>                <a href="/wiki/Noah.org:About" title="Noah.org:About">About Noah.org</a>                <a href="/wiki/Noah.org:General_disclaimer" title="Noah.org:General disclaimer">Disclaimers</a></div> <!-- end of footer -->
+
+		
+--&gt;
+
+<!-- Served in 0.719 secs. -->                
+
+
+
+
+                
+
+
+
+<!-- Start Quantcast tag -->
+
+
+
+<!-- End Quantcast tag -->
+
+
+
+
+
+</body>
+</html>

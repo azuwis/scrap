@@ -1,0 +1,546 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<link rel="SHORTCUT ICON" href="favicon.ico">
+
+<title>Bash Trick: Watching Multiple Background Jobs (by Jeremy Zawodny)</title>
+
+<!-- Jeremy Zawodny's blog -->
+
+<!-- Date: November 21, 2008 07:21 AM -->
+
+
+
+
+
+
+
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://jeremy.zawodny.com/blog/rss2.xml">
+
+
+
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body>
+
+<!-- ref: echo $_SERVER['HTTP_REFERER']; -->
+
+
+<div id="banner">
+<a href="http://www.flickr.com/photos/jzawodn/55754383/"><img src="zawodny-headshot.jpg" align="right" border="0" height="60" width="50"></a>
+<h1>Bash Trick: Watching Multiple Background Jobs</h1>
+<span class="description">Some random bits scribbled by Jeremy Zawodny</span>
+</div>
+
+<div id="content">
+
+<div class="blog">
+
+<div class="blogbody">
+
+
+<!-- no google ads -->
+
+
+
+<p>I recently had a need to add some error checking to a <a href="http://www.gnu.org/software/bash/">bash</a> script that runs multiple copies of a Perl script in parallel to better utilize a multi-core server.  I wanted a way to run these four processes in the background and gather up their exit values.  Then, if any of them failed, I'd prematurely exit the bash script and report the error.</p>
+
+<p>After a bit of reading bash docs, I came across some built-ins that I hadn't previously used or even seen.  First, I'll show you the code:</p>
+
+<h3>wait.sh</h3>
+
+<p><a hef="http://gist.github.com/raw/27452">This is the bash script</a> that runs the parallel processes and gathers up the exit values.</p>
+
+<div id="gist-27452" class="gist">
+
+        <div class="gist-file">
+          <div class="gist-data gist-syntax">
+              <div class="gist-highlight"><pre><div class="line" id="LC1"><span class="c">#!/bin/bash</span></div><div class="line" id="LC2"><br></div><div class="line" id="LC3"><span class="nv">FAIL</span><span class="o">=</span>0</div><div class="line" id="LC4"><br></div><div class="line" id="LC5"><span class="nb">echo</span> <span class="s2">"starting"</span></div><div class="line" id="LC6"><br></div><div class="line" id="LC7">./sleeper 2 0 &amp;</div><div class="line" id="LC8">./sleeper 2 1 &amp;</div><div class="line" id="LC9">./sleeper 3 0 &amp;</div><div class="line" id="LC10">./sleeper 2 0 &amp;</div><div class="line" id="LC11"><br></div><div class="line" id="LC12"><span class="k">for </span>job in <span class="sb">`</span><span class="nb">jobs</span> -p<span class="sb">`</span></div><div class="line" id="LC13"><span class="k">do</span></div><div class="line" id="LC14"><span class="k">    </span><span class="nb">echo</span> <span class="nv">$job</span></div><div class="line" id="LC15">&nbsp;&nbsp;&nbsp;&nbsp;<span class="nb">wait</span> <span class="nv">$job</span> <span class="o">||</span> <span class="nb">let</span> <span class="s2">"FAIL+=1"</span></div><div class="line" id="LC16"><span class="k">done</span></div><div class="line" id="LC17"><br></div><div class="line" id="LC18"><span class="nb">echo</span> <span class="nv">$FAIL</span></div><div class="line" id="LC19"><br></div><div class="line" id="LC20"><span class="k">if</span> <span class="o">[</span> <span class="s2">"$FAIL"</span> <span class="o">==</span> <span class="s2">"0"</span> <span class="o">]</span>;</div><div class="line" id="LC21"><span class="k">then</span></div><div class="line" id="LC22"><span class="k">    </span><span class="nb">echo</span> <span class="s2">"YAY!"</span></div><div class="line" id="LC23"><span class="k">else</span></div><div class="line" id="LC24"><span class="k">    </span><span class="nb">echo</span> <span class="s2">"FAIL! ($FAIL)"</span></div><div class="line" id="LC25"><span class="k">fi</span></div><div class="line" id="LC26"><br></div></pre></div>
+          </div>
+
+          <div class="gist-meta">
+            <a href="https://gist.github.com/raw/27452/a23bb8a5ca52967544934ddba683fc46b30287fa/wait.sh" style="float: right;">view raw</a>
+            <a href="https://gist.github.com/27452#file_wait.sh" style="float: right; margin-right: 10px; color: rgb(102, 102, 102);">wait.sh</a>
+            <a href="https://gist.github.com/27452">This Gist</a> brought to you by <a href="http://github.com/">GitHub</a>.
+          </div>
+        </div>
+</div>
+
+
+
+<h3>sleeper</h3>
+
+<p>And <a href="http://gist.github.com/27454">here's the Perl script</a> that I wrote in order to test the functioning of <tt>wait.sh</tt>.  It accepts to arguments.  The first is the number of seconds to sleep (to simulate the delay associated with doing work) and the second is the exit value it should use (any non-zero value indicates a failure).</p>
+
+<div id="gist-27454" class="gist">
+
+        <div class="gist-file">
+          <div class="gist-data gist-syntax">
+              <div class="gist-highlight"><pre><div class="line" id="LC1"><span class="c1">#!/usr/bin/perl -w</span></div><div class="line" id="LC2"><br></div><div class="line" id="LC3"><span class="k">use</span> <span class="n">strict</span><span class="p">;</span></div><div class="line" id="LC4"><br></div><div class="line" id="LC5"><span class="k">my</span> <span class="nv">$time</span> <span class="o">=</span> <span class="nv">$ARGV</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">||</span> <span class="mi">1</span><span class="p">;</span></div><div class="line" id="LC6"><span class="k">my</span> <span class="nv">$exit</span> <span class="o">=</span> <span class="nv">$ARGV</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">||</span> <span class="mi">0</span><span class="p">;</span></div><div class="line" id="LC7"><br></div><div class="line" id="LC8"><span class="nb">sleep</span> <span class="nv">$time</span><span class="p">;</span></div><div class="line" id="LC9"><span class="nb">exit</span>  <span class="nv">$exit</span><span class="p">;</span></div><div class="line" id="LC10"><br></div></pre></div>
+          </div>
+
+          <div class="gist-meta">
+            <a href="https://gist.github.com/raw/27454/0cb9998b941f3ab3d46e8ec3d5118f24a4d3f7ea/sleeper" style="float: right;">view raw</a>
+            <a href="https://gist.github.com/27454#file_sleeper" style="float: right; margin-right: 10px; color: rgb(102, 102, 102);">sleeper</a>
+            <a href="https://gist.github.com/27454">This Gist</a> brought to you by <a href="http://github.com/">GitHub</a>.
+          </div>
+        </div>
+</div>
+
+
+
+<h3>Discussion</h3>
+
+<p>New to me was the use of <em>let</em> to do math on a variable so that I can count up the number of failures.  Is there a better way?  There's no native ++ operator in bash.  Similarly, using <em>jobs</em> to get a list of pids to <em>wait</em> on provided to be a very useful idiom.</p>
+
+<p>The code is straightforward and works for my purposes.  But since 99% of my time is spent in Perl rather than bash, I wonder what I could have done differently and/or better.  Feedback welcome.</p>
+
+<p>And, if this is at all useful to you, feel free to take it and run...</p>
+
+<p>Finally, I'm starting to really dig <a href="http://gist.github.com/">gist.github</a> for showing off bits of code.  It's good stuff.</p>
+
+<a name="more"></a>
+
+
+<p><span class="posted">Posted by jzawodn at November 21, 2008 07:21 AM
+
+
+</span>
+</p>
+
+<!--
+<div>
+
+<strong>Spread the word:</strong> <a title="Find related stories via Technorati" href="http://technorati.com/cosmos/search.html?url=http://jeremy.zawodny.com/blog/archives/010717.html"><img src="/i/technorati.gif" alt="Technorati" height="17" width="14" border="0" alt="Find related stories via Technorati"/></a> <a title="Find related stories via Technorati" href="http://technorati.com/cosmos/search.html?url=http://jeremy.zawodny.com/blog/archives/010717.html">related</a>
+
+&nbsp;|&nbsp; <a href="http://del.icio.us/post?url=http://jeremy.zawodny.com/blog/archives/010717.html&title=Bash%20Trick%3A%20Watching%20Multiple%20Background%20Jobs" title="bookmark Bash Trick: Watching Multiple Background Jobs in del.icio.us"><img src="/i/delicious.gif" alt="del.icio.us" height="18" width="18" border="0"/></a> <a href="http://del.icio.us/post?url=http://jeremy.zawodny.com/blog/archives/010717.html&title=Bash%20Trick%3A%20Watching%20Multiple%20Background%20Jobs" title="bookamark Bash Trick: Watching Multiple Background Jobs in del.icio.us">bookmark it!</a>
+
+&nbsp;|&nbsp; <a href="http://www.digg.com/submit?url=http://jeremy.zawodny.com/blog/archives/010717.html&phase=2" title="digg this post"><img src="/i/digman.gif" height="14" width="16" alt="submit Bash%20Trick%3A%20Watching%20Multiple%20Background%20Jobs digg.com" border="0"/></a> <a href="http://www.digg.com/submit?url=http://jeremy.zawodny.com/blog/archives/010717.html&phase=2" title="digg this post">digg it!</a>
+
+&nbsp;|&nbsp; <a href="http://reddit.com/submit?url=http://jeremy.zawodny.com/blog/archives/010717.html&title=Bash%20Trick%3A%20Watching%20Multiple%20Background%20Jobs" title="post Bash Trick: Watching Multiple Background Jobs to reddit"><img src="/i/reddithead.png" alt="reddit" height="16" width="16" border="0"/></a> <a href="http://reddit.com/submit?url=http://jeremy.zawodny.com/blog/archives/010717.html&title=Bash%20Trick%3A%20Watching%20Multiple%20Background%20Jobs" title="post Bash Trick: Watching Multiple Background Jobs to reddit">reddit!</a>
+
+</div>
+-->
+
+
+<p>
+
+
+</p>
+
+
+
+</div>
+
+<!-- end blogbody -->
+
+
+
+
+<div class="comments-head"><a name="comments"></a>Reader Comments</div>
+
+<!--
+    <div class="comments-body">
+    <div class="comments-text">No comments posted yet.  You can be first.</div>
+    </div>
+
+-->
+
+
+
+<div class="comments-body" id="43041">
+
+<div class="comments-post"><a title="comment permalink" rel="permalink" name="comment-43041" href="#comment-43041">#</a> <strong>Fred Blasdel</strong> said: </div>
+
+<div class="comments-text">
+<p>Yes, the 'let' built-in is the best way to do this in bash. It would be kind of silly to spawn another process just to do i++.</p>
+
+<p>If you're going to use quotes around the let expression you might as well use whitespace around the operator :)</p>
+</div>
+
+<div class="comments-post">on November 21, 2008 08:23 AM</div>
+
+</div>
+
+
+
+<div class="comments-body" id="43042">
+
+<div class="comments-post"><a title="comment permalink" rel="permalink" name="comment-43042" href="#comment-43042">#</a> <strong>Brent Ashley</strong> said: </div>
+
+<div class="comments-text">
+<p>You don't need to use "jobs" to get the pids, since you can remember $! after each spawn.  In this way you won't inadvertently end up waiting on any other background job you may have going at the time too (such as updatedb or the like) because you will only collect the relevant pids</p>
+
+<p>==</p>
+
+<p>./sleeper 2 0 &amp;<br>
+pidlist="$pidlist $!"<br>
+./sleeper 2 1 &amp;<br>
+pidlist="$pidlist $!"<br>
+./sleeper 3 0 &amp;<br>
+pidlist="$pidlist $!"<br>
+./sleeper 2 0 &amp;<br>
+pidlist="$pidlist $!"<br>
+ <br>
+for job in $pidlist<br>
+...</p>
+
+<p>==</p>
+
+<p>I have used that idiom successfully for some years now.</p>
+
+<p>At first I don't know if the fail count you use would work as expected - by that I mean that if any job ends successfully while you are in a wait state on another job, wait may not find that pid when it comes to look for it and you wouldn't get its successful exit code.  </p>
+
+<p>I tested this on openbsd and found that despite a job having finished, wait will continue report its exit code within the same session.</p>
+
+<p>Very cool!</p>
+
+<p>==</p>
+
+<p>false &amp;  # will return 1<br>
+pid=$!</p>
+
+<p>#more stuff happens in the interim<br>
+df -h<br>
+ifconfig</p>
+
+<p>wait $pid<br>
+echo $?  # returns 1</p>
+
+<p>--</p>
+</div>
+
+<div class="comments-post">on November 21, 2008 09:44 AM</div>
+
+</div>
+
+
+
+<div class="comments-body" id="43043">
+
+<div class="comments-post"><a title="comment permalink" rel="permalink" name="comment-43043" href="#comment-43043">#</a> <strong>Mike Schilli</strong> said: </div>
+
+<div class="comments-text">
+<p>Pfft, bash! Using any type of shell glue around Perl scripts is a huge mistake: Sooner or later you're gonna run out of options because you can't implement arbitrarily complex programs with a shell's limited capabilities.</p>
+
+<p>Use POE::Wheel::Run to spawn your processes and run your jobs in POE in Perl.</p>
+</div>
+
+<div class="comments-post">on November 21, 2008 11:00 AM</div>
+
+</div>
+
+
+
+<div class="comments-body" id="43047">
+
+<div class="comments-post"><a title="comment permalink" rel="permalink" name="comment-43047" href="#comment-43047">#</a> <strong>KMSelf</strong> said: </div>
+
+<div class="comments-text">
+<p>The other shell operator you might want to play with is arithmetic expansion:</p>
+
+<p>  i=0<br>
+  while  do<br>
+      i=$((i+1))<br>
+      <br>
+  done<br>
+  echo "i: $i"</p>
+
+<p>Also, 'help let' shows that there *is* increment/decrement in bash (GNU bash, version 3.2.39(1)-release (x86_64-pc-linux-gnu)):</p>
+
+<p>    The levels are listed in order of decreasing precedence.<br>
+    <br>
+    	id++, id--	variable post-increment, post-decrement<br>
+    	++id, --id	variable pre-increment, pre-decrement<br>
+    	-, +		unary minus, plus</p>
+
+<p>(etc.).</p>
+
+<p>The suggestion to stick to Perl is probably well taken, however ;-)<br>
+</p>
+</div>
+
+<div class="comments-post">on November 21, 2008 03:54 PM</div>
+
+</div>
+
+
+
+<div class="comments-body" id="43048">
+
+<div class="comments-post"><a title="comment permalink" rel="permalink" name="comment-43048" href="#comment-43048">#</a> <strong>Seth Mason</strong> said: </div>
+
+<div class="comments-text">
+<p>The code snippets from gist look bad in Google Reader.  All the lines are on a single line without any formatting at all.  </p>
+
+<p>Don't know if that's important to you or not but I thought I'd let you know.  On the upside, it did force me to come to your site to look at them.</p>
+</div>
+
+<div class="comments-post">on November 21, 2008 05:39 PM</div>
+
+</div>
+
+
+
+<div class="comments-body" id="43049">
+
+<div class="comments-post"><a title="comment permalink" rel="permalink" name="comment-43049" href="#comment-43049">#</a> <strong>Jeremy Zawodny</strong> said: </div>
+
+<div class="comments-text">
+<p>Weird.  I'll check out the reader rendering.  Thanks for the heads-up.</p>
+</div>
+
+<div class="comments-post">on November 21, 2008 09:20 PM</div>
+
+</div>
+
+
+
+<div class="comments-body" id="43059">
+
+<div class="comments-post"><a title="comment permalink" rel="permalink" name="comment-43059" href="#comment-43059">#</a> <strong>Greg Whitescarver</strong> said: </div>
+
+<div class="comments-text">
+<p>It's pretty cool that you're getting your hands this dirty in public.  Tinkering is what gets our juices flowing, eh?</p>
+
+<p>The arguments for sticking with Perl notwithstanding, it's nice to keep your bash teeth sharp, because it has such a ridiculously wide install base.  Even on the most minimal or out-of-date *nix setup, you'll know you have at least that tool at your disposal.</p>
+
+<p>Once the 'complex need' arrives, it's never too hard to switch over to a more powerful language.</p>
+</div>
+
+<div class="comments-post">on November 24, 2008 12:42 PM</div>
+
+</div>
+
+
+
+<div class="comments-body" id="43121">
+
+<div class="comments-post"><a title="comment permalink" rel="permalink" name="comment-43121" href="#comment-43121">#</a> <strong>Tim</strong> said: </div>
+
+<div class="comments-text">
+<p>You say you prematurely left the script, but it looks like you wait for all of the subprocesses to finish/fail before you end (presumably skipping some post-processing or other, so in that sense you are ending early).</p>
+
+<p>I'm guessing a premature exit as soon as one of the subprocesses failed would involve a polling loop.</p>
+</div>
+
+<div class="comments-post">on December  4, 2008 09:22 AM</div>
+
+</div>
+
+
+
+<div class="comments-body" id="47892">
+
+<div class="comments-post"><a title="comment permalink" rel="permalink" name="comment-47892" href="#comment-47892">#</a> <strong>Ryan Sawhill</strong> said: </div>
+
+<div class="comments-text">
+<p>I know this post is old, but I just stumbled onto it via google and couldn't help but comment.</p>
+
+<p>As the last commenter said, your script shouldn't do what you want Jeremy. I'm wondering if I'm missing something here about your goal, because your example doesn't make sense to me at all if you want wait.sh to exit prematurely on any fail of any subprocess. If you were to change the numbers for wait.sh to be something like</p>
+
+<p>./sleeper 9 0 &amp;<br>
+./sleeper 2 1 &amp;<br>
+./sleeper 3 0 &amp;<br>
+./sleeper 19 0 &amp;   </p>
+
+<p>It would be crystal-clear that your launcher-script isn't exiting when subprocesses die at all. The for loop will be paused on the first iteration (on the first wait command) and won't continue until the first sleeper quits. Then it will get stuck on the last sleeper as well. ....</p>
+
+<p>Here's what I whipped up to do the same kind of thing (used bash subshells to keep it simpler):</p>
+
+<p>#!/bin/bash<br>
+( sleep 15; exit )&amp;<br>
+( sleep 30; exit )&amp;<br>
+( sleep 5; exit )&amp; echo "$! is the 5sec process"<br>
+( sleep 30; exit )&amp;</p>
+
+<p>#(while true; do sleep 1d; done)&amp;</p>
+
+<p>pids=`jobs -p`<br>
+echo pids spawned: $pids</p>
+
+<p>while [[ `jobs -p` == $pids ]] ; do<br>
+  sleep 1<br>
+done</p>
+
+<p>echo killing pids: `jobs -p`<br>
+kill `jobs -p`<br>
+exit 1</p>
+
+<p>#----EOF</p>
+
+<p>So. All works well. Five seconds after starting my "launcher" script, the script exits, killing the remaining BG jobs. However, there's something odd here that I don't understand and am curious to get any insight on.</p>
+
+<p>In my script, if you change the fourth subshell to oh.. let's say, "sleep 2" instead of "sleep 30" and then run the script again, it will not exit until after FIVE seconds have passed. What you will see is that using my method, if the LAST bg process dies, it will basically be ignored. I don't quite understand why [ `jobs -p` = $pids ] is still matching, even though the output of `jobs -p` is missing trailing data....</p>
+
+<p>I decided to avoid that trap by simply throwing in one more unnecessary background command that absolutely will not fail. Uncomment that while true loop line I've got up there, and you'll see all will work as expected.</p>
+
+<p>Any thoughts?</p>
+</div>
+
+<div class="comments-post">on May 24, 2010 06:32 PM</div>
+
+</div>
+
+
+
+<div class="comments-body" id="48029">
+
+<div class="comments-post"><a title="comment permalink" rel="permalink" name="comment-48029" href="#comment-48029">#</a> <strong>Ole Tange</strong> said: </div>
+
+<div class="comments-text">
+<p>GNU Parallel <a href="http://www.gnu.org/software/parallel/">http://www.gnu.org/software/parallel/</a> is a general tool for running shell scripts in parallel.</p>
+
+<p>The original example can be rewritten as:</p>
+
+<p>echo "starting"</p>
+
+<p>(echo 2 0; echo 2 1; echo 3 0; echo 2 0) | parallel ./sleeper</p>
+
+<p>if [ "$?" == "0" ];<br>
+then<br>
+echo "YAY!"<br>
+else<br>
+echo "FAIL! ($?)"<br>
+fi<br>
+</p>
+</div>
+
+<div class="comments-post">on June 13, 2010 04:50 PM</div>
+
+</div>
+
+
+
+<!-- ?php include("../ads_bottom.inc"); ? -->
+
+
+
+<div class="disclaimer">
+<strong>Disclaimer:</strong> The opinions expressed here are mine and
+mine alone.  My <a href="http://craigslist.org/">current</a>, <a href="http://www.yahoo.com/">past</a>, or <a href="http://www.marathon.com/">previous</a> employers are not responsible for what I
+write here, the comments left by others, or the photos I may share.  If
+you have questions, please <a href="http://jeremy.zawodny.com/contact.html">contact
+me</a>.  Also, I am not a journalist or reporter.  Don't "pitch" me.
+</div>
+
+<p>&nbsp;</p>
+
+<div class="disclaimer">
+<strong>Privacy:</strong> I do not share or publish the email addresses
+or IP addresses of anyone posting a comment here without consent.
+However, I do reserve the right to remove comments that are spammy,
+off-topic, or otherwise unsuitable based on <a href="http://jeremy.zawodny.com/blog/archives/002218.html">my comment
+policy</a>.  In a few cases, I may leave spammy comments but remove any
+URLs they contain.
+</div>
+
+</div>
+<!-- end comments-body -->
+
+</div>
+<!-- end blog -->
+
+
+<!-- end content -->
+
+<!-- google_ad_section_start(weight=ignore) -->
+
+<div id="links">
+
+<div class="relatedstuff">
+
+<p align="center">
+<b>up</b><br>
+<a href="http://jeremy.zawodny.com/blog/">blog home page</a>
+</p>
+
+<p align="center">
+<b>previous</b><br>
+<a href="http://jeremy.zawodny.com/blog/archives/010706.html">TV Watching and Happiness</a>
+</p>
+
+
+<p align="center">
+<b>next</b><br>
+<a href="http://jeremy.zawodny.com/blog/archives/010720.html">Opa! is Good Greek  Food in Willow Glen</a>
+</p>
+
+
+</div>
+
+<!-- php include("../ypn.inc"); -->
+
+<!--
+
+<div class="sidetitle">search my blog</div>
+
+<div class="side" align="center">
+
+<form method="get" action="http://jeremy.zawodny.com/mt/mt-search.cgi">
+<label for="search" accesskey="4">search my blog for</label><br />
+<input id="search" name="search" size="20" />
+<input type="submit" value="go" />
+<input type="hidden" name="IncludeBlogs" value="1" />
+</form>
+
+</div>
+
+-->
+
+<div class="sidetitle">recent blog entries</div>
+
+<div class="side">
+<ul>
+<li><a href="http://jeremy.zawodny.com/blog/archives/011565.html">I'm Blogging Elsewhere</a></li>
+<li><a href="http://jeremy.zawodny.com/blog/archives/011539.html">Zip Line and Rappelling Adventure in Puerto Vallarta</a></li>
+<li><a href="http://jeremy.zawodny.com/blog/archives/011532.html">Paper vs. Screen</a></li>
+<li><a href="http://jeremy.zawodny.com/blog/archives/011509.html">Remembering Barnes</a></li>
+<li><a href="http://jeremy.zawodny.com/blog/archives/011502.html">Sphinx and Gearman: A Distributed Computing AH-HA! Moment</a></li>
+<li><a href="http://jeremy.zawodny.com/blog/archives/011498.html">On the MyBlogLog Shutdown</a></li>
+
+</ul>
+</div>
+<div class="sidetitle">recent links</div>
+<div class="side" align="left">
+
+<ul class="linkblog">
+<li><a href="http://eloquentjavascript.net/index.html" title="this is said to be a good (but wordy) book on JavaScript" onclick="return clk(this)">Eloquent JavaScript: A Modern Introduction to Programming</a><br>this is said to be a good (but wordy) book on JavaScript</li>
+<li><a href="http://mirnazim.org/writings/python-ecosystem-introduction/" title="a fantastic introduction to getting started with python stuff.  I wish most languages (hello Ruby and JavaScript/node.js) had a document like this" onclick="return clk(this)">Python Ecosystem - An Introduction » mirnazim.org</a><br>a fantastic introduction to getting started with python stuff.  I wish most languages (hello Ruby and JavaScript/node.js) had a document like this</li>
+<li><a href="http://simplyrecipes.com/recipes/moms_roast_turkey/" title="we used this for our 2011 Thanksgiving dinner.  it was yum." onclick="return clk(this)">Mom's Roast Turkey Recipe</a><br>we used this for our 2011 Thanksgiving dinner.  it was yum.</li>
+<li><a href="http://www.fit2fat2fit.com/2011/11/week-1-mountain-dew/" title="it&amp;#39;s good to see a fitness nut understand these things" onclick="return clk(this)">Week 1 Without Mountain Dew and Other Treats | Fit 2 Fat 2 Fit</a><br>it's good to see a fitness nut understand these things</li>
+<li><a href="http://www.seriouseats.com/recipes/2011/09/perfect-roasted-chicken-recipe.html" title="we made this a week or so ago and it was damned good!" onclick="return clk(this)">Cook the Book: Perfect Roasted Chicken | Serious Eats : Recipes</a><br>we made this a week or so ago and it was damned good!</li>
+<li><a href="http://www.macworld.com/article/46236/2005/08/disabledashboard.html" title="Yay for being able to turn off annoying shit in OSX." onclick="return clk(this)">Disable Dashboard</a><br>Yay for being able to turn off annoying shit in OSX.</li>
+<li><a href="http://ddeville.com/derek/Qu8k.html" title="wow, 121,000 feet up with a home built rocket!" onclick="return clk(this)">Qu8k</a><br>wow, 121,000 feet up with a home built rocket!</li>
+<li><a href="http://www.seriouseats.com/recipes/2011/10/sauteed-steak-a-la-mexicana-recipe.html?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+seriouseats%2Frecipes+%28Serious+Eats%3A+Recipes%29&amp;utm_content=Google+Reader" title="mmm.  I want to make this soon." onclick="return clk(this)">Sautéed Steak a la Mexicana | Serious Eats : Recipes</a><br>mmm.  I want to make this soon.</li>
+<li><a href="http://www.bbc.co.uk/news/science-environment-14792580" title="these pics are full of awesome" onclick="return clk(this)">BBC News - Astronomy Photographer of the Year 2011</a><br>these pics are full of awesome</li>
+<li><a href="http://jblevins.org/projects/deft/" title="&lt;![CDATA[This is a handy little mode for managing a directory of &quot;notes&quot; represented by a collection of text files.]]&gt;" onclick="return clk(this)">Deft (Emacs)</a><br>This is a handy little mode for managing a directory of "notes" represented by a collection of text files.</li>
+
+</ul>
+</div>
+
+
+<center>
+<div>
+<a href="http://jeremy.zawodny.com/linkblog/">more links</a><br>
+<a href="http://jeremy.zawodny.com/linkblog/index.xml"><img src="xml.gif" border="0" height="14" width="36"></a>
+</div>
+</center>
+
+<!-- spons -->
+
+<!--
+<center><div>[<a href="http://jeremy.zawodny.com/blog/archives/005788.html">comments</a>]</div></center>
+-->
+
+</div> <!-- content -->
+
+<!-- google_ad_section_end -->
+
+
+
+</body>
+</html>

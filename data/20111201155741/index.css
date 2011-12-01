@@ -1,0 +1,68 @@
+/* ::::: http://jeremy.zawodny.com/blog/styles-site.css ::::: */
+
+body { font-family: trebuchet ms,verdana,arial,sans-serif; margin: 0px 0px 10px; background: none repeat scroll 0% 0% rgb(255, 255, 255); }
+A:link { color: rgb(0, 0, 255); }
+A:visited { color: rgb(255, 0, 0); }
+A:hover { color: rgb(102, 68, 0); }
+h1, h2, h3 { margin: 0pt; padding: 0pt; }
+h1 { font-size: 150%; font-weight: normal; }
+h3 { line-height: 120%; font-size: 125%; }
+#banner { color: rgb(255, 255, 255); font-size: large; font-weight: normal; border-bottom: 4px solid rgb(0, 0, 0); border-top: 4px solid rgb(0, 0, 0); background: none repeat scroll 0% 0% rgb(51, 102, 153); padding: 10px; }
+.description { color: rgb(153, 204, 255); font-size: 80%; font-weight: bold; background: none repeat scroll 0% 0% rgb(51, 102, 153); text-transform: none; }
+#content { float: left; width: 70%; background: none repeat scroll 0% 0% rgb(255, 255, 255); border-right: 2px solid rgb(0, 0, 0); margin-right: 15px; }
+#links { background: none repeat scroll 0% 0% rgb(238, 238, 238); }
+.blog { padding-left: 15px; padding-top: 2px; padding-right: 15px; }
+.blogbody { color: rgb(34, 34, 34); font-size: 90%; line-height: 140%; font-weight: normal; background: none repeat scroll 0% 0% rgb(255, 255, 255); padding-left: 15px; padding-right: 8px; padding-top: 0px; }
+.posted { font-size: x-small; color: rgb(0, 51, 102); margin-bottom: 15px; }
+.relatedstuff { font-size: small; margin-top: 0px; margin-bottom: 6px; margin-right: 16px; }
+.side { color: rgb(34, 34, 34); font-size: small; font-weight: normal; padding: 2px; line-height: 140%; }
+.sidetitle { color: rgb(255, 255, 255); font-size: 80%; font-weight: bold; background: none repeat scroll 0% 0% rgb(51, 102, 153); border-bottom: 2px solid rgb(0, 0, 0); border-top: 2px solid rgb(0, 0, 0); padding: 2px; margin-top: 10px; text-align: center; }
+.linkblog { line-height: 120%; }
+.comments-body { font-size: small; font-weight: normal; background: none repeat scroll 0% 0% rgb(238, 238, 238); padding: 10px; border-top: 2px solid rgb(34, 34, 34); border-bottom: 2px solid rgb(68, 68, 68); margin-bottom: 10px; margin-left: 6px; }
+.comments-post { color: rgb(0, 0, 0); font-size: small; font-weight: normal; }
+.comments-head { font-size: 120%; color: rgb(0, 0, 0); padding: 5px; font-weight: normal; margin-top: 10px; }
+.comments-text { margin-left: 16px; }
+li { margin-top: 10px; }
+pre { line-height: 100%; font-size: medium; }
+/* ::::: https://gist.github.com/stylesheets/gist/embed.css ::::: */
+
+.gist { color: rgb(0, 0, 0); }
+.gist div { padding: 0pt; margin: 0pt; }
+.gist .gist-file { border: 1px solid rgb(222, 222, 222); font-family: Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace; margin-bottom: 1em; }
+.gist .gist-file .gist-meta { overflow: hidden; font-size: 85%; padding: 0.5em; color: rgb(102, 102, 102); background-color: rgb(234, 234, 234); }
+.gist .gist-file .gist-meta a { color: rgb(51, 102, 153); }
+.gist .gist-file .gist-meta a:visited { color: rgb(119, 51, 119); }
+.gist .gist-file .gist-data { overflow: auto; word-wrap: normal; background-color: rgb(248, 248, 255); border-bottom: 1px solid rgb(221, 221, 221); font-size: 100%; }
+.gist .gist-file .gist-data pre { font-family: 'Bitstream Vera Sans Mono','Courier',monospace; background: none repeat scroll 0% 0% transparent ! important; margin: 0pt ! important; border: medium none ! important; padding: 0.25em 0.5em 0.5em ! important; }
+.gist .gist-file .gist-data .gist-highlight { background: none repeat scroll 0% 0% transparent ! important; }
+.gist-syntax { background: none repeat scroll 0% 0% rgb(255, 255, 255); }
+.gist-syntax .c { color: rgb(153, 153, 136); font-style: italic; }
+.gist-syntax .k { color: rgb(0, 0, 0); font-weight: bold; }
+.gist-syntax .o { color: rgb(0, 0, 0); font-weight: bold; }
+.gist-syntax .c1 { color: rgb(153, 153, 136); font-style: italic; }
+.gist-syntax .nb { color: rgb(0, 134, 179); }
+.gist-syntax .nv { color: rgb(0, 128, 128); }
+.gist-syntax .mi { color: rgb(0, 153, 153); }
+.gist-syntax .sb { color: rgb(221, 17, 68); }
+.gist-syntax .s2 { color: rgb(221, 17, 68); }
+/* ::::: https://gist.github.com/stylesheets/gist/embed.css ::::: */
+
+.gist { color: rgb(0, 0, 0); }
+.gist div { padding: 0pt; margin: 0pt; }
+.gist .gist-file { border: 1px solid rgb(222, 222, 222); font-family: Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace; margin-bottom: 1em; }
+.gist .gist-file .gist-meta { overflow: hidden; font-size: 85%; padding: 0.5em; color: rgb(102, 102, 102); background-color: rgb(234, 234, 234); }
+.gist .gist-file .gist-meta a { color: rgb(51, 102, 153); }
+.gist .gist-file .gist-meta a:visited { color: rgb(119, 51, 119); }
+.gist .gist-file .gist-data { overflow: auto; word-wrap: normal; background-color: rgb(248, 248, 255); border-bottom: 1px solid rgb(221, 221, 221); font-size: 100%; }
+.gist .gist-file .gist-data pre { font-family: 'Bitstream Vera Sans Mono','Courier',monospace; background: none repeat scroll 0% 0% transparent ! important; margin: 0pt ! important; border: medium none ! important; padding: 0.25em 0.5em 0.5em ! important; }
+.gist .gist-file .gist-data .gist-highlight { background: none repeat scroll 0% 0% transparent ! important; }
+.gist-syntax { background: none repeat scroll 0% 0% rgb(255, 255, 255); }
+.gist-syntax .c { color: rgb(153, 153, 136); font-style: italic; }
+.gist-syntax .k { color: rgb(0, 0, 0); font-weight: bold; }
+.gist-syntax .o { color: rgb(0, 0, 0); font-weight: bold; }
+.gist-syntax .c1 { color: rgb(153, 153, 136); font-style: italic; }
+.gist-syntax .nb { color: rgb(0, 134, 179); }
+.gist-syntax .nv { color: rgb(0, 128, 128); }
+.gist-syntax .mi { color: rgb(0, 153, 153); }
+.gist-syntax .sb { color: rgb(221, 17, 68); }
+.gist-syntax .s2 { color: rgb(221, 17, 68); }

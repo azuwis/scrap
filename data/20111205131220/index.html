@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms no-csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths mozilla">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <title>schacon/docurium - GitHub</title>
+    <link rel="search" type="application/opensearchdescription+xml" href="https://github.com/opensearch.xml" title="GitHub">
+    <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
+
+    
+    
+
+    <meta content="authenticity_token" name="csrf-param">
+<meta content="lVZLPoG8dtnjqRD7+RprmnV6oTeC+AqB6TENisPzt80=" name="csrf-token">
+
+    
+    
+
+    
+    
+    
+
+      <link rel="permalink" href="https://github.com/schacon/docurium/tree/5b4565e5608204003675f4e71d00b644725200f1">
+    
+
+    <meta name="description" content="docurium - Doxygen replacement for the libgit2 project">
+  <link href="https://github.com/schacon/docurium/commits/master.atom" rel="alternate" title="Recent Commits to docurium:master" type="application/atom+xml">
+
+  
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body class="logged_in   env-production ">
+    
+
+
+    
+
+    <div id="main">
+      <div id="header" class="true">
+          <a class="logo" href="https://github.com/">
+            <img alt="github" class="default svg" src="logov6.svg" height="45">
+            <img alt="github" class="default png" src="logov6.png" height="45">
+            <!--[if (gt IE 8)|!(IE)]><!-->
+            <img alt="github" class="hover svg" src="logov6-hover.svg" height="45">
+            <img alt="github" class="hover png" src="logov6-hover.png" height="45">
+            <!--<![endif]-->
+          </a>
+
+            
+
+
+    <div class="userbox">
+      <div class="avatarname">
+        <a href="https://github.com/azuwis"><img src="5abc9017d9e6e29a616c580f2c202702" height="20" width="20"></a>
+        <a href="https://github.com/azuwis" class="name">azuwis</a>
+      </div>
+      <ul class="usernav">
+        <li><a href="https://github.com/">Dashboard</a></li>
+        <li>
+          <a href="https://github.com/inbox/notifications">Inbox</a>
+
+          <a href="https://github.com/inbox/notifications" class="unread_count new js-inbox-count">14</a>
+        </li>
+        <li><a href="https://github.com/account">Account Settings</a></li>
+        <li><a href="https://github.com/logout">Log Out</a></li>
+      </ul>
+    </div><!-- /.userbox -->
+
+
+        <div class="topsearch">
+<form action="https://github.com/search" id="top_search_form" method="get">      <a href="https://github.com/search" class="advanced-search tooltipped downwards" title="Advanced Search">Advanced Search</a>
+      <div class="search placeholder-field js-placeholder-field">
+        <label style="display: block;" class="placeholder" for="global-search-field">Search…</label>
+        <input value="" autocomplete="off" class="search my_repos_autocompleter ac_input" id="global-search-field" name="q" results="5" type="text"> <input value="Search" class="button" type="submit">
+      </div>
+      <input name="type" value="Everything" type="hidden">
+      <input name="repo" value="" type="hidden">
+      <input name="langOverride" value="" type="hidden">
+      <input name="start_value" value="1" type="hidden">
+</form>    <ul class="nav">
+        <li class="explore"><a href="https://github.com/explore">Explore GitHub</a></li>
+        <li><a href="https://gist.github.com/">Gist</a></li>
+        <li><a href="https://github.com/blog">Blog</a></li>
+      <li><a href="http://help.github.com/">Help</a></li>
+    </ul>
+</div>
+
+      </div>
+
+      
+            <div class="site">
+      <div class="pagehead repohead vis-public   instapaper_ignore readability-menu">
+
+
+      <div class="title-actions-bar">
+        <h1>
+          <a href="https://github.com/schacon">schacon</a> /
+          <strong><a href="https://github.com/schacon/docurium" class="js-current-repository">docurium</a></strong>
+        </h1>
+        
+
+
+
+            <ul class="pagehead-actions">
+
+        <li class="js-toggler-container watch-button-container ">
+          <a href="https://github.com/schacon/docurium/toggle_watch" class="minibutton btn-watch watch-button js-toggler-target" data-method="post" data-remote="true"><span><span class="icon"></span>Watch</span></a>
+          <a href="https://github.com/schacon/docurium/toggle_watch" class="minibutton btn-watch unwatch-button js-toggler-target" data-method="post" data-remote="true"><span><span class="icon"></span>Unwatch</span></a>
+        </li>
+            <li><a href="https://github.com/schacon/docurium/fork" class="minibutton btn-fork fork-button" data-method="post"><span><span class="icon"></span>Fork</span></a></li>
+
+      <li class="repostats">
+        <ul class="repo-stats">
+          <li class="watchers ">
+            <a href="https://github.com/schacon/docurium/watchers" title="Watchers" class="tooltipped downwards">
+              24
+            </a>
+          </li>
+          <li class="forks">
+            <a href="https://github.com/schacon/docurium/network" title="Forks" class="tooltipped downwards">
+              4
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+      </div>
+
+        
+
+  <ul class="tabs with-details-box">
+    <li><a href="https://github.com/schacon/docurium" class="selected" highlight="repo_sourcerepo_downloadsrepo_commitsrepo_tagsrepo_branches">Code</a></li>
+    <li><a href="https://github.com/schacon/docurium/network" highlight="repo_networkrepo_fork_queue">Network</a>
+    </li><li><a href="https://github.com/schacon/docurium/pulls" highlight="repo_pulls">Pull Requests <span class="counter">0</span></a></li>
+
+      <li><a href="https://github.com/schacon/docurium/issues" highlight="repo_issues">Issues <span class="counter">0</span></a></li>
+
+
+    <li><a href="https://github.com/schacon/docurium/graphs" highlight="repo_graphsrepo_contributors">Stats &amp; Graphs</a></li>
+
+  </ul>
+
+      <div id="repo_details" class="metabox clearfix
+        not-editable">
+      <div id="repo_details_loader" class="metabox-loader" style="display: none;">Sending Request…</div>
+
+      <div class="repo-desc-homepage">
+        <div id="repository_description" class="repository-description">
+    <p>Doxygen replacement for the libgit2 project
+      <span id="read_more" style="">— <a href="#readme">Read more</a></span>
+    </p>
+</div>
+
+
+<div class="repository-homepage" id="repository_homepage">
+  <p><a href="http://libgit2.github.com/libgit2" rel="nofollow">http://libgit2.github.com/libgit2</a></p>
+</div>
+
+
+      </div>
+
+      <div class="edit-repo-desc-homepage" style="display: none;">
+<form action="https://github.com/schacon/docurium/admin/update_meta" id="js-update-repo-meta-form" method="post"><div style="margin: 0pt; padding: 0pt; display: inline;"><input name="_method" value="put" type="hidden"><input name="authenticity_token" value="lVZLPoG8dtnjqRD7+RprmnV6oTeC+AqB6TENisPzt80=" type="hidden"></div>          <p class="error" style="display: none;">Sorry, but there was a problem saving your changes.</p>
+
+          <div class="placeholder-field description-field-wrap js-placeholder-field">
+            <label style="display: none;" class="placeholder" for="repository-description-field" data-placeholder-mode="sticky">Add a description to this repository</label>
+            <input id="repository-description-field" class="description-field" name="repo_description" value="Doxygen replacement for the libgit2 project" type="text">
+          </div>
+
+          <div class="placeholder-field homepage-field-wrap js-placeholder-field">
+            <label style="display: none;" class="placeholder" for="repository-homepage-field" data-placeholder-mode="sticky">Add a website to this repository</label>
+            <input id="repository-homepage-field" class="homepage-field" name="repo_homepage" value="http://libgit2.github.com/libgit2" type="text">
+          </div>
+
+          <button type="submit" class="classy save-button"><span>Save Changes</span></button>
+          <p class="cancel"><a href="#" class="danger">Cancel</a></p>
+</form>      </div>
+
+      
+<div class="url-box">
+  <ul class="native-clones">
+      <li><a href="github-mac://openRepo/https://github.com/schacon/docurium" class="minibutton btn-clone-in-mac "><span><span class="icon"></span> Clone in Mac</span></a></li>
+      <li><a href="https://github.com/schacon/docurium/zipball/master" class="minibutton btn-download " title="Download this repository as a zip file"><span><span class="icon"></span>ZIP</span></a>
+  </li></ul>
+
+  <ul class="clone-urls">
+      <li class="http_clone_url selected"><a href="https://github.com/schacon/docurium.git" data-permissions="Read-Only">HTTP</a></li>
+      <li class="public_clone_url"><a href="git://github.com/schacon/docurium.git" data-permissions="Read-Only">Git Read-Only</a></li>
+  </ul>
+  <input value="https://github.com/schacon/docurium.git" spellcheck="false" class="url-field" type="text">
+        <span style="display: none;" id="clippy_2244" class="clippy-text">https://github.com/schacon/docurium.git</span>
+      <span id="clippy_tooltip_clippy_2244" class="clippy-tooltip tooltipped" title="copy to clipboard">
+      <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" class="clippy" id="clippy" height="14" width="14">
+      <param name="movie" value="https://a248.e.akamai.net/assets.github.com/flash/clippy.swf?1302750674?v5">
+      <param name="allowScriptAccess" value="always">
+      <param name="quality" value="high">
+      <param name="scale" value="noscale">
+      <param name="FlashVars" value="id=clippy_2244&amp;copied=copied!&amp;copyto=copy to clipboard">
+      <param name="bgcolor" value="#FFFFFF">
+      <param name="wmode" value="opaque">
+      <embed flashblock="1" src="clippy.swf" name="clippy" quality="high" allowscriptaccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=clippy_2244&amp;copied=copied!&amp;copyto=copy to clipboard" bgcolor="#FFFFFF" wmode="opaque" height="14" width="14">
+      </object>
+      </span>
+
+  <p class="url-description"><strong>Read-Only</strong> access</p>
+</div>
+
+    </div>
+
+<div class="frame frame-center tree-finder" style="display: none;" data-tree-list-url="/schacon/docurium/tree-list/5b4565e5608204003675f4e71d00b644725200f1" data-blob-url-prefix="/schacon/docurium/blob/5b4565e5608204003675f4e71d00b644725200f1">
+
+  <div class="breadcrumb">
+    <b><a href="https://github.com/schacon/docurium">docurium</a></b> /
+    <input value="" class="tree-finder-input js-navigation-enable" name="query" autocomplete="off" spellcheck="false" type="text">
+  </div>
+
+    <div class="octotip">
+      <p>
+        <a href="https://github.com/schacon/docurium/dismiss-tree-finder-help" class="dismiss js-dismiss-tree-list-help" title="Hide this notice forever">Dismiss</a>
+        <strong>Octotip:</strong> You've activated the <em>file finder</em>
+        by pressing <span class="kbd">t</span> Start typing to filter the
+        file list. Use <span class="kbd badmono">↑</span> and
+        <span class="kbd badmono">↓</span> to navigate,
+        <span class="kbd">enter</span> to view files.
+      </p>
+    </div>
+
+  <table class="tree-browser" cellpadding="0" cellspacing="0">
+    <tbody><tr class="js-header"><th>&nbsp;</th><th>name</th></tr>
+    <tr class="js-no-results no-results" style="display: none;">
+      <th colspan="2">No matching files</th>
+    </tr>
+    </tbody><tbody class="js-results-list js-navigation-container">
+    </tbody>
+  </table>
+</div>
+
+<div id="jump-to-line" style="display: none;">
+  <h2>Jump to Line</h2>
+  <form action="https://github.com/schacon/docurium">
+    <input value="" class="textfield" type="text">
+    <div class="full-button">
+      <button type="submit" class="classy">
+        <span>Go</span>
+      </button>
+    </div>
+  </form>
+</div>
+
+
+<div class="subnav-bar">
+
+  <ul class="actions">
+    
+      <li class="switcher">
+
+        <div class="context-menu-container js-menu-container">
+          <span class="text">Current branch:</span>
+          <a href="#" class="minibutton bigger switcher context-menu-button js-menu-target js-commitish-button btn-branch repo-tree" data-master-branch="master" data-ref="master">
+            <span><span class="icon"></span>master</span>
+          </a>
+
+          <div class="context-pane commitish-context js-menu-content">
+            <a href="javascript:;" class="close js-menu-close"></a>
+            <div class="title">Switch Branches/Tags</div>
+            <div class="body pane-selector commitish-selector js-filterable-commitishes">
+              <div class="filterbar">
+                <div class="placeholder-field js-placeholder-field">
+                  <label style="display: block;" class="placeholder" for="context-commitish-filter-field" data-placeholder-mode="sticky">Filter branches/tags</label>
+                  <input value="" id="context-commitish-filter-field" class="commitish-filter" type="text">
+                </div>
+
+                <ul class="tabs with-details-box">
+                  <li><a href="#" data-filter="branches" class="selected">Branches</a></li>
+                  <li><a href="#" data-filter="tags">Tags</a></li>
+                </ul>
+              </div>
+
+                <div class="commitish-item branch-commitish selector-item">
+                  <h4>
+                      <a href="https://github.com/schacon/docurium/tree/gh-pages" data-name="gh-pages">gh-pages</a>
+                  </h4>
+                </div>
+                <div class="commitish-item branch-commitish selector-item">
+                  <h4>
+                      <a href="https://github.com/schacon/docurium/tree/master" data-name="master">master</a>
+                  </h4>
+                </div>
+
+                <div style="display: none;" class="commitish-item tag-commitish selector-item">
+                  <h4>
+                      <a href="https://github.com/schacon/docurium/tree/v0.0.4" data-name="v0.0.4">v0.0.4</a>
+                  </h4>
+                </div>
+                <div style="display: none;" class="commitish-item tag-commitish selector-item">
+                  <h4>
+                      <a href="https://github.com/schacon/docurium/tree/v0.0.2" data-name="v0.0.2">v0.0.2</a>
+                  </h4>
+                </div>
+                <div style="display: none;" class="commitish-item tag-commitish selector-item">
+                  <h4>
+                      <a href="https://github.com/schacon/docurium/tree/v0.0.1" data-name="v0.0.1">v0.0.1</a>
+                  </h4>
+                </div>
+
+              <div class="no-results" style="display: none;">Nothing to show</div>
+            </div>
+          </div><!-- /.commitish-context-context -->
+        </div>
+
+      </li>
+  </ul>
+
+  <ul class="subnav">
+    <li><a href="https://github.com/schacon/docurium" class="selected" highlight="repo_source">Files</a></li>
+    <li><a href="https://github.com/schacon/docurium/commits/master" highlight="repo_commits">Commits</a></li>
+    <li><a href="https://github.com/schacon/docurium/branches" class="" highlight="repo_branches">Branches <span class="counter">2</span></a></li>
+    <li><a href="https://github.com/schacon/docurium/tags" class="" highlight="repo_tags">Tags <span class="counter">3</span></a></li>
+    <li><a href="https://github.com/schacon/docurium/downloads" class="blank" highlight="repo_downloads">Downloads <span class="counter">0</span></a></li>
+  </ul>
+
+</div>
+
+  
+  
+  
+
+
+        
+
+      </div><!-- /.pagehead -->
+
+      
+
+
+
+
+  
+  <p class="last-commit">Latest commit to the <strong>master</strong> branch</p>
+
+<div class="commit commit-tease js-details-container">
+  <p class="commit-title ">
+      <a href="https://github.com/schacon/docurium/commit/5b4565e5608204003675f4e71d00b644725200f1" class="message">Merge pull request </a><a href="https://github.com/schacon/docurium/issues/1" title="Change regex to support camelCase functions." class="issue-link">#1</a><a href="https://github.com/schacon/docurium/commit/5b4565e5608204003675f4e71d00b644725200f1" class="message"> from wesbillman/support-camelCase-functions</a>
+      <a href="javascript:;" class="minibutton expander-minibutton js-details-target"><span>…</span></a>
+  </p>
+    <div class="commit-desc"><pre>Change regex to support camelCase functions.</pre></div>
+  <div class="commit-meta">
+    <a href="https://github.com/schacon/docurium/commit/5b4565e5608204003675f4e71d00b644725200f1" class="sha-block">commit <span class="sha">5b4565e560</span></a>
+
+    <div class="authorship">
+      <img class="gravatar" src="9375a9529679f1b42b567a640d775e7d" height="20" width="20">
+      <span class="author-name"><a href="https://github.com/schacon">schacon</a></span>
+      authored <time class="js-relative-date" datetime="2011-09-14T06:47:07-07:00" title="2011-09-14 06:47:07">September 14, 2011</time>
+
+    </div>
+  </div>
+</div>
+
+
+  <div id="slider">
+      <div class="breadcrumb" data-path="/">
+        <b><a href="https://github.com/schacon/docurium" class="js-rewrite-sha">docurium</a></b> / 
+      </div>
+
+        
+
+  <div class="frames">
+    <div class="frame frame-center" data-path="/" data-permalink-url="/schacon/docurium/tree/5b4565e5608204003675f4e71d00b644725200f1" data-title="schacon/docurium - GitHub" data-type="tree" data-cached-commit-url="/schacon/docurium/cache/commits/5b4565e5608204003675f4e71d00b644725200f1?commit_sha=5b4565e5608204003675f4e71d00b644725200f1&amp;path=">
+      <table class="tree-browser" cellpadding="0" cellspacing="0">
+        <tbody><tr class="header">
+          <th></th>
+          <th>name</th>
+          <th>age</th>
+          <th>
+            <div class="history">
+              <a href="https://github.com/schacon/docurium/commits/master/">history</a>
+            </div>
+            message
+          </th>
+        </tr>
+
+
+          <tr class="alt">
+            <td class="icon"> <img alt="directory" src="dir.png" height="16" width="16"> </td>
+            <td class="content"> <a href="https://github.com/schacon/docurium/tree/master/bin" class="js-slide-to js-rewrite-sha" id="8347987632c7bd9376883442c9f87cb8753e6dfc">bin/</a></td>
+            <td class="age"> <time class="js-relative-date" datetime="2011-06-14T08:39:38-07:00" title="2011-06-14 08:39:38">June 14, 2011</time> </td>
+            <td class="message"> <a href="https://github.com/schacon/docurium/commit/7e154afeb4d31e0dd61678066ea7fab66b9a98c6" class="message">add cli option to gen a sample file</a> [<a href="https://github.com/schacon">schacon</a>] </td>
+          </tr>
+          <tr class="">
+            <td class="icon"> <img alt="directory" src="dir.png" height="16" width="16"> </td>
+            <td class="content"> <a href="https://github.com/schacon/docurium/tree/master/lib" class="js-slide-to js-rewrite-sha" id="ef22bfb25043a07315d3a724a10f79594003570c">lib/</a></td>
+            <td class="age"> <time class="js-relative-date" datetime="2011-09-14T06:47:07-07:00" title="2011-09-14 06:47:07">September 14, 2011</time> </td>
+            <td class="message"> <a href="https://github.com/schacon/docurium/commit/5b4565e5608204003675f4e71d00b644725200f1" class="message">Merge pull request </a><a href="https://github.com/schacon/docurium/issues/1" title="Change regex to support camelCase functions." class="issue-link">#1</a><a href="https://github.com/schacon/docurium/commit/5b4565e5608204003675f4e71d00b644725200f1" class="message"> from wesbillman/support-camelCase-functions</a> [<a href="https://github.com/schacon">schacon</a>] </td>
+          </tr>
+          <tr class="alt">
+            <td class="icon"> <img alt="directory" src="dir.png" height="16" width="16"> </td>
+            <td class="content"> <a href="https://github.com/schacon/docurium/tree/master/site" class="js-slide-to js-rewrite-sha" id="e8151f4ae9138065b36b6eae6212fd30ce16a43b">site/</a></td>
+            <td class="age"> <time class="js-relative-date" datetime="2011-06-15T07:31:29-07:00" title="2011-06-15 07:31:29">June 15, 2011</time> </td>
+            <td class="message"> <a href="https://github.com/schacon/docurium/commit/c09363f58b7b484b8fe32dcd5d56eb7a53ddc683" class="message">fix for groups issues</a> [<a href="https://github.com/schacon">schacon</a>] </td>
+          </tr>
+          <tr class="">
+            <td class="icon"> <img alt="directory" src="dir.png" height="16" width="16"> </td>
+            <td class="content"> <a href="https://github.com/schacon/docurium/tree/master/test" class="js-slide-to js-rewrite-sha" id="9116a1bedb3ee37bff0cb51997be2204f704bcda">test/</a></td>
+            <td class="age"> <time class="js-relative-date" datetime="2011-06-13T15:08:40-07:00" title="2011-06-13 15:08:40">June 14, 2011</time> </td>
+            <td class="message"> <a href="https://github.com/schacon/docurium/commit/8e6ac325767340a75d1f353f0be9b7c199af23c5" class="message">add signature history to project data</a> [<a href="https://github.com/schacon">schacon</a>] </td>
+          </tr>
+          <tr class="alt">
+            <td class="icon"> <img alt="file" src="txt.png" height="16" width="16"> </td>
+            <td class="content"> <a href="https://github.com/schacon/docurium/blob/master/.gitignore" class="js-slide-to js-rewrite-sha" id="b04a50eb3aa0cd674b251c03bd7e80da49ffdc4e">.gitignore</a></td>
+            <td class="age"> <time class="js-relative-date" datetime="2011-06-13T20:52:50-07:00" title="2011-06-13 20:52:50">June 14, 2011</time> </td>
+            <td class="message"> <a href="https://github.com/schacon/docurium/commit/69a9dbea1953f1e831bb1817d6e8c35dcf4b9ede" class="message">gemspec</a> [<a href="https://github.com/schacon">schacon</a>] </td>
+          </tr>
+          <tr class="">
+            <td class="icon"> <img alt="file" src="txt.png" height="16" width="16"> </td>
+            <td class="content"> <a href="https://github.com/schacon/docurium/blob/master/Gemfile" class="js-slide-to js-rewrite-sha" id="8f48e79b19d0897b9f6b61d7cc4c342b7429a893">Gemfile</a></td>
+            <td class="age"> <time class="js-relative-date" datetime="2011-06-13T20:52:50-07:00" title="2011-06-13 20:52:50">June 14, 2011</time> </td>
+            <td class="message"> <a href="https://github.com/schacon/docurium/commit/69a9dbea1953f1e831bb1817d6e8c35dcf4b9ede" class="message">gemspec</a> [<a href="https://github.com/schacon">schacon</a>] </td>
+          </tr>
+          <tr class="alt">
+            <td class="icon"> <img alt="file" src="txt.png" height="16" width="16"> </td>
+            <td class="content"> <a href="https://github.com/schacon/docurium/blob/master/LICENCE" class="js-slide-to js-rewrite-sha" id="2277cc847a8b21194e54e33b0ff2f84beb86d8c5">LICENCE</a></td>
+            <td class="age"> <time class="js-relative-date" datetime="2011-06-05T21:44:23-07:00" title="2011-06-05 21:44:23">June 06, 2011</time> </td>
+            <td class="message"> <a href="https://github.com/schacon/docurium/commit/c3d0be41ecbe669545ee3e94d31ed9a4bc91ee3c" class="message">can get basic info now</a> [<a href="https://github.com/schacon">schacon</a>] </td>
+          </tr>
+          <tr class="">
+            <td class="icon"> <img alt="file" src="txt.png" height="16" width="16"> </td>
+            <td class="content"> <a href="https://github.com/schacon/docurium/blob/master/README.md" class="js-slide-to js-rewrite-sha" id="0ec91bdb2b5010c14db7561a8aedb0d9d35d772b">README.md</a></td>
+            <td class="age"> <time class="js-relative-date" datetime="2011-06-14T10:08:59-07:00" title="2011-06-14 10:08:59">June 15, 2011</time> </td>
+            <td class="message"> <a href="https://github.com/schacon/docurium/commit/ebe0a52956b3d1ecb19c063694a2e74720957ebc" class="message">can write directly to a branch</a> [<a href="https://github.com/schacon">schacon</a>] </td>
+          </tr>
+          <tr class="alt">
+            <td class="icon"> <img alt="file" src="txt.png" height="16" width="16"> </td>
+            <td class="content"> <a href="https://github.com/schacon/docurium/blob/master/TODO.txt" class="js-slide-to js-rewrite-sha" id="5698b04ac3cf8e4060f5aa3c63ab1619af7d3e20">TODO.txt</a></td>
+            <td class="age"> <time class="js-relative-date" datetime="2011-06-15T07:31:29-07:00" title="2011-06-15 07:31:29">June 15, 2011</time> </td>
+            <td class="message"> <a href="https://github.com/schacon/docurium/commit/c09363f58b7b484b8fe32dcd5d56eb7a53ddc683" class="message">fix for groups issues</a> [<a href="https://github.com/schacon">schacon</a>] </td>
+          </tr>
+          <tr class="">
+            <td class="icon"> <img alt="file" src="txt.png" height="16" width="16"> </td>
+            <td class="content"> <a href="https://github.com/schacon/docurium/blob/master/docurium.gemspec" class="js-slide-to js-rewrite-sha" id="3c09162d83f982ddf387799e7af5d8bfbb9fd64e">docurium.gemspec</a></td>
+            <td class="age"> <time class="js-relative-date" datetime="2011-06-14T15:09:15-07:00" title="2011-06-14 15:09:15">June 15, 2011</time> </td>
+            <td class="message"> <a href="https://github.com/schacon/docurium/commit/5a2b8ba1ab421867ed110a4f382a0b4c2ce1d42c" class="message">one way function linking from examples</a> [<a href="https://github.com/schacon">schacon</a>] </td>
+          </tr>
+      </tbody></table>
+
+      
+      <div class="announce instapaper_body md" data-path="/" id="readme"><span class="name">README.md</span><div class="wikistyle"><h1>Docurium</h1>
+
+<p>Docurium is a lightweight Doxygen replacement.  It generates static HTML from the header files of a C project. It is meant to be simple, easy to navigate and git-tag aware. It is only meant to document your public interface, so it only knows about your header files.</p>
+
+<p>I built it to replace the Doxygen generated documentation for the libgit2 project, so I'm only currently testing it against that.  So, it is only known to include support for features and keywords used in that project currently.  If you have a C library project you try this on and something is amiss, please file an issue or better yet, a pull request.</p>
+
+<p>Though Docurium can generate your docs into a subdirectory, it is meant to be served from a webserver, not locally.  It uses XMLHttpRequest calls, which cannot be done locally, so you can't just open the index.html file locally and have it work - you need to either run a webserver in the output directory or push it to a website to view it properly.  I use Pow (pow.cx) or GitHub Pages.</p>
+
+<h1>Usage</h1>
+
+<p>Run the <code>cm</code> binary and pass it your Docurium config file.</p>
+
+<pre><code>$ cm doc api.docurium
+* generating docs
+  - processing version v0.1.0
+  - processing version v0.2.0
+  - processing version v0.3.0
+  - processing version v0.8.0
+  - processing version v0.10.0
+  - processing version v0.11.0
+  - processing version v0.12.0
+  - processing version HEAD
+* checking your api
+  - unmatched params in
+      git_commit_create
+      git_config_set_int
+      git_object_lookup_prefix
+  - signature changes in
+      git_index_get
+      git_repository_path
+      git_tree_entry_byindex
+* output html in docs/
+</code></pre>
+
+<p>Docurium will tell you if you have unmatched @params entries in header docs and if you've changed signatures in functions in HEAD, just to help you know what's happening and if you've written your docs properly.</p>
+
+<p>The Docurium config file looks like this:</p>
+
+<pre><code>{
+ "name":   "libgit2",
+ "github": "libgit2/libgit2",
+ "input":  "include/git2",
+ "prefix": "git_",
+ "branch": "gh-pages",
+ "examples": "examples",
+ "legacy":  {
+    "input": {"src/git": ["v0.1.0"],
+              "src/git2": ["v0.2.0", "v0.3.0"]}
+  }
+}
+</code></pre>
+
+<p>You can either have a <code>branch</code> or an <code>output</code> entry - <code>branch</code> will write your docs directly into a Git branch, <code>output</code> will write them to a subdirectory.</p>
+
+<h1>Installing</h1>
+
+<pre><code>$ gem install docurium
+</code></pre>
+
+<h1>Screenshots</h1>
+
+<h2>Main Page</h2>
+
+<p><img src="20110614-c98pp6c9p9mn35jn4iskjim7hk.png" alt="Main Page"></p>
+
+<p>Each version of your app has a landing page that lists out all the functions available.  Functions that are new in that version from the previous version are highlighted in green, functions that have changed signatures are in orange.</p>
+
+<h2>Function Page</h2>
+
+<p><img src="20110614-mdasyhip3swxtngwxrce8wqy3h.png" alt="Func Page"></p>
+
+<p>Each function has a page showing all the relevant info for that function including metadata extracted from Doxygen-style comments.  I also list all the versions of the library that this function is included in and in which versions the signature changed.</p>
+
+<h1>Contributing</h1>
+
+<p>If you want to fix or change something, please fork on GitHub, push your change to a branch named after your change and send me a pull request.</p>
+
+<h1>License</h1>
+
+<p>MIT, see LICENCE file</p>
+
+<h1>vim:ft=markdown</h1></div></div>
+    </div>
+  </div>
+  <br style="clear: both;">
+
+
+<br style="clear: both;">
+
+<div class="frame frame-loading" style="display: none;" data-tree-list-url="/schacon/docurium/tree-list/5b4565e5608204003675f4e71d00b644725200f1" data-blob-url-prefix="/schacon/docurium/blob/5b4565e5608204003675f4e71d00b644725200f1">
+  <img src="big_spinner_336699.gif" height="32" width="32">
+</div>
+
+
+
+  </div>
+
+    </div>
+
+    </div>
+
+    <!-- footer -->
+    <div id="footer">
+      
+  <div class="upper_footer">
+     <div class="site">
+
+       <!--[if IE]><h4 id="blacktocat_ie">GitHub Links</h4><![endif]-->
+       <!--[if !IE]--><h4 id="blacktocat">GitHub Links</h4><!--[endif]-->
+
+       <ul class="footer_nav">
+         <h4>GitHub</h4>
+         <li><a href="https://github.com/about">About</a></li>
+         <li><a href="https://github.com/blog">Blog</a></li>
+         <li><a href="https://github.com/features">Features</a></li>
+         <li><a href="https://github.com/contact">Contact &amp; Support</a></li>
+         <li><a href="https://github.com/training">Training</a></li>
+         <li><a href="http://status.github.com/">Site Status</a></li>
+       </ul>
+
+       <ul class="footer_nav">
+         <h4>Tools</h4>
+         <li><a href="http://mac.github.com/">GitHub for Mac</a></li>
+         <li><a href="http://mobile.github.com/">Issues for iPhone</a></li>
+         <li><a href="https://gist.github.com/">Gist: Code Snippets</a></li>
+         <li><a href="http://enterprise.github.com/">GitHub Enterprise</a></li>
+         <li><a href="http://jobs.github.com/">Job Board</a></li>
+       </ul>
+
+       <ul class="footer_nav">
+         <h4>Extras</h4>
+         <li><a href="http://shop.github.com/">GitHub Shop</a></li>
+         <li><a href="http://octodex.github.com/">The Octodex</a></li>
+       </ul>
+
+       <ul class="footer_nav">
+         <h4>Documentation</h4>
+         <li><a href="http://help.github.com/">GitHub Help</a></li>
+         <li><a href="http://developer.github.com/">Developer API</a></li>
+         <li><a href="http://github.github.com/github-flavored-markdown/">GitHub Flavored Markdown</a></li>
+         <li><a href="http://pages.github.com/">GitHub Pages</a></li>
+       </ul>
+
+     </div><!-- /.site -->
+  </div><!-- /.upper_footer -->
+
+<div class="lower_footer">
+  <div class="site">
+    <!--[if IE]><div id="legal_ie"><![endif]-->
+    <!--[if !IE]--><div id="legal"><!--[endif]-->
+      <ul>
+          <li><a href="https://github.com/site/terms">Terms of Service</a></li>
+          <li><a href="https://github.com/site/privacy">Privacy</a></li>
+          <li><a href="https://github.com/security">Security</a></li>
+      </ul>
+
+      <p>© 2011 <span id="_rrt" title="0.07232s from fe5.rs.github.com">GitHub</span> Inc. All rights reserved.</p>
+    </div><!-- /#legal or /#legal_ie-->
+
+      <div class="sponsor">
+        <a href="http://www.rackspace.com/" class="logo">
+          <img alt="Dedicated Server" src="rackspace_logo.png" height="36" width="38">
+        </a>
+        Powered by the <a href="http://www.rackspace.com/">Dedicated
+        Servers</a> and<br> <a href="http://www.rackspacecloud.com/">Cloud
+        Computing</a> of Rackspace Hosting<span>®</span>
+      </div>
+  </div><!-- /.site -->
+</div><!-- /.lower_footer -->
+
+    </div><!-- /#footer -->
+
+    
+
+<div id="keyboard_shortcuts_pane" class="instapaper_ignore readability-extra" style="display: none;">
+  <h2>Keyboard Shortcuts <small><a href="#" class="js-see-all-keyboard-shortcuts">(see all)</a></small></h2>
+
+  <div class="columns threecols">
+    <div class="column first">
+      <h3>Site wide shortcuts</h3>
+      <dl class="keyboard-mappings">
+        <dt>s</dt>
+        <dd>Focus site search</dd>
+      </dl>
+      <dl class="keyboard-mappings">
+        <dt>?</dt>
+        <dd>Bring up this help dialog</dd>
+      </dl>
+    </div><!-- /.column.first -->
+
+    <div class="column middle" style="display: none;">
+      <h3>Commit list</h3>
+      <dl class="keyboard-mappings">
+        <dt>j</dt>
+        <dd>Move selection down</dd>
+      </dl>
+      <dl class="keyboard-mappings">
+        <dt>k</dt>
+        <dd>Move selection up</dd>
+      </dl>
+      <dl class="keyboard-mappings">
+        <dt>c <em>or</em> o <em>or</em> enter</dt>
+        <dd>Open commit</dd>
+      </dl>
+      <dl class="keyboard-mappings">
+        <dt>y</dt>
+        <dd>Expand URL to its canonical form</dd>
+      </dl>
+    </div><!-- /.column.first -->
+
+    <div class="column last" style="display: none;">
+      <h3>Pull request list</h3>
+      <dl class="keyboard-mappings">
+        <dt>j</dt>
+        <dd>Move selection down</dd>
+      </dl>
+      <dl class="keyboard-mappings">
+        <dt>k</dt>
+        <dd>Move selection up</dd>
+      </dl>
+      <dl class="keyboard-mappings">
+        <dt>o <em>or</em> enter</dt>
+        <dd>Open issue</dd>
+      </dl>
+    </div><!-- /.columns.last -->
+
+  </div><!-- /.columns.equacols -->
+
+  <div style="display: none;">
+    <div class="rule"></div>
+
+    <h3>Issues</h3>
+
+    <div class="columns threecols">
+      <div class="column first">
+        <dl class="keyboard-mappings">
+          <dt>j</dt>
+          <dd>Move selection down</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>k</dt>
+          <dd>Move selection up</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>x</dt>
+          <dd>Toggle selection</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>o <em>or</em> enter</dt>
+          <dd>Open issue</dd>
+        </dl>
+      </div><!-- /.column.first -->
+      <div class="column middle">
+        <dl class="keyboard-mappings">
+          <dt>I</dt>
+          <dd>Mark selection as read</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>U</dt>
+          <dd>Mark selection as unread</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>e</dt>
+          <dd>Close selection</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>y</dt>
+          <dd>Remove selection from view</dd>
+        </dl>
+      </div><!-- /.column.middle -->
+      <div class="column last">
+        <dl class="keyboard-mappings">
+          <dt>c</dt>
+          <dd>Create issue</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>l</dt>
+          <dd>Create label</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>i</dt>
+          <dd>Back to inbox</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>u</dt>
+          <dd>Back to issues</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>/</dt>
+          <dd>Focus issues search</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: none;">
+    <div class="rule"></div>
+
+    <h3>Issues Dashboard</h3>
+
+    <div class="columns threecols">
+      <div class="column first">
+        <dl class="keyboard-mappings">
+          <dt>j</dt>
+          <dd>Move selection down</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>k</dt>
+          <dd>Move selection up</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>o <em>or</em> enter</dt>
+          <dd>Open issue</dd>
+        </dl>
+      </div><!-- /.column.first -->
+    </div>
+  </div>
+
+  <div style="display: none;">
+    <div class="rule"></div>
+
+    <h3>Network Graph</h3>
+    <div class="columns equacols">
+      <div class="column first">
+        <dl class="keyboard-mappings">
+          <dt><span class="badmono">←</span> <em>or</em> h</dt>
+          <dd>Scroll left</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt><span class="badmono">→</span> <em>or</em> l</dt>
+          <dd>Scroll right</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt><span class="badmono">↑</span> <em>or</em> k</dt>
+          <dd>Scroll up</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt><span class="badmono">↓</span> <em>or</em> j</dt>
+          <dd>Scroll down</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>t</dt>
+          <dd>Toggle visibility of head labels</dd>
+        </dl>
+      </div><!-- /.column.first -->
+      <div class="column last">
+        <dl class="keyboard-mappings">
+          <dt>shift <span class="badmono">←</span> <em>or</em> shift h</dt>
+          <dd>Scroll all the way left</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>shift <span class="badmono">→</span> <em>or</em> shift l</dt>
+          <dd>Scroll all the way right</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>shift <span class="badmono">↑</span> <em>or</em> shift k</dt>
+          <dd>Scroll all the way up</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>shift <span class="badmono">↓</span> <em>or</em> shift j</dt>
+          <dd>Scroll all the way down</dd>
+        </dl>
+      </div><!-- /.column.last -->
+    </div>
+  </div>
+
+  <div>
+    <div class="rule"></div>
+    <div class="columns threecols">
+      <div class="column first">
+        <h3>Source Code Browsing</h3>
+        <dl class="keyboard-mappings">
+          <dt>t</dt>
+          <dd>Activates the file finder</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>l</dt>
+          <dd>Jump to line</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>w</dt>
+          <dd>Switch branch/tag</dd>
+        </dl>
+        <dl class="keyboard-mappings">
+          <dt>y</dt>
+          <dd>Expand URL to its canonical form</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div id="markdown-help" class="instapaper_ignore readability-extra">
+  <h2>Markdown Cheat Sheet</h2>
+
+  <div class="cheatsheet-content">
+
+  <div class="mod">
+    <div class="col">
+      <h3>Format Text</h3>
+      <p>Headers</p>
+      <pre># This is an &lt;h1&gt; tag
+## This is an &lt;h2&gt; tag
+###### This is an &lt;h6&gt; tag</pre>
+     <p>Text styles</p>
+     <pre>*This text will be italic*
+_This will also be italic_
+**This text will be bold**
+__This will also be bold__
+
+*You **can** combine them*
+</pre>
+    </div>
+    <div class="col">
+      <h3>Lists</h3>
+      <p>Unordered</p>
+      <pre>* Item 1
+* Item 2
+  * Item 2a
+  * Item 2b</pre>
+     <p>Ordered</p>
+     <pre>1. Item 1
+2. Item 2
+3. Item 3
+   * Item 3a
+   * Item 3b</pre>
+    </div>
+    <div class="col">
+      <h3>Miscellaneous</h3>
+      <p>Images</p>
+      <pre>![GitHub Logo](/images/logo.png)
+Format: ![Alt Text](url)
+</pre>
+     <p>Links</p>
+     <pre>http://github.com - automatic!
+[GitHub](http://github.com)</pre>
+<p>Blockquotes</p>
+     <pre>As Kanye West said:
+&gt; We're living the future so
+&gt; the present is our past.
+</pre>
+    </div>
+  </div>
+  <div class="rule"></div>
+
+  <h3>Code Examples in Markdown</h3>
+  <div class="col">
+      <p>Syntax highlighting with <a href="http://github.github.com/github-flavored-markdown/" title="GitHub Flavored Markdown" target="_top">GFM</a></p>
+      <pre>```javascript
+function fancyAlert(arg) {
+  if(arg) {
+    $.facebox({div:'#foo'})
+  }
+}
+```</pre>
+    </div>
+    <div class="col">
+      <p>Or, indent your code 4 spaces</p>
+      <pre>Here is a Python code example
+without syntax highlighting:
+
+    def foo:
+      if not bar:
+        return true</pre>
+    </div>
+    <div class="col">
+      <p>Inline code for comments</p>
+      <pre>I think you should use an
+`&lt;addr&gt;` element here instead.</pre>
+    </div>
+  </div>
+
+  </div>
+
+
+    <div class="context-overlay"></div>
+
+    <div class="ajax-error-message">
+      <p><span class="icon"></span> Something went wrong with that request. Please try again. <a href="javascript:;" class="ajax-error-dismiss">Dismiss</a></p>
+    </div>
+
+    
+    
+    
+  
+
+
+</body>
+</html>

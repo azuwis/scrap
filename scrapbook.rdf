@@ -44,6 +44,7 @@
     <RDF:li RDF:resource="urn:scrapbook:item20111013195943"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111128131253"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111128133251"/>
+    <RDF:li RDF:resource="urn:scrapbook:item20111205131220"/>
   </RDF:Seq>
   <RDF:Description RDF:about="urn:scrapbook:item20111013195938"
                    NS1:id="20111013195938"
@@ -322,6 +323,14 @@
                    NS1:icon=""
                    NS1:source=""
                    NS1:comment="" />
+  <RDF:Description RDF:about="urn:scrapbook:item20111205131220"
+                   NS1:id="20111205131220"
+                   NS1:type=""
+                   NS1:title="schacon/docurium - GitHub"
+                   NS1:chars="UTF-8"
+                   NS1:comment=""
+                   NS1:source="https://github.com/schacon/docurium"
+                   NS1:icon="resource://scrapbook/data/20111205131220/favicon.ico" />
   <RDF:Seq RDF:about="urn:scrapbook:item20111128092900">
     <RDF:li RDF:resource="urn:scrapbook:item20111128092908"/>
   </RDF:Seq>

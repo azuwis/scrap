@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<meta name="robots" content="index,follow">
+<meta http-equiv="imagetoolbar" content="no">
+<title>How To Log Users Console Tutorial</title>
+
+
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body>
+<pre>
+    ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+   ██                                                                       ██
+  █▌                      -   <b>LOGGING USERS CONSOLE</b>   -                      █▌
+ █▌                                                                           █▌
+ █                                                                            ▐▌
+ █ Listed here are a few methods to keep an audit of your users by logging    ▐▌
+ █ user's shell console.                                                      ▐▌
+ █ Keep in mind that the methods below for bash are not impossible to bypass, ▐▌
+ █ as clever users can find ways around this.                                 ▐▌
+ █                                                                            ▐▌
+ █ <b>LOG EVERYTHING ON A USER'S CONSOLE:</b>                                        ▐▌
+ █ ```````````````````````````````````                                        ▐▌
+ █ <b>1.</b> Log 'everything' on a users console - input/output:                     ▐▌
+ █ I recommend testing this on a test user first - create one if needed.      ▐▌
+ █ Make modifications to suit your needs.                                     ▐▌
+ █ Find the location of your bash, if different than below adjust the top     ▐▌
+ █ line in the script to match:                                               ▐▌
+ █ <b>which bash</b>                                                                 ▐▌
+ █ Create the script, naming it anything you like:                            ▐▌
+ █ <b>pico audit_user.sh</b>                                                         ▐▌
+ █ Paste this in, changing 'user' to the user's name where you want the log   ▐▌
+ █ saved, or entire path to save log; keep in mind that user has to have      ▐▌
+ █ permission to access that path:                                            ▐▌
+ █ #!/bin/bash                                                                ▐▌
+ █ SHELL=/bin/bash -aq /home/user/audit.log                                   ▐▌
+ █                                                                            ▐▌
+ █ Or if you have a customized MOTD, add the MOTD script to audit_user.sh or  ▐▌
+ █ they won't have any MOTD when the login, for example:                      ▐▌
+ █ #!/bin/bash                                                                ▐▌
+ █ SHELL=/bin/bash &amp;&amp; /etc/motd.tcl &amp;&amp; script -aq /home/user/audit.log        ▐▌
+ █                                                                            ▐▌
+ █ Set perms on the script:                                                   ▐▌
+ █ <b>chmod 755 audit.sh</b>                                                         ▐▌
+ █                                                                            ▐▌
+ █ Add the script to the user you want to log the console of:                 ▐▌
+ █ <b>su</b>                                                                         ▐▌
+ █ <b>pico /etc/passwd</b>                                                           ▐▌
+ █ For example to add the script to user dog, mine has this:                  ▐▌
+ █ dog:x:1000:1000:,,,:/home/dog:/bin/bash                                    ▐▌
+ █ Replace /bin/bash with the script:                                         ▐▌
+ █ dog:x:1000:1000:,,,:/home/dog:/home/dog/audit_user.sh                      ▐▌
+ █                                                                            ▐▌
+ █ So now each time dog logins his login will read audit_user.sh first, which ▐▌
+ █ will tell it to log the console to audit.log. Just like .bash_history,     ▐▌
+ █ this won't be logged to audit.log until the user logs out.                 ▐▌
+ █                                                                            ▐▌
+ █ To view it:                                                                ▐▌
+ █ <b>pico audit.log</b>                                                             ▐▌
+ █                                                                            ▐▌
+ █ <b>HACK BASH SOURCE CODE:</b>                                                     ▐▌
+ █ ``````````````````````                                                     ▐▌
+ █ <b>1.</b> Alter bash source code so that all user's cmds will be logged in        ▐▌
+ █ /var/log <a href="http://sock-raw.org/papers/bash_history" target="_top">HERE</a>, scroll down to 'iv. Hacking bash - interfacing with         ▐▌
+ █ syslog'.                                                                   ▐▌
+ █                                                                            ▐▌
+ █ <b>VIEW ANOTHER USER'S CONSOLE LIVE:</b>                                          ▐▌
+ █ `````````````````````````````````                                          ▐▌
+ █ <b>1. VCS:</b>                                                                    ▐▌
+ █ Use vcs which is included with Debian, virtual console memory: man vcs or  ▐▌
+ █ view the man page HERE.                                                    ▐▌
+ █ http://linux.die.net/man/4/vcs                                             ▐▌
+ █                                                                            ▐▌
+ █ <b>2. TTY:</b>                                                                    ▐▌
+ █ Use their tty number to view live cmds executed. Find their tty by number  ▐▌
+ █ entering:                                                                  ▐▌
+ █ <b>w</b>                                                                          ▐▌
+ █ Output similar to:                                                         ▐▌
+ █ dog   pts/7                                                                ▐▌
+ █ So dog tty number is 7, so then:                                           ▐▌
+ █ <b>su</b>                                                                         ▐▌
+ █ <b>cat &lt;/dev/pts/7</b>                                                            ▐▌
+ █ Or you could send it to a log:                                             ▐▌
+ █ <b>cat /dev/pts/7 &gt; tty7.log</b>                                                  ▐▌
+ █ To view the log:                                                           ▐▌
+ █ <b>pico tty7.log</b>                                                              ▐▌
+ █ Note: Using cat I noticed some of the cmds executed on my own terminal.    ▐▌
+ █ cat will quit when the user logs out.                                      ▐▌
+ █                                                                            ▐▌
+ █ Problems I noted with this method:                                         ▐▌
+ █ It lagged the user's bash session tremendously and messes up characters    ▐▌
+ █ the user types in.                                                         ▐▌
+ █ If the user was to: <b>ps au</b>                                                  ▐▌
+ █ She/he will be able to view it running:                                    ▐▌
+ █ root 20588 0.0 0.0 3020 484 pts/6 S+ 05:03 0:00 cat                        ▐▌
+ █ Or if logging:                                                             ▐▌
+ █ root 20588 0.0 0.0 3020 484 pts/6 S+ 05:03 0:00 cat /dev/pts/7             ▐▌
+ █                                                                            ▐▌
+ █ <b>3. TTYSNOOP:</b>                                                               ▐▌
+ █ And this might be where ttysnoop would fix those problems. It hasn't been  ▐▌
+ █ updated in a long time-2001, nor have I tried it myself. ttysnoop site     ▐▌
+ █ is <a href="http://freshmeat.net/projects/ttysnoop/" target="_top">HERE</a>, read the man page <a href="http://linux.die.net/man/8/ttysnoop" target="_top">HERE</a>.                                           ▐▌
+ █ <b>aptitude update</b>                                                            ▐▌
+ █ <b>aptitude install ttysnoop</b>                                                  ▐▌
+ █ Some usage information <a href="http://www.linuxhelp.net/guides/ttysnoop/" target="_top">HERE</a>.                                               ▐▌
+ █                                                                            ▐▌
+ █ <b>4. SUDOSH2:</b>                                                                ▐▌
+ █ sudosh2 works like VCS to record shell sessions. The website is <a href="http://shortcutsolutions.net/sudosh2-software/55-introduction-sudosh2-user-shell-auditing.html" target="_top">HERE</a>,      ▐▌
+ █ project page <a href="http://sourceforge.net/projects/sudosh2/" target="_top">HERE</a>, view the man page <a href="http://linux.die.net/man/1/sudosh" target="_top">HERE</a>.                                 ▐▌
+ █ You'll need sudo to use sudosh. sudo is not installed by default on        ▐▌
+ █ Debian. Test if you have it:                                               ▐▌
+ █ <b>sudo</b>                                                                       ▐▌
+ █ If output is: <i>bash: sudo: command not found</i>                                ▐▌
+ █ Then view my sudo page <a href="http://mewbies.com/sudo_error_fixes.htm" target="_top">HERE</a>.                                               ▐▌
+ █                                                                            ▐▌
+ █ Check the site for the latest v of sudosh2. (I did notice there is a link  ▐▌
+ █ to sudosh3 on the project page, different author).                         ▐▌
+ █ <b>wget http://biznetnetworks.dl.sourceforge.net/project/sudosh2/v1.0.3/sudosh2-1.0.3.tar.gz</b>
+ █ <b>tar xvzf sudosh2-1.0.3.tar.gz</b>                                              ▐▌
+ █ <b>cd sudosh2-1.0.3</b>                                                           ▐▌
+ █ <b>./configure </b>                                                               ▐▌
+ █ <b>make</b>                                                                       ▐▌
+ █ <b>su</b>                                                                         ▐▌
+ █ <b>make install</b>                                                               ▐▌
+ █ <b>cat README</b>                                                                 ▐▌
+ █ And take if from there.. such as:                                          ▐▌
+ █ <b>sudosh -i</b>                                                                  ▐▌
+ █ Some more configuration info <a href="http://shortcutsolutions.net/sudosh2-software/55-introduction-sudosh2-user-shell-auditing.html" target="_top">HERE</a>.                                         ▐▌
+ █                                                                            ▐▌
+ █ //----------------------------------------------------------------------   ▐▌
+ █                                                                            ▐▌
+ █ If you find mistakes, have suggestions, and or questions please post at    ▐▌
+ █ mewbies forum <a href="http://mewbies.com/mewbies_posting/index.php" target="_top">HERE</a> - thank you.                                            ▐▌
+ █                                                                            ▐▌
+ █ Last update on 20 Jul '10                                                  ▐▌
+ █                                                                            ▐▌
+ █▌                                                                           █▌
+  █▌                          -   mewbies.com   -                            █▌
+   █▌                                                                       █▌
+    ██▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄██
+ </pre></body>
+</html>

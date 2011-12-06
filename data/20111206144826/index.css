@@ -1,0 +1,165 @@
+/* ::::: https://s7.addthis.com/static/r07/widget71.css ::::: */
+
+.addthis_toolbox.addthis_default_style span { line-height: 16px; }
+.addthis_default_style .addthis_separator { margin: 0pt 5px; display: inline; }
+div.atclear { clear: both; }
+.addthis_default_style .addthis_separator, .addthis_default_style .at300b, .addthis_default_style .at300m, .addthis_default_style .at300bs { float: left; }
+.addthis_default_style .at300b, .addthis_default_style .at300m { padding: 0pt 2px; }
+.at300b, .at300m, .at300bs { cursor: pointer; }
+.at300b:hover { opacity: 0.8; }
+.at300bs:hover { opacity: 0.8; }
+.at300bs { background: url('widget35.png') no-repeat scroll 0pt 0pt transparent; overflow: hidden; display: block; height: 16px; width: 16px; line-height: 16px ! important; }
+.at15t_delicious { background-position: 0pt -992px; }
+.at15t_digg { background-position: 0pt -1056px; }
+.at15t_email { background-position: 0pt -1440px; }
+.at15t_facebook { background-position: 0pt -1552px; }
+.at15t_google { background-position: 0pt -2064px; }
+.at15t_linkedin { background-position: 0pt -2928px; }
+.at15t_twitter { background-position: 0pt -5168px; }
+.at15t_compact { background-position: 0pt -3376px; }
+.addthis_default_style .at15t_expanded, .addthis_default_style .at15t_compact { margin-right: 4px; }
+:first-child + html #at_email textarea { height: 42px ! important; }
+* html #at16psf input, :first-child + html #at16psf input { padding: 0pt; }
+:first-child + html #at_email #at16eatdr { top: 115px ! important; width: 272px ! important; }
+#_atssh { width: 1px ! important; height: 1px ! important; border: 0pt none ! important; }
+@media print {
+  #at20mc { display: none; }
+}
+/* ::::: https://www.infosecisland.com/css/www/main.css ::::: */
+
+ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, body, html, p, blockquote, fieldset, input { margin: 0pt; padding: 0pt; }
+a img, :link img, :visited img { border: medium none; }
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+body, td { margin: 0pt; padding: 0pt; font-family: Arial,Verdana,sans-serif; font-size: 13px; background-color: rgb(255, 255, 255); }
+body { padding: 0px; height: 100%; }
+.w3 { font-size: 10px; }
+.w2 { font-size: 12px; }
+.w1 { font-size: 11px; color: rgb(0, 107, 167); }
+.w0 { font-size: 12px; color: rgb(0, 107, 167); font-weight: bold; }
+.tagcloud { color: rgb(0, 0, 0); padding: 5px 8px 8px; }
+.tagcloud a { color: rgb(0, 0, 0); }
+ul { list-style-type: none; }
+.box a, .box { color: rgb(255, 255, 255); }
+td { vertical-align: top; }
+.post_text { margin: 5px 30px; font-size: 14px; color: rgb(51, 51, 51); }
+#bannerzone_bottom { padding-bottom: 20px; clear: both; text-align: center; }
+#bannerzone_left_top, #bannerzone_right_top { clear: both; text-align: center; }
+#bannerzone_right_bottom { background-color: rgb(239, 239, 239); clear: both; text-align: center; border: 1px solid black; padding: 2px; margin-top: 5px; margin-bottom: 5px; }
+#bannerzone_left_bottom { background-color: rgb(239, 239, 239); clear: both; text-align: center; border: 1px solid rgb(204, 204, 204); padding: 2px; margin-top: 0px; margin-bottom: 5px; }
+.article_comment { padding: 5px 30px 30px; font-size: 12px; }
+/* ::::: https://www.infosecisland.com/css/www/layout.css ::::: */
+
+html, body { height: 100%; }
+.ul1 { margin: 0px; padding: 0px; list-style: none outside none; }
+.ul1 li { display: inline; }
+.ul1 a { display: block; }
+.ul1 a b { display: block; height: 13px; padding: 5px 0px 0px 8px; font-size: 12px; font-weight: normal; color: black; }
+.bg16 { background-color: rgb(255, 255, 255); }
+#top_wrapper { width: 1090px; height: 25px; margin: 0px auto; padding-top: 12px; padding-left: 10px; padding-right: 10px; }
+#wrapper { width: 1100px; margin: 0px auto; border: 2px solid black; background-color: rgb(255, 255, 255); }
+#search_bar { background: none repeat scroll 0% 0% rgb(1, 125, 187); height: 0px; float: right; position: relative; top: -5px; left: 30px; width: 400px; }
+.menus { height: 27px; background-color: rgb(0, 0, 0); width: 100%; border-top: 7px solid rgb(0, 107, 167); padding: 8px 8px 0px; font-size: 12px; font-weight: normal; color: white; }
+.menus tr { background-color: black; }
+.menus td { background-color: black; color: white; font-size: 12px; }
+.menus a { width: 100px; color: white; position: relative; top: -2px; font-size: 12px; font-weight: bold; }
+.menus a:hover { color: rgb(0, 102, 204); }
+#header { width: 100%; border-bottom: 0px solid rgb(0, 120, 185); }
+#logo { float: left; height: 92px; }
+#login { float: right; width: 216px; }
+#content {  }
+.three-col { background-color: white; }
+.three-col .colA { float: left; width: 160px; padding: 3px 3px 0px; height: 100%; background-color: white; }
+.three-col .colB { float: left; width: 621px; padding: 3px 0px; background-color: white; height: 100%; border-right: 1px solid rgb(239, 239, 239); border-left: 0px solid rgb(57, 57, 57); }
+.three-col .colC { float: left; width: 301px; height: 100%; background-color: white; padding: 0px 5px; border-right: 0px solid rgb(171, 205, 239); border-left: 0px solid rgb(57, 57, 57); }
+.three-col .colB .extra { height: 25px; }
+.three-col .colB .extraL { float: left; width: 25px; height: 25px; }
+.three-col .colB .extraR { float: right; width: 25px; height: 25px; }
+#footer { width: 945px; height: 30px; margin: 10px auto; }
+.box {  }
+.box .title { background-color: rgb(238, 238, 238); border-top: 1px solid rgb(255, 255, 255); }
+.box .title h2 {  }
+.box .title h2 b { display: block; height: 22px; padding: 6px 0px 0px 10px; }
+.box .content { margin: 0px; border-width: 0px; border-style: solid; border-color: rgb(155, 156, 148) rgb(155, 156, 148) rgb(103, 104, 96); }
+.box .extra { height: 0px; }
+#content table { width: 400px; border: 0px solid; border-collapse: collapse; margin-left: 30px; margin-bottom: 20px; }
+#content td { border: 0px none; padding: 2px; }
+#content h1 { font-size: 24px; padding-right: 20px; }
+#post_info { padding-left: 0px; margin-right: 20px; padding-top: 5px; background-color: rgb(255, 255, 255); width: auto; color: black; }
+#post_info td { padding-left: 0px; font-weight: bold; }
+#post_info a { text-decoration: underline; }
+div.bubblesmall { width: 280px; padding-bottom: 5px; font-size: 11px; border-bottom: 1px solid rgb(204, 204, 204); }
+div.bubblesmall blockquote { margin: 0px; padding: 0px; border: 0px solid rgb(201, 194, 193); background-color: rgb(255, 255, 255); color: black; font-size: 11px; }
+div.bubblesmall blockquote p { margin: 0px 0px 5px; padding: 0px; color: black; }
+div.bubblesmall blockquote p a { color: black; }
+div.bubblesmall cite { margin: 0px; padding: 5px 0px 0px 5px; font-style: normal; color: black; }
+div.bubblesmall cite a { color: black; font-weight: bold; }
+div.bubblesmall cite a:hover { text-decoration: underline; }
+#poll_home { background-color: white; margin: 0px; padding: 0px; width: 300px; }
+.comment_article a { color: rgb(0, 102, 153); font-weight: bold; font-size: 11px; padding-bottom: 3px; }
+.comment_article a:hover { text-decoration: underline; }
+.disclaimer { padding: 20px; font-size: 12px; }
+.textbanner .bannertitle { text-align: left; padding: 5px; font-weight: bold; font-size: 13px; }
+.textbanner .bannertitle a { color: blue; text-decoration: underline; }
+.textbanner .bannertext { text-align: left; padding: 2px 5px 5px; font-size: 11px; }
+.textbanner .bannertext a { font-size: 12px; color: black; background-color: rgb(239, 239, 239); }
+#bannerzone_left_bottom .textbanner .bannertext a { background-color: rgb(239, 239, 239); }
+#bannerzone_top { padding-top: 1px; float: right; height: 92px; }
+#bannerzone_right_top { background-color: rgb(255, 255, 255); }
+.banner_location_6 { text-align: center; margin: auto; }
+.mp_link { color: black; padding-top: 5px; border-bottom: 1px dashed rgb(239, 239, 239); border-right: 1px solid rgb(255, 221, 187); }
+.mp_link li, .mp_link a { color: rgb(0, 102, 204); font-weight: bold; font-size: 12px; height: 25px; text-indent: 2em; padding-top: 3px; }
+.mp_link a:hover { text-decoration: underline; }
+.mr_link { color: black; padding-top: 5px; border-bottom: 1px dashed rgb(239, 239, 239); }
+.mr_link li, .mr_link a { color: rgb(0, 102, 204); font-weight: bold; font-size: 12px; height: 25px; text-indent: 2em; padding-top: 3px; }
+.mr_link a:hover { text-decoration: underline; }
+/* ::::: https://www.infosecisland.com/css/www/default.css ::::: */
+
+body { margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(0, 75, 117); }
+form { margin: 0px; padding: 0px; }
+.input2 { position: relative; top: 0px; width: 265px; background-color: rgb(171, 205, 239); border-width: 1px; border-style: solid; border-color: rgb(27, 27, 24) rgb(69, 70, 64) rgb(125, 126, 116); padding: 2px; height: 15px; color: rgb(0, 0, 0); font-size: 12px; }
+h1, h2, h3, h4, h5, h6 { margin: 0px; }
+.colB h1 { font-size: 28px; display: block; padding-top: 20px; padding-left: 20px; color: black; border-bottom: 1px dashed rgb(204, 204, 204); }
+.colB h4 { font-size: 12px; color: grey; }
+body, th, td, input, textarea, select { font-size: 11px; color: black; }
+p, blockquote, ul, ol, dl { margin-top: 0px; margin-bottom: 1em; text-align: left; }
+.text1 { font-size: 14px; font-weight: bold; color: black; border-bottom: 1px solid rgb(204, 204, 204); }
+.text2 { font-size: 11px; font-weight: normal; color: rgb(255, 255, 255); }
+a { color: rgb(0, 99, 150); }
+a:hover { text-decoration: none; }
+a.link1 { text-decoration: none; color: rgb(0, 0, 0); text-align: left; }
+a.link1:hover { text-decoration: underline; cursor: pointer; }
+.style2 { text-align: center; color: rgb(189, 191, 186); }
+.style2 a { color: rgb(189, 191, 186); }
+.style2 a:hover {  }
+.style4 { color: rgb(51, 153, 204); font-weight: normal; font-size: 10px; }
+.bg5 { background-color: white; padding-bottom: 5px; }
+.bg6 {  }
+.bg7 {  }
+.bg16 { background: url('homepage38.gif') repeat-y scroll left top transparent; }
+.bg17 { background-color: white; }
+img { border: medium none; }
+/* ::::: https://www.infosecisland.com/css/www/clearfix.css ::::: */
+
+/* ::::: https://www.infosecisland.com/css/www/forum.css ::::: */
+
+/* ::::: https://www.infosecisland.com/css/www/jquery.autocomplete.css ::::: */
+
+/* ::::: https://www.infosecisland.com/css/www/newdesign.css ::::: */
+
+/* ::::: https://www.infosecisland.com/sfPropelActAsRatableBehaviorPlugin/css/sf_rating.css ::::: */
+
+.star-rating { list-style: none outside none; margin: 0pt; padding: 0pt; height: 25px; position: relative; overflow: hidden; background: url('alt_star.gif') repeat-x scroll left top transparent; }
+.star-rating li { padding: 0pt; margin: 0pt; width: 25px; height: 25px; float: left; }
+.star-rating li a { display: block; width: 25px; height: 25px; line-height: 25px; text-decoration: none; text-indent: -9000px; z-index: 20; position: absolute; padding: 0pt; overflow: hidden; }
+.star-rating li a:hover { background: url('alt_star.gif') repeat scroll left bottom transparent; z-index: 2; left: 0pt; border: medium none; }
+.star-rating a.r2stars { left: 25px; }
+.star-rating a.r2stars:hover { width: 50px; }
+.star-rating a.r3stars { left: 50px; }
+.star-rating a.r3stars:hover { width: 75px; }
+.star-rating a.r4stars { left: 75px; }
+.star-rating a.r4stars:hover { width: 100px; }
+.star-rating a.r5stars { left: 100px; }
+.star-rating a.r5stars:hover { width: 125px; }
+.star-rating li.current-rating { background: url('alt_star.gif') repeat scroll left center transparent; position: absolute; height: 25px; display: block; text-indent: -9000px; z-index: 1; left: 0px; }
+a:active { outline: medium none; }

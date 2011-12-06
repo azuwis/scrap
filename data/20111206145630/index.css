@@ -1,0 +1,19 @@
+/* ::::: http://progit.org/stylesheets/master.css ::::: */
+
+body { font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; background: none repeat scroll 0% 0% rgb(221, 221, 170); color: rgb(34, 34, 34); }
+a:visited { color: rgb(68, 68, 68); }
+#wrapper { width: 50em; margin: 2em auto 0pt; padding: 0pt; background: none repeat scroll 0% 0% rgb(255, 255, 255); border-radius: 1.5em 1.5em 1.5em 1.5em; }
+#header { font-family: Courier; background: none repeat scroll 0% 0% rgb(34, 34, 34); border-top-left-radius: 1em; border-top-right-radius: 1em; padding: 1.5em; text-align: center; }
+#header h1 { font-size: 4em; display: inline; color: rgb(255, 255, 255); font-weight: normal; }
+#header h2 { display: inline; margin-left: 0.5em; font-size: 1.4em; font-weight: normal; color: rgb(221, 221, 85); }
+#menu { background: none repeat scroll 0% 0% rgb(68, 68, 68); }
+#menu ul { list-style: none outside none; margin: 0pt; text-align: center; }
+#menu ul li { display: inline; }
+#menu ul li a { color: white; font-size: 1.1em; padding: 0pt 0.8em; line-height: 2.5em; font-weight: normal; }
+#content { padding: 2em; }
+#content h2 { margin: 0pt 0pt 0.5em; color: black; font-size: 1.5em; }
+#content p { line-height: 140%; }
+pre { background: none repeat scroll 0% 0% rgb(248, 248, 248); border-style: solid; border-color: rgb(231, 229, 220); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; -moz-border-image: none; border-width: 1px 0pt 4px 6px; padding: 1em; overflow: auto; color: black; line-height: 120%; font-family: "Consolas","Courier New",Courier,mono; font-size: 12px; letter-spacing: 0pt; }
+#footer { margin-bottom: 2em; color: rgb(62, 66, 58); font-size: 0.9em; padding: 0.5em; text-align: center; }
+.clearfix { clear: both; }
+#footer a { color: rgb(62, 66, 58); font-weight: normal; }

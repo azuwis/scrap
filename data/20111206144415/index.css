@@ -1,0 +1,41 @@
+/* ::::: http://www.collegedegrees.com/wp-content/themes/cds-new/style.css ::::: */
+
+html, body, div, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, blockquote, pre, form, fieldset, table, th, td { margin: 0pt; padding: 0pt; }
+body { text-align: center; font-family: sans-serif; font-size: 14px; border: 0pt none; color: rgb(0, 0, 0); background: url('bg.jpg') repeat-x scroll 0pt 0pt rgb(236, 244, 248); line-height: 21px; }
+div.wrap { margin: 0pt auto; width: 960px; text-align: left; }
+#header { height: 95px; background: url('logo.png') no-repeat scroll center 15px transparent; }
+#nav { position: relative; width: 100%; overflow: hidden; border-bottom: 4px solid rgb(224, 90, 59); }
+#content { background: none repeat scroll 0% 0% rgb(255, 255, 255); border-right: 2px solid rgb(203, 218, 226); border-width: medium 2px 2px; border-style: none solid solid; border-color: -moz-use-text-color rgb(203, 218, 226) rgb(203, 218, 226); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; -moz-border-image: none; }
+#footer { padding: 20px 0pt; }
+#col-left { width: 300px; float: left; margin: 30px 0pt 15px 30px; }
+#col-right { width: 570px; float: right; margin: 30px 30px 15px 0pt; }
+#col-left .box { background: none repeat scroll 0% 0% rgb(236, 244, 248); margin-bottom: 20px; }
+h1 { font-size: 24px; line-height: 29px; padding: 0pt 0pt 5px; color: rgb(23, 110, 156); margin-bottom: 15px; border-bottom: 2px solid rgb(203, 218, 226); }
+h2 { font-size: 18px; padding: 0pt 0pt 15px; }
+h3 { font-size: 16px; font-weight: bold; padding: 0pt 0pt 5px; }
+#col-left h2 { padding: 10px 15px; border-bottom: 2px solid rgb(203, 218, 226); color: rgb(23, 110, 156); }
+a:link, a:visited, a:active { color: rgb(227, 101, 65); text-decoration: none; outline: medium none; }
+a:hover { color: rgb(27, 119, 166); text-decoration: underline; }
+#footer a { color: rgb(27, 119, 166); display: inline-block; margin-right: 10px; font-weight: bold; }
+#header a { width: 320px; height: 70px; display: inline-block; margin: 15px 0pt 0pt 320px; text-indent: -1111em; }
+p { padding: 0pt 0pt 15px; }
+#footer p { width: 300px; float: right; text-align: right; color: rgb(131, 181, 206); }
+#nav ul { clear: left; float: left; list-style: none outside none; margin: 0pt; padding: 0pt; position: relative; left: 50%; text-align: center; }
+#nav ul li { display: block; float: left; list-style: none outside none; margin: 0pt; padding: 0pt; position: relative; right: 50%; }
+#nav ul li a { background: url('nav-blue.gif') repeat-x scroll center top rgb(26, 117, 165); display: block; float: left; padding: 8px 20px; margin: 4px 2px 0pt 0pt; color: rgb(188, 218, 234); font-weight: bold; font-size: 14px; text-decoration: none; }
+#nav ul li a:hover { color: rgb(255, 255, 255); margin: 2px 2px 0pt 0pt; padding: 9px 20px; }
+img { border: medium none; }
+.teaser ul, .list ul { margin: 0pt; padding: 0pt 0pt 15px; list-style-type: none; }
+.list ul { padding: 10px 0pt 15px; }
+.list li { background: url('arrowlist.png') no-repeat scroll 15px 11px transparent; padding: 5px 15px 0pt 27px; }
+.article ul, .article ol { margin-left: 50px; margin-right: 50px; }
+.article li { padding-bottom: 15px; }
+#col-right form { background: none repeat scroll 0% 0% rgb(249, 245, 238); padding: 15px 15px 0pt; }
+#col-right form label { float: left; width: 180px; display: block; }
+#col-right form input, #col-right form textarea, #col-right form select { width: 250px; font-size: 12px; font-family: sans-serif; }
+#col-right form textarea { height: 130px; }
+input.button { background: url('nav-blue.gif') repeat-x scroll center top rgb(26, 117, 165); color: rgb(255, 255, 255); font-size: 14px; font-weight: bold; cursor: pointer; border: medium none; padding: 10px; border-radius: 5px 5px 5px 5px; margin-bottom: 5px; }
+.clearfix:after { visibility: hidden; display: block; font-size: 0pt; content: " "; clear: both; height: 0pt; }
+:first-child + html .clearfix {  }
+/* ::::: http://www.collegedegrees.com/wp-content/plugins/contact-form-7/styles.css?ver=2.4.6 ::::: */
+

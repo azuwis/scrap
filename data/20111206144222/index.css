@@ -1,0 +1,7 @@
+/* ::::: http://mewbies.com/index_files/style.css ::::: */
+
+body { background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-family: Courier New,Lucida Console,monospace; }
+pre { font-family: "Courier New","Lucida Console",monospace,Freemono ! important; font-size: 13px; line-height: 15px; }
+a { color: rgb(0, 0, 0); text-decoration: underline; }
+a:hover { font-weight: bold; }
+a:visited { color: rgb(0, 0, 0); text-decoration: underline; }

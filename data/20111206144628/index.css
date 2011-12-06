@@ -1,0 +1,181 @@
+/* ::::: http://coolshell.cn/wp-content/themes/inove/style.css ::::: */
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, blockquote, p, fieldset { margin: 0pt; padding: 0pt; }
+abbr[title], acronym[title] { border-bottom: thin dotted; cursor: help; }
+body { background: url('bg.jpg') repeat-x scroll 0% 0% rgb(190, 195, 198); color: rgb(85, 85, 85); font-family: Arial,Verdana,"BitStream vera Sans",Tahoma,Helvetica,Sans-serif; font-size: 14px; }
+h1, h2, h3, h4, h5, h6 { font-weight: bold; letter-spacing: -0.05em; font-family: 'Microsoft YaHei',Arial; }
+h1 { font-size: 200%; }
+h2 { font-size: 170%; }
+h3 { font-size: 150%; padding-top: 10px; padding-bottom: 10px; letter-spacing: 3px; }
+h4 { font-size: 120%; }
+img { border: 0pt none; }
+a { color: rgb(41, 112, 166); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+.fixed, .clear { clear: both; }
+input.textfield, textarea { background: url('textfield.gif') repeat-x scroll center top rgb(255, 255, 255); border: 1px solid rgb(166, 166, 166); padding: 2px 1px; font-size: 12px; font-family: 'Microsoft YaHei',Verdana,"BitStream vera Sans",Tahoma,Helvetica,Sans-serif; }
+#wrap { background: url('light.gif') no-repeat scroll center top transparent; padding: 20px 0pt; }
+#container { margin: 0pt auto; width: 990px; }
+#header { background: url('header_990.jpg') no-repeat scroll 0pt 0pt transparent; height: 90px; border-bottom: 1px solid rgb(166, 166, 166); overflow: hidden; }
+#caption { padding: 25px 30px 0pt; }
+#title a { text-decoration: none; color: rgb(255, 255, 255); height: 35px; display: block; font-family: 'Microsoft YaHei',Verdana,"BitStream vera Sans",Tahoma,Helvetica,Sans-serif; letter-spacing: 0pt; }
+#tagline { color: rgb(255, 255, 255); border-top: 1px solid rgb(255, 255, 255); text-decoration: none; font-size: 10px; float: left; padding: 0px 3px; }
+#navigation { background: none repeat scroll 0% 0% rgb(255, 255, 255); border-bottom: 1px solid rgb(166, 166, 166); }
+#menus li { display: inline; list-style: none outside none; }
+#menus li a { background: url('menu.gif') no-repeat scroll 0% 0% transparent; display: block; color: rgb(56, 46, 31); height: 31px; line-height: 31px; padding: 0pt 20px; margin-left: -10px; text-decoration: none; font-size: 14px; float: left; z-index: 1; }
+#menus li a:hover, #menus li a.current { background-position: 0pt -31px; }
+#menus li a.home { background-position: 0pt -93px; width: 45px; padding: 0pt; margin-left: 0pt; text-indent: -999em; }
+#menus li a.home:hover { background-position: 0pt -124px; }
+#menus li a.lastmenu:hover { background-position: 0pt 0pt; cursor: default; }
+#searchbox { background: url('searchbox.gif') no-repeat scroll 0% 0% transparent; width: 209px; height: 21px; display: block; float: right; margin-top: 4px; margin-right: 10px ! important; padding: 3px 2px; }
+#searchbox .textfield { background: none repeat scroll 0% 0% transparent; border: 0px none; width: 185px; float: left; margin-right: 2px; padding-left: 2px; }
+#searchbox .button { background: none repeat scroll 0% 0% transparent; border: 0px none; width: 18px; height: 18px; cursor: pointer; float: left; margin-top: 1px; }
+#searchbox .searchtip { color: rgb(153, 153, 153); }
+#content { background: url('sidesep.gif') repeat-y scroll right center rgb(255, 255, 255); min-height: 400px; }
+#main { background: url('main_shadow.gif') repeat-x scroll center top rgb(250, 250, 250); width: 669px; padding: 13px 10px 10px; float: left; overflow: hidden; }
+.post { padding-bottom: 5px ! important; }
+.post h2 { display: block; margin-top: 10px; border-width: 1px; border-style: solid; border-color: white rgb(204, 204, 204) rgb(204, 204, 204) white; padding: 8px; font-size: 20px; font-family: 'Microsoft YaHei',Verdana,"BitStream vera Sans"; background: none repeat scroll 0% 0% rgb(238, 238, 238); }
+.post .info { padding: 5px; border-left: 1px solid rgb(238, 238, 238); border-right: 1px solid rgb(238, 238, 238); }
+.post .date, .post .author, .post .editpost, .post .comments, .post .addcomment, .post .addlink, .post .editlinks { background: url('icons.gif') no-repeat scroll 0% 0% transparent; padding-left: 22px; height: 16px; line-height: 16px; display: block; font-size: 11px; }
+.post .tags, .post .categories { background: url('icons.gif') no-repeat scroll 0% 0% transparent; width: 16px; height: 16px; line-height: 16px; display: block; text-indent: -999em; }
+.post .under span.tags, .post .under span.categories { margin-right: 6px; }
+.post .tags { background-position: 0pt -400px; }
+.post .categories { background-position: 0pt -480px; }
+.post .date { background-position: 0pt -48px; margin-right: 15px; float: left; }
+.post .author { background-position: 0pt 0pt; float: left; }
+.post .comments { background-position: 0pt -96px; float: right; }
+.post .addcomment { background-position: 0pt -112px; margin-left: 15px; float: right; }
+.post .content { padding: 8px; line-height: 145%; overflow: hidden; border-left: 1px solid rgb(238, 238, 238); border-right: 1px solid rgb(238, 238, 238); background: none repeat scroll 0% 0% white; }
+.post .content p { margin-bottom: 10px; }
+.post .under { height: 16px; line-height: 16px; font-size: 11px; padding-bottom: 10px; padding-left: 5px; border-left: 1px solid rgb(238, 238, 238); border-right: 1px solid rgb(238, 238, 238); }
+.post .under span { float: left; margin-right: 15px; }
+.post .content h4 { color: rgb(0, 136, 0); margin-bottom: 10px; }
+.post .content img { max-width: 650px; }
+.post .content ul, .post .content ol { padding-bottom: 10px; }
+.post .content ul li, .post .content ol li { list-style-position: inside; padding-left: 20px; }
+#postpath { background: url('icons.gif') no-repeat scroll 0pt -320px transparent; line-height: 16px; margin: 5px 0pt; padding-left: 22px; }
+#pagenavi, #postnavi { border-top: 1px solid rgb(204, 204, 204); margin: 10px -5px 0pt; padding: 10px 5px 0pt; }
+#pagenavi .newer a, #postnavi .prev a { background: url('icons.gif') no-repeat scroll 0pt -224px transparent; padding-left: 22px; float: left; height: 16px; line-height: 16px; }
+#pagenavi .older a, #postnavi .next a { background: url('icons.gif') no-repeat scroll 100% -240px transparent; padding-right: 22px; float: right; height: 16px; line-height: 16px; }
+#sidebar { background: url('sidebar_shadow.gif') repeat-x scroll center top rgb(247, 247, 247); width: 300px; float: right; font-size: 95%; line-height: 145%; overflow: hidden; padding-top: 8px; }
+#sidebar li { background: url('icons.gif') no-repeat scroll 0pt -560px transparent; padding-left: 22px; list-style: none outside none; margin-top: 5px; }
+#sidebar .content { font-size: 14px; letter-spacing: 1px; margin: 10px 0px 0px; }
+#sidebar li { font-size: 14px; }
+#centersidebar, #northsidebar .widget, #southsidebar .widget { background: url('widgetsep.png') no-repeat scroll center bottom transparent; padding: 10px; }
+#centersidebar { padding-bottom: 6px; }
+#northsidebar, #southsidebar { font-size: 95%; }
+#northsidebar .widget .content p, #southsidebar .widget .content p { margin-bottom: 10px; }
+#westsidebar { width: 144px; float: left; padding-right: 1px; font-size: 95%; overflow: hidden; }
+#eastsidebar { width: 125px; float: right; font-size: 95%; overflow: hidden; }
+#westsidebar h3, #eastsidebar h3 { margin-bottom: 5px; }
+#westsidebar .widget, #eastsidebar .widget { margin-bottom: 15px; }
+#sidebar .widget_feeds { padding: 5px 15px 15px; }
+#sidebar #feedrss, #sidebar #feedemail, #sidebar #followme { height: 25px; line-height: 25px; display: block; padding: 5px 5px 5px 36px; float: left; text-decoration: none; font-size: 11px; }
+#sidebar #feedrss { background: url('feeds.gif') no-repeat scroll 5px 5px transparent; }
+#subscribe ul { display: none; position: absolute; background: none repeat scroll 0% 0% rgb(244, 245, 247); border: 1px solid rgb(183, 183, 183); width: 180px; padding: 5px; }
+#subscribe li { background: none repeat scroll 0% 0% transparent; list-style: none outside none; float: left; margin: 0pt; padding: 0pt; display: block; }
+#subscribe li a span { background: url('readers.gif') no-repeat scroll 0% 0% transparent; height: 20px; width: 80px; display: block; text-indent: -999em; }
+#subscribe li#google_reader a span { background-position: 0pt 0pt; }
+#subscribe li#youdao_reader a span { background-position: 0pt -20px; }
+#subscribe li#xianguo_reader a span { background-position: 0pt -40px; }
+#subscribe li#zhuaxia_reader a span { background-position: 0pt -60px; }
+#subscribe li#yahoo_reader a span { background-position: 0pt -80px; }
+#subscribe li#newsgator_reader a span { background-position: 0pt -100px; }
+#subscribe li#bloglines_reader a span { background-position: 0pt -120px; }
+#subscribe li#inezha_reader a span { background-position: 0pt -140px; }
+#subscribe li#qq_reader a span { background-position: 0pt -160px; }
+#subscribe li#douban_reader a span { background-position: 0pt -180px; }
+#subscribe li#rojo_reader a span { background-position: 0pt -200px; }
+#subscribe li#pageflakes_reader a span { background-position: 0pt -220px; }
+#subscribe li a { display: block; padding: 5px; text-decoration: none; width: 80px; font-size: 12px; }
+#subscribe li a:hover { background: none repeat scroll 0% 0% rgb(238, 221, 204); }
+#footer { background: url('footer_990.jpg') no-repeat scroll 0pt 0pt transparent; display: block; height: 88px; border-top: 1px solid rgb(204, 204, 204); font-size: 11px; line-height: 145%; width: 100%; }
+#footer a { color: rgb(42, 42, 42); }
+#copyright { margin-top: 12px; margin-left: 20px; }
+#themeinfo { margin-left: 20px; }
+a#powered { background: url('wp-logo.png') no-repeat scroll 0% 0% transparent; display: block; width: 92px; height: 57px; float: left; margin: 0pt 10px 0pt 5px; text-indent: -999em; }
+a#gotop { background: url('icons.gif') no-repeat scroll 0pt -304px transparent; float: right; height: 16px; line-height: 18px; display: block; padding-left: 16px; margin: 5px 15px 0pt 0pt ! important; text-decoration: none; }
+#commentlist { background: none repeat scroll 0% 0% rgb(252, 252, 252); border-top: 1px solid rgb(204, 204, 204); border-bottom: 1px solid rgb(204, 204, 204); margin: 0pt -15px; padding: 0pt 15px; }
+#commentlist ol, #commentlist li { list-style: none outside none; }
+#cmtswitcher { background: none repeat scroll 0% 0% rgb(255, 255, 255); font-size: 10px; padding-top: 5px; }
+#cmtswitcher a.tab, #cmtswitcher a.curtab { padding: 5px 10px; margin-bottom: -1px; display: block; float: right; color: rgb(85, 85, 85); text-decoration: none; }
+#cmtswitcher a.tab { border-width: 1px; border-style: solid; border-color: rgb(255, 255, 255) rgb(255, 255, 255) rgb(204, 204, 204); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; -moz-border-image: none; }
+#cmtswitcher a.curtab { background: none repeat scroll 0% 0% rgb(252, 252, 252); border-width: 1px; border-style: solid; border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(252, 252, 252); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; -moz-border-image: none; }
+#cmtswitcher .addcomment, #cmtswitcher .addtrackback { padding-left: 22px; height: 16px; line-height: 16px; display: block; font-size: 11px; float: left; margin-right: 15px; margin-top: 4px ! important; }
+#cmtswitcher .addcomment { background: url('icons.gif') no-repeat scroll 0pt -112px transparent; }
+#cmtswitcher .addtrackback { background: url('icons.gif') no-repeat scroll 0pt -144px transparent; }
+#thecomments, #thetrackbacks { padding-bottom: 15px; }
+#thecomments .comment, #thecomments .messagebox { margin-top: 15px; }
+.comment .author { float: left; width: 81px; text-align: center; }
+.comment .pic { background: url('commentpoint.png') no-repeat scroll 100% 33% transparent; padding-right: 12px; margin-top: 10px; }
+.comment .name { width: 67px; padding-right: 12px; font-weight: bold; overflow: hidden; }
+.comment .avatar { padding: 1px; border: 1px solid rgb(153, 153, 153); }
+.comment .info { background: url('comment.gif') no-repeat scroll 0pt 0pt rgb(237, 239, 240); float: left; padding: 10px 15px 0pt; width: 545px; }
+.comment .date, .trackback .date { float: left; font-size: 10px; }
+.comment .act, .trackback .act { float: right; font-size: 10px; }
+.comment .content { background: url('comment.gif') no-repeat scroll 100% 100% transparent; margin: 0pt -15px; padding: 0pt 15px 10px; line-height: 145%; }
+.comment .content p { margin-top: 10px; }
+.admincomment .author { float: right; }
+.admincomment .pic { background: url('commentpoint.png') no-repeat scroll 0% 33% transparent; padding-right: 0pt; padding-left: 12px; }
+.admincomment .name { padding-right: 0pt; padding-left: 12px; }
+.admincomment .info { float: right; }
+#thetrackbacks { display: none; }
+#thetrackbacks li { margin-top: 15px; }
+.trackback { background: url('box.gif') no-repeat scroll 0pt 0pt rgb(237, 239, 240); padding: 10px 15px 0pt; width: 575px; }
+.trackback .title { background: url('box.gif') no-repeat scroll 100% 100% rgb(237, 239, 240); padding: 10px 15px ! important; width: 575px; margin: 0pt -15px; }
+#respond { padding: 10px 0pt 0pt; font-size: 11px; }
+#respond .row { margin-bottom: 5px; }
+#respond .textfield { width: 200px; }
+#comment { width: 651px; }
+#submitbox a.feed { background: url('icons.gif') no-repeat scroll 0pt -256px transparent; padding-left: 22px; height: 16px; line-height: 16px; display: block; float: left; }
+#submitbox #submit { padding: 3px 6px; background: none repeat scroll 0% 0% rgb(180, 214, 102); border-width: 1px; border-style: solid; border-color: rgb(180, 214, 102) rgb(129, 184, 64) rgb(129, 184, 64) rgb(180, 214, 102); color: rgb(41, 112, 166); font-size: 11px; cursor: pointer; }
+#submitbox #submit:hover { background: none repeat scroll 0% 0% rgb(152, 198, 76); border-width: 1px; border-style: solid; border-color: rgb(118, 179, 58) rgb(152, 198, 76) rgb(152, 198, 76) rgb(118, 179, 58); color: rgb(7, 74, 126); }
+#submitbox .submitbutton { float: right; }
+#related_posts { padding-bottom: 10px; }
+#related_posts h3 { background: url('box.gif') no-repeat scroll 0pt 0pt rgb(227, 228, 230); font-size: 12px; padding: 6px 12px; font-family: 'Microsoft YaHei',Verdana,"BitStream vera Sans",Arial,Helvetica,Sans-serif; letter-spacing: 0em; border-bottom: 1px solid rgb(204, 204, 204); }
+#related_posts ul { background: url('box.gif') no-repeat scroll 100% 100% rgb(244, 245, 247); padding: 3px 12px 8px; }
+#related_posts ul li { list-style: none outside none; padding: 3px 5px; border-bottom: 1px solid rgb(227, 228, 230); line-height: 18px; }
+/* ::::: http://coolshell.cn/wp-content/themes/inove/chinese.css ::::: */
+
+small, #tagline, #cmtswitcher, .comment .date, .trackback .date, .comment .act, .trackback .act, #submit, .more-link, .messagebox, .errorbox, #menus li a, .post .date, .post .under, .post .author, .post .editpost, .post .readingblinds, .post .comments, .post .addcomment, .post .editlinks, .post .addlink, #pagenavi, #footer, #cmtswitcher .addcomment, #cmtswitcher .addtrackback, #respond, #commentnavi, #submitbox #submit, #sidebar #feedrss, #sidebar #feedemail, #sidebar #followme { font-size: 14px; }
+#caption { padding: 25px 30px 21px ! important; }
+#cmtswitcher #trackbacktab { padding: 5px 10px ! important; }
+/* ::::: http://coolshell.cn/wp-content/plugins/wp-postratings/postratings-css.css?ver=1.50 ::::: */
+
+.post-ratings { opacity: 1; border-left: 1px solid rgb(238, 238, 238); border-right: 1px solid rgb(238, 238, 238); border-bottom: 1px solid rgb(238, 238, 238); padding-left: 5px; padding-bottom: 5px; }
+.post-ratings-loading { display: none; height: 16px; text-align: left; }
+.post-ratings-image { border: 0px none; }
+.post-ratings IMG, .post-ratings-loading IMG, .post-ratings-image IMG { border: 0px none; padding: 0px; margin: 0px; }
+.post-ratings-text {  }
+/* ::::: http://coolshell.cn/wp-content/themes/inove/pagenavi-css.css?ver=2.70 ::::: */
+
+/* ::::: http://coolshell.cn/wp-content/plugins/google-syntax-highlighter/Styles/SyntaxHighlighter.css ::::: */
+
+/* ::::: http://v2.jiathis.com/code/css/jiathis_counter.css ::::: */
+
+#jiathis_style_32x32 a:hover { text-decoration: none; }
+#jiathis_style_32x32 .jiathis_counter.jiathis_bubble_style { background: url('counter.gif') no-repeat scroll 0pt 0pt transparent; height: 32px; width: 54px ! important; line-height: 32px; padding: 0pt 5px 0pt 6px; font-family: arial,helvetica,sans-serif; text-align: center; }
+#jiathis_style_32x32 .jiathis_counter.jiathis_bubble_style:hover { color: rgb(0, 0, 0); background-position: 0pt -32px ! important; }
+#jiathis_style_32x32 .jiathis_button_expanded { float: left; font-size: 16px; font-weight: bold; color: rgb(86, 86, 86); cursor: pointer; text-decoration: none; line-height: 32px ! important; }
+/* ::::: http://v2.jiathis.com/code/css/jiathis_share.css ::::: */
+
+#jiathis_style_32x32 .jtico { text-align: left; overflow: hidden; display: block ! important; height: 32px ! important; line-height: 32px ! important; padding-left: 36px ! important; background: url('jiathis_ico_32x32.png') no-repeat scroll left center transparent; cursor: pointer; }
+#jiathis_style_32x32 .jtico:hover { opacity: 0.8; }
+#jiathis_style_32x32 .jiathis_txt { float: left; font-size: 22px; text-decoration: none; line-height: 32px ! important; }
+#jiathis_style_32x32 .jiathis_separator { display: block; float: left; margin: 0pt 5px; line-height: 32px ! important; }
+#jiathis_style_32x32 .jtico_tsina { background-position: 0px 0px; }
+#jiathis_style_32x32 .jtico_renren { background-position: 0px -64px; }
+#jiathis_style_32x32 .jtico_gmail { background-position: 0px -96px; }
+#jiathis_style_32x32 .jtico_douban { background-position: 0px -224px; }
+#jiathis_style_32x32 .jtico_t163 { background-position: 0px -320px; }
+#jiathis_style_32x32 .jtico_fanfou { background-position: 0px -544px; }
+#jiathis_style_32x32 .jtico_fb { background-position: 0px -960px; }
+#jiathis_style_32x32 .jtico_twitter { background-position: 0px -1024px; }
+#jiathis_style_32x32 .jtico_digg { background-position: 0px -1088px; }
+#jiathis_style_32x32 .jtico_tsohu { background-position: 0px -1248px; }
+#jiathis_style_32x32 .jtico_buzz { background-position: 0px -1440px; }
+#jiathis_style_32x32 .jtico_linkedin { background-position: 0px -1536px; }
+#jiathis_style_32x32 .jtico_tqq { background-position: 0px -1760px; }
+#jiathis_style_32x32 .jtico_zhuaxia { background-position: 0px -1952px; }
+#jiathis_style_32x32 .jtico_jiathis { background-position: 0px -2048px; }
+#jiathis_style_32x32 .jtico_friendfeed { background-position: 0px -2464px; }

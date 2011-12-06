@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<meta name="robots" content="index,nofollow">
+
+<title>LDAPClientAuthentication - Community Ubuntu Documentation</title>
+
+
+
+
+
+
+
+
+
+
+<!-- css only for MS IE6/IE7 browsers -->
+<!--[if lt IE 8]>
+   <link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="/moin_static192/ubuntunew/css/msie.css">
+<![endif]-->
+
+
+
+
+
+<link rel="Start" href="https://help.ubuntu.com/community/UserDocumentation">
+<link rel="Alternate" title="Wiki Markup" href="https://help.ubuntu.com/community/LDAPClientAuthentication?action=raw">
+<link rel="Alternate" media="print" title="Print View" href="https://help.ubuntu.com/community/LDAPClientAuthentication?action=print">
+<link rel="Search" href="https://help.ubuntu.com/community/FindPage">
+<link rel="Index" href="https://help.ubuntu.com/community/TitleIndex">
+<link rel="Glossary" href="https://help.ubuntu.com/community/WordIndex">
+<link rel="Help" href="https://help.ubuntu.com/community/HelpOnFormatting">
+
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body dir="ltr" lang="en">
+
+<div id="round" class="roundme">
+<img id="topcap" alt="" src="cap-top.png">
+<div id="layout" class="container clear-block">
+<div id="header">
+<div id="logo-floater">
+<h1><a href="http://help.ubuntu.com/" title="Ubuntu Documentation"><img alt="Ubuntu" id="logo" src="logo.png"></a></h1>
+</div>
+
+
+
+<form action="https://help.ubuntu.com/search.html" id="cse-search-box">  <div>    <input name="cof" value="FORID:9" type="hidden">    <input name="cx" value="004599128559784038176:vj_p0xo-nng" type="hidden">    <input name="ie" value="UTF-8" type="hidden">    <input value="" name="q" size="27" type="text">    <input name="sa" value="Search" type="submit">  </div></form>
+
+<div id="sitename"><a href="https://help.ubuntu.com/community"><img src="help-faq.png"><span>Community Documentation</span></a></div>
+</div> <!--header-->
+<ul id="loginbar"><li><a href="https://help.ubuntu.com/community/LDAPClientAuthentication?action=login" id="login" rel="nofollow">Login to Edit</a></li></ul>
+
+
+<!--1-->
+<div id="page" dir="ltr" lang="en">
+
+<!--2-->
+
+<div id="breadcrumbs">
+<a href="https://help.ubuntu.com/">Ubuntu Documentation</a> &gt; <a href="https://help.ubuntu.com/community">Community Documentation</a> &gt; <a class="backlink" href="https://help.ubuntu.com/community/LDAPClientAuthentication?action=fullsearch&amp;context=180&amp;value=linkto%3A%22LDAPClientAuthentication%22" rel="nofollow" title="Click to do a full-text search for this title">LDAPClientAuthentication</a>
+</div>
+
+
+<ul id="pagelocation">
+<li><a class="backlink" href="https://help.ubuntu.com/community/LDAPClientAuthentication?action=fullsearch&amp;context=180&amp;value=linkto%3A%22LDAPClientAuthentication%22" rel="nofollow" title="Click to do a full-text search for this title">LDAPClientAuthentication</a></li>
+</ul>
+
+<!--3--><div dir="ltr" id="content" lang="en"><span class="anchor" id="top"></span>
+<span class="anchor" id="line-1"></span><div><table style="float: right; font-size: 0.9em; width: 40%; background: none repeat scroll 0% 0% rgb(241, 241, 237); margin: 0pt 0pt 1em 1em;"><tbody><tr>  <td style="padding: 0.5em;"><p class="line891"></p><div class="table-of-contents"><p class="table-of-contents-heading">Contents</p><ol><li>
+<a href="#Introduction">Introduction</a></li><li>
+<a href="#LDAP_Client_Authentication">LDAP Client Authentication</a><ol><li>
+<a href="#Automatically_create_home_folders">Automatically create home folders</a></li><li>
+<a href="#Assign_local_groups_to_users">Assign local groups to users</a></li><li>
+<a href="#Finalize">Finalize</a></li></ol></li><li>
+<a href="#LDAP_Host_Access_Authorization">LDAP Host Access Authorization</a><ol><li>
+<a href="#pam_check_host_attr_.28limited.29">pam_check_host_attr (limited)</a></li><li>
+<a href="#pam_filter_.28limited.29">pam_filter (limited)</a></li><li>
+<a href="#nss_base_.3Cmap.3E_.28recommended.29">nss_base_&lt;map&gt; (recommended)</a></li></ol></li><li>
+<a href="#Troubleshooting">Troubleshooting</a></li><li>
+<a href="#Credits">Credits</a></li></ol></div></td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-2"></span><span class="anchor" id="line-3"></span><p class="line867">
+</p><h1 id="Introduction">Introduction</h1>
+<span class="anchor" id="line-4"></span><span class="anchor" id="line-5"></span><p class="line862">This page is intended for anyone who wants to enable an Ubuntu client to authenticate on an existing OpenLDAP server. For more details on the server installation part see <a href="https://help.ubuntu.com/community/OpenLDAPServer">OpenLDAPServer</a>. <span class="anchor" id="line-6"></span><span class="anchor" id="line-7"></span></p><p class="line862">If you want Kerberos as well for single-sign-on (likely), see <a href="https://help.ubuntu.com/community/SingleSignOn">SingleSignOn</a>. This configuration has been tested with Ubuntu 10.04 LTS and works transparently with <em>pam_krb5</em>. <span class="anchor" id="line-8"></span><span class="anchor" id="line-9"></span></p><p class="line862">For authenticating on a Sun Java Enterprise System Directory Server, please consult the <a href="https://help.ubuntu.com/community/SunLDAPClientAuthentication">SunLDAPClientAuthentication</a> page. <span class="anchor" id="line-10"></span><span class="anchor" id="line-11"></span></p><p class="line862">For authenticating using a Mac OS X Leopard Server, consult the <a href="https://help.ubuntu.com/community/OSXLDAPClientAuthentication">OSXLDAPClientAuthentication</a> page. <span class="anchor" id="line-12"></span><span class="anchor" id="line-13"></span></p><p class="line867">
+</p><h1 id="LDAP_Client_Authentication">LDAP Client Authentication</h1>
+<span class="anchor" id="line-14"></span><span class="anchor" id="line-15"></span><p class="line862">On Ubuntu 7.10 systems and newer use the <em>auth-client-config</em> and <em>pam-auth-update</em> tools to modify all necessary pam and nsswitch configuration files (see <a href="https://help.ubuntu.com/community/LDAPClientAuthentication#Credits">Credits</a> and <a class="https" href="https://wiki.ubuntu.com/AuthClientConfig">AuthClientConfig</a>). Also, you are recommended to install <tt>nscd</tt> in order to avoid some of the issues described in the <a href="https://help.ubuntu.com/community/LDAPClientAuthentication#Troubleshooting">Troubleshooting</a> section at the end of this document. The meta-package called <em>ldap-auth-client</em> will install all required packages for an ldap client (<em>auth-client-config</em>, <em>ldap-auth-config</em>, <em>libnss-ldap</em> and <em>libpam-ldap</em>): <span class="anchor" id="line-16"></span><span class="anchor" id="line-17"></span></p><p class="line867"><span class="anchor" id="line-18"></span><span class="anchor" id="line-19"></span></p><pre><span class="anchor" id="line-1"></span>sudo apt-get install ldap-auth-client nscd</pre><span class="anchor" id="line-20"></span><span class="anchor" id="line-21"></span><p class="line862">Setup <tt>/etc/nsswitch.conf</tt> to use ldap lookups by running: <span class="anchor" id="line-22"></span><span class="anchor" id="line-23"></span></p><p class="line867"><span class="anchor" id="line-24"></span><span class="anchor" id="line-25"></span></p><pre><span class="anchor" id="line-1-1"></span>sudo auth-client-config -t nss -p lac_ldap</pre><span class="anchor" id="line-26"></span><span class="anchor" id="line-27"></span><p class="line862">On 10.04 systems this <em>lac_ldap</em> configuration can be found in <tt>/etc/auth-client-config/profile.d/ldap-auth-config</tt> and comes with the <em>ldap-auth-config</em> package. On older systems you could create it like this: <span class="anchor" id="line-28"></span><span class="anchor" id="line-29"></span></p><p class="line867"><span class="anchor" id="line-30"></span><span class="anchor" id="line-31"></span><span class="anchor" id="line-32"></span><span class="anchor" id="line-33"></span><span class="anchor" id="line-34"></span><span class="anchor" id="line-35"></span></p><pre><span class="anchor" id="line-1-2"></span>[lac_ldap]
+<span class="anchor" id="line-2"></span>nss_passwd=passwd: files ldap
+<span class="anchor" id="line-3"></span>nss_group=group: files ldap
+<span class="anchor" id="line-4"></span>nss_shadow=shadow: files ldap
+<span class="anchor" id="line-5"></span>nss_netgroup=netgroup: nis</pre><span class="anchor" id="line-36"></span><span class="anchor" id="line-37"></span><span class="anchor" id="line-38"></span><p class="line867">
+</p><h2 id="Automatically_create_home_folders">Automatically create home folders</h2>
+<span class="anchor" id="line-39"></span><span class="anchor" id="line-40"></span><p class="line862">In order to get the <em>pam_mkhomedir</em> module working you could create a file like <tt>/usr/share/pam-configs/my_mkhomedir</tt>: <span class="anchor" id="line-41"></span><span class="anchor" id="line-42"></span></p><p class="line867"><span class="anchor" id="line-43"></span><span class="anchor" id="line-44"></span><span class="anchor" id="line-45"></span><span class="anchor" id="line-46"></span><span class="anchor" id="line-47"></span><span class="anchor" id="line-48"></span><span class="anchor" id="line-49"></span></p><pre><span class="anchor" id="line-1-3"></span>Name: activate mkhomedir
+<span class="anchor" id="line-2-1"></span>Default: yes
+<span class="anchor" id="line-3-1"></span>Priority: 900
+<span class="anchor" id="line-4-1"></span>Session-Type: Additional
+<span class="anchor" id="line-5-1"></span>Session:
+<span class="anchor" id="line-6"></span>        required                        pam_mkhomedir.so umask=0022 skel=/etc/skel</pre><span class="anchor" id="line-50"></span><span class="anchor" id="line-51"></span><p class="line862">and activate it by running <tt>pam-auth-update</tt>. This roughly equals editing <tt>/etc/pam.d/common-session</tt> by hand and adding the following line before any <em>pam_ldap</em> and <em>pam_krb5</em> settings: <span class="anchor" id="line-52"></span><span class="anchor" id="line-53"></span></p><p class="line867"><span class="anchor" id="line-54"></span><span class="anchor" id="line-55"></span></p><pre><span class="anchor" id="line-1-4"></span>session required        pam_mkhomedir.so umask=0022 skel=/etc/skel</pre><span class="anchor" id="line-56"></span><span class="anchor" id="line-57"></span><span class="anchor" id="line-58"></span><p class="line867">
+</p><h2 id="Assign_local_groups_to_users"><span class="linemarker-marked-line" style="background-color: rgb(255, 255, 153); color: rgb(0, 0, 0); border: thin dashed rgb(255, 204, 0);">Assign local groups to users</span></h2>
+<span class="anchor" id="line-59"></span><span class="anchor" id="line-60"></span><p class="line862"><span class="linemarker-marked-line" style="background-color: rgb(255, 255, 153); color: rgb(0, 0, 0); border: thin dashed rgb(255, 204, 0);">To assign local groups to a domain (ldap) user do the following edit </span><tt><span class="linemarker-marked-line" style="background-color: rgb(255, 255, 153); color: rgb(0, 0, 0); border: thin dashed rgb(255, 204, 0);">/etc/security/group.conf</span></tt><span class="linemarker-marked-line" style="background-color: rgb(255, 255, 153); color: rgb(0, 0, 0); border: thin dashed rgb(255, 204, 0);"> and add something like the following to it (log in as a local user and run the </span><tt><span class="linemarker-marked-line" style="background-color: rgb(255, 255, 153); color: rgb(0, 0, 0); border: thin dashed rgb(255, 204, 0);">groups</span></tt><span class="linemarker-marked-line" style="background-color: rgb(255, 255, 153); color: rgb(0, 0, 0); border: thin dashed rgb(255, 204, 0);"> command to verify what to add):  </span><span class="anchor" id="line-61"></span><span class="anchor" id="line-62"></span></p><p class="line867"><span class="anchor" id="line-63"></span><span class="anchor" id="line-64"></span></p><pre><span class="anchor" id="line-1-5"></span><span class="linemarker-marked-line" style="background-color: rgb(255, 255, 153); color: rgb(0, 0, 0); border: thin dashed rgb(255, 204, 0);">*;*;*;Al0000-2400;audio,cdrom,dialout,floppy</span></pre><span class="anchor" id="line-65"></span><span class="anchor" id="line-66"></span><p class="line862">In order to get the <em>pam_group</em> module working you could create a file like <tt>/usr/share/pam-configs/my_groups</tt>: <span class="anchor" id="line-67"></span><span class="anchor" id="line-68"></span></p><p class="line867"><span class="anchor" id="line-69"></span><span class="anchor" id="line-70"></span><span class="anchor" id="line-71"></span><span class="anchor" id="line-72"></span><span class="anchor" id="line-73"></span><span class="anchor" id="line-74"></span><span class="anchor" id="line-75"></span></p><pre><span class="anchor" id="line-1-6"></span>Name: activate /etc/security/group.conf
+<span class="anchor" id="line-2-2"></span>Default: yes
+<span class="anchor" id="line-3-2"></span>Priority: 900
+<span class="anchor" id="line-4-2"></span>Auth-Type: Primary
+<span class="anchor" id="line-5-2"></span>Auth:
+<span class="anchor" id="line-6-1"></span>        required                        pam_group.so use_first_pass</pre><span class="anchor" id="line-76"></span><span class="anchor" id="line-77"></span><p class="line862">and activate it by running <tt>pam-auth-update</tt>. This roughly equals editing <tt>/etc/pam.d/common-auth</tt> by hand and adding the following line before any <em>pam_ldap</em> and <em>pam_krb5</em> settings: <span class="anchor" id="line-78"></span><span class="anchor" id="line-79"></span></p><p class="line867"><span class="anchor" id="line-80"></span><span class="anchor" id="line-81"></span></p><pre><span class="anchor" id="line-1-7"></span>auth    required     pam_group.so use_first_pass</pre><span class="anchor" id="line-82"></span><span class="anchor" id="line-83"></span><p class="line862">You should now have local groups showing up for users logging in via gdm and ssh and can verify this by executing <tt>id</tt> or <tt>groups</tt>. <span class="anchor" id="line-84"></span><span class="anchor" id="line-85"></span></p><p class="line867">
+</p><h2 id="Finalize">Finalize</h2>
+<span class="anchor" id="line-86"></span><span class="anchor" id="line-87"></span><p class="line874">Just to make sure everything works, run the following: <span class="anchor" id="line-88"></span><span class="anchor" id="line-89"></span></p><p class="line867"><span class="anchor" id="line-90"></span><span class="anchor" id="line-91"></span><span class="anchor" id="line-92"></span></p><pre><span class="anchor" id="line-1-8"></span>pam-auth-update
+<span class="anchor" id="line-2-3"></span>/etc/init.d/nscd restart</pre><span class="anchor" id="line-93"></span><span class="anchor" id="line-94"></span><span class="anchor" id="line-95"></span><p class="line867">
+</p><h1 id="LDAP_Host_Access_Authorization">LDAP Host Access Authorization</h1>
+<span class="anchor" id="line-96"></span><span class="anchor" id="line-97"></span><p class="line874">Host based authentication allows you to restrict who can log into a machine that uses LDAP for authentication. Basically you add an attribute to each LDAP user's record that includes hostnames that they are allowed to log in to. Each client system then checks this field against its own hostname and either allows or denies login based upon the attribute field. <span class="anchor" id="line-98"></span><span class="anchor" id="line-99"></span></p><p class="line874">There are different methods to enforce host-based authentication: <span class="anchor" id="line-100"></span><span class="anchor" id="line-101"></span></p><ul><li><p class="line862">using <em>pam_check_host_attr</em> authentication in <tt>/etc/ldap.conf</tt> <span class="anchor" id="line-102"></span></p></li><li><p class="line862">using <em>pam_filter</em> authentication in <tt>/etc/ldap.conf</tt> <span class="anchor" id="line-103"></span></p></li><li><p class="line862">using <em>nss_base_&lt;map&gt;</em> authentication in <tt>/etc/ldap.conf</tt> (recommended) <span class="anchor" id="line-104"></span><span class="anchor" id="line-105"></span></p></li></ul><p class="line867">
+</p><h2 id="pam_check_host_attr_.28limited.29">pam_check_host_attr (limited)</h2>
+<span class="anchor" id="line-106"></span><span class="anchor" id="line-107"></span><p class="line867"><em><strong>Warning</strong></em>: depending on your configuration, host-based authentication will always succeed. For additional information see <tt>/usr/share/doc/libpam-ldap/</tt> and <tt>man&nbsp;nss_ldap</tt> (does not support the <em>pam_filter</em> configuration). <span class="anchor" id="line-108"></span><span class="anchor" id="line-109"></span></p><p class="line862">Using the <em>pam_check_host_attr</em> directive to enforce host authentication has the effect that users are explicitly informed they are not permitted to access the host with an error message: <tt>Access&nbsp;denied&nbsp;for&nbsp;this&nbsp;host</tt>.   <span class="anchor" id="line-110"></span><span class="anchor" id="line-111"></span></p><p class="line862">Libpam-ldap requires that you use the <em>host</em> attribute.  The package documentation  includes a schema which provides this attribute, located at <tt>/etc/ldap/schema/ldapns.schema</tt>, which can be added to <tt>slapd.conf</tt> if needed. You can populate that attribute creating an LDIF file <tt>your_file.ldif</tt>: <span class="anchor" id="line-112"></span><span class="anchor" id="line-113"></span></p><p class="line867"><span class="anchor" id="line-114"></span><span class="anchor" id="line-115"></span><span class="anchor" id="line-116"></span><span class="anchor" id="line-117"></span><span class="anchor" id="line-118"></span></p><pre><span class="anchor" id="line-1-9"></span>dn: uid=user_to_change,ou=Users,dc=example,dc=com
+<span class="anchor" id="line-2-4"></span>changetype: modify
+<span class="anchor" id="line-3-3"></span>add: host
+<span class="anchor" id="line-4-3"></span>host: thehostname</pre><span class="anchor" id="line-119"></span><span class="anchor" id="line-120"></span><p class="line862">The <strong>hostname</strong> should match the output from the <tt>hostname</tt> command. When in doubt, check the slapd logs on the server.  Make the change using: <span class="anchor" id="line-121"></span><span class="anchor" id="line-122"></span></p><p class="line867"><span class="anchor" id="line-123"></span><span class="anchor" id="line-124"></span></p><pre><span class="anchor" id="line-1-10"></span>ldapmodify -H ldaps://ldapserver -D "cn=admin,dc=example,dc=com" -x -W -f your_file.ldif</pre><span class="anchor" id="line-125"></span><span class="anchor" id="line-126"></span><p class="line862">On the client side, simply modify <tt>/etc/ldap.conf</tt> (or other appropriate configuration file as defined in pam.d) to include the line: <span class="anchor" id="line-127"></span><span class="anchor" id="line-128"></span></p><p class="line867"><span class="anchor" id="line-129"></span><span class="anchor" id="line-130"></span></p><pre><span class="anchor" id="line-1-11"></span>pam_check_host_attr yes</pre><span class="anchor" id="line-131"></span><span class="anchor" id="line-132"></span><span class="anchor" id="line-133"></span><p class="line867">
+</p><h2 id="pam_filter_.28limited.29">pam_filter (limited)</h2>
+<span class="anchor" id="line-134"></span><span class="anchor" id="line-135"></span><p class="line867"><em><strong>Warning</strong></em>: depending on your configuration, host-based authentication will always succeed. For additional information see <tt>/usr/share/doc/libpam-ldap/</tt> and <tt>man&nbsp;nss_ldap</tt> (does not support the <em>pam_filter</em> configuration). <span class="anchor" id="line-136"></span><span class="anchor" id="line-137"></span></p><p class="line862">Using the <em>pam_filter</em> directive in <tt>/etc/ldap.conf</tt> it is possible to enforce PAM to only access accounts with attributes of our choosing.  Users who are not permitted access to the host will receive no error, instead PAM responds as if they have entered an incorrect password.  <span class="anchor" id="line-138"></span><span class="anchor" id="line-139"></span></p><p class="line862">If we want to use the <em>host</em> attribute, we can add the schema located at <tt>/etc/ldap/schema/ldapns.schema</tt> and create a filter which matches <em>thehostname</em> or <em>*</em> in <tt>/etc/ldap.conf</tt>: <span class="anchor" id="line-140"></span><span class="anchor" id="line-141"></span></p><p class="line867"><span class="anchor" id="line-142"></span><span class="anchor" id="line-143"></span></p><pre><span class="anchor" id="line-1-12"></span>pam_filter |(host=thehostname)(host=\*)</pre><span class="anchor" id="line-144"></span><span class="anchor" id="line-145"></span><p class="line862">Another example using <a class="http" href="http://www.gosa-project.org/">GOsa's</a> <em>accessTo</em> and <em>trustModel</em> attributes would look like the following: <span class="anchor" id="line-146"></span><span class="anchor" id="line-147"></span></p><p class="line867"><span class="anchor" id="line-148"></span><span class="anchor" id="line-149"></span></p><pre><span class="anchor" id="line-1-13"></span>pam_filter |(&amp;(accessTo=thehostname)(trustModel=byhost))(trustModel=fullaccess)</pre><span class="anchor" id="line-150"></span><span class="anchor" id="line-151"></span><span class="anchor" id="line-152"></span><span class="anchor" id="line-153"></span><p class="line867">
+</p><h2 id="nss_base_.3Cmap.3E_.28recommended.29">nss_base_&lt;map&gt; (recommended)</h2>
+<span class="anchor" id="line-154"></span><span class="anchor" id="line-155"></span><p class="line862">Using the <em>nss_base_&lt;map&gt;</em> directives in <tt>/etc/ldap.conf</tt> has all the advantages as using the <em>pam_filter</em> directive, but should also work with <em>nss_ldap</em>. <span class="anchor" id="line-156"></span><span class="anchor" id="line-157"></span></p><p class="line862">If we want to use the <em>host</em> attribute, we can add the schema located at <tt>/etc/ldap/schema/ldapns.schema</tt> and create filters which match <em>thehostname</em> or <em>*</em> in <tt>/etc/ldap.conf</tt>: <span class="anchor" id="line-158"></span><span class="anchor" id="line-159"></span></p><p class="line867"><span class="anchor" id="line-160"></span><span class="anchor" id="line-161"></span><span class="anchor" id="line-162"></span><span class="anchor" id="line-163"></span></p><pre><span class="anchor" id="line-1-14"></span>nss_base_passwd ou=Users,dc=example,dc=com?one?|(host=thehostname)(host=\*)
+<span class="anchor" id="line-2-5"></span>nss_base_shadow ou=Users,dc=example,dc=com?one?|(host=thehostname)(host=\*)
+<span class="anchor" id="line-3-4"></span>nss_base_group  ou=Groups,dc=example,dc=com?one</pre><span class="anchor" id="line-164"></span><span class="anchor" id="line-165"></span><span class="anchor" id="line-166"></span><p class="line867">
+</p><h1 id="Troubleshooting">Troubleshooting</h1>
+<span class="anchor" id="line-167"></span><span class="anchor" id="line-168"></span><ul><li><p class="line862">If you have lookup failures on some accounts using libpam-ldap, try installing libpam-ldapd instead (to be configured via <tt>/etc/nslcd.conf</tt>). <span class="anchor" id="line-169"></span><span class="anchor" id="line-170"></span></p></li><li class="gap"><p class="line862">If you get <em>setreuid</em> errors like <tt>sudo:&nbsp;setreuid(ROOT_UID,&nbsp;user_uid):&nbsp;Operation&nbsp;not&nbsp;permitted</tt>, then have a look at <a class="http" href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=545414">this bug report for libcrypt</a>. A simple workaround is installing <tt>nscd</tt>. <span class="anchor" id="line-171"></span><span class="anchor" id="line-172"></span></p></li><li class="gap"><p class="line862">Information about why <em>pam_filter</em> will NOT always work, while <em>nss_base_&lt;map&gt;</em> should, can be found <a class="http" href="http://fixunix.com/samba/247794-%5Bsamba%5D-use-pam_filter-ldap.html">in this forum</a> <span class="anchor" id="line-173"></span><span class="anchor" id="line-174"></span></p></li><li class="gap"><p class="line862">You can verify your LDAP information using the following commands <span class="anchor" id="line-175"></span><span class="anchor" id="line-176"></span><span class="anchor" id="line-177"></span><span class="anchor" id="line-178"></span><span class="anchor" id="line-179"></span><span class="anchor" id="line-180"></span><span class="anchor" id="line-181"></span></p><pre><span class="anchor" id="line-1-15"></span>$ id
+<span class="anchor" id="line-2-6"></span>$ id YOURUSERNAME (will not show additional groups)
+<span class="anchor" id="line-3-5"></span>
+<span class="anchor" id="line-4-4"></span>$ getent passwd
+<span class="anchor" id="line-5-3"></span>$ getent shadow
+<span class="anchor" id="line-6-2"></span>$ getent group</pre><span class="anchor" id="line-182"></span><span class="anchor" id="line-183"></span></li><li class="gap"><p class="line862">An old <em>bug alert</em> on this site states: make sure <tt>/etc/libnss-ldap.conf</tt> and <tt>/etc/pam_ldap.conf</tt> has <em>bind_policy soft</em>. If not, you risk running into udev-issues at boot-time. <span class="anchor" id="line-184"></span><span class="anchor" id="line-185"></span><span class="anchor" id="line-186"></span></p></li></ul><p class="line867">
+</p><h1 id="Credits">Credits</h1>
+<span class="anchor" id="line-187"></span><span class="anchor" id="line-188"></span><ul><li><p class="line862">some of the information used in this document was found on <a class="http" href="http://mcwhirter.com.au/craige/blog/2006/Making-a-Debian-or-Ubuntu-Machine-an-LDAP-Authentication-Client">this page</a>. <span class="anchor" id="line-189"></span></p></li><li>pam(7) manpage <span class="anchor" id="line-190"></span></li><li>nss_ldap(5) manpage <span class="anchor" id="line-191"></span></li><li>auth-client-config(8) manpage <span class="anchor" id="line-192"></span></li><li>pam-auth-update(8) manpage <span class="anchor" id="line-193"></span><span class="anchor" id="line-194"></span></li></ul><p class="line867"></p><hr><p class="line874"> <span class="anchor" id="line-195"></span>An alternate directory server authentication HOWTO <a class="https" href="https://help.ubuntu.com/community/Alternate_Pam_Krb5LDAP_Authentication">KRB5+LDAP Authentication</a> <span class="anchor" id="line-196"></span><span class="anchor" id="bottom"></span></p></div><p id="pageinfo" class="info" dir="ltr" lang="en">LDAPClientAuthentication  (last edited 2011-08-28 17:20:07 by <span title="https://login.launchpad.net/+id/YerCGfx @ Static-63.153.96.14.tataidc.co.in[14.96.153.63]"><a class="interwiki" href="https://launchpad.net/%7Ewarren-madtechsupport" title="https://login.launchpad.net/+id/YerCGfx @ Static-63.153.96.14.tataidc.co.in[14.96.153.63]">warren-madtechsupport</a></span>)</p>
+
+<ul class="pagelinks">
+<li><a class="nbinfo" href="https://help.ubuntu.com/community/LDAPClientAuthentication?action=info" rel="nofollow">Page History</a></li>
+</ul>
+
+<div id="pagebottom"></div>
+</div>
+
+
+<div id="footer">
+<hr width="550px">
+
+  <div id="ubuntulinks">
+	<p>
+	      The material on this wiki is available under a free license, see <a href="https://help.ubuntu.com/community/License">Copyright / License</a> for details<br><b>You</b> can contribute to this wiki, see <a href="https://help.ubuntu.com/community/WikiGuide">Wiki Guide</a> for details
+	</p><br>
+  </div>
+
+
+
+
+
+</div> <!-- footer -->
+</div> <!-- layout -->
+<img id="bottomcap" alt="" src="cap-bottom.png">
+</div> <!-- round -->
+
+
+
+</body>
+</html>

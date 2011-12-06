@@ -2,6 +2,14 @@
 <RDF:RDF xmlns:NS1="http://amb.vis.ne.jp/mozilla/scrapbook-rdf#"
          xmlns:NC="http://home.netscape.com/NC-rdf#"
          xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <RDF:Description RDF:about="urn:scrapbook:item20111206144737"
+                   NS1:id="20111206144737"
+                   NS1:type=""
+                   NS1:title="Git Magic"
+                   NS1:chars="UTF-8"
+                   NS1:comment=""
+                   NS1:icon=""
+                   NS1:source="http://www-cs-students.stanford.edu/~blynn/gitmagic/book.html" />
   <RDF:Description RDF:about="urn:scrapbook:item20111013172255"
                    NS1:id="20111013172255"
                    NS1:type=""
@@ -61,6 +69,14 @@
                    NS1:icon=""
                    NS1:source=""
                    NS1:comment="" />
+  <RDF:Description RDF:about="urn:scrapbook:item20111206143002"
+                   NS1:id="20111206143002"
+                   NS1:type=""
+                   NS1:title="LDAPClientAuthentication - Community Ubuntu Documentation"
+                   NS1:chars="UTF-8"
+                   NS1:comment=""
+                   NS1:source="https://help.ubuntu.com/community/LDAPClientAuthentication"
+                   NS1:icon="resource://scrapbook/data/20111206143002/favicon.ico" />
   <RDF:Description RDF:about="urn:scrapbook:item20111123192732"
                    NS1:id="20111123192732"
                    NS1:type=""
@@ -155,6 +171,7 @@
     <RDF:li RDF:resource="urn:scrapbook:item20111013165656"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111123191406"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111123193400"/>
+    <RDF:li RDF:resource="urn:scrapbook:item20111206143002"/>
   </RDF:Seq>
   <RDF:Description RDF:about="urn:scrapbook:item20111011135411"
                    NS1:id="20111011135411"
@@ -172,6 +189,14 @@
                    NS1:comment=""
                    NS1:source="http://sourceforge.net/apps/trac/lxc-provider/"
                    NS1:icon="resource://scrapbook/data/20111028114616/trac.ico" />
+  <RDF:Description RDF:about="urn:scrapbook:item20111206145958"
+                   NS1:id="20111206145958"
+                   NS1:type=""
+                   NS1:title="Autobench"
+                   NS1:chars="UTF-8"
+                   NS1:comment=""
+                   NS1:icon=""
+                   NS1:source="http://www.xenoclast.org/autobench/" />
   <RDF:Description RDF:about="urn:scrapbook:item20111008171606"
                    NS1:id="20111008171606"
                    NS1:type=""
@@ -187,6 +212,17 @@
                    NS1:id="20111011025119"
                    NS1:type="folder"
                    NS1:title="ruby"
+                   NS1:chars=""
+                   NS1:icon=""
+                   NS1:source=""
+                   NS1:comment="" />
+  <RDF:Seq RDF:about="urn:scrapbook:item20111206144358">
+    <RDF:li RDF:resource="urn:scrapbook:item20111206144415"/>
+  </RDF:Seq>
+  <RDF:Description RDF:about="urn:scrapbook:item20111206144358"
+                   NS1:id="20111206144358"
+                   NS1:type="folder"
+                   NS1:title="kindle"
                    NS1:chars=""
                    NS1:icon=""
                    NS1:source=""
@@ -220,6 +256,8 @@
     <RDF:li RDF:resource="urn:scrapbook:item20111024170006"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111123190331"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111128165627"/>
+    <RDF:li RDF:resource="urn:scrapbook:item20111206144826"/>
+    <RDF:li RDF:resource="urn:scrapbook:item20111206145958"/>
   </RDF:Seq>
   <RDF:Description RDF:about="urn:scrapbook:item20111013170925"
                    NS1:id="20111013170925"
@@ -237,6 +275,17 @@
                    NS1:comment=""
                    NS1:source="http://nevercertain.com/2011/02/03/scala-android-intellij-win-part-1-prerequisites.html"
                    NS1:icon="resource://scrapbook/data/20111013171540/favicon.ico" />
+  <RDF:Seq RDF:about="urn:scrapbook:item20111206144211">
+    <RDF:li RDF:resource="urn:scrapbook:item20111206144222"/>
+  </RDF:Seq>
+  <RDF:Description RDF:about="urn:scrapbook:item20111206144211"
+                   NS1:id="20111206144211"
+                   NS1:type="folder"
+                   NS1:title="audit"
+                   NS1:chars=""
+                   NS1:icon=""
+                   NS1:source=""
+                   NS1:comment="" />
   <RDF:Seq RDF:about="urn:scrapbook:item20111011030029">
     <RDF:li RDF:resource="urn:scrapbook:item20111011030037"/>
   </RDF:Seq>
@@ -248,7 +297,18 @@
                    NS1:icon=""
                    NS1:source=""
                    NS1:comment="" />
+  <RDF:Description RDF:about="urn:scrapbook:item20111206144415"
+                   NS1:id="20111206144415"
+                   NS1:type=""
+                   NS1:title="Hack Your Kindle: 100+ Tips, Resources, and Tutorials to Read Better and Learn Faster | College Degrees"
+                   NS1:chars="UTF-8"
+                   NS1:comment=""
+                   NS1:icon=""
+                   NS1:source="http://www.collegedegrees.com/blog/2008/06/17/hack-your-kindle-100-tips-resources-and-tutorials-to-get-more-out-of-the-amazon-kindle/" />
   <RDF:Seq RDF:about="urn:scrapbook:root">
+    <RDF:li RDF:resource="urn:scrapbook:item20111206144621"/>
+    <RDF:li RDF:resource="urn:scrapbook:item20111206144358"/>
+    <RDF:li RDF:resource="urn:scrapbook:item20111206144211"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111201155727"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111128092900"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111123192724"/>
@@ -344,6 +404,22 @@
                    NS1:comment=""
                    NS1:source="http://www.sourcepole.com/2008/9/16/gem-doesn-t-know-about-debian"
                    NS1:icon="resource://scrapbook/data/20111011025049/favicon.ico" />
+  <RDF:Description RDF:about="urn:scrapbook:item20111206144826"
+                   NS1:id="20111206144826"
+                   NS1:type=""
+                   NS1:title="Red Hat 5 STIG: Network Settings"
+                   NS1:chars="UTF-8"
+                   NS1:comment=""
+                   NS1:source="https://www.infosecisland.com/blogview/16066-Red-Hat-5-STIG-Network-Settings.html"
+                   NS1:icon="resource://scrapbook/data/20111206144826/favicon.ico" />
+  <RDF:Description RDF:about="urn:scrapbook:item20111206145630"
+                   NS1:id="20111206145630"
+                   NS1:type=""
+                   NS1:title="Pro Git - Pro Git 6.7 Git Tools Subtree Merging"
+                   NS1:chars="UTF-8"
+                   NS1:comment=""
+                   NS1:icon=""
+                   NS1:source="http://progit.org/book/ch6-7.html" />
   <RDF:Seq RDF:about="urn:scrapbook:item20111009164221">
     <RDF:li RDF:resource="urn:scrapbook:item20111009165128"/>
   </RDF:Seq>
@@ -371,6 +447,14 @@
                    NS1:comment=""
                    NS1:source="http://en.wikipedia.org/wiki/Tilera"
                    NS1:icon="resource://scrapbook/data/20111123190331/favicon.ico" />
+  <RDF:Description RDF:about="urn:scrapbook:item20111206144628"
+                   NS1:id="20111206144628"
+                   NS1:type=""
+                   NS1:title="开源中最好的Web开发的资源 | 酷壳 - CoolShell.cn"
+                   NS1:chars="UTF-8"
+                   NS1:comment=""
+                   NS1:source="http://coolshell.cn/articles/4795.html"
+                   NS1:icon="resource://scrapbook/data/20111206144628/favicon.ico" />
   <RDF:Seq RDF:about="urn:scrapbook:item20111013195223">
     <RDF:li RDF:resource="urn:scrapbook:item20111013195229"/>
   </RDF:Seq>
@@ -390,6 +474,8 @@
     <RDF:li RDF:resource="urn:scrapbook:item20111206135759"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111206135853"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111206140052"/>
+    <RDF:li RDF:resource="urn:scrapbook:item20111206144737"/>
+    <RDF:li RDF:resource="urn:scrapbook:item20111206145630"/>
   </RDF:Seq>
   <RDF:Description RDF:about="urn:scrapbook:item20111013195938"
                    NS1:id="20111013195938"
@@ -454,6 +540,14 @@
                    NS1:icon=""
                    NS1:source=""
                    NS1:comment="" />
+  <RDF:Description RDF:about="urn:scrapbook:item20111206144222"
+                   NS1:id="20111206144222"
+                   NS1:type=""
+                   NS1:title="How To Log Users Console Tutorial"
+                   NS1:chars="UTF-8"
+                   NS1:comment=""
+                   NS1:source="http://mewbies.com/how_to_log_users_console_tutorial.htm"
+                   NS1:icon="resource://scrapbook/data/20111206144222/favicon.ico" />
   <RDF:Seq RDF:about="urn:scrapbook:item20111128163146">
     <RDF:li RDF:resource="urn:scrapbook:item20111128163156"/>
   </RDF:Seq>
@@ -461,6 +555,17 @@
                    NS1:id="20111128163146"
                    NS1:type="folder"
                    NS1:title="puppet"
+                   NS1:chars=""
+                   NS1:icon=""
+                   NS1:source=""
+                   NS1:comment="" />
+  <RDF:Seq RDF:about="urn:scrapbook:item20111206144621">
+    <RDF:li RDF:resource="urn:scrapbook:item20111206144628"/>
+  </RDF:Seq>
+  <RDF:Description RDF:about="urn:scrapbook:item20111206144621"
+                   NS1:id="20111206144621"
+                   NS1:type="folder"
+                   NS1:title="web"
                    NS1:chars=""
                    NS1:icon=""
                    NS1:source=""

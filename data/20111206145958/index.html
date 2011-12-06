@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Autobench</title>
+  </head>
+<body alink="#FF0000" bgcolor="#000000" link="#EEEE00" text="#EEEEEE" vlink="#999900">
+    <a href="http://www.xenoclast.org/main.html"><img src="exicon.jpg" alt="Home" border="0"></a>
+
+    <center>
+      <font face="Arial,Helvetica"><img src="autobench.gif" alt="Autobench"></font>
+    </center>
+
+    <p>
+      <font face="Arial,Helvetica">
+	Autobench is a simple Perl script for automating the process
+	of benchmarking a web server (or for conducting a comparative
+	test of two different web servers).  The script is a wrapper
+	around 
+        <a href="http://www.hpl.hp.com/research/linux/httperf/">
+        httperf</a>.  Autobench runs httperf a number of times against
+        each host, increasing the number of requested connections per
+        second on each iteration, and extracts the significant data
+        from the httperf output, delivering a CSV or TSV format file
+        which can be imported directly into a spreadsheet for
+        analysis/graphing.
+      </font>
+    </p>
+    <p>
+      <font face="Arial,Helvetica">      
+	Also included in the autobench tarball is a short program
+	'crfile' that can be used to generate files of arbitrary
+	lengths, filled with random characters.
+      </font>
+    </p>
+
+    <h1><font face="Arial,Helvetica">Benchmarking with
+    Autobench</font></h1>
+    
+    <p>
+      <font face="Arial, Helvetica">
+	In its simplest mode, Autobench can be used to benchmark a
+	single server.  For example, the command line below:
+	</font></p>
+<pre>autobench --single_host --host1 www.test.com --uri1 /10K --quiet     \
+          --low_rate 20 --high_rate 200 --rate_step 20 --num_call 10 \
+          --num_conn 5000 --timeout 5 --file results.tsv 
+</pre>
+
+    <p>
+      <font face="Arial, Helvetica">
+	Will benchmark "http://www.test.com/10K", with a series of
+	tests starting at 20 connections per second (with 10 requests
+	per connection), and increasing by 20 connections per second
+	until 200 connections a second are being requested.  Each test
+	will comprise a total of 5000 connections, and any responses
+	which take longer than 5 seconds to arrive will be counted as
+	errors.  The results will be saved in the file 'results.tsv'.
+      </font>
+    </p>
+
+    <p>
+      <font face="Arial, Helvetica">
+	This file can then be imported into a spreadsheet or graphing
+	package for analysis. Graphs drawn using autobench output for
+	a test conducted with the command line above are presented
+	below.  The autobench output file from which the graphs were
+	drawn can be found <a href="http://www.xenoclast.org/autobench/results.tsv.html">here</a>:
+      </font>
+    </p>
+    
+    <p>
+      <font face="Arial, Helvetica">
+	Included with Autobench 1.1.0 (and later) is a program to
+	generate graphs with gnuplot from an Autobench results file.
+	See the bench2graph man page for details.
+      </font>
+    </p>
+
+    <img src="results.gif" alt="Example graphs">
+<!-- Insert example output here -->
+    <p> 
+      <font face="Arial, Helvetica">
+	Here we can see that the web server under test became
+	saturated at around 1600 requests per second (160 connections
+	per second, since 10 requests are sent down each connection).
+      </font>
+    </p>
+    <p>
+      <font face="Arial, Helvetica">
+	Autobench also allows you to conduct tests against two machines
+	(to compare the performance of different hardware or different web
+	server software packages, for example).  To do so, omit the
+	'--single_host' option and specify '--host2' and '--uri2':
+      </font>
+    </p>
+    
+<pre>autobench --host1 www.test.com --uri1 /10K                \
+          --host2 www2.test.com --uri2 /10K               \
+          --file results.tsv
+</pre>
+
+    <p>
+      <font face="Arial, Helvetica">
+	Note that in this case the other options (rates, number of
+	connections, etc.) will be taken from the configuration file.
+	This will produce a TSV file containing the results for both hosts
+	(ordered by the demanded number of requests per second).
+      </font>
+    </p>
+
+    <h4><font face="Arial, Helvetica">Configuration File</font></h4>
+    <p>
+      <font face="Arial, Helvetica">
+	Since autobench takes a large number of different options,
+	which, in practice, typically won't vary a great deal, it
+	allows you to specify defaults for the majority of options in
+	a configuration file $HOME/.autobench.conf.  The first time
+	you run autobench, it will merely install this configuration
+	file and exit.  Thereafter it will run normally.  Any options
+	specified on the command line override those in the
+	configuration file.
+      </font>
+    </p>
+    <h4><font face="Arial, Helvetica">Distributed
+    Autobench</font></h4>
+      <p><font face="Arial, Helvetica">
+	Autobench version 2.0.0 introduced "Distributed
+	Autobench" - a means of conducting automated benchmarks
+	using two or more client machines against the same server.
+	Distributed autobench comprises two programs,
+	<tt>autobenchd</tt> and <tt>autobench_admin</tt>.
+	<tt>autobenchd</tt> is a daemon, a copy of which should be
+	installed on each of the client machines.  It listens on port
+	4600 (or other port specified on the command line) for
+	instructions from <tt>autobench_admin</tt> which is used for
+	controlling the cluster of test servers. 
+      </font></p>
+
+      <p><font face="Arial, Helvetica">
+	  <tt>autobench_admin</tt> takes the same arguments as the
+	  original <tt>autobench</tt>, but instead of running the
+	  benchmark itself, contacts the set of daemons specified
+	  using the <tt>--clients</tt> option, and instructs them all
+	  to benchmark the target web server simultaneously.
+	  <tt>autobench_admin</tt> collates the results, and presents
+	  them in the same format as <tt>autobench</tt>, for
+	  importation into a spreadsheet, or graphing using
+	  <tt>bench2graph</tt>.  Full details of the use and
+	  configuration of <tt>autobench_admin</tt> and
+	  <tt>autobenchd</tt> are given in their respective man pages
+	  - the following is an example of the use of
+	    <tt>autobench_admin</tt>:
+      </font></p>
+<pre>autobench_admin --single_host --host1 www.bar.com --uri1/index.html                \ 
+                --clients test1.foo.com:4600,test2.foo.com:4600,test3.foo.com:4600 \
+                --file bench.tsv
+</pre>
+      <p><font face="Arial, Helvetica">
+	  This conducts a benchmark against the machine www.bar.com
+	  from the three clients test1 through test3.foo.com,
+	  recording the results in the file <tt>bench.tsv</tt>.  In
+	  this case, the total number of connections to send, the
+	  low and high rates, and the rate step will all be read from the
+	  configuration file, since they aren't specified on the
+	  command line.
+             </font></p>
+
+    <h4><font face="Arial, Helvetica">Documentation</font></h4>
+    <p>
+      <font face="Arial, Helvetica">
+	HTML Copies of the man pages for autobench and crfile may be found
+	at the following links:
+      </font>
+    </p>
+    
+    <ul>
+      <li><a href="http://www.xenoclast.org/autobench/man/autobench.html"><font face="Arial, Helvetica">autobench</font></a></li>
+      <li><a href="http://www.xenoclast.org/autobench/man/crfile.html"><font face="Arial, Helvetica">crfile</font></a></li>
+    </ul>
+    <p>
+      <font face="Arial, Helvetica">
+	Further examples of the use of Autobench are included in the
+	<a href="http://www.xenoclast.org/doc/benchmark/">Linux HTTP
+	  Benchmarking HOWTO</a>.
+      </font>
+    </p>
+
+    <h1><font face="Arial, Helvetica">Download</font></h1>
+    <p>
+      <font face="Arial, Helvetica">
+	autobench is Free Software, and is distributed under the terms
+	of the GNU Public Licence.  
+	<br>All downloads below are stable. The '.asc' files are GPG/PGP
+	signatures of the tarballs, made with my GPG key, ID
+	0xBCC7863F.  
+	<br>Latest is 2.1.2:
+	
+      </font>
+    </p>
+
+      <h3>Debian</h3>
+      <ul>
+	<li>
+	  <a href="http://www.xenoclast.org/autobench/downloads/debian/autobench_2.1.2_i386.deb"><b>autobench_2.1.2_i386.deb</b></a>
+	</li>
+
+	<li>
+	  <a href="http://www.xenoclast.org/autobench/downloads/debian/autobench_2.1.1-1_i386.deb">autobench_2.1.1-1_i386.deb</a>
+	</li>
+
+	<li>
+	  <a href="http://www.xenoclast.org/autobench/downloads/debian/autobench_2.0.1-1_i386.deb">autobench_2.0.1-1_i386.deb</a>
+	</li>
+	<li>
+	  <a href="http://www.xenoclast.org/autobench/downloads/debian/autobench_2.0.0-1_i386.deb">autobench_2.0.0-1_i386.deb</a>
+	</li>
+	<li>
+	  <a href="http://www.xenoclast.org/autobench/downloads/debian/autobench_1.1.2-1_i386.deb">autobench_1.1.2-1_i386.deb</a>
+	</li>
+      </ul>
+      
+      <h3>Source tarballs</h3>
+
+    <ul>
+      <li>
+	<a href="http://www.xenoclast.org/autobench/downloads/autobench-2.1.2.tar.gz"><b>autobench-2.1.2.tar.gz</b></a>
+	<br>
+	<a href="http://www.xenoclast.org/autobench/downloads/autobench-2.1.2.tar.gz.asc">autobench-2.1.2.tar.gz.asc</a>
+      </li>
+      <li>
+	<a href="http://www.xenoclast.org/autobench/downloads/autobench-2.1.1.tar.gz">autobench-2.1.1.tar.gz</a>
+	<br>
+	<a href="http://www.xenoclast.org/autobench/downloads/autobench-2.1.1.tar.gz.asc">autobench-2.1.1.tar.gz.asc</a>
+      </li>
+      <li>
+	<a href="http://www.xenoclast.org/autobench/downloads/autobench-2.0.1.tar.gz">autobench-2.0.1.tar.gz</a>
+	<br>
+	<a href="http://www.xenoclast.org/autobench/downloads/autobench-2.0.1.tar.gz.asc">autobench-2.0.1.tar.gz.asc</a>
+      </li>
+      <li>
+	<a href="http://www.xenoclast.org/autobench/downloads/autobench-2.0.0.tar.gz">autobench-2.0.0.tar.gz</a>
+	<br>
+	<a href="http://www.xenoclast.org/autobench/downloads/autobench-2.0.0.tar.gz.asc">autobench-2.0.0.tar.gz.asc</a>
+      </li>
+
+      <li>
+	<a href="http://www.xenoclast.org/autobench/downloads/autobench-1.1.2.tar.gz">autobench-1.1.2.tar.gz</a>
+	<br>
+	<a href="http://www.xenoclast.org/autobench/downloads/autobench-1.1.2.tar.gz.asc">autobench-1.1.2.tar.gz.asc</a>
+      </li>
+
+      <li>
+	<a href="http://www.xenoclast.org/autobench/downloads/autobench-1.1.1.tar.gz">autobench-1.1.1.tar.gz</a>
+	<br>
+	<a href="http://www.xenoclast.org/autobench/downloads/autobench-1.1.1.tar.gz.asc">autobench-1.1.1.tar.gz.asc</a>
+      </li>
+
+      <li>
+	<a href="http://www.xenoclast.org/autobench/downloads/autobench-1.1.0.tar.gz">autobench-1.1.0.tar.gz</a>
+	<br>
+	<a href="http://www.xenoclast.org/autobench/downloads/autobench-1.1.0.tar.gz.asc">autobench-1.1.0.tar.gz.asc</a>
+      </li>
+      <li>
+	<a href="http://www.xenoclast.org/autobench/downloads/autobench-1.0.1.tar.gz">autobench-1.0.1.tar.gz</a>
+	<br>
+	<a href="http://www.xenoclast.org/autobench/downloads/autobench-1.0.1.tar.gz.asc">autobench-1.0.1.tar.gz.asc</a>
+      </li>
+
+      <li>
+	<a href="http://www.xenoclast.org/autobench/downloads/autobench-1.0.0.tar.gz">autobench-1.0.0.tar.gz</a>
+	<br>
+	<a href="http://www.xenoclast.org/autobench/downloads/autobench-1.0.0.tar.gz.asc">autobench-1.0.0.tar.gz.asc</a>
+      </li>
+    </ul>
+
+    <hr>
+    <address><a href="mailto:webmaster@xenoclast.org">Julian T J Midgley</a></address>
+<!-- Created: Thu Mar 22 14:29:08 GMT 2001 -->
+<!-- hhmts start -->
+Last modified: Thu May 27 18:18:42 BST 2004
+<!-- hhmts end -->
+  
+
+</body>
+</html>

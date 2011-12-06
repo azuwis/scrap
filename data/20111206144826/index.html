@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<meta name="blogcatalog" content="9BC10102186"> 
+
+<meta name="title" content="Red Hat 5 STIG: Network Settings">
+<meta name="keywords" content="security,security blog,security discussion,Red Hat 5 STIG: Network Settings,Network Security,Guidelines,Protocols,STIG,DISA,TCP,Red Hat">
+<meta name="description" content="Red Hat 5 STIG: Network Settings
+I would caution administrators from rushing to add all because most are defaults. The settings must be implicitly set in the sysctl.conf config file. My recommendation is to review the entire STIG in order to define a complete sysctl.conf file, so that it can be deployed and tested all at once...">
+<meta name="robots" content="index, follow">
+<meta name="language" content="en">
+<title>Red Hat 5 STIG: Network Settings</title>
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="Infosec Island - Latest Articles" href="http://www.infosecisland.com/rss.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body>
+<div id="wrapper">
+<div id="content" class="three-col">
+<div class="colB">
+<div class="bg16">
+<div class="bg17">
+<!--DOCUMENT_FRAGMENT-->
+<h1>Red Hat 5 STIG: Network Settings</h1>
+<br>
+<div style="float: right; padding-right: 30px;">
+</div>
+<span style="padding-left: 32px; color: black; font-size: 12px; font-weight: bold;">Wednesday, August 24, 2011</span><br>
+<div style="float: left; width: 110px; padding-left: 40px; padding-bottom: 10px; z-index: 2;">
+					<br>
+				<label>Contributed By:</label><br>
+				<strong><a href="https://www.infosecisland.com/userprofile/2457.html">Jamie Adams</a></strong>
+								<br>
+																																						                				<br>
+                						<a href="https://www.infosecisland.com/userprofile/2457.html"><img src="4085079c6fe0be2fd371ddbac0c3e7db.jpg" alt="4085079c6fe0be2fd371ddbac0c3e7db"></a>				
+
+		</div>
+
+<div class="post_text" style="padding-top: 10px;">
+<p>The draft release of the U.S. Defense Information Systems Agency's (DISA) “<a href="http://iase.disa.mil/stigs/os/unix/red_hat.html" target="_top">Red Hat 5 STIG</a>” earlier this year has a few system administrators panicking.</p><p> For Red Hat Enterprise Linux 5 administrators, this Security Technical Implementation Guide (STIG) has supplanted the <a href="http://iase.disa.mil/stigs/os/unix/unix.html" target="_top">generic UNIX STIG</a>.</p>  <p>The generic UNIX STIG had the single potential discrepancy indicator  (PDI) “GEN003600 - Network Security Settings.” The checklist document  required you to check four network settings in the running kernel. The  new Red Hat 5 STIG, however, has many more settings and provides better  explanations.</p>  <p>I would caution administrators from rushing to add all of these  settings to your systems because most of these settings are defaults.  Nonetheless, the settings must be implicitly set in the sysctl.conf configuration file. My recommendation is to review the entire STIG in order to define a complete sysctl.conf file, so that it can be deployed and tested all at once. </p>  <p>To help get you started with the new Red Hat 5 STIG, I have compiled a  list of settings from the guideline as well as a few from the “<a href="http://www.nsa.gov/ia/guidance/security_configuration_guides/operating_systems.shtml" target="_top">National Security Agency Guide to the Secure Configuration of RHEL5</a>.”</p>  <p>First of all, the ability to configure network interfaces should be  limited to privileged users (GEN003581). This is achieved by setting  “USERCTL” to “no” in the /etc/sysconfig/network-scripts/ifcfg* files. </p>  <p>The NSA configuration guide recommends disabling <a href="http://www.zeroconf.org/" target="_top">zero configuration networking (zeroconf)</a>; which is a set of techniques that automatically creates a usable <a href="http://en.wikipedia.org/wiki/Internet_Protocol" target="_top">Internet Protocol (IP)</a>  network without manual operator intervention or special configuration  servers.  To disable zeroconf, set “NOZEROCONF” to “yes” in the /etc/sysconfig/network file.</p>  <p>As before, <a href="http://en.wikipedia.org/wiki/IP_forwarding" target="_top">IP forwarding</a>  [ip_forward] should be disabled (GEN005600) and the new guideline  recommends not forwarding (GEN003600) or accepting (GEN003607) <a href="http://en.wikipedia.org/wiki/Source_routing" target="_top">source-routed packets</a> [accept_source_route] either.</p>  <p>The system must not respond to broadcast <a href="http://en.wikipedia.org/wiki/Internet_Control_Message_Protocol" target="_top">Internet Control Message Protocol (ICMP)</a> echoes (GEN003603) or timestamp requests (GEN003604) [icmp_echo_ignore_braodcasts].</p>  <p>Furthermore, the system must ignore ICMP redirect messages  (GEN003609) [accept_redirects] as well as not send ICMP redirects  (GEN003610) [send_redirects]. Other guidelines recommend not accepting  secure ICMP redirects [secure_redirects]. The secure redirect message is  sent by a gateway that appears in the host's default gateway list.</p>  <p>To provide some mitigation to TCP denial of service attacks the  guideline (GEN003601) recommends adjusting the TCP backlog queue size  [tcp_max_syn_backlog]. Additionally (GEN003612),  your system should be  configured to send out requests [tcp_syncookies] to remote hosts if they  are flooding your system’s backlog queue with SYN packets. These  requests check whether or not the inbound SYN packets are legitimate.</p>  <p>Enabling TCP syncookies option on a system under normal load is  useful. If your system is under high load it will make new connections  but without advanced features such as <a href="http://en.wikipedia.org/wiki/Explicit_Congestion_Notification" target="_top">explicit congestion notification (ECN)</a> or <a href="http://en.wikipedia.org/wiki/Selective_acknowledgement" target="_top">selective acknowledgment (SACK)</a>.</p>  <p>To help mitigate the leaking of addressing information between  attached network segments, the guideline (GEN003608) recommends  disabling proxy <a href="http://en.wikipedia.org/wiki/Address_Resolution_Protocol" target="_top">Address Resolution Protocol (ARP)</a> [proxy_arp].</p>  <p>The guideline (GEN003613) recommends the system perform source  validation by reversed path [rp_filter]. When you enable reverse path  source validation, inbound packets are dropped if the IP address from  where the packets were received is not reachable (i.e., asymmetrical  route).</p>  <p>It should be noted, however, that enabling this may cause problems in  complex networks running a slow and unreliable protocol, using static  routes, or where asymmetric routes are present. Asymmetric routes are  not common, but may be necessary in certain cases. By default, Linux  drops packets in which asymmetric routes are used because of the  security risk.[1]</p>  <p>It is also recommended (GEN003619) <a href="http://en.wikipedia.org/wiki/Bridging_%28networking%29" target="_top">network bridging</a> be disabled. This is usually a kernel module which can be checked with <a href="http://linux.die.net/man/8/lsmod" target="_top">lsmod(8)</a> command utility. To prevent it from loading, add the appropriate line for that module in the <a href="http://linux.die.net/man/5/modprobe.conf" target="_top">modprobe.conf</a> file.</p>  <p>Finally, the guideline (GEN003611) recommends the kernel log all <a href="http://en.wikipedia.org/wiki/Martian_packet" target="_top">martian packets</a> [log_martians]. Martian packets are packets which contain addresses known by the system to be <span style="font-style: italic;">invalid</span>.</p>  <p>As I said earlier, many of these settings are kernel defaults. However, it is best to add the following settings into your /etc/sysctl.conf file:</p>  <span class="linemarker-marked-line" style="background-color: #FFFF99; color: #000000; border: thin dashed #FFCC00;">net.ipv4.ip_forward = 0 </span><br><span class="linemarker-marked-line" style="background-color: #FFFF99; color: #000000; border: thin dashed #FFCC00;">net.ipv4.conf.all.accept_source_route = 0</span><br><span class="linemarker-marked-line" style="background-color: #FFFF99; color: #000000; border: thin dashed #FFCC00;">net.ipv4.conf.default.accept_source_route = 0</span><br><span class="linemarker-marked-line" style="background-color: #FFFF99; color: #000000; border: thin dashed #FFCC00;">net.ipv4.icmp_echo_ignore_broadcasts = 1 </span><br><span class="linemarker-marked-line" style="background-color: #FFFF99; color: #000000; border: thin dashed #FFCC00;">net.ipv4.conf.all.accept_redirects = 0 </span><br><span class="linemarker-marked-line" style="background-color: #FFFF99; color: #000000; border: thin dashed #FFCC00;">net.ipv4.conf.default.accept_redirects = 0 </span><br><span class="linemarker-marked-line" style="background-color: #FFFF99; color: #000000; border: thin dashed #FFCC00;">net.ipv4.conf.all.send_redirects = 0 </span><br><span class="linemarker-marked-line" style="background-color: #FFFF99; color: #000000; border: thin dashed #FFCC00;">net.ipv4.conf.default.send_redirects = 0 </span><br><span class="linemarker-marked-line" style="background-color: #FFFF99; color: #000000; border: thin dashed #FFCC00;">net.ipv4.conf.all.secure_redirects = 0 </span><br><span class="linemarker-marked-line" style="background-color: #FFFF99; color: #000000; border: thin dashed #FFCC00;">net.ipv4.conf.default.secure_redirects = 0 </span><br><span class="linemarker-marked-line" style="background-color: #FFFF99; color: #000000; border: thin dashed #FFCC00;">net.ipv4.tcp_max_syn_backlog = 1280 </span><br><span class="linemarker-marked-line" style="background-color: #FFFF99; color: #000000; border: thin dashed #FFCC00;">net.ipv4.tcp_syncookies = 1 </span><br><span class="linemarker-marked-line" style="background-color: #FFFF99; color: #000000; border: thin dashed #FFCC00;">net.ipv4.conf.all.proxy_arp = 0 </span><br><span class="linemarker-marked-line" style="background-color: #FFFF99; color: #000000; border: thin dashed #FFCC00;">net.ipv4.conf.default.proxy_arp = 0 </span><br><span class="linemarker-marked-line" style="background-color: #FFFF99; color: #000000; border: thin dashed #FFCC00;">net.ipv4.conf.all.rp_filter = 1 </span><br><span class="linemarker-marked-line" style="background-color: #FFFF99; color: #000000; border: thin dashed #FFCC00;">net.ipv4.conf.default.rp_filter = 1 </span><br><span class="linemarker-marked-line" style="background-color: #FFFF99; color: #000000; border: thin dashed #FFCC00;">net.ipv4.conf.all.log_martians = 1 </span><br><span class="linemarker-marked-line" style="background-color: #FFFF99; color: #000000; border: thin dashed #FFCC00;">net.ipv4.conf.default.log_martians = 1   </span><p>Now, you can execute /sbin/sysctl -p as root or reboot the system.</p><p><em>   [1] Benvenuti, Christian. Understanding Linux Network Internals, Chapter 31. Sebastopol, CA: O'Reilly Media, Inc., 2006. </em></p><p><em>Cross-posted from <a href="http://tcs-security-blanket.blogspot.com/2011/08/red-hat-5-stig-network-settings.html" target="_top">Security Blanket Technical Blog </a></em></p></div>
+<!--/DOCUMENT_FRAGMENT-->
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</body></html>

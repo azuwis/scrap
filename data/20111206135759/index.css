@@ -1,0 +1,211 @@
+pseudoembed[flashblock="1"] { width: 289px; height: 258px; }
+/* ::::: http://s2.wp.com/wp-content/themes/pub/journalist-13/style.css?m=1300134071g ::::: */
+
+body { background: none repeat scroll 0% 0% rgb(255, 255, 255); font-family: Georgia,"Times New Roman",Times,serif; font-size: 14px; color: rgb(34, 34, 34); padding: 0pt; margin: 0pt; border-top: 2px solid rgb(51, 51, 51); }
+* { padding: 0pt; margin: 0pt; }
+#container { width: 950px; margin: 0pt auto; }
+#container h1 { font-size: 28px; font-weight: normal; padding: 20px 10px; }
+#container h1 a { color: rgb(34, 34, 34); text-decoration: none; }
+#container h1 a:hover { color: rgb(34, 34, 34); text-decoration: none; border-bottom: 1px solid rgb(119, 119, 119); }
+#content { float: left; width: 720px; padding: 0pt 0pt 0pt 10px; }
+#content h2 { font-size: 22px; font-weight: normal; margin: 0pt 0pt 15px; }
+#content h3, #content h4 { margin-bottom: 0.5em; }
+#postnav { margin: 0pt 0pt 10px; }
+.main a, .tags a { color: rgb(0, 66, 118); text-decoration: underline; }
+.main a:hover, .tags a:hover { color: rgb(43, 156, 206); text-decoration: underline; }
+.main p { line-height: 25px; margin: 0pt 0pt 10px; }
+.main ul { margin: 0pt 0pt 0pt 30px; }
+.main li { margin: 0pt 0pt 10px; }
+.meta { background-color: rgb(51, 51, 51); font-family: Arial,Helvetica,sans-serif; font-size: 11px; color: rgb(238, 238, 238); padding: 4px 6px; margin: 0pt 0pt 10px; }
+.meta a { color: rgb(238, 238, 238); font-weight: bold; text-decoration: none; }
+.meta a:hover { color: rgb(255, 255, 255); text-decoration: none; }
+.tags { margin: 0pt 0pt 20px; clear: both; }
+.comments { font-size: 12px; margin: 0pt 0pt 40px; clear: both; }
+.comments a { padding: 1px 6px 3px 4px; color: rgb(34, 34, 34); text-decoration: none; border-top: 1px solid rgb(204, 204, 204); line-height: 22px; }
+.comments a:hover { padding: 1px 6px 3px 4px; color: rgb(34, 34, 34); text-decoration: none; border-top: 1px solid rgb(119, 119, 119); }
+#sidebar { float: left; width: 180px; font-family: "Trebuchet MS",Arial,Helvetica,sans-serif; font-size: 12px; border-left: 1px solid rgb(153, 153, 153); margin: 0pt 0pt 0pt 20px; padding: 0pt 0pt 10px 10px; }
+#sidebar h3 { font-size: 14px; margin: 20px 0pt 5px; }
+#sidebar a { color: rgb(34, 34, 34); text-decoration: none; border-bottom: 1px solid rgb(204, 204, 204); }
+#sidebar a:hover { color: rgb(34, 34, 34); text-decoration: none; border-bottom: 1px solid rgb(119, 119, 119); }
+#sidebar ul { list-style: none outside none; }
+#sidebar ul li { padding: 0pt 0pt 5px; }
+#searchform { margin: 15px 0pt 0pt; }
+#searchform input { font-family: Tahoma,Arial,Helvetica,sans-serif; font-size: 11px; background-color: rgb(34, 34, 34); margin: 2px 0pt; padding: 1px 4px 2px; border: 1px solid rgb(136, 136, 136); color: rgb(238, 238, 238); }
+#searchform input:hover { cursor: pointer; background-color: rgb(51, 51, 51); border: 1px solid rgb(153, 153, 153); color: rgb(255, 255, 255); }
+#searchform #s { font-family: Tahoma,Arial,Helvetica,sans-serif; font-size: 11px; margin: 2px 0pt; background-color: rgb(246, 246, 246); padding: 2px 4px; border: 1px solid rgb(170, 170, 170); color: rgb(34, 34, 34); }
+#searchform #s:hover { background-color: rgb(255, 255, 255); color: rgb(34, 34, 34); }
+input[type="text"] { font-family: Tahoma,Arial,Helvetica,sans-serif; font-size: 11px; background-color: rgb(246, 246, 246); padding: 2px 4px; border: 1px solid rgb(170, 170, 170); color: rgb(34, 34, 34); }
+input[type="text"]:hover { background-color: rgb(255, 255, 255); color: rgb(34, 34, 34); }
+textarea { font-family: Tahoma,Arial,Helvetica,sans-serif; font-size: 12px; width: 500px; padding: 2px 4px; background-color: rgb(246, 246, 246); border: 1px solid rgb(170, 170, 170); color: rgb(34, 34, 34); }
+textarea:hover { background-color: rgb(255, 255, 255); color: rgb(34, 34, 34); }
+h3.reply { font-size: 15px; margin: 0pt 0pt 10px; }
+ol.commentlist { font-family: Tahoma,Arial,Helvetica,sans-serif; font-size: 12px; list-style: none outside none; padding: 0pt 0pt 10px; margin: 0pt 0pt 30px; border-bottom: 1px solid rgb(204, 204, 204); }
+.commentlist li { border-top: 1px solid rgb(204, 204, 204); margin: 20px 0pt 0pt; list-style: none outside none; }
+.commentlist li:hover { border-top: 5px solid rgb(204, 204, 204); margin: 16px 0pt 0pt; }
+.commentlist p { line-height: 20px; margin: 0pt 0pt 10px; }
+.comment_author { font-family: "Trebuchet MS",Arial,Helvetica,sans-serif; font-size: 14px; margin: 20px 0pt 10px; }
+.comment_meta { font-family: Tahoma,Arial,Helvetica,sans-serif; font-size: 12px; }
+#commentform p { line-height: 25px; margin: 0pt 0pt 10px; }
+.comment_author a, .commentlist a, .comment_meta a { color: rgb(34, 34, 34); text-decoration: none; border-bottom: 1px solid rgb(204, 204, 204); }
+.comment_author a:hover, .commentlist a:hover, .comment_meta a:hover { color: rgb(34, 34, 34); text-decoration: none; border-bottom: 1px solid rgb(119, 119, 119); }
+#respond label { clear: right; font-size: 11px; font-family: Tahoma,Arial,Helvetica,sans-serif; margin: 0pt 0pt 0pt 5px; }
+#respond input[type="text"] { float: left; margin-right: 6px; }
+#respond p { line-height: 18px; margin: 16px 0pt; }
+#respond .required { font-size: 11px; margin-left: 5px; color: rgb(255, 75, 51); font-weight: bold; }
+#respond .subscribe-label { font-size: 12px; }
+#footer { background-color: rgb(51, 51, 51); font-family: Arial,Helvetica,sans-serif; font-size: 11px; color: rgb(238, 238, 238); border-top: 1px solid rgb(153, 153, 153); margin: 20px auto 0pt; padding: 10px 0pt; text-align: center; }
+#footer a { color: rgb(238, 238, 238); font-weight: bold; text-decoration: none; }
+#footer a:hover { color: rgb(255, 255, 255); text-decoration: none; }
+#skip { display: none; }
+.clearleft { clear: left; }
+.commentlist li.bypostauthor { background-color: rgb(246, 246, 246); padding: 0pt 0.5em 0.5em; }
+.reply { clear: both; padding-top: 15px; }
+.previous { float: left; }
+.next { float: right; }
+.alignright { float: right; }
+.alignleft { float: left; }
+/* ::::: http://s0.wp.com/wp-content/themes/h4/global.css?m=1313010129g ::::: */
+
+.screen-reader-text { position: absolute; left: -1000em; }
+/* ::::: http://s2.wp.com/wp-content/blog-plugins/loggedout-follow/widget.css?m=1322602715g&ver=20111128 ::::: */
+
+#bit, #bit * {  }
+#bit { font: 13px "Helvetica Neue",sans-serif; }
+.loggedout-follow-normal { position: fixed; z-index: 999999; bottom: -300px; right: 10px; }
+#bit a.bsub { display: block; overflow: hidden; padding: 0pt 10px 0pt 8px; float: right; text-decoration: none ! important; font: 13px/28px "Helvetica Neue",sans-serif; color: rgb(204, 204, 204); text-shadow: 0px -1px 0px rgb(68, 68, 68); letter-spacing: normal; border: 0pt none; background-color: rgb(70, 70, 70); background-image: -moz-linear-gradient(center bottom , rgb(63, 63, 63), rgb(70, 70, 70) 5px); box-shadow: 0pt -1px 5px rgba(0, 0, 0, 0.2); outline-style: none; outline-width: 0pt; }
+#bit a.bsub { border-radius: 2px 2px 0pt 0pt; }
+#bit a.bsub span { background: url('wpcom-admin-bar-icons.png') no-repeat scroll 0pt -77px transparent; padding-left: 15px; }
+#bit a:hover span, #bit a.bsub.open span { color: rgb(255, 255, 255) ! important; background-position: 0pt -117px; }
+#bitsubscribe { background: none repeat scroll 0% 0% rgb(70, 70, 70); color: rgb(255, 255, 255); padding: 15px; width: 200px; margin-top: 27px; border-radius: 2px 0pt 0pt 0pt; }
+#bitsubscribe div { overflow: hidden; }
+#bit h3, #bit #bitsubscribe h3 { margin: 0pt 0pt 0.5em ! important; font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; font-weight: 300; text-shadow: 0pt 1px 0pt rgb(51, 51, 51); font-size: 20px; color: rgb(255, 255, 255); text-align: left; }
+#bit #bitsubscribe p { margin: 0pt 0pt 1em; font: 300 15px/1.3em "Helvetica Neue",Helvetica,Arial,sans-serif; text-shadow: 0pt 1px 0pt rgb(51, 51, 51); color: rgb(255, 255, 255); }
+#bitsubscribe input[type="submit"] { padding: 2px 20px; background: -moz-linear-gradient(center top , rgb(51, 51, 51) 0%, rgb(17, 17, 17) 100%) repeat scroll 0% 0% transparent; color: rgb(204, 204, 204); text-shadow: 0pt 1px 0pt rgb(0, 0, 0); border: 1px solid rgb(40, 40, 40); border-radius: 11px 11px 11px 11px; box-shadow: 0pt 1px 0pt rgb(68, 68, 68) inset; text-decoration: none; -moz-transition: all 0.25s ease-in-out 0s ; }
+#bitsubscribe input[type="submit"]:hover { background: -moz-linear-gradient(center top , rgb(51, 51, 51) 0%, rgb(34, 34, 34) 100%) repeat scroll 0% 0% transparent; color: rgb(255, 255, 255); box-shadow: 0pt 1px 0pt rgb(79, 79, 79) inset; text-decoration: none; }
+#bitsubscribe input[type="submit"]:active { background: -moz-linear-gradient(center top , rgb(17, 17, 17) 0%, rgb(34, 34, 34) 100%) repeat scroll 0% 0% transparent; color: rgb(170, 170, 170); box-shadow: 0pt -1px 0pt rgb(51, 51, 51) inset; text-decoration: none; }
+#bitsubscribe input[type="text"] { border-radius: 3px 3px 3px 3px; font: 300 15px "Helvetica Neue",Helvetica,Arial,sans-serif; }
+#bitsubscribe input[type="text"]:focus { border: 1px solid rgb(0, 0, 0); }
+#bsub-subscribe-button { text-align: center; margin: 0pt auto; }
+#bitsubscribe #bsub-credit { text-align: center; font: 11px "Helvetica Neue",sans-serif; padding: 7px 0pt; margin: 0pt 0pt -15px; border-top: 1px solid rgb(60, 60, 60); }
+#bitsubscribe #bsub-credit a { color: rgb(170, 170, 170); text-shadow: 0pt 1px 0pt rgb(38, 38, 38); background: none repeat scroll 0% 0% transparent; text-decoration: none; }
+#bitsubscribe #bsub-credit a:hover { color: rgb(255, 255, 255); background: none repeat scroll 0% 0% transparent; }
+/* ::::: http://s1.wp.com/wp-content/mu-plugins/post-flair/style.css?m=1322086827g&ver=3 ::::: */
+
+div.sharedaddy ul, div.sharedaddy li { margin: 0pt; padding: 0pt; list-style: none outside none; border: medium none; background: none repeat scroll 0% 0% transparent; }
+div.sharedaddy, #content div.sharedaddy, #main div.sharedaddy { font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 12px; clear: both; }
+div.sharedaddy, div.sharedaddy div { border-radius: 0pt 0pt 0pt 0pt ! important; }
+div.sharedaddy h3, #content div.sharedaddy h3, #main div.sharedaddy h3, #primary div.sharedaddy h3 { font-size: 12px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; margin: 3px 0pt; padding: 0pt; text-transform: none; letter-spacing: 0pt; line-height: 1; font-weight: bold; width: 15.625%; float: left; position: static; background: none repeat scroll 0% 0% transparent; border: medium none; }
+div.sharedaddy ul, div.sharedaddy li { margin: 0pt ! important; padding: 0pt ! important; text-indent: 0pt; }
+div.sharedaddy li:before { content: ""; }
+div.sharedaddy div.sharing-clear { margin: 0pt ! important; padding: 0pt ! important; }
+div.sharedaddy a, div.sharedaddy a:link, div.sharedaddy a:visited { font-style: normal; }
+div.sharedaddy:before, div.sharedaddy:after, div.sharedaddy .sd-block:before, div.sharedaddy .sd-block:after, div.sharedaddy ul:before, div.sharedaddy ul:after { content: " "; display: block; height: 0pt; overflow: hidden; }
+div.sharedaddy:after, div.sharedaddy .sd-block:after, div.sharedaddy ul:after { clear: both; }
+div.sharedaddy, div.sharedaddy .sd-block, div.sharedaddy ul {  }
+div.sharedaddy div.sd-block { border-top: 1px solid rgba(0, 0, 0, 0.13); padding: 10px 0pt 5px; margin: 0pt; width: 100% ! important; }
+div.sharedaddy .sd-content { width: 82.125%; float: right; margin: 0pt; }
+div.sharedaddy .sd-content ul { margin: 0pt; }
+div.sharedaddy .sd-content li { float: left; margin: 0pt 5px 5px 0pt ! important; display: block; }
+div.sharedaddy a.sd-button { margin: 0pt; padding: 0pt; display: block; background: -moz-linear-gradient(center top , rgb(247, 247, 247) 0%, rgb(239, 239, 239) 100%) repeat scroll 0% 0% transparent; border-radius: 3px 3px 3px 3px; border: 1px solid rgb(221, 221, 221) ! important; box-shadow: 0pt 1px 0pt rgb(255, 255, 255) inset; color: rgb(0, 0, 0) ! important; text-decoration: none; line-height: 1; font-size: 12px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-weight: normal; }
+div.sharedaddy a.sd-button:hover { color: rgb(0, 0, 0); text-shadow: 0pt 1px 0pt rgb(255, 255, 255); border-color: rgb(204, 204, 204); background: -moz-linear-gradient(center top , rgb(239, 239, 239) 0%, rgb(238, 238, 238) 100%) repeat scroll 0% 0% transparent; }
+div.sharedaddy a.sd-button:active { background-color: rgb(239, 239, 239); box-shadow: 0pt -1px 0pt rgb(255, 255, 255) inset; border-color: rgb(221, 221, 221); }
+a.sd-button > span { padding: 4px 8px; display: block; opacity: 0.8; line-height: 1; text-shadow: none; }
+a.sd-button:hover span { opacity: 1; }
+.sd-social-icon-text a.sd-button > span, a.sd-button > span { padding: 3px 5px 3px 23px; background-position: 2px center; background-repeat: no-repeat; }
+li.share-twitter a.sd-button > span { background-image: url('icon-twitter.png'); }
+li.share-stumbleupon a.sd-button > span { background-image: url('icon-stumbleupon.png'); }
+li.share-reddit a.sd-button > span { background-image: url('icon-reddit.png'); }
+li.share-email a.sd-button > span { background-image: url('icon-email.png'); }
+div.sharedaddy #wpl-likebox, #main div.sharedaddy #wpl-likebox, #content div.sharedaddy #wpl-likebox { margin-right: 0pt ! important; margin-left: 0pt ! important; padding-right: 0pt ! important; padding-left: 0pt ! important; }
+#wpl-likebox .sd-content { margin: 0pt; }
+div.sharedaddy #wpl-button { float: left; margin: 0pt 5px 0pt 0pt; }
+div.sharedaddy #wpl-count { line-height: 1; padding: 5px 0pt; text-align: left; margin: 0pt; font-size: 12px; }
+div.sharedaddy ul#wpl-avatars, #wpl-likebox { margin: 0pt -2px 0pt 0pt ! important; padding-top: 10px ! important; overflow: hidden; }
+div.sharedaddy #wpl-button a.sd-button > span { padding: 3px 5px 3px 20px; text-shadow: none; background: url('icon-like.png') no-repeat scroll 2px center transparent; }
+div.sharedaddy.sd-like-enabled .sd-like h3 { display: none; }
+div.sharedaddy.sd-like-enabled .sd-like div.sd-content { width: 100%; float: none; }
+div.sharedaddy.sd-sharing-enabled .sd-like h3 { display: block; }
+div.sharedaddy.sd-sharing-enabled .sd-like div.sd-content { width: 82.125%; float: right; }
+#sharing_email { width: 312px; padding: 15px; position: absolute; margin-left: -120px; z-index: 1001; background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); border-radius: 3px 3px 3px 3px; box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2); text-align: left; }
+#sharing_email .errors { color: rgb(255, 255, 255); background-color: rgb(119, 26, 9); font-size: 11px; padding: 5px 8px; line-height: 11px; margin: 10px 0pt 0pt; }
+#sharing_email label { font-size: 11px; color: rgb(51, 51, 51); font-weight: bold; display: block; padding: 0pt 0pt 4px; text-align: left; text-shadow: none; }
+#sharing_email input[type="text"] { width: 98.5%; margin-bottom: 12px; border: 1px solid rgb(204, 204, 204); background: none repeat scroll 0% 0% rgb(255, 255, 255); color: rgb(51, 51, 51); }
+#sharing_email .sharing_send {  }
+#sharing_email .sharing_cancel { padding: 0pt 0pt 0pt 10px; font-size: 11px; text-shadow: none; }
+#sharing_email .recaptcha { width: 312px; height: 123px; margin: 10px 0pt 14px; }
+div.sharedaddy #wpl-likebox { position: static ! important; bottom: auto ! important; }
+/* ::::: http://s2.wp.com/wp-content/mu-plugins/highlander-comments/style.css?m=1323127129g&ver=20110620 ::::: */
+
+#respond { font-weight: normal; color: inherit; margin: 0pt 0pt 15px; font-family: Arial,Helvetica,Tahoma,Verdana,sans-serif; clear: both; padding: 15px 0pt; background: none repeat scroll 0% 0% transparent; border: medium none; float: none; width: auto; overflow: hidden; }
+div#respond { border: medium none; }
+#respond form * { font-size: 12px; }
+#respond form { margin: 0pt; padding: 0pt; border: medium none; background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.08); width: auto ! important; text-align: left; }
+#respond h3 { padding-top: 0pt; padding-bottom: 0pt; margin-top: 15px; margin-bottom: 15px; display: block; }
+#respond h3 small { float: right; }
+#respond h3 small a { display: inline; width: auto; }
+#respond span { display: inline; }
+#respond label { background: none repeat scroll 0% 0% transparent; color: inherit; text-transform: none; }
+#respond .comment-textarea { position: relative; }
+#respond .comment-textarea label { display: none; font-size: 14px; text-transform: none; color: rgba(0, 0, 0, 0.5); font-weight: normal; width: auto; margin: 0pt; line-height: 1; }
+#respond.js .comment-textarea label { display: block; position: absolute; top: 12px; left: 12px; }
+#respond #comment-form-comment, #comment-form-share-text-padder { line-height: 18px ! important; padding: 10px 10px 5px ! important; box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.12) inset; background: none repeat scroll 0% 0% rgba(255, 255, 255, 0.85); border: 1px solid rgba(0, 0, 0, 0.2); -moz-transition-duration: 0.3s; }
+#respond #comment-form-comment textarea, #comment-form-share-text-padder textarea { border: medium none ! important; background: none repeat scroll 0% 0% transparent ! important; font-size: 14px; font-family: inherit; color: rgba(0, 0, 0, 0.7); text-shadow: 0pt 1px 0pt rgba(255, 255, 255, 0.45); width: 100%; height: 125px; outline: medium none; padding: 0pt; margin: 0pt; box-shadow: none; }
+#respond #comment-form-comment textarea:focus, #comment-form-share-text-padder textarea:focus { border: medium none; background: none repeat scroll 0% 0% transparent; padding: 0pt; margin: 0pt; box-shadow: none; }
+#respond #comment-form-identity { border-top: 1px solid rgba(255, 255, 255, 0.35); overflow: hidden; }
+#respond #comment-form-identity #comment-form-nascar { display: none; overflow: hidden; white-space: nowrap; background: none repeat scroll 0% 0% rgba(255, 255, 255, 0.7); }
+#respond #comment-form-identity #comment-form-nascar p { display: inline; float: left; padding: 5px 0pt 0pt 12px; margin: 10px 0pt 0pt; width: auto; line-height: 100%; color: rgba(0, 0, 0, 0.7); }
+#respond.js #comment-form-identity #comment-form-nascar { display: block; }
+#respond #comment-form-identity #comment-form-nascar ul { padding: 0pt; list-style: none outside none; text-indent: 0pt; margin: 7px 12px 0px; float: right; border: medium none ! important; background: none repeat scroll 0% 0% transparent; }
+#respond #comment-form-identity #comment-form-nascar ul li { clear: none; float: left; margin: 0pt; background: none repeat scroll 0% 0% transparent; border: medium none ! important; list-style: none outside none; border-radius: 0pt 0pt 0pt 0pt; min-height: 0pt; width: auto; padding: 5px 1px; }
+#respond #comment-form-identity #comment-form-nascar ul li.selected, .highlander-dark #respond #comment-form-identity #comment-form-nascar ul li.selected { background: inherit; box-shadow: none; border: medium none; }
+#respond #comment-form-identity #comment-form-nascar ul li:before, #respond #comment-form-identity #comment-form-nascar ul li:before { content: normal; }
+#respond #comment-form-nascar ul li a { display: block; overflow: hidden; height: 24px; font-style: normal; border: medium none ! important; text-decoration: none ! important; opacity: 0.7; }
+#respond #comment-form-nascar ul li a:hover { opacity: 1; }
+#respond .comment-form-padder { position: relative; padding: 0pt 12px; }
+#respond .comment-form-service { background: none repeat scroll 0% 0% rgba(255, 255, 255, 0.7); padding: 10px 0pt; overflow: hidden; display: none; border-bottom: 1px solid rgba(0, 0, 0, 0.07); }
+#respond .comment-form-service * { line-height: 18px ! important; }
+#respond .selected { display: block; }
+#respond .comment-form-service p { margin: 10px 0pt 3px; padding: 0pt; clear: none ! important; border: medium none; }
+#respond .comment-form-avatar { float: left; }
+#respond .comment-form-avatar img { padding: 1px; border: 1px solid rgb(204, 204, 204); background: none repeat scroll 0% 0% rgb(255, 255, 255); width: 25px; vertical-align: middle; margin: 0pt; }
+#respond .comment-form-fields { margin-left: 38px; margin-top: 0pt; }
+#respond div.comment-form-field { border: medium none; font-size: 12px; overflow: visible; }
+#respond .comment-form-fields div.comment-form-field { position: relative; margin: 2px 15px 5px 0pt; clear: none; width: auto; }
+#respond .comment-form-fields label { position: relative; font-size: 12px; font-weight: normal; padding: 0pt; z-index: 99; width: 100%; cursor: text; background: none repeat scroll 0% 0% transparent; box-shadow: none; text-transform: none; color: rgba(0, 0, 0, 0.5); margin: 0pt; text-align: left; }
+#respond.js .comment-form-fields label { position: absolute; top: 5px; left: 8px; padding: 0pt ! important; }
+#respond .comment-form-fields label span.required, #respond .comment-form-fields label span.nopublish { position: relative; width: auto; top: auto; left: auto; font-size: 11px; color: rgba(0, 0, 0, 0.4); margin: 0pt; padding: 0pt; float: none; text-align: left; background-color: transparent; }
+#respond .comment-form-fields label span.nopublish { float: right; }
+#respond.js .comment-form-fields label span.nopublish { position: absolute; float: none; right: 15px; }
+#respond .comment-form-fields div.comment-form-input { padding: 4px 5px; margin: 0pt 0pt 8px; box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset; background: none repeat scroll 0% 0% rgba(255, 255, 255, 0.9); border: 1px solid rgb(205, 205, 205); white-space: nowrap; -moz-transition-duration: 0.3s; height: 18px ! important; width: 100% ! important; }
+#respond .comment-form-fields div.comment-form-input input { border: medium none ! important; line-height: 18px ! important; outline: medium none; width: 100% ! important; font-size: 12px ! important; font-family: inherit; padding: 0pt ! important; margin: 0pt ! important; background: none repeat scroll 0% 0% transparent ! important; float: none; box-shadow: none; color: rgba(0, 0, 0, 0.7); text-indent: 0px; clear: none; }
+#respond .comment-form-fields div.comment-form-input input:focus { border: medium none; background: none repeat scroll 0% 0% transparent; padding: 0pt; margin: 0pt; box-shadow: none; }
+#respond .comment-form-fields p.comment-form-posting-as, #respond .comment-form-fields p.comment-form-log-out { color: rgba(0, 0, 0, 0.7); margin: 0pt; padding-top: 5px; }
+#respond .comment-form-posting-as { padding-right: 20px ! important; width: auto ! important; }
+#postas-wordpress { background: url('icon-wordpress.png') no-repeat scroll center center transparent; width: 24px; }
+#postas-twitter { background: url('icon-twitter_001.png') no-repeat scroll center center transparent; width: 24px; }
+#postas-facebook { background: url('icon-facebook.png') no-repeat scroll center center transparent; width: 24px; }
+.pa-twitter { background: url('icon-twitter_001.png') no-repeat scroll right 6px transparent; }
+.pa-facebook { background: url('icon-facebook.png') no-repeat scroll right 6px transparent; }
+#respond .comment-form-posting-as-cancel { text-align: right; margin-right: 10px; }
+#respond .comment-form-service a { color: rgba(0, 0, 0, 0.6); text-decoration: underline; border: 0pt none; }
+#respond p#wordpress-login-first { display: none; margin: 0pt 0pt 10px; background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.07); padding: 5px 10px; }
+#respond #comment-form-subscribe { float: left; padding-left: 5px; margin-top: 15px; line-height: 18px ! important; }
+#respond #comment-form-subscribe p { margin: 0pt; padding: 0pt 0pt 2px; border: medium none; }
+#respond p.comment-subscription-form input { height: auto; width: auto; }
+#respond p.comment-subscription-form label { font-size: 12px ! important; text-transform: none; font-weight: normal; margin: 0pt; }
+#respond .form-submit { float: right; padding: 10px 5px 10px 0pt; white-space: nowrap; clear: none ! important; line-height: 18px ! important; width: auto ! important; margin: 0pt; border: medium none; }
+#respond .form-submit input, #respond .form-submit input#comment-submit, #respond .comment-form-fields input[type="submit"], #respond p.form-submit input[type="submit"], #respond input[type="submit"], #commentform #submit { line-height: 18px ! important; border: 1px solid rgb(204, 204, 204); padding: 3px 10px ! important; font-size: 14px ! important; border-radius: 15px 15px 15px 15px ! important; background: url('button-back.gif') repeat-x scroll left bottom transparent ! important; cursor: pointer; color: rgb(85, 85, 85) ! important; text-shadow: 0pt 1px 0pt rgba(255, 255, 255, 0.45) ! important; min-width: 0pt; width: auto; height: auto; font-family: Arial,Helvetica,Tahoma,Verdana,sans-serif; font-weight: normal ! important; }
+#respond .form-submit input:hover, #respond .comment-form-fields input[type="submit"]:hover, #respond p.form-submit input[type="submit"]:hover, #respond input[type="submit"]:hover, #commentform #submit:hover #respond .form-submit input:focus, #respond .comment-form-fields input[type="submit"]:focus, #respond p.form-submit input[type="submit"]:focus, #respond input[type="submit"]:focus, #commentform #submit:focus { background: url('button-back-over.gif') repeat-x scroll left top transparent; border-color: rgb(153, 153, 153) ! important; box-shadow: 0pt 1px 10px rgb(153, 153, 153); }
+#respond #comment-form-load-service { height: 70px; }
+#respond #comment-form-load-service p { text-align: center; font-size: 14px; background: url('loader.gif') no-repeat scroll center top transparent; padding-top: 25px; color: rgba(0, 0, 0, 0.6); }
+#wordpress-login-iframe { width: 100%; height: 115px; border: medium none ! important; }
+table.recentcommentsavatar img.avatar { border: 0px none; margin: 0pt; }
+table.recentcommentsavatar a { border: 0px none ! important; background-color: transparent ! important; }
+td.recentcommentsavatartop { padding: 0px 0px 1px; margin: 0px; }
+td.recentcommentsavatarend { padding: 0px 0px 1px; margin: 0px; }
+td.recentcommentstexttop { border: medium none ! important; padding: 0px 0px 0px 10px; }
+td.recentcommentstextend { border: medium none ! important; padding: 0px 0px 2px 10px; }
+/* ::::: http://s.gravatar.com/css/hovercard.css?v=6 ::::: */
+
+/* ::::: http://s.gravatar.com/css/services.css?v=5 ::::: */
+

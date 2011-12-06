@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:jot="http://www.google.com/ns/jotspot/srvtmpl/">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="http://www.gstatic.com/sites/p/dc1c1a/system/app/images/apple-touch-icon.png" type="image/png">
+
+
+
+<meta name="google-site-verification" content="kCSFgsKDtPuPlJ05nPX3a3TPlLEFTS-FBpxEsvsiTCE">
+<meta name="Description" content="tfnico's (Thomas Ferris Nicolaisen) home on the web.">
+
+
+
+
+
+<!--[if IE]>
+          <link rel="stylesheet" type="text/css" href="/system/app/css/camelot/allthemes%2die.css" />
+        <![endif]-->
+<title>Git and Subversion - Thomas Ferris Nicolaisen</title>
+
+<link href="http://www.tfnico.com/presentations/git-and-subversion" rel="canonical">
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body xmlns="http://www.google.com/ns/jotspot" id="body" class=" en            ">
+<div id="sites-page-toolbar" class="sites-header-divider">
+<div xmlns="http://www.w3.org/1999/xhtml" id="sites-status" class="sites-status" style="display: none;"><div id="sites-notice" class="sites-notice" role="status" aria-live="assertive"> </div></div>
+</div>
+<div id="sites-chrome-everything-scrollbar">
+<div id="sites-chrome-everything">
+<div id="sites-chrome-page-wrapper" style="direction: ltr;">
+<div id="sites-chrome-page-wrapper-inside">
+<div xmlns="http://www.w3.org/1999/xhtml" id="sites-chrome-header-wrapper">
+<table id="sites-chrome-header" class="sites-layout-hbox" cellspacing="0">
+<tbody><tr class="sites-header-primary-row">
+<td id="sites-header-title">
+<div class="sites-header-cell-buffer-wrapper">
+<h2>
+<a href="http://www.tfnico.com/" dir="ltr">Thomas Ferris Nicolaisen</a>
+</h2>
+</div>
+</td>
+<td class="sites-layout-searchbox">
+<div class="sites-header-cell-buffer-wrapper">
+<div>
+</div>
+</div>
+</td>
+</tr>
+<tr class="sites-header-secondary-row">
+<td colspan="2">
+<div class="sites-header-nav"><ul class="sites-header-nav-container-tabs"><li class="unselected"><a class="sites-navigation-link unselected" href="http://www.tfnico.com/home">Home</a></li><li class="unselected"><a class="sites-navigation-link unselected" href="http://www.tfnico.com/about">About</a></li><li class="current sites-header-nav-dropdown"><a class="sites-navigation-link current" href="http://www.tfnico.com/presentations">Presentations</a><div tabindex="-1" aria-haspopup="true" role="menu" class="sites-header-nav-dropdown-menu" style="display: none; -moz-user-select: none;"><div id=":0" style="-moz-user-select: none;" role="menuitem" class="sites-header-nav-dropdown-menuitem unselected"><div class="sites-header-nav-dropdown-menuitem-content"><a class="sites-navigation-link unselected" href="http://www.tfnico.com/presentations/google-guava">Google Guava</a></div></div><div id=":1" style="-moz-user-select: none;" role="menuitem" class="sites-header-nav-dropdown-menuitem current"><div class="sites-header-nav-dropdown-menuitem-content"><a class="sites-navigation-link current" href="http://www.tfnico.com/presentations/git-and-subversion">Git and Subversion</a></div></div><div id=":2" style="-moz-user-select: none;" role="menuitem" class="sites-header-nav-dropdown-menuitem unselected"><div class="sites-header-nav-dropdown-menuitem-content"><a class="sites-navigation-link unselected" href="http://www.tfnico.com/presentations/agile-in-a-year-at-froscon">Agile in a Year at FrOSCon</a></div></div></div></li><li class="unselected"><a class="sites-navigation-link unselected" href="http://www.tfnico.com/-tfnico">@tfnico</a></li><li class="unselected"><a class="sites-navigation-link unselected" href="http://blog.tfnico.com/">Blog</a></li></ul><div style="clear: both;"></div></div>
+</td>
+</tr>
+</tbody></table> 
+</div> 
+<div id="sites-chrome-main-wrapper">
+<div id="sites-chrome-main-wrapper-inside">
+<table id="sites-chrome-main" class="sites-layout-hbox" cellspacing="0">
+<tbody><tr>
+<td id="sites-canvas-wrapper">
+<div id="sites-canvas">
+<div id="goog-ws-editor-toolbar-container"> </div>
+<div xmlns="http://www.w3.org/1999/xhtml" id="title-crumbs" style="">
+<a dir="ltr" href="http://www.tfnico.com/presentations">Presentations</a>‎ &gt; ‎
+  </div>
+<h3 xmlns="http://www.w3.org/1999/xhtml" id="sites-page-title-header" style="" align="left">
+<span id="sites-page-title" dir="ltr">Git and Subversion</span>
+</h3>
+<div id="sites-canvas-main" class="sites-canvas-main">
+<div id="sites-canvas-main-content">
+<table xmlns="http://www.w3.org/1999/xhtml" class="sites-layout-name-one-column sites-layout-hbox" cellspacing="0"><tbody><tr><td class="sites-layout-tile sites-tile-name-content-1"><div dir="ltr"><div>
+There are many people who want to use <a href="http://git-scm.org/">Git</a>, but are forced to stick with Subversion for various reasons. <a href="http://www.kernel.org/pub/software/scm/git/docs/git-svn.html">Git-svn</a>&nbsp;gives us the opportunity to migrate away from Subversion, but setting up a two-way sync is less than trivial. On this page I've documented the best way I've found so far for how to live with Git and Subversion in parallel.
+<div><span style="color: rgb(0, 0, 0); font-weight: normal; font-size: 13px; line-height: 16px;"><a href="http://www.dzone.com/links/living_with_git_and_subversion_in_parallel.html" style="text-decoration: none;">Vote for it on DZone</a>&nbsp;or&nbsp;<a href="http://digg.com/submit?url=http%3A//www.tfnico.com/presentations/git-and-subversion" style="text-decoration: none;">Digg it</a>&nbsp;if you think more people should know about it.</span></div>
+<div><span style="color: rgb(0, 0, 0); font-weight: normal; font-size: 13px; line-height: 16px;"><br>
+</span></div>
+<h3><a name="TOC-Presentation"></a>Presentation</h3>
+<div class="sites-embed-align-center-wrapping-off"><div class="sites-embed-border-off sites-embed" style="width: 400px;"><div class="sites-embed-content sites-embed-type-ggs-gadget"><iframe id="957467959" name="957467959" allowtransparency="true" class="igm" src="index_1.html" frameborder="0" height="300" scrolling="no" width="400"></iframe></div></div></div>
+<p style="text-align: center;"><font size="2"><a href="http://vimeo.com/28762003">Living with Git and Subversion in Parallel</a> from <a href="http://vimeo.com/javazone">JavaZone</a> on <a href="http://vimeo.com/">Vimeo</a>.</font></p><p style="text-align: center;"><font size="2">Notes from the talk are in <a href="https://docs.google.com/document/d/1It3ba6FamU3xQDIlD989BJTqWKlDXXqq44pK1diTpaE/edit?hl=en_US">this document</a>.</font></p>
+<h3><a name="TOC-Screencasts"></a>Screencasts</h3>
+<div>I've recorded some screencasts on the subject:</div>
+<div><br>
+</div>
+<div><span style="font-size: x-small;">
+<div style="display: block; margin-right: auto; margin-left: auto; text-align: center;"><a href="http://www.youtube.com/view_play_list?p=003347951AA6127A" style="text-decoration: none;"><img src="thumbs.png" style="border-width: 1px; padding: 7px; background-color: rgb(255, 255, 255); border-left: 1px solid rgb(204, 204, 204); border-right: 1px solid rgb(153, 153, 153); border-style: solid; border-color: rgb(204, 204, 204) rgb(153, 153, 153) rgb(153, 153, 153) rgb(204, 204, 204);" border="0" height="43" width="320"></a></div>
+<span style="font-size: x-small;">
+<div style="text-align: center;"><span style="font-size: 13px;"><span style="font-size: x-small;">(</span><a href="http://www.youtube.com/view_play_list?p=003347951AA6127A" style="text-decoration: none;"><span style="font-size: x-small;">Playlist with all videos on YouTube</span></a><span style="font-size: x-small;">)</span></span></div>
+</span></span></div>
+<div>
+<ul><li>
+<a href="http://blog.tfnico.com/2010/11/git-svn-mirror-for-multiple-branches.html"><img src="git-svn-fetch.png" style="display: inline; float: right; margin: 5px 10px;" border="0" height="320" width="224"></a><a href="http://blog.tfnico.com/2010/09/gitsvn-screencasts.html" style="text-decoration: none;">Part 1: Cloning an SVN repo into a Git mirror</a></li>
+<li><a href="http://blog.tfnico.com/2010/09/gitsvn-screencasts.html" style="text-decoration: none;">Part 2: Committing back and forth</a></li>
+<li><a href="http://blog.tfnico.com/2010/09/gitsvn-screencasts.html" style="text-decoration: none;">Part 3: Conflicts</a></li>
+<li><a href="http://blog.tfnico.com/2010/10/gitsvn-4-collaborate-with-other-git.html" style="text-decoration: none;">Part 4: Collaborating with other Git users</a></li>
+<li><a href="http://blog.tfnico.com/2010/10/gitsvn-5-centralized-git-svn-mirror.html" style="text-decoration: none;">Part 5: Centralized Git-SVN mirror</a></li>
+<li><a href="http://blog.tfnico.com/2010/10/gitsvn-6-grafting-together-svn-history.html" style="text-decoration: none;">Part 6: Grafting together SVN history</a></li>
+<li><a href="http://blog.tfnico.com/2010/10/gitsvn-7-leaving-svn-behind.html" style="text-decoration: none;">Part 7: Leaving SVN behind</a></li></ul>
+</div>
+</div>
+<div>
+<div>
+<div>
+<h3><a name="TOC-Blog-posts"></a>Blog posts</h3>
+</div>
+<div>I've blogged quite a few posts on the topic:</div>
+<div>
+<ol><li style="padding: 0px; margin: 0px 0px 0.25em; text-indent: 0px; color: rgb(68, 68, 68); font-family: Arial,Tahoma,Helvetica,FreeSans,sans-serif; line-height: 18px;"><a href="http://blog.tfnico.com/2010/06/distributed-source-control-management.html" style="text-decoration: none; color: rgb(55, 120, 205);">A big rough introduction to distributed source control and Git</a></li>
+<li style="padding: 0px; margin: 0px 0px 0.25em; text-indent: 0px; color: rgb(68, 68, 68); font-family: Arial,Tahoma,Helvetica,FreeSans,sans-serif; line-height: 18px;"><a href="http://blog.tfnico.com/2010/07/living-with-subversion-and-git-in.html" style="text-decoration: none; color: rgb(55, 120, 205);">Why and how clone of a Subversion repo into a Git repo</a>&nbsp;(aka SVN mirror)</li>
+<li style="padding: 0px; margin: 0px 0px 0.25em; text-indent: 0px; color: rgb(68, 68, 68); font-family: Arial,Tahoma,Helvetica,FreeSans,sans-serif; line-height: 18px;"><a href="http://blog.tfnico.com/2010/08/syncing-your-git-repo-with-subversion.html" style="text-decoration: none; color: rgb(55, 120, 205);">Sharing a Git SVN mirror in a team</a></li>
+<li style="padding: 0px; margin: 0px 0px 0.25em; text-indent: 0px; color: rgb(68, 68, 68); font-family: Arial,Tahoma,Helvetica,FreeSans,sans-serif; line-height: 18px;"><a href="http://blog.tfnico.com/2010/08/some-clarifications-on-living-with-git.html" style="text-decoration: none; color: rgb(55, 120, 205);">Sharing a Git SVN mirror in a team clarifications</a></li>
+<li style="padding: 0px; margin: 0px 0px 0.25em; text-indent: 0px; color: rgb(68, 68, 68); font-family: Arial,Tahoma,Helvetica,FreeSans,sans-serif; line-height: 18px;"><a href="http://blog.tfnico.com/2010/08/example-git-svn-mirror-workflow.html" style="color: rgb(55, 120, 205); text-decoration: none;">Git and Subversion summary</a></li>
+<li style="padding: 0px; margin: 0px 0px 0.25em; text-indent: 0px; color: rgb(68, 68, 68); font-family: Arial,Tahoma,Helvetica,FreeSans,sans-serif; line-height: 18px;"><a href="http://blog.tfnico.com/2010/11/git-svn-mirror-for-multiple-branches.html">Git-SVN mirror with branches</a></li>
+<li style="padding: 0px; margin: 0px 0px 0.25em; text-indent: 0px; color: rgb(68, 68, 68); font-family: Arial,Tahoma,Helvetica,FreeSans,sans-serif; line-height: 18px;"><a href="http://blog.tfnico.com/2011/03/dream-of-bi-directional-git-svn-mirror.html">The Dream of a Bi-directional Git-SVN mirror</a></li><li style="padding: 0px; margin: 0px 0px 0.25em; text-indent: 0px; color: rgb(68, 68, 68); font-family: Arial,Tahoma,Helvetica,FreeSans,sans-serif; line-height: 18px;"><a href="http://blog.tfnico.com/2011/09/git-svn-mirror-without-annoying-update.html">Git-SVN mirror without the annoying update-ref</a></li>
+</ol>
+You can also see <a href="http://blog.tfnico.com/search/label/git-svn">all blog-posts tagged with <i>git-svn</i></a>.</div>
+<div style="text-align: left;">
+<div>
+<h3><a name="TOC-Talks"></a>Talks</h3>
+<div style="font-size: 13px;">I've created a 60-120 minute talk that summarizes the above setup.&nbsp;It's mostly a live demo exercise, with some motivation, practical tips and strategies.&nbsp;If you want me to do it at a local user-group or meetup around Bonn/Cologne, give me a ping.</div>
+<h4 style="font-size: 13px;"><a name="TOC-GearConf-2010"></a>GearConf 2010</h4>
+<div>I&nbsp;<a href="http://blog.tfnico.com/2010/09/speaking-at-gearconf-2010.html">presented at GearConf 2010</a>, the talk was called "Living with Git and Subversion in parallel".&nbsp;</div>
+<h4 style="font-size: 13px;"><a name="TOC-RuhrJug-2011"></a>RuhrJug 2011</h4>
+<div style="font-size: 13px;">I also presented the same talk, although in an extended version at the<a href="http://ruhrjug.de/component/content/article/36-bericht/142-bericht-living-with-git-and-subversion-in-parallel-mit-thomas-nicolaisen-am-144"> Essen JUG meeting in April 2011</a>.</div>
+<div>
+<h4 style="font-size: 13px;"><a name="TOC-GearConf-2011"></a>GearConf 2011</h4>
+<div>Apparently my talk was so well received the year before, that they invited me to repeat the talk at <a href="http://gearconf.com/gearconf-2011">GearConf 2011</a>. The talk was about 50 minutes, and included Jenkins and Github integration. The audience rated me as a 1,5 (using German school grade system, where 5 is bad and 1 is good).</div>
+</div>
+<div>
+<h4 style="font-size: 13px;"><a name="TOC-JavaZone"></a>JavaZone</h4>
+<div>One last time I did the presentation at <a href="http://jz11.java.no/">JavaZone 2011</a>. <a href="http://vimeo.com/28762003">The session was recorded and put online</a> (that's the video on top of this page).</div>
+</div>
+</div>
+<div style="font-size: 13px;"><br>
+</div>
+</div>
+</div>
+</div></div></td></tr></tbody></table>
+</div> 
+</div> 
+<div id="sites-canvas-bottom-panel">
+<div xmlns="http://www.w3.org/1999/xhtml" id="COMP_page-subpages"> </div>
+<div xmlns="http://www.w3.org/1999/xhtml" id="COMP_page-attachments">
+<div id="sites-attachment-wrapper" class="sites-canvas-bottom-panel-wrapper">
+<div jotid="sites-attachment-inner" class="sites-attachment-inner">
+<ul id="JOT_ATTACH_container">
+</ul>
+</div>
+</div>
+</div>
+<a xmlns="http://www.w3.org/1999/xhtml" name="page-comments"></a>
+<div xmlns="http://www.w3.org/1999/xhtml" id="COMP_page-comments" style="display: none;" class="sites-canvas-bottom-no-items">
+<div id="sites-comment-wrapper" class="sites-canvas-bottom-panel-wrapper">
+<div>
+<h3 id="sites-comment-header">
+<strong>Comments</strong>
+</h3>
+</div>
+<div id="sites-comment-inner" class="sites-comment-inner">
+<div jotid="comments" class="sites-comments">
+<div id="_wuid_" jotid="template" class="sites-comment" style="display: none;">
+<div><strong>_displayNameOrEmail_</strong> - _time_ - <a href="javascript:;" onclick="JOT_postEvent('removeComment', this, {wuid:'_wuid_'});">Remove</a></div>
+<p dir="_dir_">_text_</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div> 
+</td> 
+<td id="sites-chrome-sidebar-right" class="sites-layout-sidebar-right">
+</td>
+</tr>
+</tbody></table> 
+</div> 
+</div> 
+<div id="sites-chrome-footer-wrapper">
+<div id="sites-chrome-footer-wrapper-inside">
+<div id="sites-chrome-footer">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sites-subfooter"><div class="sites-subfooter-content"><div dir="ltr"><div style="text-align: center;"><font face="verdana, sans-serif">You may copy, modify and share the content on this site as long as you attribute it to&nbsp;<a href="http://www.tfnico.com/" rel="cc:attributionURL">Thomas Ferris Nicolaisen</a>.</font></div><div style="text-align: center;"><font face="verdana, sans-serif"><meta charset="utf-8"><a href="http://creativecommons.org/licenses/by/3.0/" rel="license"><img alt="Creative Commons License" src="80x15.png" style="border-width: 0px;"></a></font></div></div></div></div>
+</div>
+</div>
+</div>
+</div> 
+</div> 
+<div xmlns="http://www.w3.org/1999/xhtml" class="sites-adminfooter">
+<p>
+<a href="https://www.google.com/a/SelectSession?continue=http://sites.google.com/a/tfnico.com/www/presentations/git-and-subversion&amp;service=jotspot" class="sites-system-link">Sign in</a>
+                    &nbsp;|&nbsp;
+                  
+                
+                    <a href="http://www.tfnico.com/system/app/pages/recentChanges" rel="nofollow" class="sites-system-link">Recent Site Activity</a>
+                    &nbsp;|&nbsp;
+                  
+                
+                <a href="http://www.google.com/a/help/intl/en/users/terms.html" class="sites-system-link">Terms</a>
+                &nbsp;|&nbsp;
+                <a href="http://www.tfnico.com/system/app/pages/reportAbuse?src=/presentations/git-and-subversion" rel="nofollow" target="_top" class="sites-system-link">Report Abuse</a>
+                &nbsp;|&nbsp;
+                
+                    <a href="javascript:;" onclick="window.open(webspace.printUrl)" class="sites-system-link">Print page</a>
+                    &nbsp;|&nbsp;
+                  
+                
+              
+            <b class="powered-by">Powered by <a href="http://sites.google.com/">Google Sites</a></b>
+</p>
+
+</div>
+</div> 
+</div> 
+<div id="sites-chrome-onebar-footer">
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="server-timer-div" style="display: none;"> </div>
+
+
+
+</body>
+</html>

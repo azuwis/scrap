@@ -1,0 +1,640 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<title>Reviving a git-svn clone «  Rip's Domain</title>
+
+<link rel="pingback" href="http://rip747.wordpress.com/xmlrpc.php">
+<link rel="alternate" type="application/rss+xml" title="Rip's Domain » Feed" href="http://rip747.wordpress.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Rip's Domain » Comments Feed" href="http://rip747.wordpress.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Rip's Domain » Reviving a git-svn&nbsp;clone Comments Feed" href="http://rip747.wordpress.com/2009/06/17/reviving-a-git-svn-clone/feed/">
+
+
+
+
+
+
+
+
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='highlander-comments-ie7-css'  href='http://s0.wp.com/wp-content/mu-plugins/highlander-comments/style-ie7.css?m=1307172301g&#038;ver=20110606' type='text/css' media='all' />
+<![endif]-->
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://rip747.wordpress.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://rip747.wordpress.com/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Git-Svn: Will it ever work&nbsp;again?" href="http://rip747.wordpress.com/2009/06/11/git-svn-will-it-ever-work-again/">
+<link rel="next" title="ColdFusion MIMEFile Upload Security Issue&nbsp;Workaround" href="http://rip747.wordpress.com/2009/06/30/coldfusion-mimefile-upload-security-issue-workaround/">
+<meta name="generator" content="WordPress.com">
+<link rel="canonical" href="http://rip747.wordpress.com/2009/06/17/reviving-a-git-svn-clone/">
+<link rel="shortlink" href="http://wp.me/p1eRu-ak">
+<link rel="alternate" type="application/json+oembed" href="http://public-api.wordpress.com/oembed/1.0/?format=json&amp;url=http%3A%2F%2Frip747.wordpress.com%2F2009%2F06%2F17%2Freviving-a-git-svn-clone%2F&amp;for=wpcom-auto-discovery"><link rel="alternate" type="application/xml+oembed" href="http://public-api.wordpress.com/oembed/1.0/?format=xml&amp;url=http%3A%2F%2Frip747.wordpress.com%2F2009%2F06%2F17%2Freviving-a-git-svn-clone%2F&amp;for=wpcom-auto-discovery"><meta property="og:type" content="article">
+<meta property="og:title" content="Reviving a git-svn&nbsp;clone">
+<meta property="og:url" content="http://rip747.wordpress.com/2009/06/17/reviving-a-git-svn-clone/">
+<meta property="og:description" content="Compiled by following: http://osdir.com/ml/git/2009-04/msg01781.html
+
+Thank you Martin Krafft @ http://madduck.net/, you saved my ass and I don't even know you :)
+
+Here's the problem. I'm mirro...">
+<meta property="og:site_name" content="Rip's Domain">
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="icon" type="image/x-icon" href="favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="apple-touch-icon-precomposed" href="http://s0.wp.com/i/webclip.png?m=1311618114g">
+<link rel="openid.server" href="http://rip747.wordpress.com/?openidserver=1">
+<link rel="openid.delegate" href="http://rip747.wordpress.com/">
+<link rel="search" type="application/opensearchdescription+xml" href="http://rip747.wordpress.com/osd.xml" title="Rip's Domain">
+<link rel="search" type="application/opensearchdescription+xml" href="http://wordpress.com/opensearch.xml" title="WordPress.com">
+	
+	
+<meta name="application-name" content="Rip's Domain"><meta name="msapplication-window" content="width=device-width;height=device-height"><meta name="msapplication-tooltip" content="Jquery, ColdFusion, SQL, CFWheels and just about life in general"><meta name="msapplication-task" content="name=Subscribe;action-uri=http://rip747.wordpress.com/feed/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=Sign up for a free blog;action-uri=http://wordpress.com/signup/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Support;action-uri=http://support.wordpress.com/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Forums;action-uri=http://forums.wordpress.com/;icon-uri=http://s2.wp.com/i/favicon.ico">
+
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body class="typekit-enabled highlander-enabled highlander-light">
+<div id="container">
+<div id="skip">
+	<p><a href="#content" title="Skip to site content">Skip to content</a></p>
+	<p><a href="#search" title="Skip to search" accesskey="s">Skip to search - Accesskey = s</a></p>
+</div>
+	<h1><a href="http://rip747.wordpress.com/">Rip's Domain</a></h1>
+
+<div id="content">
+<div class="post-640 post type-post status-publish format-standard hentry category-git">
+		<h2 id="post-640">
+					Reviving a git-svn&nbsp;clone			</h2>
+	<div class="meta">
+		Posted in <a href="http://rip747.wordpress.com/category/git/" title="View all posts in Git" rel="category tag">Git</a> by rip747 on June 17, 2009	</div>
+	<div class="main">
+		<p>Compiled by following: <a href="http://osdir.com/ml/git/2009-04/msg01781.html" target="_top">http://osdir.com/ml/git/2009-04/msg01781.html</a></p>
+<p>Thank you Martin Krafft @ <a href="http://madduck.net/" target="_top">http://madduck.net/</a>, you saved my ass and I don’t even know you <img src="icon_smile.gif" alt=":)" class="wp-smiley"> </p>
+<p>Here’s the problem. I’m mirroring the<a href="http://code.google.com/p/cfwheels/" target="_top"> CFWheels SVN repo</a> (please migrate to <a href="http://www.github.com/" target="_top">github</a>) using git and github. Last week my <a href="http://www.cygwin.com/" target="_top">cygwin</a> installation <a href="http://rip747.wordpress.com/2009/06/11/git-svn-will-it-ever-work-again/" target="_top">took a dive</a> and in the midst of trying to fix it, I screwed up my local git repo used to do this mirror (completely my fault and not git’s or cygwin’s. Yes, I’m an idiot).</p>
+<p>Anywho, I finally got everything up and running with cygwin, but now came the problem of getting the mirror working again. In the past to accomplish this, I actually did a forced push to the master branch on the mirror. It was OK since noone at the time had forked the mirror so it didn’t hurt anything. But now we have some people who have forked the mirror, so this isn’t an option for me any more. I actually had to figure out how to fix this.</p>
+<p>After <strong>A LOT</strong> of searching and reading here is how I revived my git mirror of the CFWheels SVN repo. It turned out to be 4 simple command in git:</p>
+<p><strong>$ mkdir cfwheels<br>
+$ cd cfwheels<br>
+$ git clone git@github.com:rip747/cfwheels.git<br>
+$ git svn init https://cfwheels.googlecode.com/svn/trunk<br>
+$ git update-ref refs/remotes/git-svn refs/remotes/origin/master<br>
+$ git svn rebase</strong></p>
+<p>Now to explain each line (so I don’t forget):</p>
+<p><strong>$ mkdir cfwheels<br>
+$ cd cfwheels</strong></p>
+<p>Obviously I’m making a directory on my machine called cfwheels and switching to it (basic stuff)<br>
+<strong><br>
+$ git clone git@github.com:rip747/cfwheels.git</strong></p>
+<p>Here I’m cloning the svn mirror repo from github.</p>
+<p><strong>$ git svn init https://cfwheels.googlecode.com/svn/trunk</strong></p>
+<p>Here I’m creating a reference to the cfwheels repo on googlecode in my local git repo</p>
+<p><strong><span class="linemarker-marked-line" style="background-color: rgb(255, 255, 153); color: rgb(0, 0, 0); border: thin dashed rgb(255, 204, 0);">$ git update-ref refs/remotes/git-svn refs/remotes/origin/master</span></strong></p>
+<p><span class="linemarker-marked-line" style="background-color: rgb(255, 255, 153); color: rgb(0, 0, 0); border: thin dashed rgb(255, 204, 0);">This is the secret sauce! What I’m doing here is updating the HEAD of the git-svn remote (refs/remotes/git-svn, this is created for you by doing the “git svn init”) to match the HEAD I grabbed from github (refs/remotes/origin/master, again this is created for you by doing the “git clone”).</span></p>
+<p><strong>$ git svn rebase</strong></p>
+<p>Now that the two heads match, I’m able to pull the revision information from googlecode. What you’ll see at this point is a mess of lines run on the screen which corresponds to each commit in the svn repo. At the end you should get the following message:</p>
+<p><strong><em>Done rebuilding .git/svn/git-svn/.rev_map.d8ff095c-9719-0410-9cd3-1dd5d13d90f5<br>
+Current branch master is up to date.</em></strong></p>
+<p>Hopefully this helps you out. If I missed anything or you have an updated way to do this, please comment below.</p>
+<div class="sharedaddy sd-like-enabled sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow" class="share-twitter sd-button share-icon" href="http://rip747.wordpress.com/2009/06/17/reviving-a-git-svn-clone/?share=twitter&amp;nb=1" title="Click to share on Twitter" id="sharing-twitter-640"><span>Twitter</span></a></li><li class="share-stumbleupon"><a rel="nofollow" class="share-stumbleupon sd-button share-icon" href="http://rip747.wordpress.com/2009/06/17/reviving-a-git-svn-clone/?share=stumbleupon&amp;nb=1" title="Click to share on StumbleUpon"><span>StumbleUpon</span></a></li><li class="share-reddit"><a rel="nofollow" class="share-reddit sd-button share-icon" href="http://rip747.wordpress.com/2009/06/17/reviving-a-git-svn-clone/?share=reddit&amp;nb=1" title="Click to share on Reddit"><span>Reddit</span></a></li><li class="share-email share-service-visible"><a rel="nofollow" class="share-email sd-button share-icon" href="http://rip747.wordpress.com/2009/06/17/reviving-a-git-svn-clone/?share=email&amp;nb=1" title="Click to email this to a friend"><span>Email</span></a></li><li class="share-end"></li></ul><div class="sharing-clear"></div></div></div><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://rip747.wordpress.com/2009/06/17/reviving-a-git-svn-clone/?like=1&amp;_wpnonce=6f7e86124c" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div>	</div>
+			<div class="tags">
+				</div>
+		<div class="comments">
+				<p><a href="http://rip747.wordpress.com/2009/06/17/reviving-a-git-svn-clone/#comments" title="Comment on Reviving a git-svn&nbsp;clone"><strong>5</strong> comments</a></p>
+	</div>
+</div>
+
+<div class="navigation">
+<div class="previous">« <a href="http://rip747.wordpress.com/2009/06/11/git-svn-will-it-ever-work-again/" rel="prev">Git-Svn: Will it ever work&nbsp;again?</a></div>
+<div class="next"><a href="http://rip747.wordpress.com/2009/06/30/coldfusion-mimefile-upload-security-issue-workaround/" rel="next">ColdFusion MIMEFile Upload Security Issue&nbsp;Workaround</a> »</div>
+</div>
+
+
+<a name="comments" id="comments"></a>
+
+	<h3 class="reply">5 Responses</h3> 
+<p class="comment_meta">Subscribe to comments with <a href="http://rip747.wordpress.com/2009/06/17/reviving-a-git-svn-clone/feed/">RSS</a>.</p>
+	<ol class="commentlist">
+	<li id="comment-21457" class="comment even thread-even depth-1  highlander-comment highlander-comment" "="">
+	<div id="div-comment-21457">
+	<div class="comment_author vcard">
+		<img id="grav-8dbfbbc4e48afe0caa43412a8c03ef07-0" alt="" src="8dbfbbc4e48afe0caa43412a8c03ef07" class="avatar avatar-32 grav-hashed grav-hijack" height="32" width="32">		<strong class="fn"><a href="http://mateusz.loskot.net/" rel="external nofollow" class="url">Mateusz Loskot</a></strong> said, on February 16, 2010 at <a href="http://rip747.wordpress.com/2009/06/17/reviving-a-git-svn-clone/#comment-21457">5:47 pm</a> 
+	</div>
+	
+	<p>FYI, this solution does not work for me and the git svn rebase throws this message:</p>
+<p>Unable to determine upstream SVN information from working tree history</p>
+<p>It’s also interesting that this solution seems to be not recommended in terms of safety and integrity:</p>
+<p>“For the sake of simplicity and interoperating with SVN, it is recommended that all git-svn users clone, fetch and dcommit directly from the SVN server”</p>
+<p><a href="http://stackoverflow.com/questions/1880405/can-different-git-svn-clones-of-the-same-svn-repository-expect-to-be-able-to-shar/1880487#1880487" rel="nofollow">http://stackoverflow.com/questions/1880405/can-different-git-svn-clones-of-the-same-svn-repository-expect-to-be-able-to-shar/1880487#1880487</a></p>
+			
+	<div class="reply">
+			</div>
+	</div>
+</li>
+<li id="comment-21458" class="comment byuser comment-author-rip747 bypostauthor odd alt thread-odd thread-alt depth-1  byuser comment-author-rip747 bypostauthor highlander-comment highlander-comment" "="">
+	<div id="div-comment-21458">
+	<div class="comment_author vcard">
+		<img id="grav-f09f0a0d45c19276540a9899d0e6b667-0" alt="" src="f09f0a0d45c19276540a9899d0e6b667" class="avatar avatar-32 grav-hashed grav-hijack" height="32" width="32">		<strong class="fn"><a href="http://rip747.wordpress.com/" rel="external nofollow" class="url">rip747</a></strong> said, on February 16, 2010 at <a href="http://rip747.wordpress.com/2009/06/17/reviving-a-git-svn-clone/#comment-21458">6:47 pm</a> 
+	</div>
+	
+	<p>what version of git are you using and can you post the commands that you use. i just use this post the other to revive my local repo yet again after i screwed something up and everything is working great. <img src="icon_smile.gif" alt=":)" class="wp-smiley"> </p>
+			
+	<div class="reply">
+			</div>
+	</div>
+</li>
+<li id="comment-21464" class="comment even thread-even depth-1  highlander-comment highlander-comment" "="">
+	<div id="div-comment-21464">
+	<div class="comment_author vcard">
+		<img id="grav-d27a97251ba012a650043fa586f5db62-0" alt="" src="d27a97251ba012a650043fa586f5db62" class="avatar avatar-32 grav-hashed grav-hijack" height="32" width="32">		<strong class="fn">Roy</strong> said, on February 23, 2010 at <a href="http://rip747.wordpress.com/2009/06/17/reviving-a-git-svn-clone/#comment-21464">9:00 pm</a> 
+	</div>
+	
+	<p>Try:<br>
+git update-ref refs/remotes/trunk refs/remotes/origin/master</p>
+<p>This worked with git 1.6.6.2 for me.  (At least the rebase worked, I haven’t tried to do anything with with cloned repo yet.)</p>
+			
+	<div class="reply">
+			</div>
+	</div>
+</li>
+<li id="comment-21564" class="comment odd alt thread-odd thread-alt depth-1  highlander-comment highlander-comment" "="">
+	<div id="div-comment-21564">
+	<div class="comment_author vcard">
+		<img id="grav-d071cc1124a25bf19807db791faaffa5-0" alt="" src="d071cc1124a25bf19807db791faaffa5" class="avatar avatar-32 grav-hashed grav-hijack" height="32" width="32">		<strong class="fn">Ted Kulp</strong> said, on July 19, 2010 at <a href="http://rip747.wordpress.com/2009/06/17/reviving-a-git-svn-clone/#comment-21564">9:11 pm</a> 
+	</div>
+	
+	<p>You guys are life savers.  I spent an hour looking for this.</p>
+<p>With this article and Roy’s addition, it worked like a charm.  Of course, it made total sense after I read it (and what update-ref does), but I wasn’t sure what git svn was doing under the hood so I never would’ve figured it out on my own.</p>
+<p>Thanks again!</p>
+			
+	<div class="reply">
+			</div>
+	</div>
+</li>
+<li id="comment-21597" class="comment even thread-even depth-1  highlander-comment highlander-comment" "="">
+	<div id="div-comment-21597">
+	<div class="comment_author vcard">
+		<img id="grav-73468c94611589f0b9b26c0ab45d21b9-0" alt="" src="73468c94611589f0b9b26c0ab45d21b9" class="avatar avatar-32 grav-hashed grav-hijack" height="32" width="32">		<strong class="fn"><a href="http://techdebug.com/" rel="external nofollow" class="url">Lantrix</a></strong> said, on October 1, 2010 at <a href="http://rip747.wordpress.com/2009/06/17/reviving-a-git-svn-clone/#comment-21597">6:27 am</a> 
+	</div>
+	
+	<p>I got the same error as Mateuz, then even trying the update-ref roy mention, get the same error:</p>
+<pre>Unable to determine upstream SVN information from working tree history
+</pre>
+			
+	<div class="reply">
+			</div>
+	</div>
+</li>
+	</ol>
+
+	<div class="navigation">
+		<div class="alignleft"></div>
+		<div class="alignright"></div>
+	</div>
+	<br>
+	
+	
+
+
+								<div class="js" id="respond">
+				<h3 id="reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://rip747.wordpress.com/2009/06/17/reviving-a-git-svn-clone/#respond" style="display: none;">Cancel reply</a></small></h3>
+									<form action="http://rip747.wordpress.com/wp-comments-post.php" method="post" id="commentform">
+																										
+
+
+												
+<input name="hc_post_as" id="hc_post_as" value="guest" type="hidden">
+
+<div class="comment-form-field comment-textarea">
+	<label for="comment">Enter your comment here...</label>
+	<div id="comment-form-comment"><textarea tabindex="-1" style="resize: none; overflow-y: hidden; position: absolute; top: 0px; left: -9999px; height: 145px; width: 698px; line-height: 16.45px; text-decoration: none; letter-spacing: normal;"></textarea><textarea style="resize: none; overflow-y: hidden; height: 145px;" id="comment" name="comment"></textarea></div>
+</div>
+
+<div id="comment-form-identity">
+
+	<div id="comment-form-nascar">
+		<p>Fill in your details below or click an icon to log in:</p>
+		<ul>
+			<li class="selected" style="display: none;">
+				<a href="#comment-form-guest" id="postas-guest" title="Guest">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="#comment-form-wordpress" id="postas-wordpress" title="WordPress.com">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="#comment-form-load-service:Twitter" id="postas-twitter" title="Twitter">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="#comment-form-load-service:Facebook" id="postas-facebook" title="Facebook">
+					<span></span>
+				</a>
+			</li>
+		</ul>
+	</div>
+
+	<div id="comment-form-guest" class="comment-form-service selected">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="ad516503a11cd5ca435acc9bb6523536" alt="Gravatar" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<div class="comment-form-field comment-form-email">
+					<label for="email">Email <span class="required">(required)</span> <span class="nopublish">(Not published)</span></label>
+					<div class="comment-form-input"><input id="email" name="email" value="" type="text"></div>
+				</div>
+				<div class="comment-form-field comment-form-author">
+					<label for="author">Name <span class="required">(required)</span></label>
+					<div class="comment-form-input"><input id="author" name="author" value="" type="text"></div>
+				</div>
+				<div class="comment-form-field comment-form-url">
+					<label for="url">Website</label>
+					<div class="comment-form-input"><input id="url" name="url" value="" type="text"></div>
+				</div> 
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-wordpress" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="wplogo.png" alt="WordPress.com Logo" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+					<p id="wordpress-login-first">Please log in to WordPress.com to post a comment to your blog.</p>
+				<iframe src="index_1.html" id="wordpress-login-iframe" data-srcurl="http://rip747.wordpress.com/wp-login.php?redirect_to=http%3A%2F%2Frip747.wordpress.com%2Fhighlander.login%2F&amp;action=highlander-login&amp;skin=light"></iframe>
+				</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-twitter" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="ad516503a11cd5ca435acc9bb6523536" alt="Twitter picture" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<input name="twitter_avatar" id="twitter-avatar" class="comment-meta-twitter" value="" type="hidden">
+				<input name="twitter_user_id" id="twitter-user_id" class="comment-meta-twitter" value="" type="hidden">
+				<input name="twitter_access_token" id="twitter-access_token" class="comment-meta-twitter" value="" type="hidden">
+				<p class="comment-form-posting-as pa-twitter"><strong></strong> You are commenting using your Twitter account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout(%20'twitter'%20);">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-facebook" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="ad516503a11cd5ca435acc9bb6523536" alt="Facebook photo" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<input name="fb_avatar" id="facebook-avatar" class="comment-meta-facebook" value="" type="hidden">
+				<input name="fb_user_id" id="facebook-user_id" class="comment-meta-facebook" value="" type="hidden">
+				<input name="fb_access_token" id="facebook-access_token" class="comment-meta-facebook" value="" type="hidden">
+				<p class="comment-form-posting-as pa-facebook"><strong></strong> You are commenting using your Facebook account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout(%20'facebook'%20);">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+
+	<div id="comment-form-load-service" class="comment-form-service"> 
+		<div class="comment-form-posting-as-cancel"><a href="javascript:HighlanderComments.cancelExternalWindow();">Cancel</a></div>
+		<p>Connecting to %s</p> 
+	</div>
+	
+	
+</div>
+
+
+<div id="comment-form-subscribe"> 
+<p class="comment-subscription-form"><input name="subscribe" id="subscribe" value="subscribe" style="width: auto;" tabindex="6" type="checkbox"> <label class="subscribe-label" id="subscribe-label" for="subscribe">Notify me of follow-up comments via email.</label></p></div>
+
+	
+												<p class="form-submit">
+							<input name="submit" id="comment-submit" value="Post Comment" type="submit">
+							<input name="comment_post_ID" value="640" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+						</p>
+						
+<input name="genseq" value="1323150918" type="hidden">
+<p style="display: none;"><input id="akismet_comment_nonce" name="akismet_comment_nonce" value="be00d7159b" type="hidden"></p>
+<p style="display: none;"><input id="ak_js" name="ak_js" value="1323150923559" type="hidden"></p>					</form>
+							</div><!-- #respond -->
+			<div style="clear: both;"></div>			
+
+
+<div id="postnav"></div>
+
+</div> <!-- End content -->
+
+<div id="sidebar">
+<h3>Personal Pages</h3>		<ul>
+			<li class="page_item page-item-716"><a href="http://rip747.wordpress.com/contact-me/">Contact&nbsp;Me</a></li>
+<li class="page_item page-item-646"><a href="http://rip747.wordpress.com/who-is-rip747/">Who is&nbsp;RIP747?</a></li>
+		</ul>
+		<pseudoembed flashblock="1" src="http://www.box.net/static/flash/widget_player.swf" type="application/x-shockwave-flash" flashvars="subString=folderId=j6e9taqhw8,color=000000,title=Files" wmode="transparent" height="258" width="289" embedtype="embed"></pseudoembed><a href="http://rip747.wordpress.com/2009/06/17/reviving-a-git-svn-clone/%5C%22http://www.box.net/static/flash/widget_player.swf%5C%22">http://www.box.net/static/flash/widget_player.swf</a><form role="search" method="get" id="searchform" action="http://rip747.wordpress.com/">
+	<div><label class="screen-reader-text" for="s">Search for:</label>
+	<input value="" name="s" id="s" type="text">
+	<input id="searchsubmit" value="Search" type="submit">
+	</div>
+	</form><h3>Blogroll</h3>
+	<ul class="xoxo blogroll">
+<li><a href="http://myjunkmail.blogspot.com/" title="Where all the shit I get comes to rest">MyJunkMail – The Blog</a></li>
+
+	</ul>
+
+<h3>ColdFusion</h3>
+	<ul class="xoxo blogroll">
+<li><a href="http://cfwheels.org/" title="Rails clone for ColdFusion" target="_top">CFWheels!</a></li>
+
+	</ul>
+
+<h3>Downloads</h3>
+	<ul class="xoxo blogroll">
+<li><a href="http://www.box.net/shared/aewamdmisg" title="CF Default NEO-CRON.xml file" target="_top">CF Default NEO-CRON.xml file</a></li>
+<li><a href="http://www.github.com/rip747/cf8xml" title="CF8 XML syntax dictionary for CFEclipse" target="_top">CF8 XML</a></li>
+<li><a href="http://www.box.net/shared/5c1fwerk0g" title="FamFamFam Silk Icons GIF set" target="_top">FamFamFam Silk Icons GIF set</a></li>
+<li><a href="http://icegen.riaforge.org/index.cfm?event=action.download" title="Downalod ICEGEN">ICEGEN – Download the latest</a></li>
+<li><a href="http://rip747.github.com/popupwindow/" title="PopupWindow – Latest version" target="_top">PopupWindow – Latest version</a></li>
+<li><a href="http://www.box.net/shared/ed60a8ykgg" title="Timezone CFC" target="_top">Timezone CFC</a></li>
+
+	</ul>
+
+<h3>Jquery</h3>
+	<ul class="xoxo blogroll">
+<li><a href="http://docs.jquery.com/Donate" title="make a donation to supprt jQuery!">Donate to jQuery</a></li>
+<li><a href="http://www.jquery.com/" title="making javascript easier for the masses">JQuery</a></li>
+
+	</ul>
+
+<h3>My Stuff</h3>
+	<ul class="xoxo blogroll">
+<li><a href="http://www.github.com/rip747" title="these are all the open source projects that I contribute to on github">Github Projects</a></li>
+<li><a href="http://stackoverflow.com/users/31278" target="_top">My Stack Overflow Profile</a></li>
+
+	</ul>
+
+<h3>Politics</h3>
+	<ul class="xoxo blogroll">
+<li><a href="http://www.ronpaul2012.com/" title="Ron Paul official campaign website">Ron Paul 2012</a></li>
+
+	</ul>
+
+					<h3>Top Posts</h3>			<ul><li><a href="http://rip747.wordpress.com/2009/08/08/russian-sleep-experiment-the-best-short-story-ive-read/">Russian Sleep Experiment: the best short story I've read.</a></li><li><a href="http://rip747.wordpress.com/2009/04/20/git-push-rejected-non-fast-forward/">Git: push rejected non-fast forward</a></li><li><a href="http://rip747.wordpress.com/2008/09/04/magicjack-support-phone-number/">MagicJack support phone number</a></li><li><a href="http://rip747.wordpress.com/2008/09/12/git-clone-over-http-who-knew/">GIT clone over HTTP: who knew?</a></li><li><a href="http://rip747.wordpress.com/2006/12/07/i-hate-christmas/">I hate Christmas</a></li><li><a href="http://rip747.wordpress.com/2007/11/28/cant-use-gmail-account-as-windows-live-id/">Can't use GMail account as Windows Live ID</a></li><li><a href="http://rip747.wordpress.com/2006/11/30/jquery-cheat-sheets/">jQuery cheat sheets.</a></li><li><a href="http://rip747.wordpress.com/2007/09/10/cfdocument-it-works-if-you-know-how/">CFDOCUMENT. It works if you know how.</a></li><li><a href="http://rip747.wordpress.com/2008/05/26/rebulding-msdb-in-sql-server-2005/">Rebulding MSDB in SQL Server 2005</a></li><li><a href="http://rip747.wordpress.com/2007/10/01/sql-server-2005-import-export-reset-identity-keys-no-workaround-2005-sucks-period-the-end/">SQL Server 2005: Import / Export reset identity keys... no workaround... 2005 sucks period, the end</a></li></ul>					<h3>Comments</h3>		<table class="recentcommentsavatar" border="0" cellpadding="0" cellspacing="0"><tbody><tr><td title="kiruban" class="recentcommentsavatartop" style="height: 48px; width: 48px;"><a href="http://www.kiruban-premkumar.com/" rel="nofollow"><img id="grav-9424958d016ed224449d82782fe79fbe-0" alt="" src="9424958d016ed224449d82782fe79fbe" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></td><td class="recentcommentstexttop"><a href="http://www.kiruban-premkumar.com/" rel="nofollow">kiruban</a> on <a href="http://rip747.wordpress.com/2009/04/20/git-push-rejected-non-fast-forward/#comment-22198">Git: push rejected non-fast…</a></td></tr><tr><td title="Nordin" class="recentcommentsavatarend" style="height: 48px; width: 48px;"><img id="grav-4177fab4bfbacab161d21216c8c9c498-0" alt="" src="4177fab4bfbacab161d21216c8c9c498" class="avatar avatar-48 grav-hashed grav-hijack" height="48" width="48"></td><td class="recentcommentstextend">Nordin on <a href="http://rip747.wordpress.com/2008/05/26/rebulding-msdb-in-sql-server-2005/#comment-22196">Rebulding MSDB in SQL Server…</a></td></tr><tr><td title="Colin" class="recentcommentsavatarend" style="height: 48px; width: 48px;"><img id="grav-ac8b9f25ece45529569d127a52428ddd-0" alt="" src="ac8b9f25ece45529569d127a52428ddd" class="avatar avatar-48 grav-hashed grav-hijack" height="48" width="48"></td><td class="recentcommentstextend">Colin on <a href="http://rip747.wordpress.com/2006/12/07/i-hate-christmas/#comment-22187">I hate&nbsp;Christmas</a></td></tr><tr><td title="AWM" class="recentcommentsavatarend" style="height: 48px; width: 48px;"><img id="grav-a7e7db86aaa4329f25a140f50228231c-0" alt="" src="a7e7db86aaa4329f25a140f50228231c" class="avatar avatar-48 grav-hashed grav-hijack" height="48" width="48"></td><td class="recentcommentstextend">AWM on <a href="http://rip747.wordpress.com/2008/05/26/rebulding-msdb-in-sql-server-2005/#comment-22186">Rebulding MSDB in SQL Server…</a></td></tr><tr><td title="norris" class="recentcommentsavatarend" style="height: 48px; width: 48px;"><img id="grav-ccb6f3d80d721b8d3e9086bff7146d2e-0" alt="" src="ccb6f3d80d721b8d3e9086bff7146d2e" class="avatar avatar-48 grav-hashed grav-hijack" height="48" width="48"></td><td class="recentcommentstextend">norris on <a href="http://rip747.wordpress.com/2006/12/07/i-hate-christmas/#comment-22178">I hate&nbsp;Christmas</a></td></tr></tbody></table>
+	<h3>Categories</h3><select name="cat" id="cat" class="postform">
+	<option value="-1">Select Category</option>
+	<option class="level-0" value="63373">2008 Elections&nbsp;&nbsp;(34)</option>
+	<option class="level-0" value="4640439">Americans are sheep&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="641922">Android&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="490">Animals&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="3768">Apache&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="40046">Apollo&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="2674">BASH!&nbsp;&nbsp;(33)</option>
+	<option class="level-0" value="1356">Blogroll&nbsp;&nbsp;(2)</option>
+	<option class="level-0" value="4360">Bookmarks&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="215897">CFEclipse&nbsp;&nbsp;(5)</option>
+	<option class="level-0" value="16806948">CFWheels&nbsp;&nbsp;(18)</option>
+	<option class="level-0" value="15607">Christmas&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="14133">ColdFusion&nbsp;&nbsp;(111)</option>
+	<option class="level-0" value="24433">Cygwin&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="148">Design&nbsp;&nbsp;(8)</option>
+	<option class="level-0" value="189468">Donating&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="205968">dzone&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="14014">Exchange&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="72245">Family Happenings&nbsp;&nbsp;(12)</option>
+	<option class="level-0" value="746">Frameworks&nbsp;&nbsp;(5)</option>
+	<option class="level-0" value="1478">Fridays&nbsp;&nbsp;(36)</option>
+	<option class="level-0" value="21">Games&nbsp;&nbsp;(3)</option>
+	<option class="level-0" value="209196">Git&nbsp;&nbsp;(10)</option>
+	<option class="level-0" value="590863">Goatse&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="99003">H&amp;R Block&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="6168">Halloween&nbsp;&nbsp;(4)</option>
+	<option class="level-0" value="378835">Health&nbsp;&nbsp;(2)</option>
+	<option class="level-0" value="4325">Holidays&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="56103">HowTos&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="1142792">ICEGen&nbsp;&nbsp;(13)</option>
+	<option class="level-0" value="14013">IIS&nbsp;&nbsp;(2)</option>
+	<option class="level-0" value="2106">Jokes&nbsp;&nbsp;(56)</option>
+	<option class="level-0" value="203308">Jquery&nbsp;&nbsp;(41)</option>
+	<option class="level-0" value="3155062">Just Geeky&nbsp;&nbsp;(2)</option>
+	<option class="level-0" value="610">Linux&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="27723">Mach-ii&nbsp;&nbsp;(2)</option>
+	<option class="level-0" value="637">Microsoft&nbsp;&nbsp;(4)</option>
+	<option class="level-0" value="43105">Model-glue&nbsp;&nbsp;(2)</option>
+	<option class="level-0" value="1113054">Money&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="190">movies&nbsp;&nbsp;(7)</option>
+	<option class="level-0" value="43808">MSSQL&nbsp;&nbsp;(3)</option>
+	<option class="level-0" value="7426">Networking&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="104268">oo&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="44">Opensource&nbsp;&nbsp;(5)</option>
+	<option class="level-0" value="3766">Oracle&nbsp;&nbsp;(6)</option>
+	<option class="level-0" value="2438">OS X&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="64">Personal&nbsp;&nbsp;(14)</option>
+	<option class="level-0" value="957939">PopWindow&nbsp;&nbsp;(14)</option>
+	<option class="level-0" value="395">Question&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="755">Quotes&nbsp;&nbsp;(2)</option>
+	<option class="level-0" value="3137447">Railo&nbsp;&nbsp;(4)</option>
+	<option class="level-0" value="47">Rants&nbsp;&nbsp;(32)</option>
+	<option class="level-0" value="216929">Ron Paul&nbsp;&nbsp;(45)</option>
+	<option class="level-0" value="3601">Ruby on Rails&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="101807">SCM&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="801">Security&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="10346">SQL&nbsp;&nbsp;(17)</option>
+	<option class="level-0" value="1428805">Super Tuesday&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="164684">SVN&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="966573">SwapIt&nbsp;&nbsp;(2)</option>
+	<option class="level-0" value="4517">Taxes&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="375303">TechSupport&nbsp;&nbsp;(36)</option>
+	<option class="level-0" value="1">Uncategorized&nbsp;&nbsp;(35)</option>
+	<option class="level-0" value="13766">Valentine’s Day&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="56988">Verity&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="38600">VMWare&nbsp;&nbsp;(2)</option>
+	<option class="level-0" value="800">Windows&nbsp;&nbsp;(6)</option>
+	<option class="level-0" value="204082">WSOP&nbsp;&nbsp;(4)</option>
+	<option class="level-0" value="6567">YouTube&nbsp;&nbsp;(4)</option>
+</select>
+
+
+
+		<aside id="recent-posts-2" class="widget widget_recent_entries">		<h3 class="widget-title">Recent Posts</h3>		<ul>
+				<li><a href="http://rip747.wordpress.com/2011/10/17/railo-on-iis6-installation-and-configuration-errors/" title="Railo on IIS6 installation and configuration&nbsp;errors">Railo on IIS6 installation and configuration&nbsp;errors</a></li>
+				<li><a href="http://rip747.wordpress.com/2011/09/09/crystal-reports-xir2-not-displaying-pdf-reports-on-windows-2008-and-iis-7-x/" title="Crystal Reports XIR2 not displaying PDF reports on Windows 2008 and IIS&nbsp;7.x">Crystal Reports XIR2 not displaying PDF reports on Windows 2008 and IIS&nbsp;7.x</a></li>
+				<li><a href="http://rip747.wordpress.com/2011/07/20/syncing-mobile-devices-with-exchange-errors-with-the-certificate-chain-did-not-end-in-a-trusted-root/" title="Syncing mobile devices with Exchange errors with: The certificate chain did not end in a trusted&nbsp;root">Syncing mobile devices with Exchange errors with: The certificate chain did not end in a trusted&nbsp;root</a></li>
+				<li><a href="http://rip747.wordpress.com/2011/07/19/android-process-media-force-close/" title="android.process.media force&nbsp;close">android.process.media force&nbsp;close</a></li>
+				<li><a href="http://rip747.wordpress.com/2011/07/18/ora-12504-tnslistener-was-not-given-the-service_name-in-connect_data-with-linked-server/" title="ORA-12504: TNS:listener was not given the SERVICE_NAME in CONNECT_DATA with Linked&nbsp;Server">ORA-12504: TNS:listener was not given the SERVICE_NAME in CONNECT_DATA with Linked&nbsp;Server</a></li>
+				</ul>
+		</aside><h3>Past Posts</h3>		<ul>
+			<li><a href="http://rip747.wordpress.com/2011/10/" title="October 2011">October 2011</a>&nbsp;(1)</li>
+	<li><a href="http://rip747.wordpress.com/2011/09/" title="September 2011">September 2011</a>&nbsp;(1)</li>
+	<li><a href="http://rip747.wordpress.com/2011/07/" title="July 2011">July 2011</a>&nbsp;(4)</li>
+	<li><a href="http://rip747.wordpress.com/2011/03/" title="March 2011">March 2011</a>&nbsp;(2)</li>
+	<li><a href="http://rip747.wordpress.com/2011/01/" title="January 2011">January 2011</a>&nbsp;(3)</li>
+	<li><a href="http://rip747.wordpress.com/2010/12/" title="December 2010">December 2010</a>&nbsp;(1)</li>
+	<li><a href="http://rip747.wordpress.com/2010/10/" title="October 2010">October 2010</a>&nbsp;(2)</li>
+	<li><a href="http://rip747.wordpress.com/2010/09/" title="September 2010">September 2010</a>&nbsp;(1)</li>
+	<li><a href="http://rip747.wordpress.com/2010/06/" title="June 2010">June 2010</a>&nbsp;(2)</li>
+	<li><a href="http://rip747.wordpress.com/2010/05/" title="May 2010">May 2010</a>&nbsp;(1)</li>
+	<li><a href="http://rip747.wordpress.com/2010/02/" title="February 2010">February 2010</a>&nbsp;(2)</li>
+	<li><a href="http://rip747.wordpress.com/2010/01/" title="January 2010">January 2010</a>&nbsp;(2)</li>
+	<li><a href="http://rip747.wordpress.com/2009/11/" title="November 2009">November 2009</a>&nbsp;(4)</li>
+	<li><a href="http://rip747.wordpress.com/2009/10/" title="October 2009">October 2009</a>&nbsp;(3)</li>
+	<li><a href="http://rip747.wordpress.com/2009/09/" title="September 2009">September 2009</a>&nbsp;(2)</li>
+	<li><a href="http://rip747.wordpress.com/2009/08/" title="August 2009">August 2009</a>&nbsp;(6)</li>
+	<li><a href="http://rip747.wordpress.com/2009/07/" title="July 2009">July 2009</a>&nbsp;(3)</li>
+	<li><a href="http://rip747.wordpress.com/2009/06/" title="June 2009">June 2009</a>&nbsp;(3)</li>
+	<li><a href="http://rip747.wordpress.com/2009/05/" title="May 2009">May 2009</a>&nbsp;(7)</li>
+	<li><a href="http://rip747.wordpress.com/2009/04/" title="April 2009">April 2009</a>&nbsp;(5)</li>
+	<li><a href="http://rip747.wordpress.com/2009/03/" title="March 2009">March 2009</a>&nbsp;(5)</li>
+	<li><a href="http://rip747.wordpress.com/2009/02/" title="February 2009">February 2009</a>&nbsp;(4)</li>
+	<li><a href="http://rip747.wordpress.com/2009/01/" title="January 2009">January 2009</a>&nbsp;(2)</li>
+	<li><a href="http://rip747.wordpress.com/2008/12/" title="December 2008">December 2008</a>&nbsp;(5)</li>
+	<li><a href="http://rip747.wordpress.com/2008/11/" title="November 2008">November 2008</a>&nbsp;(1)</li>
+	<li><a href="http://rip747.wordpress.com/2008/10/" title="October 2008">October 2008</a>&nbsp;(8)</li>
+	<li><a href="http://rip747.wordpress.com/2008/09/" title="September 2008">September 2008</a>&nbsp;(11)</li>
+	<li><a href="http://rip747.wordpress.com/2008/08/" title="August 2008">August 2008</a>&nbsp;(2)</li>
+	<li><a href="http://rip747.wordpress.com/2008/07/" title="July 2008">July 2008</a>&nbsp;(5)</li>
+	<li><a href="http://rip747.wordpress.com/2008/06/" title="June 2008">June 2008</a>&nbsp;(2)</li>
+	<li><a href="http://rip747.wordpress.com/2008/05/" title="May 2008">May 2008</a>&nbsp;(3)</li>
+	<li><a href="http://rip747.wordpress.com/2008/04/" title="April 2008">April 2008</a>&nbsp;(10)</li>
+	<li><a href="http://rip747.wordpress.com/2008/03/" title="March 2008">March 2008</a>&nbsp;(13)</li>
+	<li><a href="http://rip747.wordpress.com/2008/02/" title="February 2008">February 2008</a>&nbsp;(15)</li>
+	<li><a href="http://rip747.wordpress.com/2008/01/" title="January 2008">January 2008</a>&nbsp;(36)</li>
+	<li><a href="http://rip747.wordpress.com/2007/12/" title="December 2007">December 2007</a>&nbsp;(17)</li>
+	<li><a href="http://rip747.wordpress.com/2007/11/" title="November 2007">November 2007</a>&nbsp;(24)</li>
+	<li><a href="http://rip747.wordpress.com/2007/10/" title="October 2007">October 2007</a>&nbsp;(16)</li>
+	<li><a href="http://rip747.wordpress.com/2007/09/" title="September 2007">September 2007</a>&nbsp;(17)</li>
+	<li><a href="http://rip747.wordpress.com/2007/08/" title="August 2007">August 2007</a>&nbsp;(13)</li>
+	<li><a href="http://rip747.wordpress.com/2007/07/" title="July 2007">July 2007</a>&nbsp;(14)</li>
+	<li><a href="http://rip747.wordpress.com/2007/06/" title="June 2007">June 2007</a>&nbsp;(10)</li>
+	<li><a href="http://rip747.wordpress.com/2007/05/" title="May 2007">May 2007</a>&nbsp;(16)</li>
+	<li><a href="http://rip747.wordpress.com/2007/04/" title="April 2007">April 2007</a>&nbsp;(20)</li>
+	<li><a href="http://rip747.wordpress.com/2007/03/" title="March 2007">March 2007</a>&nbsp;(9)</li>
+	<li><a href="http://rip747.wordpress.com/2007/02/" title="February 2007">February 2007</a>&nbsp;(16)</li>
+	<li><a href="http://rip747.wordpress.com/2007/01/" title="January 2007">January 2007</a>&nbsp;(13)</li>
+	<li><a href="http://rip747.wordpress.com/2006/12/" title="December 2006">December 2006</a>&nbsp;(9)</li>
+	<li><a href="http://rip747.wordpress.com/2006/11/" title="November 2006">November 2006</a>&nbsp;(6)</li>
+	<li><a href="http://rip747.wordpress.com/2006/10/" title="October 2006">October 2006</a>&nbsp;(15)</li>
+	<li><a href="http://rip747.wordpress.com/2006/09/" title="September 2006">September 2006</a>&nbsp;(2)</li>
+	<li><a href="http://rip747.wordpress.com/2006/08/" title="August 2006">August 2006</a>&nbsp;(5)</li>
+	<li><a href="http://rip747.wordpress.com/2006/07/" title="July 2006">July 2006</a>&nbsp;(12)</li>
+		</ul>
+					<h3>Top Clicks</h3>			<ul><li><a href="http://www.magicjack.com/9/customercare.asp" target="_top" rel="nofollow">magicjack.com/9/customerc…</a></li><li><a href="http://www.gscottolson.com/weblog/2008/01/11/jquery-cheat-sheet/" target="_top" rel="nofollow">gscottolson.com/weblog/20…</a></li><li><a href="http://www.kansascity.com/mld/kansascity/news/16023431.htm" target="_top" rel="nofollow">kansascity.com/mld/kansas…</a></li><li><a href="http://www.prisonexp.org/" target="_top" rel="nofollow">prisonexp.org</a></li><li><a href="http://myjunkmail.blogspot.com/" target="_top" rel="nofollow">myjunkmail.blogspot.com</a></li><li><a href="http://www.magicjack.com/" target="_top" rel="nofollow">magicjack.com</a></li><li><a href="http://www.emilsit.net/blog/archives/how-to-use-the-git-protocol-through-a-http-connect-proxy/" target="_top" rel="nofollow">emilsit.net/blog/archives…</a></li><li><a href="http://sejomagno.blogspot.com/2007/03/how-to-use-gmail-account-as-windows.html" target="_top" rel="nofollow">sejomagno.blogspot.com/20…</a></li><li><a href="http://drbray.blogspot.com/2008/12/magicjack-reality.html" target="_top" rel="nofollow">drbray.blogspot.com/2008/…</a></li><li><a href="http://rip747.github.com/popupwindow/" target="_top" rel="nofollow">rip747.github.com/popupwi…</a></li><li><a href="http://rip747.files.wordpress.com/2007/11/feminism.jpg" target="_top" rel="nofollow">rip747.files.wordpress.co…</a></li><li><a href="http://www.apktop.com/root-explorer-2-16.html" target="_top" rel="nofollow">apktop.com/root-explorer-…</a></li></ul>		<h3>Pages</h3>		<ul>
+			<li class="page_item page-item-716"><a href="http://rip747.wordpress.com/contact-me/">Contact&nbsp;Me</a></li>
+<li class="page_item page-item-646"><a href="http://rip747.wordpress.com/who-is-rip747/">Who is&nbsp;RIP747?</a></li>
+		</ul>
+		
+			</div>
+
+<div class="clearleft"></div>
+
+<!-- begin footer -->
+</div>
+	<div id="footer">
+	<p><a href="http://en.wordpress.com/signup?ref=footer_signup_get&amp;abt=1%3D1" rel="generator">Get a blog at WordPress.com</a> Theme: The Journalist 1.3 by <a href="http://lucianmarin.com/" rel="designer">Lucian Marin</a>. </p>
+	</div>
+
+
+
+
+
+
+
+
+	
+	<div style="display: none;">
+	<div class="grofile-hash-map-8dbfbbc4e48afe0caa43412a8c03ef07">
+	</div>
+	<div class="grofile-hash-map-f09f0a0d45c19276540a9899d0e6b667">
+	</div>
+	<div class="grofile-hash-map-d27a97251ba012a650043fa586f5db62">
+	</div>
+	<div class="grofile-hash-map-d071cc1124a25bf19807db791faaffa5">
+	</div>
+	<div class="grofile-hash-map-73468c94611589f0b9b26c0ab45d21b9">
+	</div>
+	<div class="grofile-hash-map-9424958d016ed224449d82782fe79fbe">
+	</div>
+	<div class="grofile-hash-map-4177fab4bfbacab161d21216c8c9c498">
+	</div>
+	<div class="grofile-hash-map-ac8b9f25ece45529569d127a52428ddd">
+	</div>
+	<div class="grofile-hash-map-a7e7db86aaa4329f25a140f50228231c">
+	</div>
+	<div class="grofile-hash-map-ccb6f3d80d721b8d3e9086bff7146d2e">
+	</div>
+	</div>
+		
+
+	
+		
+	<div style="bottom: -209px;" id="bit" class="loggedout-follow-normal">
+		<a class="bsub" href="javascript:void(0)"><span id="bsub-text">Follow</span></a>
+		<div id="bitsubscribe">
+			
+					<h3><label for="loggedout-follow-field">Follow Rip's Domain</label></h3>
+		
+			<form action="http://subscribe.wordpress.com/" method="post" accept-charset="utf-8" id="loggedout-follow">
+			<p>Get every new post delivered to your Inbox.</p>
+
+					
+			
+			<p><input name="email" style="width: 95%; padding: 1px 2px;" value="Enter email address" onfocus='this.value=(this.value=="Enter email address") ? "" : this.value;' onblur='this.value=(this.value=="") ? "Enter email address" : this.value;' id="loggedout-follow-field" type="text"></p>
+
+			<input name="action" value="subscribe" type="hidden">
+			<input name="blog_id" value="295460" type="hidden">
+			<input name="source" value="http://rip747.wordpress.com/2009/06/17/reviving-a-git-svn-clone/" type="hidden">
+			<input name="sub-type" value="loggedout-follow" type="hidden">
+
+			<input id="_wpnonce" name="_wpnonce" value="20eba25482" type="hidden"><input name="_wp_http_referer" value="/2009/06/17/reviving-a-git-svn-clone/" type="hidden">
+			<p id="bsub-subscribe-button"><input value="Sign me up!" type="submit"></p>
+			</form>
+					<div id="bsub-credit"><a href="http://wordpress.com/signup/?ref=lof">Powered by WordPress.com</a></div>
+		</div><!-- #bitsubscribe -->
+	</div><!-- #bit -->
+ 
+		<img src="b.gif" alt="" style="display: none;">
+		
+		
+			<div id="sharing_email" style="display: none;">
+		<form action="http://rip747.wordpress.com/2009/06/17/reviving-a-git-svn-clone/" method="post">
+			<label for="target_email">Send to Email Address</label>
+			<input name="target_email" id="target_email" value="" type="text">
+			
+			
+				<label for="source_name">Your Name</label>
+				<input name="source_name" id="source_name" value="" type="text">
+				
+				<label for="source_email">Your Email Address</label>
+				<input name="source_email" id="source_email" value="" type="text">
+
+						
+			<div class="recaptcha" id="sharing_recaptcha"></div>
+			<img style="float: right; display: none;" class="loading" src="loading.gif" alt="loading" height="16" width="16">
+			<input value="Send Email" class="sharing_send" type="submit">
+			<a href="#cancel" class="sharing_cancel">Cancel</a>
+			
+			<div class="errors errors-1" style="display: none;">
+				Post was not sent - check your email addresses!			</div>
+
+			<div class="errors errors-2" style="display: none;">
+				Email check failed, please try again			</div>
+			
+			<div class="errors errors-3" style="display: none;">
+				Sorry, your blog cannot share posts by email.			</div>
+		</form>
+	</div>
+
+<img id="wpstats" src="g.gif" alt=""><img id="wpstats2" src="g_001.gif" alt="" style="display: none;">
+
+
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+/* ::::: http://help.github.com/shared/css/documentation.css ::::: */
+
+html { height: 100%; }
+body { font: 13px/1.4em helvetica,arial,freesans,clean,sans-serif; background-color: rgb(255, 255, 255); color: rgb(57, 57, 57); margin: 0px; padding: 0px; height: 100%; }
+p { margin: 1em 0pt; }
+h1 { font-size: 20px; border-bottom: 1px solid rgb(204, 204, 204); padding: 0.5em 0pt; margin: 2em 0pt 1em; }
+h1:first-child { margin: 0pt 0pt 1em; }
+h2 { font-size: 16px; color: rgb(51, 51, 51); margin: 2em auto 1em; }
+h3 { font-size: 14px; color: rgb(51, 51, 51); margin: 1.5em 0pt 0.5em; }
+a { color: rgb(65, 131, 196); text-decoration: none; }
+a:hover, a:active { text-decoration: underline; }
+ul, ol { margin: 0px; padding: 0px; }
+a img { border: 0px none; }
+#header-wrapper { margin-bottom: 0pt; clear: both; height: 91px; background: url('background-v2.png') repeat-x scroll 0pt 0pt white; }
+#header { margin: 0pt auto; width: 920px; }
+#header a.logo { float: left; margin-top: 15px; display: inline-block; }
+#header ul.nav { float: right; padding: 8px 3px 8px 2px; font-weight: bold; text-shadow: 1px 1px 0px white; font-size: 12px; margin-top: 18px; background: -moz-linear-gradient(270deg, rgb(252, 252, 252), rgb(236, 236, 236)) repeat scroll 0% 0% transparent; border-width: 1px; border-style: solid; border-color: rgb(233, 233, 233) rgb(233, 233, 233) rgb(245, 245, 245); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; -moz-border-image: none; border-radius: 5px 5px 5px 5px; box-shadow: 0pt 1px 1px rgba(0, 0, 0, 0.2); }
+#header ul.nav li:first-child { background: none repeat scroll 0% 0% transparent; }
+#header ul.nav li { float: left; margin: 0pt; padding: 0px 11px 0px 13px; list-style-type: none; background: url('nav-rule.png') no-repeat scroll 0px 50% transparent; line-height: 1.4em; }
+#header a { outline: medium none; text-decoration: none; }
+div.sidebar-shell { position: relative; float: right; margin: 35px 0pt 0pt; }
+div.sidebar-module { padding: 3px; background: none repeat scroll 0% 0% rgb(238, 238, 238); border-radius: 3px 3px 3px 3px; display: block; width: 332px; margin-bottom: 20px; font-size: 12px; }
+div.sidebar-module > ul { background: none repeat scroll 0% 0% rgb(250, 250, 251); border-style: solid; border-color: rgb(202, 202, 202); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; -moz-border-image: none; border-width: 1px 1px 0px; margin: 0px; }
+div.sidebar-module > p { background: none repeat scroll 0% 0% rgb(250, 250, 251); border: 1px solid rgb(202, 202, 202); padding: 8px 10px; margin: 0px; display: block; line-height: 1.4em; }
+div.sidebar-module li { list-style-type: none; }
+div.sidebar-module > ul > li { border-bottom: 1px solid rgb(202, 202, 202); text-decoration: none; }
+div.sidebar-module > ul > li:hover { text-decoration: none; }
+div.sidebar-module > ul h3 { margin: 0px; color: rgb(102, 102, 102); text-shadow: 1px 1px 0px rgb(255, 255, 255); border-bottom: 1px solid rgb(202, 202, 202); font-size: 14px; background-color: rgb(225, 225, 225); background-image: -moz-linear-gradient(center top , rgb(241, 241, 241), rgb(225, 225, 225)); }
+div.sidebar-module > ul li h3:hover, div.sidebar-module > ul h3.disable { background-color: rgb(225, 225, 225); background-image: -moz-linear-gradient(center top , rgb(225, 225, 225), rgb(209, 209, 209)); }
+div.sidebar-module > ul h3 a, div.sidebar-module > ul h3.disable span { padding: 8px 0px 8px 10px; color: rgb(102, 102, 102); display: block; text-decoration: none; }
+div.sidebar-module > ul h3:hover a { text-decoration: none; }
+div.sidebar-module ul ul, div.sidebar-module .spacer { display: block; padding-bottom: 2px; background-color: rgb(250, 250, 251); }
+div.sidebar-module ul ul li { border-top: 1px solid rgb(255, 255, 255); border-bottom: 1px solid rgb(233, 236, 238); font-weight: bold; color: rgb(102, 102, 102); }
+div.sidebar-module ul ul li:hover, div.sidebar-module li.disable { border-top: 1px solid rgb(250, 250, 251); border-bottom: 1px solid rgb(229, 232, 234); background-color: rgb(240, 240, 243); }
+div.sidebar-module li.disable { background-image: url('active-arrow.png'); background-position: left center; background-repeat: no-repeat; }
+div.sidebar-module ul ul li a, div.sidebar-module ul ul li span { padding: 6px 0px 6px 10px; display: block; text-decoration: none; }
+div.sidebar-module ul ul li span { padding-left: 20px; cursor: default; }
+#footer { position: relative; bottom: 0pt; font-size: 13px; color: rgb(99, 99, 99); margin: 45px 0pt 0pt; }
+#footer a:hover { text-decoration: underline; }
+#footer li { list-style: none outside none; }
+.footer_inner { width: 960px; position: relative; margin: 0pt auto; }
+#footer .upper_footer { min-height: 160px; overflow: hidden; background: url('bg_footer_top.png') repeat-x scroll 0% 0% rgb(248, 248, 248); }
+#footer #blacktocat { height: 130px; width: 164px; float: left; background: url('blacktocat.png') no-repeat scroll left top transparent; text-indent: -5000px; margin: 15px 20px 0pt 0pt; }
+#footer .upper_footer ul.footer_nav { position: relative; float: left; width: 164px; margin: 20px 10px; }
+#footer .upper_footer ul.footer_nav h4 { margin: 0pt 0pt 5px; padding-bottom: 5px; border-bottom: thin solid rgb(225, 225, 225); }
+#footer .lower_footer { position: relative; background: url('bg_footer_bottom.png') repeat-x scroll 0% 0% rgb(255, 255, 255); overflow: hidden; clear: both; }
+#footer .lower_footer .home { display: block; position: absolute; background: url('footer-logo.png') no-repeat scroll left top transparent; width: 100px; height: 50px; text-indent: -5000px; }
+#footer .lower_footer #legal { float: left; width: 500px; height: 50px; line-height: 8px; margin: 25px 0pt 0pt 17px; }
+#footer .lower_footer #legal #legal_links { margin-left: 177px; }
+#footer .lower_footer div ul { float: left; display: inline; margin-top: 15px; }
+#footer .lower_footer div ul li { display: inline; float: left; margin: 0pt 10px 0pt 0pt; }
+#footer .lower_footer div p { display: inline; float: left; clear: both; margin: 10px 0pt 0pt 177px; }
+#footer .lower_footer .sponsor { width: 295px; float: right; margin-top: 35px; padding-bottom: 25px; }
+#footer .lower_footer .sponsor .logo { float: left; margin: 0pt 10px 0pt 0pt; }
+#footer .lower_footer .sponsor a { color: rgb(0, 0, 0); }
+#wrapper { padding: 20px 25px; overflow: hidden; height: auto; width: 920px; margin: -20px auto 0pt; background: url('background-white.png') no-repeat scroll 0pt 0pt transparent; }
+.content { width: 560px; position: relative; float: left; color: rgb(57, 57, 57); z-index: 2; }
+.content ul, .content ol { margin-left: 1.5em; }
+.content ul { list-style-type: disc; }
+.content .verseblock-content, .content .sectionbody .dlist dt, .content p > tt, .content dl code, .content ul code, p code { font: 12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace; color: rgb(82, 89, 93); border-radius: 3px 3px 3px 3px; background-clip: padding-box; border: 1px solid rgb(204, 204, 204); background-color: rgb(249, 249, 249); padding: 0px 3px; display: inline-block; }
+.content .intro { color: rgb(134, 134, 134); }
+code { white-space: nowrap; }
+pre { border: 1px solid rgb(202, 202, 202); font: 12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace; padding: 10px; overflow: auto; border-radius: 3px 3px 3px 3px; background-clip: padding-box; background-color: rgb(250, 250, 251); color: rgb(57, 57, 57); margin: 0px; }
+pre.terminal { background-color: rgb(68, 68, 68); color: rgb(255, 255, 255); border-radius: 3px 3px 3px 3px; background-clip: padding-box; border: 2px solid rgb(222, 222, 222); position: relative; padding: 10px; text-shadow: none; background-image: none; filter: none; }
+/* ::::: http://help.github.com/shared/css/pygments.css ::::: */
+
+/* ::::: http://help.github.com/css/style.css ::::: */
+
+html { height: 100%; }
+#header .logo img { left: -25px; top: -3px; }
+#header { height: 81px; }
+@font-face {
+  font-family: "Collegiate";  src: url('collegiate.ttf');}
+.sidebar-module > .tip-box { position: relative; overflow: hidden; display: block; width: 100%; }
+.sidebar-module > .tip-box h4 { padding: 8px 10px; background-color: rgb(241, 241, 241); background-image: -moz-linear-gradient(center top , rgb(241, 241, 241), rgb(225, 225, 225)); color: rgb(102, 102, 102); text-shadow: 0pt 1px 0pt rgba(255, 255, 255, 0.7); font-size: 12px; border: 1px solid rgb(202, 202, 202); margin: 0px; }
+.sidebar-module > .tip-box a.next { padding: 7px 10px 8px; position: absolute; top: 1px; right: 1px; font-size: 11px; color: rgb(102, 102, 102); font-weight: bold; border-left: 1px solid rgb(202, 202, 202); border-top: 1px solid rgb(242, 242, 242); background-color: rgb(234, 234, 234); background-image: -moz-linear-gradient(center top , rgb(234, 234, 234), rgb(214, 214, 214)); }
+.sidebar-module > .tip-box a.next:hover { border-top: 1px solid rgb(239, 239, 239); background-color: rgb(229, 229, 229); background-image: -moz-linear-gradient(center top , rgb(229, 229, 229), rgb(206, 206, 206)); }
+.sidebar-module div.tip-body { border-style: solid; border-color: rgb(202, 202, 202); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; -moz-border-image: none; border-width: 0px 1px 1px; background-color: rgb(250, 250, 251); padding: 0px 10px; overflow: hidden; }
+.sidebar-module .load { padding: 13px 5px 0pt 0pt; float: left; }
+.sidebar-module > .status-box { position: relative; overflow: hidden; display: block; width: 100%; }
+.sidebar-module > .status-box h4 { padding: 7px 10px; background-color: rgb(241, 241, 241); background-image: -moz-linear-gradient(center top , rgb(241, 241, 241), rgb(225, 225, 225)); color: rgb(102, 102, 102); text-shadow: 0pt 1px 0pt rgba(255, 255, 255, 0.7); font-size: 12px; width: 70px; border-style: solid; border-color: rgb(202, 202, 202); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; -moz-border-image: none; border-width: 1px 0px 1px 1px; float: left; margin: 0px; }
+.sidebar-module > .status-box a { background: url('status_sprites.png') repeat-x scroll 0pt 0pt transparent; float: left; padding: 7px 10px; margin: 0px; display: block; width: 219px; border: 1px solid rgb(154, 190, 133); font-weight: bold; font-size: 12px; text-shadow: 0pt 1px 0pt rgba(255, 255, 255, 0.7); }
+.sidebar-module > .status-box a:hover { text-decoration: none; }
+.sidebar-module .good a { background-position: 0px 0px; border-color: rgb(136, 193, 133); color: rgb(0, 93, 7); }
+.sidebar-module .good a:hover { background-position: 0px -33px; }

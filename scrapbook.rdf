@@ -276,6 +276,14 @@
                    NS1:comment=""
                    NS1:source="https://github.com/harvesthq/chosen"
                    NS1:icon="resource://scrapbook/data/20111013200033/favicon.ico" />
+  <RDF:Description RDF:about="urn:scrapbook:item20111206140052"
+                   NS1:id="20111206140052"
+                   NS1:type=""
+                   NS1:title="Help.GitHub - Subtree Merge"
+                   NS1:chars="UTF-8"
+                   NS1:comment=""
+                   NS1:source="http://help.github.com/subtree-merge/"
+                   NS1:icon="resource://scrapbook/data/20111206140052/favicon.ico" />
   <RDF:Seq RDF:about="urn:scrapbook:item20111201155727">
     <RDF:li RDF:resource="urn:scrapbook:item20111201155741"/>
   </RDF:Seq>
@@ -381,6 +389,7 @@
     <RDF:li RDF:resource="urn:scrapbook:item20111205131220"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111206135759"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111206135853"/>
+    <RDF:li RDF:resource="urn:scrapbook:item20111206140052"/>
   </RDF:Seq>
   <RDF:Description RDF:about="urn:scrapbook:item20111013195938"
                    NS1:id="20111013195938"

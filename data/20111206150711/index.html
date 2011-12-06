@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Using Git with a central repository</title>
+
+
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body>
+<div id="container">
+<h1>Using Git with a central repository</h1>
+
+<div class="byline">
+By <a href="http://toroid.org/ams/">Abhijit Menon-Sen</a> &lt;ams@toroid.org&gt;
+</div>
+
+<p>
+This tutorial explains how to share a Git repository among developers.
+It is meant for small teams who are adopting Git for the first time, and
+want to get started quickly with a familiar setup before exploring Git's
+many new possibilities.
+
+</p><p>
+If you follow this route, you will end up with a single centrally-hosted
+repository that everyone in your group can use to publish their own work
+and fetch whatever others have published. People used to a centralised
+VCS will find this model easy to adjust to, but of course, each user's
+"working copy" will itself be a fully-fledged Git repository, and many
+new workflows are available to users as they learn more.
+
+</p><p>
+It would help if you're familiar with basic Git terminology and usage,
+but if not, you can skim through to find out which commands you need to
+read about and experiment with. (I recommend
+<a href="http://ftp.newartisans.com/pub/git.from.bottom.up.pdf">Git from the bottom up</a>
+and the
+<a href="http://www.kernel.org/pub/software/scm/git/docs/gittutorial.html">Git tutorial</a>
+for an introduction.) I shall assume that everyone has git 1.6.5 or
+later installed, and that they have ssh access to the server that will
+host the repository.
+
+</p><h2>Repository setup</h2>
+
+<p>
+In the ideal case, you create a repository on the server, clone it on
+each workstation, and are ready to start work. That happy situation is
+described below, as well as the all-too-likely addition of an existing
+repository into the picture.
+
+</p><h3>On the server</h3>
+
+<p>
+Use <code>git init</code> to create a new repository. The easy way to
+give people read-write access to it is to add all the relevant users to
+one group (say <code>dev</code>), and give that group ownership of the
+repository:
+
+</p><pre class="excerpt">$ git init --bare --shared foo.git
+Initialized empty shared Git repository in /git/foo.git/
+$ chgrp -R dev foo.git
+</pre>
+
+<p>
+It doesn't matter what user you run this command as. The
+<code>--shared</code> option sets the permissions on everything in the
+repository to group-writable.
+
+</p><p>
+Let's say the server is named <code>example.org</code>, and the new
+repository lives in the <code>/git/foo.git</code> directory. To anyone
+with ssh access to the server, the repository is now available at
+<code>ssh://example.org/git/foo.git</code>.
+
+</p><h3>Importing an existing repository</h3>
+
+<p>
+This can be done in many ways. My advice is to set up the new repository
+on the server, push everything from the old repository into it, and
+forget about the old repository.
+
+</p><pre class="excerpt">$ cd existing.git
+$ git push ssh://example.org/git/foo.git '*:*'
+Counting objects: 3, done.
+Writing objects: 100% (3/3), 204 bytes, done.
+Total 3 (delta 0), reused 0 (delta 0)
+Unpacking objects: 100% (3/3), done.
+To ssh://example.org/git/foo.git
+ * [new branch]      master -&gt; master
+</pre>
+
+<p>
+The output above is from a test repository with a single commit. The
+<code>*:*</code> notation pushes everything, including tags and remote
+branches. If that's not what you want, use a more specific notation and
+multiple pushes; or just get rid of any branches, remotes, or tags you
+don't want before you push everything. There are many complications
+possible at this step, but discussing them is not within the scope of
+this article.
+
+</p><p>
+(Why forget about the old repository? It's just simpler that way, but if
+you really want, you can configure it to pretend that it's just another
+clone of the new repository.)
+
+</p><h3>On the clients</h3>
+
+<p>
+Each user can now create their own copy of the central repository:
+
+</p><pre class="excerpt">$ git clone ssh://example.org/git/foo.git
+Initialized empty Git repository in /home/ams/foo/.git/
+</pre>
+
+<p>
+This clone is now configured to <em>track</em> the central repository,
+which means that <code>git pull</code> will pull any commits from it
+that you don't have already, and <code>git push</code> will push any
+new commits back to it. The next sections explain how this works.
+
+</p><p>
+(Note: You'll see a warning about having cloned an empty repository if
+you didn't push anything into <code>foo.git</code>. There's no problem
+with starting from scratch, but you need to remember that the very first
+push back to the central repository is special. More about that later.)
+
+</p><p>
+Let's pretend the original repository looks like the following diagram.
+The dots are commits, and there are two branches named
+<code>master</code> and <code>other</code>:
+
+</p><p>
+<img src="initial.png" alt="Diagram of initial state">
+
+</p><h2>Pushing and pulling</h2>
+
+<p>
+The newly-cloned repositories can refer to the central repository as
+"origin", which is just a handy alias for the full <code>ssh://</code>
+URL. During the initial cloning operation, any branches that exist in
+the origin repository are saved as "remote branches" in the clone. A
+branch named <code>x</code> in origin would be named
+<code>remotes/origin/x</code> on the clone. Remote branches are meant to
+represent the state of a remote repository, so you shouldn't commit to
+them directly.
+
+</p><p>
+<img src="clone.png" alt="Diagram of state of clone">
+
+</p><p>
+Instead, you should create a local branch that follows or tracks any
+remote branch you're interested in; and this is done automatically for
+the default branch, conventionally named <code>master</code>. After the
+clone, you will have a remote branch named
+<code>remotes/origin/master</code>, and a local branch named
+<code>master</code>, which is checked out already. The former represents
+the latest commit in origin. The latter follows along, but will include
+your own local commits too.
+
+</p><p>
+<img src="commit.png" alt="Diagram of state after commit">
+
+</p><p>
+When you <code>git commit</code>, your <code>master</code> branch is
+updated to point to the new commit. When you <code>git push</code>, your
+<code>master</code> is used to update origin's <code>master</code>.
+When you <code>git pull</code>, origin's <code>master</code> is used
+to update your <code>remotes/origin/master</code> branch, which in turn
+is used to update your own <code>master</code> branch.
+
+</p><p>
+<img src="synced.png" alt="Diagram of state after pull">
+
+</p><h3>Other people's changes</h3>
+
+<p>
+When multiple people push commits to a shared origin, the update process
+involves an extra step. Suppose you push a commit while a colleague
+creates a new local commit of her own. When she tries to <code>git
+push</code>, the server rejects the push so as to not lose your commit
+(which she doesn't have). She must then run <code>git pull</code>, which
+will first update her <code>origin/master</code> remote branch to
+include your commit, then merge it into her <code>master</code> so that
+it includes both her commit and yours.
+
+</p><p>
+<img src="merging.png" alt="Diagram of state after merge">
+
+</p><p>
+Her next <code>git push</code> will push the merged branch to origin. If
+you run <code>git pull</code> next, your <code>origin/master</code> will
+be updated to match origin's new <code>master</code>, then merged
+into your <code>master</code> so that you have your colleague's commit
+too, besides any new ones of your own. If you run <code>git pull</code>
+without making any local changes, Git will update the remote-tracking
+branch, and <i>fast-forward</i> your local branch to the new commit
+without creating a new merge commit to record the event.
+
+</p><p>
+<img src="remerging.png" alt="Diagram of state after re-merge">
+
+</p><h3>Merging and conflicts</h3>
+
+<p>
+If the various commits do not conflict, Git will merge them with no
+intervention. Otherwise, it will merge any non-conflicting changes
+automatically and ask you to resolve the remaining conflicts by hand.
+Run <code>git status</code> to see which files have been merged, and
+which ones need your attention. Look for <code>======</code> conflict
+markers in each unmerged file, edit the surrounding text to fix the
+problem, and run <code>git add <i>filename</i></code> to mark that file
+as resolved. When you're done, run <code>git commit</code> to complete
+the merge. See
+<a href="http://www.kernel.org/pub/software/scm/git/docs/git-merge.html"><code>git-merge(1)</code></a>
+for more details.
+
+</p><h3>Using other branches</h3>
+
+<p>
+You can create new local branches with <code>git branch
+<i>branchname</i></code> and switch between branches with <code>git
+checkout <i>branchname</i></code>. To push a new branch to the server,
+run <code>git push origin <i>branchname</i></code>. This will create a
+branch named <code>branchname</code> in origin, and
+<code>remotes/origin/branchname</code> in your repository. Anyone who
+then runs <code>git pull</code> will get their own pair of
+remote-tracking and local branches of that name.
+
+</p><p>
+If you do not explicitly push your new local branches, they stay in your
+repository and are invisible to others. <code>git push</code> by default
+pushes only those branches that already exist on the server. This is why
+you have to explicitly <code>git push origin master</code> the first
+time you push to an empty central repository. In contrast, <code>git
+pull</code> will create local copies of any new branches on the server.
+
+</p><p>
+You can also use <code>git remote</code> to add nicknames for other
+repositories than <i>origin</i>. You'll get a new set of remote-tracking
+branches for the new remote repository, and you will have to specify the
+name as an argument to <code>git push</code> and <code>git pull</code>,
+but the transfer of commits will otherwise work in exactly the same way.
+
+</p><p>
+Pulling and pushing can be much more flexible than described
+here—you can specify what branches to track and update
+automatically, have different local names for branches, and so on. See
+<a href="http://www.kernel.org/pub/software/scm/git/docs/git-push.html"><code>git-push(1)</code></a>
+and
+<a href="http://www.kernel.org/pub/software/scm/git/docs/git-pull.html"><code>git-pull(1)</code></a>
+for more.
+
+</p><h2>Outgrowing this setup</h2>
+
+<p>
+Git offers many other workflow and configuration possibilities. Here are
+a few directions to explore.
+
+</p><p>
+Use <a href="http://www.kernel.org/pub/software/scm/git/docs/githooks.html">hooks</a>
+to automate tasks like sending email to the developers for every commit
+or enforcing coding standards.
+
+</p><p>
+There are
+<a href="https://git.wiki.kernel.org/index.php/InterfacesFrontendsAndTools#Graphical_Interfaces">graphical
+frontends</a> like <a href="http://cola.tuxfamily.org/">git-cola</a> and
+<a href="http://sourceforge.net/projects/qgit/">QGit</a>, and
+<a href="https://git.wiki.kernel.org/index.php/InterfacesFrontendsAndTools#Web_Interface">repository
+browsers</a> like gitk and Gitweb (both distributed with Git). Use them
+to browse history and assign blame.
+Use <a href="http://www.kernel.org/pub/software/scm/git/docs/git-bisect.html">git-bisect</a>
+to find out which commit broke a particular test case.
+
+</p><p>
+You may eventually need to provide read-only repository access to people
+outside your own team/network—set up
+<a href="http://www.kernel.org/pub/software/scm/git/docs/git-daemon.html">git-daemon</a>.
+To give someone write access, just give them an ssh account on the
+server; or install
+<a href="http://github.com/sitaramc/gitolite">gitolite</a>
+(the better-documented and better-maintained alternative to gitosis) for
+fine-grained access control and easier user management.
+
+</p><p>
+With more users, the "everything in the master branch" model described
+here may prove inadequate. There are many workflows that take
+advantage of Git's easy branching and merging, such as
+<a href="http://nvie.com/git-model">this nicely-illustrated one</a> and
+the suggestions in
+<a href="http://www.kernel.org/pub/software/scm/git/docs/gitworkflows.html">gitworkflows(7)</a>.
+Even if you adopt a more decentralised approach, you can keep using your
+formerly-central repository as a fixed point of contact and for backups.
+
+</p><h2>Questions are welcome</h2>
+
+<p>
+Questions are welcome, no matter how basic they are. By asking them, you
+may help to improve this tutorial, and thus help future readers.
+
+</p><p>
+Thanks to everyone who commented on this document.
+
+</p><p>2010-04-20
+
+</p></div>
+</body>
+</html>

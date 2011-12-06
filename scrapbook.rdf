@@ -139,6 +139,14 @@
                    NS1:icon=""
                    NS1:source=""
                    NS1:comment="" />
+  <RDF:Description RDF:about="urn:scrapbook:item20111206152756"
+                   NS1:id="20111206152756"
+                   NS1:type=""
+                   NS1:title="32 Static Website Generators For Your Site, Blog Or Wiki - iWantMyName Domain Blog"
+                   NS1:chars="UTF-8"
+                   NS1:comment=""
+                   NS1:source="http://iwantmyname.com/blog/2011/02/list-static-website-generators.html"
+                   NS1:icon="resource://scrapbook/data/20111206152756/favicon.ico" />
   <RDF:Description RDF:about="urn:scrapbook:item20111206135853"
                    NS1:id="20111206135853"
                    NS1:type=""
@@ -377,6 +385,14 @@
                    NS1:icon=""
                    NS1:source=""
                    NS1:comment="" />
+  <RDF:Description RDF:about="urn:scrapbook:item20111206150711"
+                   NS1:id="20111206150711"
+                   NS1:type=""
+                   NS1:title="Using Git with a central repository"
+                   NS1:chars="UTF-8"
+                   NS1:comment=""
+                   NS1:source="http://toroid.org/ams/git-central-repo-howto"
+                   NS1:icon="resource://scrapbook/data/20111206150711/favicon.ico" />
   <RDF:Description RDF:about="urn:scrapbook:item20111013170931"
                    NS1:id="20111013170931"
                    NS1:type=""
@@ -476,6 +492,7 @@
     <RDF:li RDF:resource="urn:scrapbook:item20111206140052"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111206144737"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111206145630"/>
+    <RDF:li RDF:resource="urn:scrapbook:item20111206150711"/>
   </RDF:Seq>
   <RDF:Description RDF:about="urn:scrapbook:item20111013195938"
                    NS1:id="20111013195938"
@@ -561,6 +578,7 @@
                    NS1:comment="" />
   <RDF:Seq RDF:about="urn:scrapbook:item20111206144621">
     <RDF:li RDF:resource="urn:scrapbook:item20111206144628"/>
+    <RDF:li RDF:resource="urn:scrapbook:item20111206152756"/>
   </RDF:Seq>
   <RDF:Description RDF:about="urn:scrapbook:item20111206144621"
                    NS1:id="20111206144621"

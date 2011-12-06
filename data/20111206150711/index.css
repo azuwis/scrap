@@ -1,0 +1,19 @@
+/* ::::: http://toroid.org/ams/ams.css ::::: */
+
+body { color: rgb(0, 0, 0); background: none repeat scroll 0% 0% rgb(255, 255, 255); font: 14px/1.5 Verdana,'Lucida Grande','Helvetica Neue',Helvetica,Arial,sans-serif; padding: 1em 0pt 0pt 2em; margin: 0pt; }
+div#container { width: 600px; text-align: justify; }
+h1, h2, h3, h4 { margin: 0pt; padding: 0pt; color: rgb(0, 0, 0); font-weight: normal; }
+h1 { font-size: 21px; padding-bottom: 0.2em; line-height: 1; }
+h2 { font-size: 16px; margin: 18px 0pt; }
+h3 { font-size: 14px; margin: 14px 0pt; font-weight: bold; }
+h3 { font-size: 12px; margin: 14px 0pt; font-weight: bold; }
+.byline { font-size: 12px; margin-bottom: 18px; }
+p { margin: 0pt; padding: 0pt; }
+p + p { margin-top: 1em; }
+.byline + p { margin-top: 2em; }
+a { color: rgb(0, 0, 153); text-decoration: none; }
+pre { margin: 1em 0pt; white-space: pre; font-family: 'andale mono','lucida console','consolas',monospace; line-height: 1.25; }
+pre.excerpt { border: 1px solid maroon; padding: 1em; white-space: pre-wrap; word-wrap: break-word; }
+em, strong, cite, dfn, code, samp, kbd, var, abbr, acronym { border: 0pt none; font-variant: normal; font-style: inherit; font-weight: inherit; }
+em { font-style: italic; }
+code, samp, kbd, var { font-family: 'andale mono','lucida console','consolas',monospace; }

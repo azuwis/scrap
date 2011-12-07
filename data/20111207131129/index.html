@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    
+    <title>string - Extract filename and extension in bash - Stack Overflow</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="http://stackoverflow.com/opensearch.xml">
+    
+    
+    
+    
+    <link rel="canonical" href="http://stackoverflow.com/questions/965053/extract-filename-and-extension-in-bash">
+    <link rel="alternate" type="application/atom+xml" title="Feed for question 'Extract filename and extension in bash'" href="http://stackoverflow.com/feeds/question/965053">
+    <meta name="title" content="string - Extract filename and extension in bash - Stack Overflow">
+    <link rel="image_src" href="http://sstatic.net/stackoverflow/img/apple-touch-icon.png">
+    
+
+
+    
+
+
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body style="margin-top: 2.5em;" class="question-page">
+<div class="container">
+<div id="content">
+<div id="mainbar">
+<div id="answers">
+<div id="answer-965072" class="answer">
+<table>
+<tbody>
+<!--DOCUMENT_FRAGMENT-->
+<tr><td class="answercell"><div class="post-text"><p>First, get file without path:  </p>
+
+<pre class="lang-bsh prettyprint"><code><span class="pln">filename</span><span class="pun">=</span><span class="pln">$</span><span class="pun">(</span><span class="pln">basename $fullfile</span><span class="pun">)</span><span class="pln"><br>extension</span><span class="pun">=</span><span class="pln">$</span><span class="pun">{</span><span class="pln">filename</span><span class="com">##*.}</span><span class="pln"><br>filename</span><span class="pun">=</span><span class="pln">$</span><span class="pun">{</span><span class="pln">filename</span><span class="pun">%.*}</span><span class="pln"><br></span></code></pre>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+        <div class="post-menu"><a href="http://stackoverflow.com/a/965072" title="short permalink to this answer" id="link-post-965072">link</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/965072/edit">improve this answer</a></div>
+    </td>
+            
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover"><div class="user-action-time">answered <span title="2009-06-08 14:05:19Z" class="relativetime">Jun 8 '09 at 14:05</span></div><div class="user-gravatar32"><a href="http://stackoverflow.com/users/17833/petesh"><div class=""><img src="453d824d5f49a708e3051d7415d8ebd4" alt=""></div></a></div><div class="user-details"><a href="http://stackoverflow.com/users/17833/petesh">Petesh</a><br><span class="reputation-score" title="reputation score">4,038</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="8 silver badges"><span class="badge2"></span><span class="badgecount">8</span></span><span title="10 bronze badges"><span class="badge3"></span><span class="badgecount">10</span></span></div></div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-965072" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-773615" class="comment">
+        <td class="comment-actions"><table><tbody><tr>
+<td class="comment-score">
+<span title="number of 'great comment' votes received" class="cool">1</span>
+</td>
+<td>
+&nbsp;
+</td></tr>
+</tbody></table></td>
+        <td class="comment-text"><div><span class="comment-copy">Awesome! Thanks!</span> –&nbsp;<a href="http://stackoverflow.com/users/5475/ibz" title="2527 reputation" class="comment-user owner">ibz</a> <span class="comment-date"><span title="2009-06-08 14:07:54Z">Jun 8 '09 at 14:07</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-773620" class="comment">
+        <td class="comment-actions"><table><tbody><tr>
+<td class="comment-score">
+<span title="number of 'great comment' votes received" class="warm">7</span>
+</td>
+<td>
+&nbsp;
+</td></tr>
+</tbody></table></td>
+        <td class="comment-text"><div><span class="comment-copy">Check out <a href="http://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html#Shell-Parameter-Expansion" rel="nofollow">gnu.org/software/bash/manual/html_node/…</a> for the full feature set.</span> –&nbsp;<a href="http://stackoverflow.com/users/41747/d-shawley" title="14737 reputation" class="comment-user">D.Shawley</a> <span class="comment-date"><span title="2009-06-08 14:08:51Z">Jun 8 '09 at 14:08</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-773726" class="comment">
+        <td class="comment-actions"><table><tbody><tr>
+<td class="comment-score">
+<span title="number of 'great comment' votes received" class="warm">8</span>
+</td>
+<td>
+&nbsp;
+</td></tr>
+</tbody></table></td>
+        <td class="comment-text"><div><span class="comment-copy">Add some quotes to "$fullfile", or you'll risk breaking the filename.</span> –&nbsp;<a href="http://stackoverflow.com/users/58803/lhunath" title="6589 reputation" class="comment-user">lhunath</a> <span class="comment-date"><span title="2009-06-08 14:34:48Z">Jun 8 '09 at 14:34</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-779742" class="comment">
+        <td class="comment-actions"><table><tbody><tr>
+<td class="comment-score">
+<span title="number of 'great comment' votes received" class="warm">6</span>
+</td>
+<td>
+&nbsp;
+</td></tr>
+</tbody></table></td>
+        <td class="comment-text"><div><span class="comment-copy">Heck, you could even write filename="${fullfile##*/}" and avoid calling an extra <code>basename</code></span> –&nbsp;<a href="http://stackoverflow.com/users/20713/ephemient" title="47302 reputation" class="comment-user">ephemient</a> <span class="comment-date"><span title="2009-06-09 17:52:24Z">Jun 9 '09 at 17:52</span></span></div></td></tr></tbody></table></div></td></tr>
+<!--/DOCUMENT_FRAGMENT-->
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

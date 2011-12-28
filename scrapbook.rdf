@@ -412,6 +412,17 @@
                    NS1:comment=""
                    NS1:source="http://nevercertain.com/2011/02/03/scala-android-intellij-win-part-1-prerequisites.html"
                    NS1:icon="resource://scrapbook/data/20111013171540/favicon.ico" />
+  <RDF:Seq RDF:about="urn:scrapbook:item20111228154244">
+    <RDF:li RDF:resource="urn:scrapbook:item20111228154259"/>
+  </RDF:Seq>
+  <RDF:Description RDF:about="urn:scrapbook:item20111228154244"
+                   NS1:id="20111228154244"
+                   NS1:type="folder"
+                   NS1:title="monitoring"
+                   NS1:chars=""
+                   NS1:icon=""
+                   NS1:source=""
+                   NS1:comment="" />
   <RDF:Description RDF:about="urn:scrapbook:item20111008171606"
                    NS1:id="20111008171606"
                    NS1:type=""
@@ -589,6 +600,14 @@
                    NS1:comment=""
                    NS1:source="http://technet.microsoft.com/en-us/library/bb742455.aspx"
                    NS1:icon="resource://scrapbook/data/20111013195557/favicon.ico" />
+  <RDF:Description RDF:about="urn:scrapbook:item20111228154259"
+                   NS1:id="20111228154259"
+                   NS1:type=""
+                   NS1:title="Aberrant Behavior Detection in Time Series for Network Monitoring"
+                   NS1:chars="UTF-8"
+                   NS1:comment=""
+                   NS1:source="http://www.usenix.org/events/lisa00/full_papers/brutlag/brutlag_html/"
+                   NS1:icon="resource://scrapbook/data/20111228154259/favicon.ico" />
   <RDF:Description RDF:about="urn:scrapbook:item20111128131253"
                    NS1:id="20111128131253"
                    NS1:type=""
@@ -617,6 +636,7 @@
                    NS1:source=""
                    NS1:comment="" />
   <RDF:Seq RDF:about="urn:scrapbook:root">
+    <RDF:li RDF:resource="urn:scrapbook:item20111228154244"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111228144050"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111206144621"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111206144358"/>

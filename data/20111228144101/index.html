@@ -1,0 +1,781 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    
+    <title>nginx not setting expires headers on Rails static assets - Stack Overflow</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="http://stackoverflow.com/opensearch.xml">
+    
+    
+    
+    
+    <link rel="canonical" href="http://stackoverflow.com/questions/873235/nginx-not-setting-expires-headers-on-rails-static-assets">
+    <link rel="alternate" type="application/atom+xml" title="Feed for question 'nginx not setting expires headers on Rails static assets'" href="http://stackoverflow.com/feeds/question/873235">
+    <meta name="title" content="nginx not setting expires headers on Rails static assets - Stack Overflow">
+    <link rel="image_src" href="http://sstatic.net/stackoverflow/img/apple-touch-icon.png">
+    
+
+
+    
+
+
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body style="margin-top: 2.5em;" class="question-page">
+    
+    <div id="notify-container"><div id="notify--1" style=""><span class="notify-close"><a title="dismiss this notification">×</a></span><span class="notify-text">Welcome to Q&amp;A for professional and enthusiast programmers — check out the <a onclick="StackExchange.notify.closeFirstTime(); return false;" href="http://stackoverflow.com/faq">FAQ</a>!</span></div></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+
+    <div class="container">
+        <div id="header">
+            <div id="portalLink">
+                <a class="genu" onclick="StackExchange.ready(function(){genuwine.click();});return false;">Stack Exchange</a>
+            </div>
+            <div id="topbar">
+                <div id="hlinks">
+                    <span id="hlinks-user">
+                  
+                  </span>
+                  <span id="hlinks-nav">
+                  <a href="http://stackoverflow.com/users/login?returnurl=%2fquestions%2f873235%2fnginx-not-setting-expires-headers-on-rails-static-assets">log in</a>
+ <span class="lsep">|</span>
+<a href="http://careers.stackoverflow.com/">careers</a>
+ <span class="lsep">|</span>
+
+                  </span>
+                  <span id="hlinks-custom">
+                  <a href="http://chat.stackoverflow.com/">chat</a>
+ <span class="lsep">|</span>
+<a href="http://meta.stackoverflow.com/">meta</a>
+ <span class="lsep">|</span>
+<a href="http://stackoverflow.com/about">about</a>
+ <span class="lsep">|</span>
+<a href="http://stackoverflow.com/faq">faq</a>
+                  </span>
+                </div>
+                <div id="hsearch">
+                    <form id="search" action="http://stackoverflow.com/search" method="get" autocomplete="off">
+                    <div>
+                        <input autocomplete="off" name="q" class="textbox" placeholder="search" tabindex="1" maxlength="140" size="28" value="" type="text">
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="http://stackoverflow.com/">Stack Overflow</a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                        <li class="youarehere"><a id="nav-questions" href="http://stackoverflow.com/questions">Questions</a></li>
+                        <li><a id="nav-tags" href="http://stackoverflow.com/tags">Tags</a></li>
+                        <li><a id="nav-users" href="http://stackoverflow.com/users">Users</a></li>
+                        <li><a id="nav-badges" href="http://stackoverflow.com/badges">Badges</a></li>
+                        <li><a id="nav-unanswered" href="http://stackoverflow.com/unanswered">Unanswered</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion" href="http://stackoverflow.com/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+        <div id="content">
+            
+
+
+
+<div id="question-header">
+    <h1><a href="http://stackoverflow.com/questions/873235/nginx-not-setting-expires-headers-on-rails-static-assets" class="question-hyperlink">nginx not setting expires headers on Rails static assets</a></h1>
+</div>
+<div id="mainbar">
+
+
+<div class="question" id="question">
+
+    <div class="everyonelovesstackoverflow" id="adzerk1">
+    </div>
+
+    
+    <table>
+    <tbody><tr>
+    <td class="votecell">
+        
+<div class="vote">
+    <input value="873235" type="hidden">
+    <a class="vote-up-off" title="This question shows research effort; it is useful and clear (click again to undo)">up vote</a>
+    <span class="vote-count-post">3</span>
+    <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful (click again to undo)">down vote</a>
+
+    <a class="star-off" href="#" title="This is a favorite question (click again to undo)">favorite</a>
+    <div class="favoritecount"><b>2</b></div>    
+
+    
+    <a id="fb-share-873235" class="fb-share" title="share link to this question on Facebook">share [fb]</a>
+    <a id="twitter-share-873235" class="twitter-share" title="share link to this question on Twitter">share [tw]</a>    
+
+</div>
+
+    </td>
+<td class="postcell">
+<div>          
+    <div class="post-text">
+        <p>I can't seem to get nginx to set expires headers on my static assets in my Rails app.</p>
+
+<p>My app is deployed using Phusion Passenger &amp; nginx.</p>
+
+<p>Below is the related section of my nginx config file</p>
+
+<pre class="default prettyprint"><code><span class="pln">server </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; listen &nbsp;</span><span class="lit">80</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; server_name </span><span class="kwd">my</span><span class="pun">.</span><span class="pln">domain</span><span class="pun">.</span><span class="pln">tld</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; root </span><span class="pun">/</span><span class="pln">home</span><span class="pun">/</span><span class="pln">deploy</span><span class="pun">/</span><span class="kwd">my</span><span class="pun">.</span><span class="pln">domain</span><span class="pun">.</span><span class="pln">tld</span><span class="pun">/</span><span class="pln">current</span><span class="pun">/</span><span class="kwd">public</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; passenger_enabled on</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; access_log off</span><span class="pun">;</span><span class="pln"><br><br>&nbsp; &nbsp; &nbsp; &nbsp; location </span><span class="pun">~*</span><span class="pln"> </span><span class="pun">\.(</span><span class="pln">ico</span><span class="pun">|</span><span class="pln">css</span><span class="pun">|</span><span class="pln">js</span><span class="pun">|</span><span class="pln">gif</span><span class="pun">|</span><span class="pln">jp</span><span class="pun">?</span><span class="pln">g</span><span class="pun">|</span><span class="pln">png</span><span class="pun">)\?[</span><span class="lit">0</span><span class="pun">-</span><span class="lit">9</span><span class="pun">]+</span><span class="pln">$ </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; expires max</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">break</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(-</span><span class="pln">f $document_root</span><span class="pun">/</span><span class="pln">system</span><span class="pun">/</span><span class="pln">maintenance</span><span class="pun">.</span><span class="pln">html</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; rewrite </span><span class="pun">^(.*)</span><span class="pln">$ </span><span class="pun">/</span><span class="pln">system</span><span class="pun">/</span><span class="pln">maintenance</span><span class="pun">.</span><span class="pln">html </span><span class="kwd">break</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br></span><span class="pun">}</span><span class="pln"><br></span></code></pre>
+
+<p>I'm not sure why its not setting expires headers on my static assets ( e.g. /images/foo.png?123456 )</p>
+
+<p>I'm not sure if it has something to do with passenger or if my location regexp just isnt catching it</p>
+
+    </div>            
+    <div class="post-taglist">
+        <a href="http://stackoverflow.com/questions/tagged/ruby-on-rails" class="post-tag" title="" rel="tag">ruby-on-rails</a> <a href="http://stackoverflow.com/questions/tagged/nginx" class="post-tag" title="show questions tagged 'nginx'" rel="tag">nginx</a> <a href="http://stackoverflow.com/questions/tagged/expires" class="post-tag" title="show questions tagged 'expires'" rel="tag">expires</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+        <div class="post-menu"><a href="http://stackoverflow.com/q/873235" title="short permalink to this question" id="link-post-873235">link</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/873235/edit">improve this question</a></div>
+    </td>
+    <td class="post-signature" align="right">
+<div class="user-info"><div class="user-action-time">edited <a href="http://stackoverflow.com/posts/873235/revisions" title="show all edits to this post"><span title="2009-05-16 23:22:02Z" class="relativetime">May 16 '09 at 23:22</span></a></div><div class="user-gravatar32"></div><div class="user-details"><br></div></div>    </td>
+    <td class="post-signature owner">
+    <div class="user-info user-hover"><div class="user-action-time">asked <span title="2009-05-16 20:31:09Z" class="relativetime">May 16 '09 at 20:31</span></div><div class="user-gravatar32"><a href="http://stackoverflow.com/users/96740/cpjolicoeur"><div class=""><img src="cf8a610127d1108dfe67f673320b5fe5" alt=""></div></a></div><div class="user-details"><a href="http://stackoverflow.com/users/96740/cpjolicoeur">cpjolicoeur</a><br><span class="reputation-score" title="reputation score" dir="ltr">1,982</span><span title="10 silver badges"><span class="badge2"></span><span class="badgecount">10</span></span><span title="22 bronze badges"><span class="badge3"></span><span class="badgecount">22</span></span></div></div>
+        <br class="cbt">
+        <div class="accept-rate cool" title="this user has accepted an answer for 24 of 33 eligible questions">73% accept rate</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>    </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-873235" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+    
+    <div style="color: rgb(136, 136, 136);" class="was-this-helpful">
+        feedback
+    </div>
+    
+</td>
+</tr>    </tbody></table>    
+</div>
+
+
+
+<div id="answers">
+
+    <a name="tab-top"></a>
+    <div id="answers-header">
+        <div class="subheader answers-subheader">
+            <h2>4 Answers</h2>
+            <div id="tabs">
+                <a href="http://stackoverflow.com/questions/873235/nginx-not-setting-expires-headers-on-rails-static-assets?answertab=active#tab-top" title="Answers with the latest activity first">active</a>
+<a href="http://stackoverflow.com/questions/873235/nginx-not-setting-expires-headers-on-rails-static-assets?answertab=oldest#tab-top" title="Answers in the order they were provided">oldest</a>
+<a class="youarehere" href="http://stackoverflow.com/questions/873235/nginx-not-setting-expires-headers-on-rails-static-assets?answertab=votes#tab-top" title="Answers with the highest score first">votes</a>
+
+            </div>
+        </div>    
+    </div>    
+
+
+  
+    <a name="3570956"></a>
+    <div id="answer-3570956" class="answer">
+        <table>
+        <tbody><tr>
+        <td class="votecell">
+            
+<div class="vote">
+    <input value="3570956" type="hidden">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post">5</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+
+</div>
+
+        </td>
+
+
+<td class="answercell">
+    <div class="post-text"><p>Just wanted to point out that making the timestamp optional is a bad idea – if it's not included, then setting <code>expires max</code> is wrong as there would be no way of refreshing the file.</p>
+
+<p>Also, the <code>location</code> directive in Nginx can't see the query string, so the solution posted here never matches the 'optional' timestamp.</p>
+
+<p>A proper solution (ie one that sends the maximum expires only when the file was requested with a timestamp) would be:</p>
+
+<pre class="default prettyprint"><code><span class="pln">location </span><span class="pun">~*</span><span class="pln"> </span><span class="pun">\.(</span><span class="pln">js</span><span class="pun">|</span><span class="pln">css</span><span class="pun">|</span><span class="pln">png</span><span class="pun">|</span><span class="pln">jpg</span><span class="pun">)</span><span class="pln">$ </span><span class="pun">{</span><span class="pln"><br>&nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$query_string </span><span class="pun">~</span><span class="pln"> </span><span class="str">"^[0-9]+$"</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; expires max</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">break</span><span class="pun">;</span><span class="pln"><br>&nbsp; </span><span class="pun">}</span><span class="pln"><br></span><span class="pun">}</span><span class="pln"><br></span></code></pre>
+
+<p>If the timestamp is not specified, then you rely on <code>Last-Modified</code> and <code>ETag</code>, which are handled automatically by Nginx.</p>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+        <div class="post-menu"><a href="http://stackoverflow.com/a/3570956" title="short permalink to this answer" id="link-post-3570956">link</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/3570956/edit">improve this answer</a></div>
+    </td>
+            
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info"><div class="user-action-time">answered <span title="2010-08-25 23:15:18Z" class="relativetime">Aug 25 '10 at 23:15</span></div><div class="user-gravatar32"><a href="http://stackoverflow.com/users/174445/djanowski"><div class=""><img src="ffd012d72e7f61639724878825ed25a3" alt=""></div></a></div><div class="user-details"><a href="http://stackoverflow.com/users/174445/djanowski">djanowski</a><br><span class="reputation-score" title="reputation score" dir="ltr">145</span><span title="1 silver badge"><span class="badge2"></span><span class="badgecount">1</span></span><span title="4 bronze badges"><span class="badge3"></span><span class="badgecount">4</span></span></div></div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-3570956" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+    
+    <div style="color: rgb(136, 136, 136);" class="was-this-helpful">
+        feedback
+    </div>
+    
+</td>
+</tr>    </tbody></table>
+</div>
+
+    <div class="everyonelovesstackoverflow" id="adzerk3">
+    </div>
+
+    
+  
+    <a name="889589"></a>
+    <div id="answer-889589" class="answer">
+        <table>
+        <tbody><tr>
+        <td class="votecell">
+            
+<div class="vote">
+    <input value="889589" type="hidden">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post">2</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+<span class="vote-accepted-on" title="The question owner accepted this as the best answer May 20 '09 at 18:52">accepted</span>
+</div>
+
+        </td>
+
+
+<td class="answercell">
+    <div class="post-text"><p>So I ended up finding the solution.  My regexp was a bit off, as I wasn't taking into account the possibility that the ?timestamp didn't exist.  </p>
+
+<p>This regexp worked for me.</p>
+
+<pre class="default prettyprint"><code><span class="pln">location </span><span class="pun">~*</span><span class="pln"> </span><span class="pun">\.(</span><span class="pln">ico</span><span class="pun">|</span><span class="pln">css</span><span class="pun">|</span><span class="pln">js</span><span class="pun">|</span><span class="pln">gif</span><span class="pun">|</span><span class="pln">jp</span><span class="pun">?</span><span class="pln">g</span><span class="pun">|</span><span class="pln">png</span><span class="pun">)(\?[</span><span class="lit">0</span><span class="pun">-</span><span class="lit">9</span><span class="pun">]+)?</span><span class="pln">$ </span><span class="pun">{</span><span class="pln"><br></span></code></pre>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+        <div class="post-menu"><a href="http://stackoverflow.com/a/889589" title="short permalink to this answer" id="link-post-889589">link</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/889589/edit">improve this answer</a></div>
+    </td>
+            
+
+    <td class="post-signature owner" align="right">   
+       
+
+    <div class="user-info user-hover"><div class="user-action-time">answered <span title="2009-05-20 18:51:55Z" class="relativetime">May 20 '09 at 18:51</span></div><div class="user-gravatar32"><a href="http://stackoverflow.com/users/96740/cpjolicoeur"><div class=""><img src="cf8a610127d1108dfe67f673320b5fe5" alt=""></div></a></div><div class="user-details"><a href="http://stackoverflow.com/users/96740/cpjolicoeur">cpjolicoeur</a><br><span class="reputation-score" title="reputation score" dir="ltr">1,982</span><span title="10 silver badges"><span class="badge2"></span><span class="badgecount">10</span></span><span title="22 bronze badges"><span class="badge3"></span><span class="badgecount">22</span></span></div></div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-889589" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-5985618" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">This is misleading. location will not match the query parameter, so in reality this matches /all/ image, css, js assets in the list, regardless of the cache busting query parameter. This is undesirable for many people.</span> –&nbsp;<a href="http://stackoverflow.com/users/366254/raggi" title="398 reputation" class="comment-user">raggi</a> <span class="comment-date" dir="ltr"><span title="2011-03-15 02:33:46Z">Mar 15 at 2:33</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+    
+    <div style="color: rgb(136, 136, 136);" class="was-this-helpful">
+        feedback
+    </div>
+    
+</td>
+</tr>    </tbody></table>
+</div>
+
+  
+    <a name="873292"></a>
+    <div id="answer-873292" class="answer">
+        <table>
+        <tbody><tr>
+        <td class="votecell">
+            
+<div class="vote">
+    <input value="873292" type="hidden">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post">0</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+
+</div>
+
+        </td>
+
+
+<td class="answercell">
+    <div class="post-text"><p>Maybe this will help:</p>
+
+<pre class="default prettyprint"><code><span class="pln">location </span><span class="pun">~*</span><span class="pln"> </span><span class="pun">^.*\.(</span><span class="pln">ico</span><span class="pun">|</span><span class="pln">css</span><span class="pun">|</span><span class="pln">js</span><span class="pun">|</span><span class="pln">gif</span><span class="pun">|</span><span class="pln">jp</span><span class="pun">?</span><span class="pln">g</span><span class="pun">|</span><span class="pln">png</span><span class="pun">)\?[</span><span class="lit">0</span><span class="pun">-</span><span class="lit">9</span><span class="pun">]+</span><span class="pln">$ </span><span class="pun">{</span><span class="pln"><br></span></code></pre>
+
+<p>Also read <a href="http://wiki.nginx.org/NginxHttpCoreModule#location" rel="nofollow">how Nginx evaluates location</a>. Are you sure you don't have any other  string <code>location</code> in your config file that matches your static resources before your regexp <code>location</code> does?</p>
+
+<p>BTW, consider using <a href="http://wiki.nginx.org/NginxHttpCoreModule#try%5Ffiles" rel="nofollow">try_files</a> instead of <code>if (-f $document_root/...)</code>.</p>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+        <div class="post-menu"><a href="http://stackoverflow.com/a/873292" title="short permalink to this answer" id="link-post-873292">link</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/873292/edit">improve this answer</a></div>
+    </td>
+            
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info"><div class="user-action-time">answered <span title="2009-05-16 20:52:12Z" class="relativetime">May 16 '09 at 20:52</span></div><div class="user-gravatar32"><a href="http://stackoverflow.com/users/105634/jasiu"><div class=""><img src="ab2425ae0425be8faaf052cce737b243" alt=""></div></a></div><div class="user-details"><a href="http://stackoverflow.com/users/105634/jasiu">Jasiu</a><br><span class="reputation-score" title="reputation score" dir="ltr">892</span><span title="3 silver badges"><span class="badge2"></span><span class="badgecount">3</span></span><span title="12 bronze badges"><span class="badge3"></span><span class="badgecount">12</span></span></div></div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-873292" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-680767" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">no, that is my current config file.  there are no other location directives.
+
+I'll try your regexp and see if it sets the headers.
+
+Also, I'm not sure why you recommend using try_files instead of the -f flag.  Why / how is try_files and improvement in this case?</span> –&nbsp;<a href="http://stackoverflow.com/users/96740/cpjolicoeur" title="1982 reputation" class="comment-user owner">cpjolicoeur</a> <span class="comment-date" dir="ltr"><span title="2009-05-16 21:17:18Z">May 16 '09 at 21:17</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-681534" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">I'm not really sure, but Igor (the author) always recommends using try_files when people ask about rewrites on Nginx mailing list. The "if (-f ...)" directive may be parsed slower, but I've never made any experiment to try that.</span> –&nbsp;<a href="http://stackoverflow.com/users/105634/jasiu" title="892 reputation" class="comment-user">Jasiu</a> <span class="comment-date" dir="ltr"><span title="2009-05-17 07:33:25Z">May 17 '09 at 7:33</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+    
+    <div class="was-this-helpful">
+        feedback
+    </div>
+    
+</td>
+</tr>    </tbody></table>
+</div>
+
+  
+    <a name="4342819"></a>
+    <div id="answer-4342819" class="answer">
+        <table>
+        <tbody><tr>
+        <td class="votecell">
+            
+<div class="vote">
+    <input value="4342819" type="hidden">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post">0</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+
+</div>
+
+        </td>
+
+
+<td class="answercell">
+    <div class="post-text"><p>there is no need to use "break" directive, but access_log off; will be useful:</p>
+
+<pre class="default prettyprint"><code><span class="pln">&nbsp; location </span><span class="pun">~*</span><span class="pln"> </span><span class="pun">\.(</span><span class="pln">png</span><span class="pun">|</span><span class="pln">gif</span><span class="pun">|</span><span class="pln">jpg</span><span class="pun">|</span><span class="pln">jpeg</span><span class="pun">|</span><span class="pln">css</span><span class="pun">|</span><span class="pln">js</span><span class="pun">|</span><span class="pln">swf</span><span class="pun">|</span><span class="pln">ico</span><span class="pun">)(\?[</span><span class="lit">0</span><span class="pun">-</span><span class="lit">9</span><span class="pun">]+)?</span><span class="pln">$ </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; access_log off</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; expires max</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; add_header </span><span class="typ">Cache</span><span class="pun">-</span><span class="typ">Control</span><span class="pln"> </span><span class="kwd">public</span><span class="pun">;</span><span class="pln"><br>&nbsp; </span><span class="pun">}</span><span class="pln"><br></span></code></pre>
+
+<p>you can see full config file at github: <a href="https://gist.github.com/711913" rel="nofollow">https://gist.github.com/711913</a></p>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+        <div class="post-menu"><a href="http://stackoverflow.com/a/4342819" title="short permalink to this answer" id="link-post-4342819">link</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/4342819/edit">improve this answer</a></div>
+    </td>
+            
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover"><div class="user-action-time">answered <span title="2010-12-03 05:43:19Z" class="relativetime">Dec 3 '10 at 5:43</span></div><div class="user-gravatar32"><a href="http://stackoverflow.com/users/290338/mikhailov"><div class=""><img src="cffe91a6cc6e6ce8213ed575821dadf7" alt=""></div></a></div><div class="user-details"><a href="http://stackoverflow.com/users/290338/mikhailov">mikhailov</a><br><span class="reputation-score" title="reputation score" dir="ltr">2,234</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="4 silver badges"><span class="badge2"></span><span class="badgecount">4</span></span><span title="17 bronze badges"><span class="badge3"></span><span class="badgecount">17</span></span></div></div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-4342819" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+    
+    <div class="was-this-helpful">
+        feedback
+    </div>
+    
+</td>
+</tr>    </tbody></table>
+</div>
+    <a name="new-answer"></a>
+    <form id="post-form" action="http://stackoverflow.com/questions/873235/answer/submit" method="post" class="post-form">
+        <h2 class="space">Your Answer</h2>
+       
+
+
+
+
+<div id="post-editor" class="post-editor">  
+
+    
+    <div class="wmd-container">
+        <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li style="left: 0px;" class="wmd-button" id="wmd-bold-button"><span style="background-position: 0px -20px;"></span></li><li style="left: 25px;" class="wmd-button" id="wmd-italic-button"><span style="background-position: -20px -20px;"></span></li><li style="left: 50px;" class="wmd-spacer" id="wmd-spacer1"><span style="background-position: -40px -20px;"></span></li><li style="left: 75px;" class="wmd-button" id="wmd-link-button"><span style="background-position: -40px -20px;"></span></li><li style="left: 100px;" class="wmd-button" id="wmd-quote-button"><span style="background-position: -60px -20px;"></span></li><li style="left: 125px;" class="wmd-button" id="wmd-code-button"><span style="background-position: -80px -20px;"></span></li><li style="left: 150px;" class="wmd-button" id="wmd-image-button"><span style="background-position: -100px -20px;"></span></li><li style="left: 175px;" class="wmd-spacer" id="wmd-spacer2"><span style="background-position: -120px -20px;"></span></li><li style="left: 200px;" class="wmd-button" id="wmd-olist-button"><span style="background-position: -120px -20px;"></span></li><li style="left: 225px;" class="wmd-button" id="wmd-ulist-button"><span style="background-position: -140px -20px;"></span></li><li style="left: 250px;" class="wmd-button" id="wmd-heading-button"><span style="background-position: -160px -20px;"></span></li><li style="left: 275px;" class="wmd-button" id="wmd-hr-button"><span style="background-position: -180px -20px;"></span></li><li style="left: 300px;" class="wmd-spacer" id="wmd-spacer3"><span style="background-position: -200px -20px;"></span></li><li style="left: 325px;" class="wmd-button" id="wmd-undo-button"><span style="background-position: -200px -20px;"></span></li><li style="left: 350px;" class="wmd-button" id="wmd-redo-button"><span style="background-position: -220px -20px;"></span></li></ul></div>
+        <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101"></textarea>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height: 24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height: 24px; display: none;">draft saved</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" value="f9704788d1ccbd609d76360bf75deec4" type="hidden">
+        <input value="" id="author" name="author" type="text">
+    </div>
+</div>   
+    <div class="form-item">
+        <table>
+        <tbody><tr>
+        <td class="vm open-id-login">
+            <a id="login-link" style="font-size: 200%; margin-left: 30px;" href="http://stackoverflow.com/users/login?returnurl=%2fquestions%2f873235%2fnginx-not-setting-expires-headers-on-rails-static-assets">log in</a>
+            
+        </td>
+
+    
+        <td class="orcell">
+            <div class="orword">or</div>
+            <div class="orline"></div>
+        </td>
+        <td class="vm">
+            <div>
+                <label for="display-name">Name</label>
+                <input id="display-name" name="display-name" size="30" maxlength="30" value="" tabindex="105" type="text">
+            </div>
+            <div>
+                <label for="m-address">Email</label>
+                <input id="m-address" name="m-address" size="40" maxlength="100" value="" tabindex="106" type="text">
+                <span class="edit-field-overlay">required, but never shown</span>
+            </div>
+            <div>
+                <label for="home-page">Home Page</label>
+                <input id="home-page" name="home-page" size="40" maxlength="200" value="" tabindex="107" type="text">
+            </div>
+        </td>
+    
+        </tr>
+        </tbody></table>
+    </div>
+               
+        <div class="form-submit cbt"><input id="submit-button" value="Post Your Answer" tabindex="110" type="submit"></div>
+    </form>
+
+
+        <h2 class="bottom-notice">
+                Not the answer you're looking for? 
+            Browse other questions tagged <a href="http://stackoverflow.com/questions/tagged/ruby-on-rails" class="post-tag" title="show questions tagged 'ruby-on-rails'" rel="tag">ruby-on-rails</a> <a href="http://stackoverflow.com/questions/tagged/nginx" class="post-tag" title="show questions tagged 'nginx'" rel="tag">nginx</a> <a href="http://stackoverflow.com/questions/tagged/expires" class="post-tag" title="show questions tagged 'expires'" rel="tag">expires</a> 
+                or <a href="http://stackoverflow.com/questions/ask">ask your own question</a>.
+        </h2>
+</div>
+</div>
+<div id="sidebar">
+
+
+
+    <div class="module newuser newuser-greeting" style="">
+        <h4>Hello World!</h4>
+        <div>
+            <p></p><p>This is a collaboratively edited question and answer site for <b>professional and enthusiast programmers</b>. It's 100% free, no registration required.</p><p></p>
+            <p class="ar"><a href="http://stackoverflow.com/about">about »</a>&nbsp;&nbsp;&nbsp;<a href="http://stackoverflow.com/faq">faq »</a>
+            </p>
+        </div>
+    </div>
+    <div class="module">
+        <p class="label-key">tagged</p>
+        <div class="tagged"><a href="http://stackoverflow.com/questions/tagged/ruby-on-rails" class="post-tag" title="show questions tagged 'ruby-on-rails'" rel="tag">ruby-on-rails</a>&nbsp;<span class="item-multiplier">×&nbsp;58939</span><br>
+<a href="http://stackoverflow.com/questions/tagged/nginx" class="post-tag" title="show questions tagged 'nginx'" rel="tag">nginx</a>&nbsp;<span class="item-multiplier">×&nbsp;1666</span><br>
+<a href="http://stackoverflow.com/questions/tagged/expires" class="post-tag" title="show questions tagged 'expires'" rel="tag">expires</a>&nbsp;<span class="item-multiplier">×&nbsp;113</span><br>
+</div>
+        <table id="qinfo">
+            <tbody><tr>
+                <td><p class="label-key">asked</p></td>
+                <td style="padding-left: 10px;"><p class="label-key" title="2009-05-16 20:31:09Z"><b>2 years ago</b></p></td>
+            </tr>
+            <tr>
+                <td><p class="label-key">viewed</p></td>
+
+                <td style="padding-left: 10px;"><p class="label-key"><b>3,965 times</b></p></td>
+            </tr>
+            <tr>
+                <td><p class="label-key">active</p></td>
+                <td style="padding-left: 10px;"><p class="label-key"><b><a href="http://stackoverflow.com/questions/873235/nginx-not-setting-expires-headers-on-rails-static-assets?lastactivity" class="lastactivity-link" title="2010-12-03 05:43:19Z">1 year ago</a></b></p></td>
+            </tr>
+        </tbody></table>
+    </div>
+    
+        
+    
+    <div class="everyonelovesstackoverflow" id="adzerk2">
+    </div>
+
+    
+    <div>
+        <div style="min-height: 220px; margin: 15px 0pt;" class="hireme"></div>
+    </div>
+
+      
+
+    <div class="module">
+    <h4 id="h-related">Related</h4>
+    <div class="related">
+    <div class="spacer">
+<a href="http://stackoverflow.com/questions/1258490/passenger-apache-cant-set-expire-headers-for-versioned-resources-rewrite-rule" class="question-hyperlink">Passenger/Apache: Can't set expire headers for versioned resources (rewrite rule not recognized)</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/1394171/rails-time-stamps-on-images-in-css" class="question-hyperlink">Rails time stamps on images in CSS</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/1737314/nginx-raises-404-when-using-format-js" class="question-hyperlink">Nginx raises 404 when using format =&gt; 'js'</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/2069341/iis-only-add-expires-headers-to-images" class="question-hyperlink">iis only Add Expires headers to images</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/2566633/caching-static-files-for-ruby-on-rails-application-using-nginx" class="question-hyperlink">caching static files for ruby on rails application using nginx</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/2649131/nginx-rule-to-serve-root" class="question-hyperlink">nginx rule to serve root</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/2961580/does-nginx-strip-custom-request-headers" class="question-hyperlink">Does nginx strip custom request headers?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/3509040/add-expires-header-in-rails" class="question-hyperlink">Add Expires Header in Rails</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/3748517/does-the-nginx-upstream-directive-have-a-port-setting" class="question-hyperlink">Does the nginx “upstream” directive have a port setting?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/3883696/rails-multisite-app-nginx-config" class="question-hyperlink">Rails MultiSite App + nginx config</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/4076626/maintenance-page-with-nginx-for-one-domain-name-among-others" class="question-hyperlink">Maintenance page with nginx for one domain_name among others</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/4112679/nginx-permissions-problem-when-caching-rails-assets" class="question-hyperlink">NGinX permissions problem when caching Rails assets</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/4553308/handling-expires-headers-in-asp-net-mvc" class="question-hyperlink">Handling Expires Headers in ASP.Net MVC</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/4762377/cache-control-headers-repeated-valid-or-not-nginx" class="question-hyperlink">Cache-Control headers repeated; valid or not? (Nginx)</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/5184342/struggling-with-location-blocks-in-nginx-config" class="question-hyperlink">Struggling with location blocks in nginx config</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/5395475/duplicate-content-type-headers-in-nginx-for-csv-files" class="question-hyperlink">Duplicate Content-Type headers in Nginx for CSV files</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/5639754/how-to-make-nginxproxy-cache-the-actual-content-instead-of-just-the-headers-wh" class="question-hyperlink">How to make nginx(proxy) cache the actual content instead of just the headers when a http 302/301 response is received by the proxy_pass server?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/5714475/expires-headers-get-request" class="question-hyperlink">Expires Headers &amp; GET request</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/6062810/expires-max-on-nginx" class="question-hyperlink">expires max on Nginx</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/6402278/serving-precompiled-assets-with-nginx" class="question-hyperlink">Serving precompiled assets with nginx</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/6757700/setting-up-awstats-on-nginx-and-passenger-based-rails-application" class="question-hyperlink">Setting up AWstats on Nginx and Passenger based Rails Application</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/7076780/nginx-conditional-expires-directive" class="question-hyperlink">Nginx: conditional “expires” directive</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/7246691/nginx-to-serve-a-static-file" class="question-hyperlink">Nginx to serve a static file</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/7760883/nginx-setting-a-default-file-extension" class="question-hyperlink">Nginx: Setting a default file extension</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/7995695/nginx-vhost-not-serving-static-files" class="question-hyperlink">nginx vhost not serving static files</a>
+</div>
+
+    </div>
+    </div>
+</div>
+
+<div id="feed-link">
+    <div id="feed-link-text"><a href="http://stackoverflow.com/feeds/question/873235" title="feed of this question and its answers"><span class="feed-icon"></span>question feed</a></div>
+</div>
+
+
+<div style="display: none;" id="prettify-lang">default</div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                <a href="http://stackoverflow.com/about">about</a> |
+                <a href="http://stackoverflow.com/faq">faq</a> |
+                <a href="http://blog.stackexchange.com/">blog</a> |
+                    <a href="http://chat.stackoverflow.com/">chat</a> |
+                <a href="http://data.stackexchange.com/">data</a> |
+                <a href="http://blog.stackoverflow.com/category/podcasts/">podcast</a> |
+                <a href="http://shop.stackexchange.com/">shop</a> |
+                <a href="http://stackexchange.com/legal">legal</a> |
+                <a href="http://engine.adzerk.net/redirect/0/2776/2751/0/4de3c60f719c4dfcb1a57531c7050090/0">advertising info</a> |
+
+                <a onclick="StackExchange.switchMobile('on', '/questions/873235/nginx-not-setting-expires-headers-on-rails-static-assets')">mobile</a> |
+
+                <b><a href="mailto:team@stackoverflow.com">contact us</a></b>
+                  | <b><a href="http://meta.stackoverflow.com/">feedback</a></b>
+                <div id="footer-sites">
+                    
+                        <span style="color: rgb(254, 122, 21); font-size: 140%;">■</span>&nbsp;<a href="http://stackoverflow.com/">stackoverflow.com</a>&nbsp; 
+                        <span style="color: rgb(254, 122, 21); font-size: 140%;">■</span>&nbsp;<a href="http://stackapps.com/">api/apps</a>&nbsp; 
+                        <span style="color: rgb(254, 122, 21); font-size: 140%;">■</span>&nbsp;<a href="http://careers.stackoverflow.com/">careers</a>&nbsp; 
+                        <span style="color: rgb(232, 39, 44); font-size: 140%;">■</span>&nbsp;<a href="http://serverfault.com/">serverfault.com</a>&nbsp; 
+                        <span style="color: rgb(0, 175, 239); font-size: 140%;">■</span>&nbsp;<a href="http://superuser.com/">superuser.com</a>&nbsp; 
+                        <span style="color: rgb(150, 150, 150); font-size: 140%;">■</span>&nbsp;<a href="http://meta.stackoverflow.com/">meta</a>&nbsp; 
+                        <span style="color: rgb(70, 147, 125); font-size: 140%;">■</span>&nbsp;<a href="http://area51.stackexchange.com/">area&nbsp;51</a>&nbsp; 
+                        <span style="color: rgb(192, 208, 220); font-size: 140%;">■</span>&nbsp;<a href="http://webapps.stackexchange.com/">webapps</a>&nbsp; 
+                        <span style="color: rgb(0, 0, 0); font-size: 140%;">■</span>&nbsp;<a href="http://gaming.stackexchange.com/">gaming</a>&nbsp; 
+                        <span style="color: rgb(221, 72, 20); font-size: 140%;">■</span>&nbsp;<a href="http://askubuntu.com/">ubuntu</a>&nbsp; 
+                        <span style="color: rgb(156, 228, 254); font-size: 140%;">■</span>&nbsp;<a href="http://webmasters.stackexchange.com/">webmasters</a>&nbsp; 
+                        <span style="color: rgb(207, 77, 63); font-size: 140%;">■</span>&nbsp;<a href="http://cooking.stackexchange.com/">cooking</a>&nbsp; 
+                        <span style="color: rgb(244, 242, 141); font-size: 140%;">■</span>&nbsp;<a href="http://gamedev.stackexchange.com/">game development</a>&nbsp; 
+                        <span style="color: rgb(15, 53, 89); font-size: 140%;">■</span>&nbsp;<a href="http://math.stackexchange.com/">math</a>&nbsp; 
+                        <span style="color: rgb(242, 242, 242); font-size: 140%;">■</span>&nbsp;<a href="http://photo.stackexchange.com/">photography</a>&nbsp; 
+                        <span style="color: rgb(3, 113, 135); font-size: 140%;">■</span>&nbsp;<a href="http://stats.stackexchange.com/">stats</a>&nbsp; 
+                        <span style="color: rgb(241, 231, 204); font-size: 140%;">■</span>&nbsp;<a href="http://tex.stackexchange.com/">tex</a>&nbsp; 
+                        <span style="color: rgb(225, 205, 174); font-size: 140%;">■</span>&nbsp;<a href="http://english.stackexchange.com/">english</a>&nbsp; 
+                        <span style="color: rgb(162, 217, 246); font-size: 140%;">■</span>&nbsp;<a href="http://cstheory.stackexchange.com/">theoretical cs</a>&nbsp; 
+                        <span style="color: rgb(27, 62, 108); font-size: 140%;">■</span>&nbsp;<a href="http://programmers.stackexchange.com/">programmers</a>&nbsp; 
+                        <span style="color: rgb(41, 58, 93); font-size: 140%;">■</span>&nbsp;<a href="http://unix.stackexchange.com/">unix</a>&nbsp;
+                        <span style="color: rgb(190, 192, 203); font-size: 140%;">■</span>&nbsp;<a href="http://apple.stackexchange.com/">apple</a>&nbsp;
+                        <span style="color: rgb(147, 145, 133); font-size: 140%;">■</span>&nbsp;<a href="http://wordpress.stackexchange.com/">wordpress</a>&nbsp;
+                        <span style="color: rgb(181, 205, 164); font-size: 140%;">■</span>&nbsp;<a href="http://physics.stackexchange.com/">physics</a>&nbsp;
+                        <span style="color: rgb(65, 118, 171); font-size: 140%;">■</span>&nbsp;<a href="http://diy.stackexchange.com/">home&nbsp;improvement</a>&nbsp;
+                        <span style="color: rgb(209, 216, 215); font-size: 140%;">■</span>&nbsp;<a href="http://gis.stackexchange.com/">gis</a>&nbsp;
+                        <span style="color: rgb(229, 226, 211); font-size: 140%;">■</span>&nbsp;<a href="http://electronics.stackexchange.com/">electronics</a>&nbsp;
+                        <span style="color: rgb(164, 198, 57); font-size: 140%;">■</span>&nbsp;<a href="http://android.stackexchange.com/">android</a>&nbsp;
+                        <span style="color: rgb(46, 78, 96); font-size: 140%;">■</span>&nbsp;<a href="http://security.stackexchange.com/">security</a>&nbsp;
+                        <span style="color: rgb(69, 188, 181); font-size: 140%;">■</span>&nbsp;<a href="http://bicycles.stackexchange.com/">bicycles</a>&nbsp;
+                        <span style="color: rgb(0, 173, 238); font-size: 140%;">■</span>&nbsp;<a href="http://dba.stackexchange.com/">dba</a>&nbsp;
+                        <span style="color: rgb(46, 218, 240); font-size: 140%;">■</span>&nbsp;<a href="http://drupal.stackexchange.com/">drupal</a>&nbsp;
+                        <span style="color: rgb(33, 57, 81); font-size: 140%;">■</span>&nbsp;<a href="http://sharepoint.stackexchange.com/">sharepoint</a>&nbsp;
+                        <span style="color: rgb(115, 171, 179); font-size: 140%;">■</span>&nbsp;<a href="http://scifi.stackexchange.com/">scifi &amp; fantasy</a>&nbsp;
+                </div>
+            </div>
+            <div id="footer-flair">
+                <a class="peer1" href="http://www.peer1.com/stackoverflow"></a>  
+	            <a href="http://creativecommons.org/licenses/by-sa/3.0/" class="cc-wiki-link"></a>
+                <div id="svnrev">rev 2011.12.28.159</div>
+            </div>
+            <div id="copyright">
+                site design / logo © 2011 stack exchange inc; 
+                user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc-wiki</a> with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            
+
+        </div>
+    </div>
+    
+    
+    
+    
+    
+    
+
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "Wingdings";}
+p.MsoNormal, li.MsoNormal, div.MsoNormal { margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: "Times New Roman"; }
+h1 { margin: 12pt 0in 3pt; page-break-after: avoid; font-size: 16pt; font-family: Arial; }
+h2 { margin: 12pt 0in 3pt; page-break-after: avoid; font-size: 14pt; font-family: Arial; font-style: italic; }
+h3 { margin: 12pt 0in 3pt; page-break-after: avoid; font-size: 13pt; font-family: Arial; }
+p.MsoToc1, li.MsoToc1, div.MsoToc1 { margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: "Times New Roman"; }
+p.MsoToc2, li.MsoToc2, div.MsoToc2 { margin: 0in 0in 0.0001pt 12pt; font-size: 12pt; font-family: "Times New Roman"; }
+a:link, span.MsoHyperlink { color: blue; text-decoration: underline; }
+a:visited, span.MsoHyperlinkFollowed { color: purple; text-decoration: underline; }
+div.Section1 { page: Section1; }
+ul { margin-bottom: 0in; }

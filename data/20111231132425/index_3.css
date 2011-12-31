@@ -1,0 +1,22 @@
+/* ::::: http://flattr.com/_static/styles/button.css ::::: */
+
+.flattr-button-iframe * { outline: 0pt none; margin: 0pt; padding: 0pt; }
+.flattr-button-iframe body { background: none repeat scroll 0% 0% transparent; }
+.flattr-button-iframe .flattr-button, .flattr-button-iframe .flattr-dummy-button { position: absolute; top: 0pt; bottom: 0pt; left: 0pt; right: 0pt; min-width: 55px; min-height: 62px; width: auto; height: auto; }
+.flattr-button, .flattr-dummy-button { font: 14px 'Helvetica',sans-serif; position: relative; width: 55px; height: 62px; }
+.flattr-button a, .flattr-dummy-button a { text-decoration: none; }
+.flattr-button span, .flattr-dummy-button span { display: block; }
+.flattr-button .share, .flattr-button .flattr-count, .flattr-dummy-button .share, .flattr-dummy-button .flattr-count { position: absolute; z-index: 10; left: 0pt; bottom: 32.258%; }
+.flattr-button .share > span, .flattr-button .flattr-count, .flattr-dummy-button .share > span, .flattr-dummy-button .flattr-count { border: 1px solid rgb(217, 217, 217); margin-bottom: 6px; text-align: center; border-radius: 3px 3px 3px 3px; background: -moz-linear-gradient(rgb(255, 255, 255), rgb(237, 237, 237)) repeat scroll 0% 0% transparent; color: rgb(125, 125, 125); }
+.flattr-button .share > span:before, .flattr-button .share > span:after, .flattr-button .flattr-count:before, .flattr-button .flattr-count:after, .flattr-dummy-button .share > span:before, .flattr-dummy-button .share > span:after, .flattr-dummy-button .flattr-count:before, .flattr-dummy-button .flattr-count:after { position: absolute; left: 50%; top: 100%; width: 0pt; height: 0pt; content: ""; display: block; border-width: 5px; border-style: solid; border-right: 5px solid transparent; border-color: rgb(217, 217, 217) transparent transparent; -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; -moz-border-image: none; margin-left: -5px; z-index: 1000; }
+.flattr-button .share > span:after, .flattr-button .flattr-count:after, .flattr-dummy-button .share > span:after, .flattr-dummy-button .flattr-count:after { margin-left: -4px; border-width: 4px; border-top-color: rgb(237, 237, 237); z-index: 1001; }
+.flattr-button .flattr-count, .flattr-dummy-button .flattr-count { right: 2px; box-shadow: 1px 2px 1px -1px rgba(0, 0, 0, 0.1); top: 0pt; }
+.flattr-button .flattr-count span, .flattr-dummy-button .flattr-count span { position: absolute; width: 100%; height: 12px; top: 50%; margin-top: -6px; line-height: 1; }
+.flattr-button a .flattr-count:hover, .flattr-dummy-button a .flattr-count:hover { background: -moz-linear-gradient(rgb(255, 253, 235), rgb(237, 235, 218)) repeat scroll 0% 0% transparent; border-color: rgb(217, 215, 199); color: rgb(125, 124, 115); }
+.flattr-button a .flattr-count:hover:before, .flattr-dummy-button a .flattr-count:hover:before { border-top-color: rgb(222, 220, 204); }
+.flattr-button a .flattr-count:hover:after, .flattr-dummy-button a .flattr-count:hover:after { border-top-color: rgb(237, 235, 218); }
+.flattr-button .flattr span, .flattr-dummy-button .flattr span { text-decoration: none; position: absolute; z-index: 20; bottom: 2px; top: 67.742%; left: 0pt; right: 2px; border: 1px solid rgb(126, 163, 82); background: -moz-linear-gradient(rgb(146, 189, 94), rgb(136, 176, 88)) repeat scroll 0% 0% transparent; border-radius: 3px 3px 3px 3px; box-shadow: 1px 2px 0pt -1px rgba(255, 255, 255, 0.21) inset, 1px 2px 1px -1px rgba(0, 0, 0, 0.1); }
+.flattr-button .flattr span.flattr-link:before, .flattr-button .flattr span:after, .flattr-dummy-button .flattr span.flattr-link:before, .flattr-dummy-button .flattr span:after { position: absolute; content: ""; display: block; background: none no-repeat scroll 0pt 0pt transparent; top: 50%; left: 50%; height: 14px; margin-top: -7px; }
+.flattr-button .flattr span.flattr-link:before, .flattr-dummy-button .flattr span.flattr-link:before { background-image: url('undefined'); left: 4px; width: 10px; height: 10px; margin-top: -5px; }
+.flattr-button .flattr span.flattr-link:after, .flattr-dummy-button .flattr span.flattr-link:after { background-image: url('undefined'); margin-left: -5px; width: 26px; }
+.flattr-button a.flattr span:hover, .flattr-dummy-button a.flattr span:hover { background: -moz-linear-gradient(rgb(245, 148, 37), rgb(232, 140, 35)) repeat scroll 0% 0% transparent; border-color: rgb(219, 132, 33); }

@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+   <title> [Vimperator] Display bookmark folders in vimperator and	scrapbook integration script?
+   </title>
+   <link rel="Index" href="http://www.mozdev.org/pipermail/vimperator/2008-November/index.html">
+   <link rel="made" href="mailto:vimperator%40mozdev.org?Subject=Re%3A%20%5BVimperator%5D%20Display%20bookmark%20folders%20in%20vimperator%20and%0A%09scrapbook%20integration%20script%3F&amp;In-Reply-To=%3Cd5baa8100811120237r20782f02s9f7cb66dd7c0265f%40mail.gmail.com%3E">
+   <meta name="robots" content="index,nofollow">
+   
+   <link rel="Previous" href="http://www.mozdev.org/pipermail/vimperator/2008-November/002722.html">
+   <link rel="Next" href="http://www.mozdev.org/pipermail/vimperator/2008-November/002740.html">
+ </head>
+<body __flashresizer_elements="0" bgcolor="#ffffff">
+   <h1>[Vimperator] Display bookmark folders in vimperator and	scrapbook integration script?</h1>
+<!--htdig_noindex-->
+    <b>ruud grosmann</b> 
+    <a href="mailto:vimperator%40mozdev.org?Subject=Re%3A%20%5BVimperator%5D%20Display%20bookmark%20folders%20in%20vimperator%20and%0A%09scrapbook%20integration%20script%3F&amp;In-Reply-To=%3Cd5baa8100811120237r20782f02s9f7cb66dd7c0265f%40mail.gmail.com%3E" title="[Vimperator] Display bookmark folders in vimperator and	scrapbook integration script?">r.grosmann at gmail.com
+       </a><br>
+    <i>Wed Nov 12 02:37:41 PST 2008</i>
+    <p></p><ul>
+        <li>Previous message: <a href="http://www.mozdev.org/pipermail/vimperator/2008-November/002722.html">[Vimperator] Display bookmark folders in vimperator and	scrapbook integration script?
+</a></li>
+        <li>Next message: <a href="http://www.mozdev.org/pipermail/vimperator/2008-November/002740.html">[Vimperator] Display bookmark folders in vimperator and	scrapbook integration script?
+</a></li>
+         <li> <b>Messages sorted by:</b> 
+              <a href="http://www.mozdev.org/pipermail/vimperator/2008-November/date.html#2725">[ date ]</a>
+              <a href="http://www.mozdev.org/pipermail/vimperator/2008-November/thread.html#2725">[ thread ]</a>
+              <a href="http://www.mozdev.org/pipermail/vimperator/2008-November/subject.html#2725">[ subject ]</a>
+              <a href="http://www.mozdev.org/pipermail/vimperator/2008-November/author.html#2725">[ author ]</a>
+         </li>
+       </ul>
+    <hr>  
+<!--/htdig_noindex-->
+<!--beginarticle-->
+<pre>idebar Bookmarks
+&gt;<i>
+</i>&gt;&gt;<i> 2) Is there a script to integrate ScrapBook into vimperator.
+</i>&gt;<i>
+</i>&gt;<i> Haven't heard of one. But you can always make one. ;)
+</i>&gt;<i>
+</i>&gt;<i> --
+</i>&gt;<i> Daniel
+</i>&gt;<i> _______________________________________________
+</i>&gt;<i> Vimperator mailing list
+</i>&gt;<i> <a href="https://www.mozdev.org/mailman/listinfo/vimperator">Vimperator at mozdev.org</a>
+</i>&gt;<i> <a href="https://www.mozdev.org/mailman/listinfo/vimperator">https://www.mozdev.org/mailman/listinfo/vimperator</a>
+</i>&gt;<i>
+</i>
+I have made a simple one. Maybe you can use it as a starting point.
+
+commands.addUserCommand(['sbcap'],"capture with scrapbook",
+    function(){
+   sbBrowserOverlay.execCapture(0, null, false, 'urn:scrapbook:root');
+    },
+    {
+    }
+);
+
+commands.addUserCommand(['sbbmark'],"bookmark with scrapbook",
+    function(){
+    sbBrowserOverlay.bookmark();
+    },
+    {
+    }
+);
+
+
+regards, Ruud
+</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--endarticle-->
+<!--htdig_noindex-->
+    <hr>
+    <p></p><ul>
+        <!--threads-->
+	<li>Previous message: <a href="http://www.mozdev.org/pipermail/vimperator/2008-November/002722.html">[Vimperator] Display bookmark folders in vimperator and	scrapbook integration script?
+</a></li>
+	<li>Next message: <a href="http://www.mozdev.org/pipermail/vimperator/2008-November/002740.html">[Vimperator] Display bookmark folders in vimperator and	scrapbook integration script?
+</a></li>
+         <li> <b>Messages sorted by:</b> 
+              <a href="http://www.mozdev.org/pipermail/vimperator/2008-November/date.html#2725">[ date ]</a>
+              <a href="http://www.mozdev.org/pipermail/vimperator/2008-November/thread.html#2725">[ thread ]</a>
+              <a href="http://www.mozdev.org/pipermail/vimperator/2008-November/subject.html#2725">[ subject ]</a>
+              <a href="http://www.mozdev.org/pipermail/vimperator/2008-November/author.html#2725">[ author ]</a>
+         </li>
+       </ul>
+
+<hr>
+<a href="https://www.mozdev.org/mailman/listinfo/vimperator">More information about the Vimperator
+mailing list</a><br>
+<!--/htdig_noindex-->
+
+</body>
+</html>

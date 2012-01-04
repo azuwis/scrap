@@ -525,6 +525,7 @@
     <RDF:li RDF:resource="urn:scrapbook:item20111011025119"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111011135350"/>
     <RDF:li RDF:resource="urn:scrapbook:item20111009164221"/>
+    <RDF:li RDF:resource="urn:scrapbook:item20120104122531"/>
   </RDF:Seq>
   <RDF:Seq RDF:about="urn:scrapbook:item20111228144050">
     <RDF:li RDF:resource="urn:scrapbook:item20111228144101"/>
@@ -615,6 +616,17 @@
                    NS1:icon=""
                    NS1:source=""
                    NS1:comment="" />
+  <RDF:Seq RDF:about="urn:scrapbook:item20120104122531">
+    <RDF:li RDF:resource="urn:scrapbook:item20120104122528"/>
+  </RDF:Seq>
+  <RDF:Description RDF:about="urn:scrapbook:item20120104122531"
+                   NS1:id="20120104122531"
+                   NS1:type="folder"
+                   NS1:title="dactyl"
+                   NS1:chars=""
+                   NS1:icon=""
+                   NS1:source=""
+                   NS1:comment="" />
   <RDF:Seq RDF:about="urn:scrapbook:item20111013172803">
     <RDF:li RDF:resource="urn:scrapbook:item20111013172824"/>
   </RDF:Seq>
@@ -658,6 +670,14 @@
                    NS1:comment=""
                    NS1:source="http://www.noah.org/wiki/Git_notes"
                    NS1:icon="resource://scrapbook/data/20111128133251/favicon.ico" />
+  <RDF:Description RDF:about="urn:scrapbook:item20120104122528"
+                   NS1:id="20120104122528"
+                   NS1:type=""
+                   NS1:title="[Vimperator] Display bookmark folders in vimperator and scrapbook integration script?"
+                   NS1:chars="UTF-8"
+                   NS1:comment=""
+                   NS1:source="http://www.mozdev.org/pipermail/vimperator/2008-November/002725.html"
+                   NS1:icon="resource://scrapbook/data/20120104122528/favicon.ico" />
   <RDF:Description RDF:about="urn:scrapbook:item20111128092908"
                    NS1:id="20111128092908"
                    NS1:type=""

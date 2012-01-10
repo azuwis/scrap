@@ -1,0 +1,113 @@
+/* ::::: http://blog.quilitz.de/wp-content/themes/cleanr/style.css ::::: */
+
+/* ::::: http://blog.quilitz.de/wp-content/themes/cleanr/css/reset.css ::::: */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0pt; padding: 0pt; border: 0pt none; outline: 0pt none; font-size: 100%; vertical-align: baseline; background: none repeat scroll 0% 0% transparent; }
+body { line-height: 1; }
+ol, ul { list-style: none outside none; }
+:focus { outline: 0pt none; }
+/* ::::: http://blog.quilitz.de/wp-content/themes/cleanr/css/text.css ::::: */
+
+body { font: 13px/1.5 Helvetica,Arial,'Liberation Sans',FreeSans,sans-serif; }
+a:focus {  }
+hr { border-right: 0pt solid rgb(204, 204, 204); border-width: 1px 0pt 0pt; border-style: solid; border-color: rgb(204, 204, 204); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; -moz-border-image: none; clear: both; height: 0pt; }
+h1 { font-size: 25px; }
+h2 { font-size: 23px; }
+h3 { font-size: 21px; }
+ol { list-style: decimal outside none; }
+ul { list-style: square outside none; }
+li { margin-left: 30px; }
+p, dl, hr, h1, h2, h3, h4, h5, h6, ol, ul, pre, table, address, fieldset { margin-bottom: 10px; }
+/* ::::: http://blog.quilitz.de/wp-content/themes/cleanr/css/960.css ::::: */
+
+.container_12, .container_16 { margin-left: auto; margin-right: auto; width: 960px; }
+.grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6, .grid_7, .grid_8, .grid_9, .grid_10, .grid_11, .grid_12, .grid_13, .grid_14, .grid_15, .grid_16 { display: inline; float: left; margin-left: 10px; margin-right: 10px; }
+.container_12 .grid_12, .container_16 .grid_16 { width: 940px; }
+.container_16 .grid_5 { width: 280px; }
+.container_16 .grid_11 { width: 640px; }
+.clear { clear: both; display: block; overflow: hidden; visibility: hidden; width: 0pt; height: 0pt; }
+.clearfix:after { clear: both; content: "."; display: block; visibility: hidden; height: 0pt; }
+.clearfix { display: inline-block; }
+.clearfix { display: block; }
+pre { font-family: 'Courier New',Courier,Monospace,Fixed; overflow: auto; -moz-background-inline-policy: continuous; background: none repeat scroll 0pt 0pt rgb(241, 245, 246); border: 1px dashed rgb(176, 190, 199); margin: 5px 0pt; padding: 8px 10px; }
+#sidebar .textwidget { font-size: 12px; }
+body { font-size: 14px; font-family: Georgia; }
+h1, h2, h3, h4 { letter-spacing: -1px; }
+h1, h2, h3, h4, #nav, small, .postmetadata, .small { font-family: Helvetica,Arial; }
+h2 { margin: 0pt 0pt 20px; padding: 0pt; color: rgb(102, 102, 102); }
+a { color: rgb(153, 153, 153); text-decoration: none; border-bottom: 1px solid rgb(238, 238, 238); }
+a:hover { color: rgb(0, 0, 0); border-bottom: 1px solid rgb(204, 204, 204); }
+h2 a:hover, #header h1 a:hover { color: rgb(204, 0, 0); border: medium none; }
+small { font-size: 10px; color: rgb(204, 204, 204); padding: 10px 8px 5px 0px; float: left; text-transform: uppercase; font-weight: bold; }
+p { color: rgb(85, 85, 85); }
+hr { margin: 0pt; clear: both; }
+#header h1 { font-size: 30px; padding: 0pt; margin: 25px 0pt; float: left; }
+#header h1 a { color: rgb(0, 0, 0); text-decoration: none; border: medium none; }
+#header span { font: italic 13px Georgia; color: rgb(170, 170, 170); margin-left: 20px; position: relative; top: -7px; letter-spacing: 0pt; }
+#nav { list-style: none outside none; padding-top: 45px; margin: 0pt; float: right; }
+#nav li { float: left; margin: 0px 0px 0px 10px; padding: 0px 15px 0px 0px; position: relative; font-size: 14px; line-height: 1.8; }
+#nav li:last-child { padding: 0pt; }
+#nav li a { text-transform: uppercase; font-weight: bold; color: rgb(0, 0, 0); border: medium none; text-decoration: none; float: left; }
+#nav li a:hover { color: rgb(204, 0, 0); }
+#nav li span { width: 12px; height: 20px; background: url('arrow-down.gif') no-repeat scroll left 7px transparent; margin: 0pt; padding: 0pt; position: absolute; right: 0pt; top: 0pt; }
+#nav ul { display: none; }
+#nav li span.child { width: 12px; height: 20px; background: url('arrow-right.gif') no-repeat scroll left 10px transparent; margin: 0pt; padding: 0pt; position: absolute; right: 0pt; top: 0pt; }
+#nav li a.rss { background: url('rss_feed.png') no-repeat scroll right 0px transparent; padding: 0px 30px 0px 0pt; }
+#nav li a.rss:hover { background: url('rss_feed.png') no-repeat scroll right -24px transparent; padding: 0px 30px 0px 0pt; }
+#nav ul { display: none; list-style: none outside none; margin: 0pt; padding: 0pt; position: absolute; left: 0pt; top: 25px; width: 160px; border-right: 1px solid rgb(204, 204, 204); border-width: medium 1px 1px; border-style: none solid solid; border-color: -moz-use-text-color rgb(204, 204, 204) rgb(204, 204, 204); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; -moz-border-image: none; background: none repeat scroll 0% 0% rgb(255, 255, 255); }
+#nav ul li { margin: 0pt; padding: 0pt; display: block; width: 160px; border-top: 1px solid rgb(204, 204, 204); }
+#nav ul li a { display: inline-block; width: 100%; padding: 2px 10px; text-transform: none; }
+#nav ul ul { left: 100%; top: 0pt; }
+#nav li:hover > ul { display: block; }
+#nav .pagenav, #nav .categories { text-transform: uppercase; font-weight: bold; }
+#content { margin-bottom: 10px; padding-bottom: 10px; }
+#content .post { padding-top: 30px; clear: both; }
+#content { padding-right: 50px; text-align: justify; border-right: 1px solid rgb(204, 204, 204); }
+#sidebar { font-size: 16px; }
+#sidebar ul { list-style: none outside none; }
+#sidebar ul li ul li { margin: 0pt; }
+#sidebar, h2.pagetitle { padding-top: 40px; }
+#sidebar h2 { color: rgb(102, 102, 102); margin: 0pt 0pt 6px; padding: 0pt; }
+.post h2 { font-size: 24px; text-align: left; color: rgb(0, 0, 0); margin-top: 4px; }
+.postmetadata { font-size: 12px; color: rgb(187, 187, 187); height: 1%; }
+.postmetadata small { font-size: 12px; color: rgb(170, 170, 170); font-weight: normal; padding: 10px 0pt; margin: 20px 0pt; border-top: 1px solid rgb(238, 238, 238); text-transform: none; }
+#searchform { margin-bottom: 30px; padding: 0pt; }
+#searchform #s { border: 1px solid rgb(221, 221, 221); border-radius: 5px 5px 5px 5px; padding: 5px; font: 14px Georgia; background: none repeat scroll 0% 0% rgb(250, 250, 250); width: 200px; }
+#searchbtn { vertical-align: bottom; padding: 0pt 0pt 5px 2px; }
+.alignleft { float: left; }
+.alignright { float: right; }
+.navigation, .comment-navigation { display: block; clear: both; }
+.comment-navigation { margin-top: 15px; padding-bottom: 5px; }
+ol.commentlist { list-style: none outside none; margin: 0pt; padding: 0pt; text-indent: 0pt; }
+ol.commentlist li { border: 1px solid rgb(221, 221, 221); border-radius: 5px 5px 5px 5px; height: 1%; margin: 0pt 0pt 10px; padding: 10px; position: relative; }
+ol.commentlist li.comment {  }
+ol.commentlist li div.comment-author { padding: 0pt 170px 0pt 0pt; }
+ol.commentlist li div.vcard {  }
+ol.commentlist li div.vcard cite.fn { font-style: italic; }
+ol.commentlist li div.commentmetadata {  }
+ol.commentlist li div.comment-meta { font: 12px Arial,Verdana; }
+ol.commentlist li div.comment-meta a { color: rgb(170, 170, 170); text-decoration: none; }
+ol.commentlist li div.comment-meta a:hover { color: rgb(0, 0, 0); }
+ol.commentlist li div.commentbody { margin-top: 1em; font-size: 14px; }
+ol.commentlist li p { margin: 0pt 0pt 1em; }
+ol.commentlist li div.reply { margin-bottom: 7px; }
+ol.commentlist li div.reply a:hover { background: none repeat scroll 0% 0% rgb(204, 51, 0); border: 1px solid rgb(204, 0, 0); }
+ol.commentlist li div.reply a { background: none repeat scroll 0% 0% rgb(153, 153, 153); border: 1px solid rgb(102, 102, 102); border-radius: 2px 2px 2px 2px; font: bold 9px/1 arial,sans-serif; padding: 5px 6px 4px; text-align: center; width: 36px; color: rgb(255, 255, 255); text-decoration: none; text-transform: uppercase; }
+ol.commentlist li.even { background: none repeat scroll 0% 0% rgb(255, 255, 255); }
+ol.commentlist li.thread-even {  }
+#commentform input { width: 170px; padding: 4px; border: 1px solid rgb(204, 204, 204); font-size: 14px; font-family: Georgia,Times; }
+#commentform { margin: 5px 10px 0pt 0pt; padding-bottom: 30px; }
+#commentform p label { width: 120px; display: block; float: left; }
+#commentform p { border-top: 1px solid rgb(238, 238, 238); padding: 10px 0pt; margin: 0pt; font-size: 14px; }
+#commentform textarea { width: 70%; border: 1px solid rgb(204, 204, 204); padding: 4px; font-family: Georgia,Times; }
+.cancel-comment-reply { display: none; }
+#commentform #submit { margin-left: 120px; border-radius: 5px 5px 5px 5px; border: 1px solid rgb(170, 170, 170); font-weight: bold; }
+#commentform small, #commentform #submit { color: rgb(51, 51, 51); text-transform: uppercase; font-family: arial; }
+#commentform small { font-size: 11px; font-weight: bold; }
+#respond h3 { padding-top: 20px; margin-bottom: 10px; }
+.widget { margin-bottom: 20px; }
+.categories ul.children { margin: 0pt 0pt 0pt 10px; }
+#sidebar ul li { color: rgb(102, 102, 102); }
+#footer p { text-align: center; font-size: 14px; font-style: italic; margin: 30px; }
+/* ::::: http://blog.quilitz.de/wp-content/plugins/wp-stats/stats-css.css?ver=2.50 ::::: */
+

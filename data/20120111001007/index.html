@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta charset="UTF-8">
+    <title>Git subtree notes and workflows | Code for Thought</title>
+    <meta name="google-site-verification" content="Vts4tfq98mwctD41fc9NU6h-cDDqou5fO3TYA5qiOxQ">
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+    
+<!-- 	 -->
+    <link rel="pingback" href="http://www.tipstank.com/xmlrpc.php">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="alternate" type="application/rss+xml" title="Code for Thought » Feed" href="http://www.tipstank.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Code for Thought » Comments Feed" href="http://www.tipstank.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Code for Thought » Git subtree notes and workflows Comments Feed" href="http://www.tipstank.com/2011/02/21/git-subtree-notes-and-workflows/feed/">
+
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.tipstank.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.tipstank.com/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Zend debugger bookmarklet" href="http://www.tipstank.com/2011/01/09/zend-debugger-bookmarklet/">
+<link rel="next" title="Yii functional test with screenshots" href="http://www.tipstank.com/2011/02/21/yii-functional-test-with-screenshots/">
+<meta name="generator" content="WordPress 3.3">
+<link rel="canonical" href="http://www.tipstank.com/2011/02/21/git-subtree-notes-and-workflows/">
+<link rel="shortlink" href="http://www.tipstank.com/?p=655">
+
+
+    <!-- Google Analytics START -->
+    
+    <!-- Google Analytics END -->
+
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body class="single single-post postid-655 single-format-standard">
+<div id="wrapper" class="hfeed">
+    <div id="header">
+        <div id="masthead">
+            <div id="branding">
+                                    <div id="site-title"><span><a href="http://www.tipstank.com/" title="Code for Thought" rel="home">Code for Thought</a></span></div>
+                                
+                <div id="site-description">I code flying cool stuff.</div>
+
+                                        <img src="thinktankwp.gif" alt="" height="198" width="940">
+                                </div><!-- #branding -->
+
+            <div id="access">
+                <div class="skip-link screen-reader-text"><a href="#content" title="Skip to content">Skip to content</a></div>
+                <div class="menu-header"><ul id="menu-menu1" class="menu"><li id="menu-item-6" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6"><a href="http://tipstank.com/">Home</a></li>
+<li id="menu-item-103" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-103"><a href="http://tipstank.com/tag/yii/">Yii Framework</a></li>
+<li id="menu-item-741" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-741"><a href="http://tipstank.com/tag/drupal/">Drupal</a></li>
+</ul></div>            </div><!-- #access -->
+        </div><!-- #masthead -->
+    </div><!-- #header -->
+
+    <div id="main">
+
+		<div id="container">
+			<div id="content">
+
+
+				<div id="nav-above" class="navigation">
+					<div class="nav-previous"><a href="http://www.tipstank.com/2011/01/09/zend-debugger-bookmarklet/" rel="prev"><span class="meta-nav">←</span> Zend debugger bookmarklet</a></div>
+					<div class="nav-next"><a href="http://www.tipstank.com/2011/02/21/yii-functional-test-with-screenshots/" rel="next">Yii functional test with screenshots <span class="meta-nav">→</span></a></div>
+				</div><!-- #nav-above -->
+
+				<div id="post-655" class="post-655 post type-post status-publish format-standard hentry category-version-control tag-git">
+					<h1 class="entry-title">Git subtree notes and workflows</h1>
+
+					<div class="entry-meta">
+						<span class="meta-prep meta-prep-author">Posted on </span>
+						<a href="http://www.tipstank.com/2011/02/21/git-subtree-notes-and-workflows/" title="10:06 am" rel="bookmark"><span class="entry-date">February 21, 2011</span></a>
+						<span class="meta-sep"> by </span>
+						<span class="author vcard"><a class="url fn n" href="http://www.tipstank.com/author/sumwai/" title="View all posts by sumwai">sumwai</a></span>
+					</div><!-- .entry-meta -->
+
+					<div class="entry-content">
+						<p>Having reach a brick wall after using <code>git submodule</code>, I’ve search all over intertube and found that <code>git subtree</code> by Avery Pennarun (Thanks!) might be the solution to my problem, so here are my notes after a day of experimenting with it.<br>
+<span id="more-655"></span></p>
+<h2>My git subtree workflows, scenarios, and usage</h2>
+<h3>Clone and install it</h3>
+
+<div class="wp_syntax"><div class="code"><pre class="bash" style="font-family: monospace;"><span style="color: rgb(194, 12, 185); font-weight: bold;">git</span> clone https:<span style="color: rgb(0, 0, 0); font-weight: bold;">//</span>github.com<span style="color: rgb(0, 0, 0); font-weight: bold;">/</span>apenwarr<span style="color: rgb(0, 0, 0); font-weight: bold;">/</span>git-subtree.git
+<span style="color: rgb(122, 8, 116); font-weight: bold;">cd</span> git-subtree
+<span style="color: rgb(194, 12, 185); font-weight: bold;">sudo</span> .<span style="color: rgb(0, 0, 0); font-weight: bold;">/</span>install.sh</pre></div></div>
+
+<h3>Migrating from git submodule to git subtree</h3>
+<ol>
+<li>Remove .gitmodules from the working tree root directory</li>
+<li>Remove the submodule directory</li>
+<li>Commit or throw away current changes on the working tree; make sure working tree has no modifications</li>
+<li>Squash, add files, commit to master
+
+<div class="wp_syntax"><div class="code"><pre class="bash" style="font-family: monospace;"><span style="color: rgb(194, 12, 185); font-weight: bold;">git</span> subtree add <span style="color: rgb(102, 0, 51);">--squash</span> <span style="color: rgb(102, 0, 51);">-P</span> protected<span style="color: rgb(0, 0, 0); font-weight: bold;">/</span>extensions<span style="color: rgb(0, 0, 0); font-weight: bold;">/</span>swiftyii 
+<span style="color: rgb(102, 0, 51);">-m</span> <span style="color: rgb(255, 0, 0);">"Add swiftyii extension"</span> <span style="color: rgb(194, 12, 185); font-weight: bold;">git</span>:<span style="color: rgb(0, 0, 0); font-weight: bold;">//</span>github.com<span style="color: rgb(0, 0, 0); font-weight: bold;">/</span>sumwai<span style="color: rgb(0, 0, 0); font-weight: bold;">/</span>swiftyii.git master</pre></div></div>
+
+</li>
+</ol>
+<h3>Making changes to the sub-module and submitting it to upstream</h3>
+<ol>
+<li>Make changes to the working tree, including the sub-module directory, commit changes.</li>
+<li>Push the changes
+
+<div class="wp_syntax"><div class="code"><pre class="bash" style="font-family: monospace;"><span style="color: rgb(194, 12, 185); font-weight: bold;">git</span> subtree push <span style="color: rgb(102, 0, 51);">-P</span> protected<span style="color: rgb(0, 0, 0); font-weight: bold;">/</span>modules<span style="color: rgb(0, 0, 0); font-weight: bold;">/</span>acc 
+<span style="color: rgb(194, 12, 185); font-weight: bold;">git</span>:<span style="color: rgb(0, 0, 0); font-weight: bold;">//</span>github.com<span style="color: rgb(0, 0, 0); font-weight: bold;">/</span>sumwai<span style="color: rgb(0, 0, 0); font-weight: bold;">/</span>acc.git master</pre></div></div>
+
+</li>
+</ol>
+<p>OR,</p>
+<ol>
+<li> Make changes to the working tree, including the sub-module directory</li>
+<li>Split/update sub-module branch
+
+<div class="wp_syntax"><div class="code"><pre class="bash" style="font-family: monospace;"><span style="color: rgb(194, 12, 185); font-weight: bold;">git</span> subtree <span style="color: rgb(194, 12, 185); font-weight: bold;">split</span> <span style="color: rgb(102, 0, 51);">-P</span> protected<span style="color: rgb(0, 0, 0); font-weight: bold;">/</span>modules<span style="color: rgb(0, 0, 0); font-weight: bold;">/</span>acc <span style="color: rgb(102, 0, 51);">-b</span> module-acc master</pre></div></div>
+
+</li>
+<li>Optionally inspect changes in module-acc branch
+
+<div class="wp_syntax"><div class="code"><pre class="bash" style="font-family: monospace;"><span style="color: rgb(194, 12, 185); font-weight: bold;">git</span> checkout module-acc</pre></div></div>
+
+</li>
+<li>Optionally remove unwanted commits
+
+<div class="wp_syntax"><div class="code"><pre class="bash" style="font-family: monospace;"><span style="color: rgb(194, 12, 185); font-weight: bold;">git</span> rebase <span style="color: rgb(102, 0, 51);">-i</span> e767ab8</pre></div></div>
+
+</li>
+<li>Push the changes
+
+<div class="wp_syntax"><div class="code"><pre class="bash" style="font-family: monospace;"><span style="color: rgb(194, 12, 185); font-weight: bold;">git</span> push <span style="color: rgb(194, 12, 185); font-weight: bold;">git</span>:<span style="color: rgb(0, 0, 0); font-weight: bold;">//</span>github.com<span style="color: rgb(0, 0, 0); font-weight: bold;">/</span>sumwai<span style="color: rgb(0, 0, 0); font-weight: bold;">/</span>acc.git module-acc:master</pre></div></div>
+
+</li>
+</ol>
+<p>To readers: Any idea on what is the best workflow to selectively push changes to the upstream and selectively pull changes to my working tree?</p>
+<h3>Pulling changes from upstream</h3>
+<ol>
+<li>Pull changes from upstream to working tree
+
+<div class="wp_syntax"><div class="code"><pre class="bash" style="font-family: monospace;"><span style="color: rgb(194, 12, 185); font-weight: bold;">git</span> subtree pull <span style="color: rgb(102, 0, 51);">--squash</span> <span style="color: rgb(102, 0, 51);">-P</span> protected<span style="color: rgb(0, 0, 0); font-weight: bold;">/</span>modules<span style="color: rgb(0, 0, 0); font-weight: bold;">/</span>acc 
+<span style="color: rgb(194, 12, 185); font-weight: bold;">git</span>:<span style="color: rgb(0, 0, 0); font-weight: bold;">//</span>github.com<span style="color: rgb(0, 0, 0); font-weight: bold;">/</span>sumwai<span style="color: rgb(0, 0, 0); font-weight: bold;">/</span>acc.git master</pre></div></div>
+
+</li>
+</ol>
+<p>OR,</p>
+<ol>
+<li>Pull changes from upstream to sub-module branch
+
+<div class="wp_syntax"><div class="code"><pre class="bash" style="font-family: monospace;"><span style="color: rgb(194, 12, 185); font-weight: bold;">git</span> checkout module-acc
+<span style="color: rgb(194, 12, 185); font-weight: bold;">git</span> pull <span style="color: rgb(194, 12, 185); font-weight: bold;">git</span>:<span style="color: rgb(0, 0, 0); font-weight: bold;">//</span>github.com<span style="color: rgb(0, 0, 0); font-weight: bold;">/</span>sumwai<span style="color: rgb(0, 0, 0); font-weight: bold;">/</span>acc.git master</pre></div></div>
+
+</li>
+<li>Merge sub-module from master
+
+<div class="wp_syntax"><div class="code"><pre class="bash" style="font-family: monospace;"><span style="color: rgb(194, 12, 185); font-weight: bold;">git</span> checkout master
+<span style="color: rgb(194, 12, 185); font-weight: bold;">git</span> subtree merge <span style="color: rgb(102, 0, 51);">-P</span> protected<span style="color: rgb(0, 0, 0); font-weight: bold;">/</span>modules<span style="color: rgb(0, 0, 0); font-weight: bold;">/</span>acc <span style="color: rgb(102, 0, 51);">--squash</span> 
+<span style="color: rgb(102, 0, 51);">-m</span> <span style="color: rgb(255, 0, 0);">"merge changes from acc"</span> module-acc</pre></div></div>
+
+</li>
+</ol>
+<h3>Note</h3>
+<ul>
+<li>To reduce repeated typing of repository uri, do
+
+<div class="wp_syntax"><div class="code"><pre class="bash" style="font-family: monospace;"><span style="color: rgb(194, 12, 185); font-weight: bold;">git</span> remote add acc <span style="color: rgb(194, 12, 185); font-weight: bold;">git</span>:<span style="color: rgb(0, 0, 0); font-weight: bold;">//</span>github.com<span style="color: rgb(0, 0, 0); font-weight: bold;">/</span>sumwai<span style="color: rgb(0, 0, 0); font-weight: bold;">/</span>acc.git</pre></div></div>
+
+</li>
+<li>Git subtree need to be executed from the root of your working tree</li>
+</ul>
+<h3>References</h3>
+<ul>
+<li>http://hobocentral.net/blog/2010/07/28/git-subtree/</li>
+<li>http://lists.ozlabs.org/pipermail/ccan/2010-October/000257.html</li>
+<li>https://github.com/apenwarr/git-subtree/blob/master/git-subtree.txt</li>
+<li>http://psionides.jogger.pl/2010/02/04/sharing-code-between-projects-with-git-subtree/</li>
+<li>http://www.betaful.com/2011/01/i-love-git-subtree/</li>
+</ul>
+<p>
+<ins style="display: inline-table; border: medium none; height: 60px; margin: 0pt; padding: 0pt; position: relative; visibility: visible; width: 468px;"><ins id="aswift_0_anchor" style="display: block; border: medium none; height: 60px; margin: 0pt; padding: 0pt; position: relative; visibility: visible; width: 468px;"><iframe src="index_1.html" allowtransparency="true" hspace="0" marginwidth="0" marginheight="0" vspace="0" id="aswift_0" name="aswift_0" style="left: 0pt; position: absolute; top: 0pt;" frameborder="0" height="60" scrolling="no" width="468"></iframe></ins></ins><br>
+Let me know if I there is any step I can improve on.</p>
+											</div><!-- .entry-content -->
+
+
+					<div class="entry-utility">
+					This entry was posted in <a href="http://www.tipstank.com/category/version-control/" title="View all posts in Version Control" rel="category tag">Version Control</a> and tagged <a href="http://www.tipstank.com/tag/git/" rel="tag">git</a>. Bookmark the <a href="http://www.tipstank.com/2011/02/21/git-subtree-notes-and-workflows/" title="Permalink to Git subtree notes and workflows" rel="bookmark">permalink</a>.
+					</div><!-- .entry-utility -->
+				</div><!-- #post-655 -->
+
+<div style="background: none repeat scroll 0% 0% lightyellow;"><h2 class="related_post_title">Post related to this (Generated)</h2><ul class="related_post"><li><a href="http://www.tipstank.com/2011/09/01/adding-users-to-gitolite/" title="Adding users to Gitolite">Adding users to Gitolite</a></li><li><a href="http://www.tipstank.com/2010/10/03/10-types-of-git-resources-references-tutorials-for-10-types-of-people/" title="10 types of Git resources, references, tutorials for 10 types of people">10 types of Git resources, references, tutorials for 10 types of people</a></li><li><a href="http://www.tipstank.com/2010/06/10/adding-yii-php-framework-project-into-git-repository/" title="Adding Yii PHP framework project into Git repository">Adding Yii PHP framework project into Git repository</a></li></ul></div>
+
+				<div id="nav-below" class="navigation">
+					<div class="nav-previous"><a href="http://www.tipstank.com/2011/01/09/zend-debugger-bookmarklet/" rel="prev"><span class="meta-nav">←</span> Zend debugger bookmarklet</a></div>
+					<div class="nav-next"><a href="http://www.tipstank.com/2011/02/21/yii-functional-test-with-screenshots/" rel="next">Yii functional test with screenshots <span class="meta-nav">→</span></a></div>
+				</div><!-- #nav-below -->
+				<br>
+<!-- START GOOGLE ADSENSE -->
+
+<ins style="display: inline-table; border: medium none; height: 90px; margin: 0pt; padding: 0pt; position: relative; visibility: visible; width: 180px;"><ins id="aswift_1_anchor" style="display: block; border: medium none; height: 90px; margin: 0pt; padding: 0pt; position: relative; visibility: visible; width: 180px;"><iframe src="index_3.html" allowtransparency="true" hspace="0" marginwidth="0" marginheight="0" vspace="0" id="aswift_1" name="aswift_1" style="left: 0pt; position: absolute; top: 0pt;" frameborder="0" height="90" scrolling="no" width="180"></iframe></ins></ins>
+<!-- END GOOGLE ADSENSE -->
+				
+			<div id="comments">
+
+
+			<h3 id="comments-title">
+One Response to <em>Git subtree notes and workflows</em>            </h3>
+
+
+			<ol class="commentlist">
+						<li class="comment even thread-even depth-1" id="li-comment-244">
+		<div id="comment-244">
+		<div class="comment-author vcard">
+			<img alt="" src="b94389c50b70d4ef8bda8663b7428fe1" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn"><a href="http://leho.kraav.com/" rel="external nofollow" class="url">Leho Kraav</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.tipstank.com/2011/02/21/git-subtree-notes-and-workflows/#comment-244">July 10, 2011 at 9:08 am</a></div>
+
+		<div class="comment-body"><p>Thanks for the writeup. Just wondering why References aren’t linkified?</p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://www.tipstank.com/2011/02/21/git-subtree-notes-and-workflows/?replytocom=244#respond" onclick='return addComment.moveForm("comment-244", "244", "respond", "655")'>Reply</a>		</div>
+	</div>
+
+	</li>
+			</ol>
+
+
+
+								<div id="respond">
+				<h3 id="reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://www.tipstank.com/2011/02/21/git-subtree-notes-and-workflows/#respond" style="display: none;">Cancel reply</a></small></h3>
+									<form action="http://www.tipstank.com/wp-comments-post.php" method="post" id="commentform">
+																			<p class="comment-notes">Your email address will not be published. Required fields are marked <span class="required">*</span></p>							<p class="comment-form-author"><label for="author">Name</label> <span class="required">*</span><input id="author" name="author" value="" size="30" aria-required="true" type="text"></p>
+<p class="comment-form-email"><label for="email">Email</label> <span class="required">*</span><input id="email" name="email" value="" size="30" aria-required="true" type="text"></p>
+<p class="comment-form-url"><label for="url">Website</label><input id="url" name="url" value="" size="30" type="text"></p>
+												<p class="comment-form-comment"><label for="comment">Comment</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>						<p class="form-allowed-tags">You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:  <code>&lt;a href="" title=""&gt; &lt;abbr title=""&gt; &lt;acronym title=""&gt; &lt;b&gt; &lt;blockquote cite=""&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=""&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=""&gt; &lt;strike&gt; &lt;strong&gt; &lt;pre lang="" line="" escaped="" highlight=""&gt; </code></p>						<p class="form-submit">
+							<input name="submit" id="submit" value="Post Comment" type="submit">
+							<input name="comment_post_ID" value="655" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+						</p>
+						<p style="display: none;"><input id="akismet_comment_nonce" name="akismet_comment_nonce" value="e044a75c2c" type="hidden"></p><!-- BEGIN: subscribe to comments reloaded --><p><label for="subscribe-reloaded"><input style="width: 30px;" name="subscribe-reloaded" id="subscribe-reloaded" value="yes" type="checkbox"> Notify me of followup comments via e-mail. You can also <a href="http://www.tipstank.com/comment-subscriptions?srp=655&amp;sra=s">subscribe</a> without commenting.</label></p><!-- END: subscribe to comments reloaded -->					</form>
+							</div><!-- #respond -->
+						
+</div><!-- #comments -->
+
+
+			</div><!-- #content -->
+		</div><!-- #container -->
+
+
+		<div id="primary" class="widget-area">
+			<ul class="xoxo">
+<li id="text-9" class="widget-container widget_text">			<div class="textwidget"><p><a href="http://feeds.feedburner.com/TipsTank"><img src="tipstank" style="border: 0pt none;" alt="" height="26" width="88"></a></p></div>
+		</li><li id="text-4" class="widget-container widget_text"><h3 class="widget-title">About</h3>			<div class="textwidget"><img src="f2fede0f656775eff1a5b30a9a15e468" style="float: right; border: 1px solid black; margin: 5px;">Hi, I am Sumwai, an Information Technologist based in Malaysia.<br>This is where I share earth shattering programming tips, you should subscribe to my blog now. Yes, dooo it.</div>
+		</li><li id="text-8" class="widget-container widget_text"><h3 class="widget-title">Contact Me</h3>			<div class="textwidget"><div style="text-align: center;">
+<img src="contact_email.png" alt="Sum-Wai Low">
+</div></div>
+		</li><li id="text-10" class="widget-container widget_text"><h3 class="widget-title">What I am working on</h3>			<div class="textwidget"><a href="http://probudgetwebdesign.com/" title="Professional Budget Website Design Services in Malaysia" onclick="_gaq.push(['_trackEvent', 'Banner', 'click','probudgetwebdesign']);"><img title="Professional Budget Website Design Services in Malaysia" alt="Professional Budget Website Design Services in Malaysia" src="logo.png" width="220"></a></div>
+		</li><li id="recent-comments-2" class="widget-container widget_recent_comments"><h3 class="widget-title">Recent Comments</h3><ul id="recentcomments"><li class="recentcomments">ABCDE on <a href="http://www.tipstank.com/2010/06/04/virtualbox-full-screen-second-monitor/#comment-454">Using Virtualbox 3.2.2 in full screen on second monitor</a></li><li class="recentcomments">Bill on <a href="http://www.tipstank.com/2010/09/17/customizing-yii-forms-built-with-form-builder/#comment-453">Customizing yii forms built with form builder</a></li><li class="recentcomments">Ariel on <a href="http://www.tipstank.com/2010/05/23/solve-eclipse-black-pop-up-code-assist-box-in-ubuntu-10-4-lucid/#comment-451">Solve Eclipse black pop-up code assist box in Ubuntu 10.4 Lucid</a></li><li class="recentcomments">Andrei on <a href="http://www.tipstank.com/2010/05/23/solve-eclipse-black-pop-up-code-assist-box-in-ubuntu-10-4-lucid/#comment-450">Solve Eclipse black pop-up code assist box in Ubuntu 10.4 Lucid</a></li><li class="recentcomments">sajjad on <a href="http://www.tipstank.com/2010/08/24/yii-radio-button-list-example-or-how-to-remove-the-line-break-separator/#comment-449">Yii radio button list example, or how to remove the line break separator</a></li></ul></li><li id="tag_cloud-2" class="widget-container widget_tag_cloud"><h3 class="widget-title">Tags</h3><div class="tagcloud"><a href="http://www.tipstank.com/tag/auth/" class="tag-link-19" title="1 topic" style="font-size: 8pt;">auth</a>
+<a href="http://www.tipstank.com/tag/closure/" class="tag-link-20" title="3 topics" style="font-size: 11.0657pt;">closure</a>
+<a href="http://www.tipstank.com/tag/controller/" class="tag-link-21" title="4 topics" style="font-size: 12.0876pt;">controller</a>
+<a href="http://www.tipstank.com/tag/cpanel/" class="tag-link-22" title="1 topic" style="font-size: 8pt;">cpanel</a>
+<a href="http://www.tipstank.com/tag/database-2/" class="tag-link-23" title="2 topics" style="font-size: 9.83942pt;">database</a>
+<a href="http://www.tipstank.com/tag/debug/" class="tag-link-24" title="5 topics" style="font-size: 12.9051pt;">debug</a>
+<a href="http://www.tipstank.com/tag/django/" class="tag-link-25" title="1 topic" style="font-size: 8pt;">django</a>
+<a href="http://www.tipstank.com/tag/drupal/" class="tag-link-26" title="4 topics" style="font-size: 12.0876pt;">Drupal</a>
+<a href="http://www.tipstank.com/tag/eclipse/" class="tag-link-27" title="3 topics" style="font-size: 11.0657pt;">eclipse</a>
+<a href="http://www.tipstank.com/tag/form/" class="tag-link-28" title="7 topics" style="font-size: 14.1314pt;">form</a>
+<a href="http://www.tipstank.com/tag/functional-test/" class="tag-link-29" title="1 topic" style="font-size: 8pt;">functional test</a>
+<a href="http://www.tipstank.com/tag/git/" class="tag-link-30" title="4 topics" style="font-size: 12.0876pt;">git</a>
+<a href="http://www.tipstank.com/tag/gitolite/" class="tag-link-58" title="1 topic" style="font-size: 8pt;">gitolite</a>
+<a href="http://www.tipstank.com/tag/gmail/" class="tag-link-31" title="1 topic" style="font-size: 8pt;">gmail</a>
+<a href="http://www.tipstank.com/tag/haml/" class="tag-link-32" title="1 topic" style="font-size: 8pt;">haml</a>
+<a href="http://www.tipstank.com/tag/jedit/" class="tag-link-33" title="2 topics" style="font-size: 9.83942pt;">jEdit</a>
+<a href="http://www.tipstank.com/tag/jquery/" class="tag-link-34" title="1 topic" style="font-size: 8pt;">jQuery</a>
+<a href="http://www.tipstank.com/tag/json/" class="tag-link-35" title="1 topic" style="font-size: 8pt;">json</a>
+<a href="http://www.tipstank.com/tag/model/" class="tag-link-36" title="5 topics" style="font-size: 12.9051pt;">model</a>
+<a href="http://www.tipstank.com/tag/moodle/" class="tag-link-59" title="1 topic" style="font-size: 8pt;">Moodle</a>
+<a href="http://www.tipstank.com/tag/mutt/" class="tag-link-37" title="1 topic" style="font-size: 8pt;">mutt</a>
+<a href="http://www.tipstank.com/tag/mysql/" class="tag-link-38" title="1 topic" style="font-size: 8pt;">MySQL</a>
+<a href="http://www.tipstank.com/tag/netbeans/" class="tag-link-39" title="2 topics" style="font-size: 9.83942pt;">Netbeans</a>
+<a href="http://www.tipstank.com/tag/nltk/" class="tag-link-40" title="1 topic" style="font-size: 8pt;">nltk</a>
+<a href="http://www.tipstank.com/tag/openwrt/" class="tag-link-57" title="6 topics" style="font-size: 13.6204pt;">OpenWrt</a>
+<a href="http://www.tipstank.com/tag/pencil/" class="tag-link-41" title="1 topic" style="font-size: 8pt;">pencil</a>
+<a href="http://www.tipstank.com/tag/rbac/" class="tag-link-42" title="1 topic" style="font-size: 8pt;">rbac</a>
+<a href="http://www.tipstank.com/tag/render/" class="tag-link-43" title="6 topics" style="font-size: 13.6204pt;">render</a>
+<a href="http://www.tipstank.com/tag/review/" class="tag-link-44" title="5 topics" style="font-size: 12.9051pt;">review</a>
+<a href="http://www.tipstank.com/tag/rsync/" class="tag-link-45" title="1 topic" style="font-size: 8pt;">rsync</a>
+<a href="http://www.tipstank.com/tag/selenium/" class="tag-link-46" title="2 topics" style="font-size: 9.83942pt;">Selenium</a>
+<a href="http://www.tipstank.com/tag/sendmail/" class="tag-link-47" title="1 topic" style="font-size: 8pt;">sendmail</a>
+<a href="http://www.tipstank.com/tag/setup/" class="tag-link-48" title="1 topic" style="font-size: 8pt;">setup</a>
+<a href="http://www.tipstank.com/tag/shell/" class="tag-link-49" title="1 topic" style="font-size: 8pt;">shell</a>
+<a href="http://www.tipstank.com/tag/ubuntu/" class="tag-link-50" title="2 topics" style="font-size: 9.83942pt;">ubuntu</a>
+<a href="http://www.tipstank.com/tag/unit-test/" class="tag-link-51" title="1 topic" style="font-size: 8pt;">unit test</a>
+<a href="http://www.tipstank.com/tag/virtualbox/" class="tag-link-52" title="1 topic" style="font-size: 8pt;">virtualbox</a>
+<a href="http://www.tipstank.com/tag/yii/" class="tag-link-53" title="46 topics" style="font-size: 22pt;">yii</a></div>
+</li><li id="categories-2" class="widget-container widget_categories"><h3 class="widget-title">Categories</h3>		<ul>
+	<li class="cat-item cat-item-3"><a href="http://www.tipstank.com/category/cms/" title="View all posts filed under CMS">CMS</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="http://www.tipstank.com/category/database/" title="View all posts filed under Database">Database</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="http://www.tipstank.com/category/editor/" title="View all posts filed under Editor">Editor</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="http://www.tipstank.com/category/google/" title="View all posts filed under Google">Google</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="http://www.tipstank.com/category/ide/" title="View all posts filed under IDE">IDE</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="http://www.tipstank.com/category/java/" title="View all posts filed under Java">Java</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="http://www.tipstank.com/category/javascript/" title="View all posts filed under JavaScript">JavaScript</a>
+</li>
+	<li class="cat-item cat-item-10"><a href="http://www.tipstank.com/category/linux/" title="View all posts filed under Linux">Linux</a>
+</li>
+	<li class="cat-item cat-item-11"><a href="http://www.tipstank.com/category/nlp/" title="View all posts filed under NLP">NLP</a>
+</li>
+	<li class="cat-item cat-item-56"><a href="http://www.tipstank.com/category/os/" title="View all posts filed under OS">OS</a>
+</li>
+	<li class="cat-item cat-item-12"><a href="http://www.tipstank.com/category/php/" title="View all posts filed under PHP">PHP</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="http://www.tipstank.com/category/prototype/" title="View all posts filed under Prototype">Prototype</a>
+</li>
+	<li class="cat-item cat-item-14"><a href="http://www.tipstank.com/category/python/" title="View all posts filed under Python">Python</a>
+</li>
+	<li class="cat-item cat-item-15"><a href="http://www.tipstank.com/category/scala/" title="View all posts filed under Scala">Scala</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://www.tipstank.com/category/uncategorized/" title="View all posts filed under Uncategorized">Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-16"><a href="http://www.tipstank.com/category/version-control/" title="View all posts filed under Version Control">Version Control</a>
+</li>
+	<li class="cat-item cat-item-17"><a href="http://www.tipstank.com/category/virtualization/" title="View all posts filed under Virtualization">Virtualization</a>
+</li>
+	<li class="cat-item cat-item-18"><a href="http://www.tipstank.com/category/wordpress/" title="View all posts filed under WordPress">WordPress</a>
+</li>
+		</ul>
+</li><li id="text-5" class="widget-container widget_text"><h3 class="widget-title">Good to know</h3>			<div class="textwidget">
+<ins style="display: inline-table; border: medium none; height: 90px; margin: 0pt; padding: 0pt; position: relative; visibility: visible; width: 120px;"><ins id="aswift_2_anchor" style="display: block; border: medium none; height: 90px; margin: 0pt; padding: 0pt; position: relative; visibility: visible; width: 120px;"><iframe src="index_5.html" allowtransparency="true" hspace="0" marginwidth="0" marginheight="0" vspace="0" id="aswift_2" name="aswift_2" style="left: 0pt; position: absolute; top: 0pt;" frameborder="0" height="90" scrolling="no" width="120"></iframe></ins></ins></div>
+		</li>			</ul>
+		</div><!-- #primary .widget-area -->
+
+
+	</div><!-- #main -->
+
+	<div id="footer">
+		<div id="colophon">
+
+
+			<div id="footer-widget-area">
+					<div id="first" class="widget-area">
+						<ul class="xoxo">
+									<li id="recent-posts-3" class="widget-container widget_recent_entries">		<h3 class="widget-title">Fresh from my oven.</h3>		<ul>
+				<li><a href="http://www.tipstank.com/2011/12/12/moodle-e-book-and-print-book/" title="Moodle E-Book and Print Book">Moodle E-Book and Print Book</a></li>
+				<li><a href="http://www.tipstank.com/2011/10/13/embed-view-in-your-code-in-drupal-7/" title="Embed view in your code in Drupal 7">Embed view in your code in Drupal 7</a></li>
+				<li><a href="http://www.tipstank.com/2011/10/02/yii-1-1-application-development-cookbook-review/" title="Yii 1.1 Application Development Cookbook Review">Yii 1.1 Application Development Cookbook Review</a></li>
+				<li><a href="http://www.tipstank.com/2011/09/09/yii-1-1-application-development-cookbook-book-preview/" title="Yii 1.1 Application Development Cookbook book preview">Yii 1.1 Application Development Cookbook book preview</a></li>
+				<li><a href="http://www.tipstank.com/2011/09/01/adding-users-to-gitolite/" title="Adding users to Gitolite">Adding users to Gitolite</a></li>
+				</ul>
+		</li><li id="text-7" class="widget-container widget_text"><h3 class="widget-title">To succeed in life, we have to take one step further.</h3>			<div class="textwidget">
+<ins style="display: inline-table; border: medium none; height: 90px; margin: 0pt; padding: 0pt; position: relative; visibility: visible; width: 728px;"><ins id="aswift_3_anchor" style="display: block; border: medium none; height: 90px; margin: 0pt; padding: 0pt; position: relative; visibility: visible; width: 728px;"><iframe src="index_7.html" allowtransparency="true" hspace="0" marginwidth="0" marginheight="0" vspace="0" id="aswift_3" name="aswift_3" style="left: 0pt; position: absolute; top: 0pt;" frameborder="0" height="90" scrolling="no" width="728"></iframe></ins></ins></div>
+		</li>						</ul>
+					</div><!-- #first .widget-area -->
+
+
+
+
+			</div><!-- #footer-widget-area -->
+
+			<div id="site-info">
+				<a href="http://www.tipstank.com/" title="Code for Thought" rel="home">Code for Thought</a>
+			</div>
+
+			<div id="site-generator">
+								<a href="http://wordpress.org/" title="Semantic Personal Publishing Platform" rel="generator">Proudly powered by WordPress.</a>
+			</div>
+
+		</div><!-- #colophon -->
+	</div><!-- #footer -->
+
+</div><!-- #wrapper -->
+
+
+
+
+
+
+
+
+<div style="position: fixed; right: 0pt; top: 0pt; height: 100%; width: 10px; z-index: 999999; background: none repeat scroll 0% 0% rgb(238, 238, 238);" id="__searchMarkerContainer"></div></body>
+</html>

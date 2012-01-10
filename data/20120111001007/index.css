@@ -1,0 +1,135 @@
+/* ::::: http://www.tipstank.com/wp-content/themes/twentyten_tipstank/style.css ::::: */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0pt; padding: 0pt; border: 0pt none; vertical-align: baseline; background: none repeat scroll 0% 0% transparent; }
+body { line-height: 1; }
+h1, h2, h3, h4, h5, h6 { font-weight: normal; clear: both; }
+ol, ul { list-style: none outside none; }
+a img { border: medium none; }
+#container { float: left; margin: 0pt -240px 0pt 0pt; width: 100%; }
+#content { margin: 0pt 280px 0pt 20px; }
+#primary, #secondary { float: right; overflow: hidden; width: 220px; }
+#footer { clear: both; width: 100%; }
+body, input, textarea, .page-title span, .pingback a.url { font-family: Georgia,"Bitstream Charter",serif; }
+h3#comments-title, h3#reply-title, #access .menu, #access div.menu ul, #cancel-comment-reply-link, .form-allowed-tags, #site-info, #site-title, #wp-calendar, .comment-meta, .comment-body tr th, .comment-body thead th, .entry-content label, .entry-content tr th, .entry-content thead th, .entry-meta, .entry-title, .entry-utility, #respond label, .navigation, .page-title, .pingback p, .reply, .widget_search label, .widget-title, input[type="submit"] { font-family: "Helvetica Neue",Arial,Helvetica,"Nimbus Sans L",sans-serif; }
+pre { font-family: "Courier 10 Pitch",Courier,monospace; }
+code { font-family: Monaco,Consolas,"Andale Mono","DejaVu Sans Mono",monospace; }
+#access .menu-header, div.menu, #colophon, #branding, #main, #wrapper { margin: 0pt auto; width: 940px; }
+#wrapper { background: none repeat scroll 0% 0% rgb(255, 255, 255); padding: 0pt 20px; }
+#footer-widget-area { overflow: hidden; }
+#footer-widget-area .widget-area { float: left; margin-right: 20px; width: 220px; }
+#site-info { float: left; width: 700px; font-weight: bold; font-size: 14px; }
+#site-generator { float: right; width: 220px; }
+body { background: none repeat scroll 0% 0% rgb(241, 241, 241); }
+body, input, textarea { color: rgb(102, 102, 102); font-size: 12px; line-height: 18px; }
+p { margin-bottom: 18px; }
+ul { list-style: square outside none; margin: 0pt 0pt 18px 1.5em; }
+ol { list-style: decimal outside none; margin: 0pt 0pt 18px 1.5em; }
+ul ul, ol ol, ul ol, ol ul { margin-bottom: 0pt; }
+cite, em, i { font-style: italic; }
+ins { background: none repeat scroll 0% 0% rgb(255, 255, 204); }
+pre { background: none repeat scroll 0% 0% rgb(247, 247, 247); color: rgb(34, 34, 34); line-height: 18px; margin-bottom: 18px; padding: 1.5em; }
+abbr, acronym { border-bottom: 1px dotted rgb(102, 102, 102); cursor: help; }
+ins { text-decoration: none; }
+input[type="text"], textarea { padding: 2px; background: none repeat scroll 0% 0% rgb(249, 249, 249); border: 1px solid rgb(204, 204, 204); box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset; }
+a:link { color: rgb(0, 102, 204); }
+a:visited { color: rgb(116, 51, 153); }
+a:active, a:hover { color: rgb(255, 75, 51); }
+.screen-reader-text { position: absolute; left: -9000px; }
+#header { margin-top: 20px; padding: 30px 0pt 0pt; }
+#site-title { float: left; margin: 0pt 0pt 18px; width: 700px; font-size: 30px; line-height: 36px; }
+#site-title a { color: rgb(0, 0, 0); font-weight: bold; text-decoration: none; }
+#site-description { clear: right; float: right; font-style: italic; margin: 14px 0pt 18px; width: 220px; }
+#branding img { clear: both; border-top: 4px solid rgb(0, 0, 0); display: block; border-bottom: 1px solid rgb(0, 0, 0); }
+#access { background: none repeat scroll 0% 0% rgb(0, 0, 0); margin: 0pt auto; width: 940px; display: block; float: left; }
+#access .menu-header, div.menu { font-size: 13px; margin-left: 12px; }
+#access .menu-header ul, div.menu ul { list-style: none outside none; margin: 0pt; }
+#access .menu-header li, div.menu li { float: left; position: relative; }
+#access a { display: block; text-decoration: none; color: rgb(170, 170, 170); padding: 0pt 10px; line-height: 38px; }
+#access li:hover > a, #access ul ul :hover > a { color: rgb(255, 255, 255); background: none repeat scroll 0% 0% rgb(51, 51, 51); }
+#main { overflow: hidden; padding: 40px 0pt 0pt; }
+#content { margin-bottom: 36px; }
+#content, #content input, #content textarea { color: rgb(68, 68, 68); font-size: 16px; line-height: 24px; }
+#content p, #content ul, #content ol, #content dd, #content pre, #content hr { margin-bottom: 24px; }
+#content pre, #content kbd, #content tt, #content var { font-size: 12px; line-height: 14px; }
+#content code { font-size: 13px; }
+#content h1, #content h2, #content h3, #content h4, #content h5, #content h6 { color: rgb(0, 0, 0); margin: 0pt 0pt 20px; line-height: 1.5em; }
+.hentry { margin: 0pt 0pt 48px; }
+.single .hentry { margin: 0pt 0pt 36px; }
+.entry-title, .entry-meta { clear: left; float: left; margin-right: 68px; }
+#content .entry-title { color: rgb(0, 0, 0); font-size: 21px; font-weight: bold; margin-bottom: 0pt; }
+.entry-meta { color: rgb(136, 136, 136); font-size: 12px; }
+.entry-content, .entry-summary { clear: both; padding: 12px 0pt 0pt; }
+.entry-utility { color: rgb(136, 136, 136); font-size: 12px; line-height: 18px; clear: both; }
+.entry-meta a, .entry-utility a { color: rgb(136, 136, 136); }
+.entry-meta a:hover, .entry-utility a:hover { color: rgb(255, 75, 51); }
+#content img { margin: 0pt; max-width: 640px; }
+.navigation { font-size: 12px; line-height: 18px; overflow: hidden; color: rgb(136, 136, 136); }
+.navigation a:link, .navigation a:visited { color: rgb(136, 136, 136); text-decoration: none; }
+.navigation a:active, .navigation a:hover { color: rgb(255, 75, 51); }
+.nav-previous { float: left; width: 50%; }
+.nav-next { float: right; width: 50%; text-align: right; }
+#nav-above { margin: 0pt 0pt 18px; }
+#nav-above { display: none; }
+.paged #nav-above, .single #nav-above { display: block; }
+#nav-below { margin: -18px 0pt 0pt; }
+h3#comments-title, h3#reply-title { color: rgb(0, 0, 0); font-weight: bold; font-size: 20px; margin-bottom: 0pt; }
+h3#comments-title { padding: 24px 0pt; }
+.commentlist { list-style: none outside none; margin: 0pt; }
+.commentlist li.comment { border-bottom: 1px solid rgb(231, 231, 231); line-height: 24px; margin: 0pt 0pt 24px; padding: 0pt 0pt 0pt 56px; position: relative; }
+.commentlist li:last-child { border-bottom: medium none; margin-bottom: 0pt; }
+#comments .comment-body p:last-child { margin-bottom: 6px; }
+.commentlist .avatar { position: absolute; top: 4px; left: 0pt; }
+.comment-author {  }
+.comment-author cite { color: rgb(0, 0, 0); font-style: normal; font-weight: bold; }
+.comment-author .says { font-style: italic; }
+.comment-meta { font-size: 12px; margin: 0pt 0pt 18px; }
+.comment-meta a:link, .comment-meta a:visited { color: rgb(136, 136, 136); text-decoration: none; }
+.comment-meta a:active, .comment-meta a:hover { color: rgb(255, 75, 51); }
+.commentlist .even {  }
+.reply { font-size: 12px; padding: 0pt 0pt 24px; }
+.reply a, a.comment-edit-link { color: rgb(136, 136, 136); }
+.reply a:hover, a.comment-edit-link:hover { color: rgb(255, 75, 51); }
+input[type="submit"] { color: rgb(51, 51, 51); }
+#respond { margin-top: 24px; border-top: 1px solid rgb(231, 231, 231); overflow: hidden; position: relative; }
+#respond p { margin: 0pt; }
+#respond .comment-notes { margin-bottom: 1em; }
+.form-allowed-tags { line-height: 1em; }
+h3#reply-title { margin: 18px 0pt; }
+#cancel-comment-reply-link { font-size: 12px; line-height: 18px; font-weight: normal; }
+#respond .required { color: rgb(255, 75, 51); font-weight: bold; }
+#respond label { color: rgb(136, 136, 136); font-size: 12px; }
+#respond input { margin: 0pt 0pt 9px; width: 98%; }
+#respond textarea { width: 98%; }
+#respond .form-submit { margin: 0pt 0pt 24px; }
+#respond .form-submit input { width: auto; font-size: 14px; }
+.widget-area ul { list-style: none outside none; margin-left: 0pt; }
+.widget-area ul ul { list-style: square outside none; margin-left: 1.3em; }
+.widget-container { margin: 0pt 0pt 18px; }
+.widget-title { color: rgb(34, 34, 34); font-weight: bold; }
+.widget-area a:link, .widget-area a:visited { text-decoration: none; }
+.widget-area a:active, .widget-area a:hover { text-decoration: underline; }
+#main .widget-area ul { margin-left: 0pt; padding: 0pt 20px 0pt 0pt; }
+#main .widget-area ul ul { border: medium none; margin-left: 1.3em; padding: 0pt; }
+#primary {  }
+#footer-widget-area {  }
+#footer { margin-bottom: 20px; }
+#colophon { border-top: 4px solid rgb(0, 0, 0); margin-top: -4px; padding: 18px 0pt; overflow: hidden; }
+#site-info { font-weight: bold; }
+#site-info a { color: rgb(0, 0, 0); text-decoration: none; }
+#site-generator { position: relative; font-style: italic; }
+#site-generator a { color: rgb(102, 102, 102); display: inline-block; text-decoration: none; background: url('wordpress.png') no-repeat scroll left center transparent; padding-left: 19px; line-height: 16px; margin-left: 1px; }
+#site-generator a:hover { text-decoration: underline; }
+pre {  }
+code {  }
+#access, .entry-meta, .entry-utility, .widget_search label, .navigation, .widget-area {  }
+#site-description {  }
+ins { background: none repeat scroll 0% 0% rgb(255, 255, 204); }
+#footer-widget-area .widget-area { width: 100% ! important; }
+div.wp_syntax { border: 1px solid rgb(0, 0, 0) ! important; background: none repeat scroll 0% 0% rgb(240, 240, 240) ! important; }
+pre { background: none repeat scroll 0% 0% rgb(240, 240, 240) ! important; }
+/* ::::: http://www.tipstank.com/wp-content/plugins/wp-syntax/wp-syntax.css ::::: */
+
+.wp_syntax { color: rgb(17, 0, 0); background-color: rgb(249, 249, 249); border: 1px solid silver; margin: 0pt 0pt 1.5em; overflow: auto; }
+.wp_syntax { overflow-x: auto; overflow-y: hidden; width: 100%; }
+.wp_syntax div, .wp_syntax td { vertical-align: top; padding: 2px 4px; }
+.wp_syntax pre { margin: 0pt; width: auto; float: none; clear: none; overflow: visible; font-size: 12px; line-height: 1.333; white-space: pre; }

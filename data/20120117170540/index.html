@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<title>
+wincent.com:
+Uninstalling packages (.pkg files) on Mac OS X
+</title>
+
+
+
+
+
+
+
+
+<link rel="stylesheet" id="scrapbook-sticky-css" type="text/css" href="chrome://scrapbook/skin/annotation.css" media="all">
+
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body>
+<a id="top" name="top"></a>
+<div id="header">
+<div id="meta">
+<h1>
+<a href="https://wincent.com/" id="logo" title="Wincent front page">
+<img alt="Logo" src="logo-cda959244ed19f860b246aec19bcd96b.png">
+</a>
+<a href="https://wincent.com/">Wincent</a>
+</h1>
+</div>
+<ul id="navbar">
+<li>
+<a href="https://wincent.com/products">Products</a>
+<ul>
+<li>
+Desktop products
+<ul>
+<li><a href="https://wincent.com/products/synergy" title="Simple and effective iTunes controller">Synergy</a></li>
+<li><a href="http://wincent.com/a/products/synergy-advance/" title="The multipurpose audio companion">Synergy Advance</a></li>
+<li><a href="http://wincent.com/a/products/winswitch/" title="Enhanced replacement for Apple's Fast User Switching menu">WinSwitch</a></li>
+</ul>
+</li>
+<li>
+Developer products
+<ul>
+<li><a href="http://wincent.com/a/products/atosym/" title="Address-to-symbol conversion for the DWARF format">atosym</a></li>
+<li><a href="https://wincent.com/products/command-t" title="Fast file navigation for Vim">Command-T</a></li>
+<li><a href="http://wincent.com/a/products/hextrapolate/" title="Convenient number conversion tool">Hextrapolate</a></li>
+<li><a href="http://wincent.com/a/products/install/" title="Simple and powerful deployment solution">Install</a></li>
+<li><a href="https://wincent.com/products/walrus" title="Object-oriented templating system">Walrus</a></li>
+<li><a href="https://wincent.com/products/walrat" title="Ruby Packrat parser generator">Walrat</a></li>
+<li><a href="http://git.wincent.com/login-tool.git" title="Command-line management of login items">Wincent Login Tool</a></li>
+<li><a href="http://wincent.com/a/products/wincent-strings-util/" title="Localization tool">Wincent Strings Utility</a></li>
+<li><a href="http://git.wincent.com/WOPublic.git" title="BSD-licensed Objective-C source code">WOPublic</a></li>
+<li><a href="http://wincent.com/a/products/wotest/" title="Objective-C Unit Testing framework">WOTest</a></li>
+</ul>
+</li>
+<li>
+Server products
+<ul>
+<li><a href="http://wincent.com/a/products/bansshee/" title="Defense against SSH dictionary attacks">Bansshee</a></li>
+<li><a href="https://wincent.com/products/wikitext" title="Fast wikitext-to-HTML translator">Wikitext</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="https://wincent.com/blog">Blog</a>
+<ul>
+<li><a href="https://wincent.com/snippets">Snippets</a></li>
+<li><a href="https://wincent.com/twitter">Tweets</a></li>
+</ul>
+</li>
+<li class="selected"><a href="https://wincent.com/wiki">Wiki</a></li>
+<li><a href="https://wincent.com/forums">Forums</a></li>
+<li><a href="https://wincent.com/support">Support</a></li>
+<li>
+<a href="https://wincent.com/search" id="search-link">Search</a>
+<form accept-charset="UTF-8" action="https://wincent.com/search" id="search" method="get">
+<input value="" id="search_box" name="q" size="20" style="display: none;" type="text">
+</form>
+</li>
+<li id="login"><a href="https://wincent.com/login">log in</a></li>
+
+</ul>
+</div>
+<div id="header-shadow"></div>
+<div id="content">
+<div id="cacheable-flash"></div>
+<div id="breadcrumbs"><a href="https://wincent.com/">Home</a> » <a href="https://wincent.com/wiki">Wiki</a> » Uninstalling packages (.pkg files) on Mac OS X</div>
+<h1 class="major">Uninstalling packages (.pkg files) on Mac OS X</h1>
+<div class="when">
+<span title="Mon Oct 10 17:38:50 2011" class="relativized-date">10/10/2011</span>
+by
+<a href="mailto:win@wincent.com">Wincent Colaiuta</a>
+</div>
+
+<div class="article">
+<p>It used to be the case that you could install packages on Mac OS X by using <code>lsbom</code> to inspect the list of installed files recorded in the files under <code>/Library/Receipts</code>.</p>
+<p>In <a href="https://wincent.com/wiki/Snow_Leopard">Snow Leopard</a>, that location changed to <code>/private/var/db/receipts</code>.</p>
+<p>At some point — I'm not sure which — <a href="https://wincent.com/wiki/Apple">Apple</a> added an easier-to-use solution in the form of <code>pkgutil</code>.</p>
+<pre class="shell-syntax highlighted"><span class="line-number"></span><span class="constant-syntax">$ pkgutil --pkgs # list all installed packages</span>
+<span class="line-number"></span><span class="constant-syntax">$ pkgutil --files the-package-name.pkg # list installed files</span></pre>
+<p>After visually inspecting the list of files you can do something like:</p>
+<pre class="shell-syntax highlighted"><span class="line-number"></span><span class="constant-syntax">$ pkgutil --pkg-info the-package-name.pkg # check the location</span>
+<span class="line-number"></span><span class="constant-syntax">$ cd / # assuming the package is rooted at /...</span>
+<span class="line-number"></span><span class="constant-syntax">$ pkgutil --only-files --files the-package-name.pkg | tr '\n' '\0' | xargs -n 1 -0 sudo rm -i</span>
+<span class="line-number"></span><span class="constant-syntax">$ pkgutil --only-dirs --files the-package-name.pkg | tr '\n' '\0' | xargs -n 1 -0 sudo rm -ir</span></pre>
+<p>Needless to say, <em>extreme</em> care should always be taken when removing files with root privileges. Particularly, be aware that some packages may update shared system components, so uninstalling them can actually break your system by removing a necessary component.</p>
+<p>For smaller packages it is probably safer to just manually remove the files after visually inspecting the package file listing.</p>
+<p>Apparently, there was once an <code>--unlink</code> option available in <code>pkgutil</code>, but as of <a href="https://wincent.com/wiki/Lion">Lion</a> it is not mentioned in the man page. Perhaps it was removed because it was deemed too dangerous.</p>
+<p>Once you've uninstalled the files, you can remove the receipt with:</p>
+<pre class="shell-syntax highlighted"><span class="line-number"></span><span class="constant-syntax">$ sudo pkgutil --forget the-package-name.pkg</span></pre>
+<p>For more details, see the <code>pkgutil</code> man page.</p>
+
+</div>
+<div class="cloud">
+<h2>Tags</h2>
+<a href="https://wincent.com/tags/mac.os.x" style="font-size: 1.3252em;" title="80 items tagged with 'mac.os.x'">mac.os.x</a>
+<a href="https://wincent.com/tags/pkg" style="font-size: 1.00407em;" title="1 item tagged with 'pkg'">pkg</a>
+</div>
+
+<div class="links">
+<a href="https://wincent.com/wiki">wiki index</a>
+</div>
+<h2 class="major">
+Comments
+<a href="https://wincent.com/wiki/Uninstalling_packages_%28.pkg_files%29_on_Mac_OS_X.atom"><img alt="Feed-icon-14x14" src="feed-icon-14x14-8bc0dca0ec124d183d7975ef52dd0ae8.png"></a>
+</h2>
+<ol class="bubbles" id="comments">
+
+</ol>
+<h2 class="major">Add a comment</h2>
+<div id="ajax_flash"></div>
+<div id="comment-form">
+<div class="links"><a href="#comment-form">add a comment</a></div>
+</div>
+
+</div>
+<div id="footer">
+<ul>
+<li><a class="mailto" href="mailto:win@wincent.com" title="Email me at win@wincent.com">contact</a></li>
+<li><a href="https://wincent.com/misc/legal">legal</a></li>
+</ul>
+</div>
+
+
+<div class="scrapbook-sticky" style="left: 638px; top: 250px; position: absolute; width: 581px; height: 108px;"><div class="scrapbook-sticky-header"></div>check Scripts/postinstall to
+$ pkgutil --expand /path/to/package.pkg /output/destination/</div>
+</body>
+</html>

@@ -249,7 +249,7 @@
   <RDF:Description RDF:about="urn:scrapbook:item20111201155727"
                    NS1:id="20111201155727"
                    NS1:type="folder"
-                   NS1:title="bash"
+                   NS1:title="shell"
                    NS1:chars=""
                    NS1:icon=""
                    NS1:source=""

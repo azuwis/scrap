@@ -1,0 +1,479 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<title>Optimizing fs on sd-card for Linux/Fedora on Dreamplug | blogofterje</title>
+<link rel="pingback" href="http://blogofterje.wordpress.com/xmlrpc.php">
+<meta name="google-site-verification" content="mloJD3cu-KucHp3tsNnvJT27w6gBFI7BQ3VEy6oeVqs">
+<link rel="alternate" type="application/rss+xml" title="blogofterje » Feed" href="http://blogofterje.wordpress.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="blogofterje » Comments Feed" href="http://blogofterje.wordpress.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="blogofterje » Optimizing fs on sd-card for Linux/Fedora on&nbsp;Dreamplug Comments Feed" href="http://blogofterje.wordpress.com/2012/01/14/optimizing-fs-on-sd-card/feed/">
+
+
+
+
+<!--[if lte IE 8]>
+<link rel='stylesheet' id='kubrick-ie-css'  href='http://s0.wp.com/wp-content/themes/pub/kubrick/ie.css?m=1273203575g&#038;ver=3.6-alpha-23334' type='text/css' media='all' />
+<![endif]-->
+
+
+
+
+
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='highlander-comments-ie7-css'  href='http://s2.wp.com/wp-content/mu-plugins/highlander-comments/style-ie7.css?m=1351637563g&#038;ver=20110606' type='text/css' media='all' />
+<![endif]-->
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://blogofterje.wordpress.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://blogofterje.wordpress.com/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Compiling rr64x driver for linux kernel 3.1, 3.2, 3.3 and&nbsp;3.4" href="http://blogofterje.wordpress.com/2011/12/04/compiling-rr64x-driver-for-linux-kernel-3-1/">
+<meta name="generator" content="WordPress.com">
+<link rel="canonical" href="http://blogofterje.wordpress.com/2012/01/14/optimizing-fs-on-sd-card/">
+<link rel="shortlink" href="http://wp.me/p22tRi-z">
+<link rel="alternate" type="application/json+oembed" href="http://public-api.wordpress.com/oembed/1.0/?format=json&amp;url=http%3A%2F%2Fblogofterje.wordpress.com%2F2012%2F01%2F14%2Foptimizing-fs-on-sd-card%2F&amp;for=wpcom-auto-discovery"><link rel="alternate" type="application/xml+oembed" href="http://public-api.wordpress.com/oembed/1.0/?format=xml&amp;url=http%3A%2F%2Fblogofterje.wordpress.com%2F2012%2F01%2F14%2Foptimizing-fs-on-sd-card%2F&amp;for=wpcom-auto-discovery">
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Optimizing fs on sd-card for Linux/Fedora on Dreamplug">
+<meta property="og:url" content="http://blogofterje.wordpress.com/2012/01/14/optimizing-fs-on-sd-card/">
+<meta property="og:description" content="The write performance on the SD-card in my Dreamplug (sweet little Arm computer) was abysmally slow. Any write on large files would be ok but any writes that involved many small files would take fo...">
+<meta property="og:site_name" content="blogofterje">
+<meta name="twitter:site" content="@wordpressdotcom">
+<meta name="twitter:card" content="summary">
+<meta property="fb:app_id" content="249643311490">
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="icon" type="image/x-icon" href="favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="apple-touch-icon-precomposed" href="http://s0.wp.com/i/webclip.png?m=1355642671g">
+<link rel="openid.server" href="http://blogofterje.wordpress.com/?openidserver=1">
+<link rel="openid.delegate" href="http://blogofterje.wordpress.com/">
+<link rel="search" type="application/opensearchdescription+xml" href="http://blogofterje.wordpress.com/osd.xml" title="blogofterje">
+<link rel="search" type="application/opensearchdescription+xml" href="http://wordpress.com/opensearch.xml" title="WordPress.com">
+		
+		<meta name="application-name" content="blogofterje"><meta name="msapplication-window" content="width=device-width;height=device-height"><meta name="msapplication-tooltip" content="Terjes blog to log hardware and software issues"><meta name="msapplication-task" content="name=Subscribe;action-uri=http://blogofterje.wordpress.com/feed/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=Sign up for a free blog;action-uri=http://wordpress.com/signup/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Support;action-uri=http://support.wordpress.com/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Forums;action-uri=http://forums.wordpress.com/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="title" content="Optimizing fs on sd-card for Linux/Fedora on&nbsp;Dreamplug | blogofterje on WordPress.com">
+<meta name="description" content="Terjes blog to log hardware and software issues">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body class="single single-post postid-35 single-format-standard highlander-enabled highlander-light">
+<div id="page">
+
+<div id="header">
+	<div id="headerimg" onclick=" location.href='http://blogofterje.wordpress.com';" style="cursor: pointer;">
+		<h1><a href="http://blogofterje.wordpress.com/">blogofterje</a></h1>
+		<div class="description">Terjes blog to log hardware and software issues</div>
+	</div>
+</div>
+<hr>
+
+	<div id="content" class="widecolumn">
+
+	
+		<div class="navigation">
+			<div class="alignleft">« <a href="http://blogofterje.wordpress.com/2011/12/04/compiling-rr64x-driver-for-linux-kernel-3-1/" rel="prev">Compiling rr64x driver for linux kernel 3.1, 3.2, 3.3 and&nbsp;3.4</a></div>
+			<div class="alignright"></div>
+		</div>
+
+		<div class="post-35 post type-post status-publish format-standard hentry category-linux clear" id="post-35">
+			<h2>Optimizing fs on sd-card for Linux/Fedora on&nbsp;Dreamplug</h2>
+			<small class="single-by"></small>
+
+			<div class="entry">
+				<p>The write performance on the SD-card in my Dreamplug (sweet little Arm computer) was abysmally slow. Any write on large files would be ok but any writes that involved many small files would take forever. We are talking about 3-4kb/s for some yum operations.</p>
+<p><span id="more-35"></span></p>
+<h2>Pre-measurements using very simple tests</h2>
+<ol>
+<li>Single large file write: 4.14mb/s (commands: “sync; rm testing; sync; time ( dd if=/dev/zero of=testing bs=16k count=10000; sync)”)</li>
+<li>Many smallish files write: 366kb/s (commands: “sync; rm -rf testing*; sync; time ( for item in `seq 1 1000`; do dd if=/dev/zero of=testing.$item bs=16k count=10; sync; done; )”)</li>
+</ol>
+<h2>Problem</h2>
+<p>My SD-Card is a PNY SDHC 8gb Class 10 device that boasts 20 mb/s transfer. I had it formatted as ext2, as it that is widely advised&nbsp; as “good”. It very simply does not perform, especially on writes, but reads are also not good.. Linux on the Dreamplug feels sluggish, yum is especially slow taking minutes to even install small packages.</p>
+<h2>Synopsis of getting this to perform:</h2>
+<ol>
+<li>Find page, erase block and segment sizes of the SD-card.</li>
+<li>Format as ext4
+<ol>
+<li>Without journalling – reduces IO and reduces the writes to the SD card ultimately reducing wear.</li>
+<li>Set ext4 raid parameters (stride and stripe-width) – ext4 will optimize IO and avoid read-erase-write cycles if possible</li>
+</ol>
+</li>
+<li>Set mount options to further reduce IO</li>
+</ol>
+<h2>Finding page, erase block and segment sizes</h2>
+<p>First of, I used a tool called FlashBench to determine the flash parameters of my SD-card as it did not appear in the handy list at <a title="https://wiki.linaro.org/WorkingGroups/Kernel/Projects/FlashCardSurvey?action=show&amp;redirect=WorkingGroups%2FKernelConsolidation%2FProjects%2FFlashCardSurvey" href="https://wiki.linaro.org/WorkingGroups/Kernel/Projects/FlashCardSurvey?action=show&amp;redirect=WorkingGroups%2FKernelConsolidation%2FProjects%2FFlashCardSurvey">https://wiki.linaro.org/WorkingGroups/Kernel/Projects/FlashCardSurvey?action=show&amp;redirect=WorkingGroups%2FKernelConsolidation%2FProjects%2FFlashCardSurvey</a></p>
+<p>After downloading the tool from <tt>git://git.linaro.org/people/arnd/flashbench.git</tt> (<a title="http://git.linaro.org/gitweb?p=people/arnd/flashbench.git;a=tree" href="http://git.linaro.org/gitweb?p=people/arnd/flashbench.git;a=tree">http://git.linaro.org/gitweb?p=people/arnd/flashbench.git;a=tree</a>), compile and run:</p>
+<blockquote>
+<pre>[root@megan flashbench-HEAD-4fb06b5]# <strong>./flashbench -a /dev/mmcblk0&nbsp; --blocksize=1024</strong>
+ align 2147483648&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pre 534µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on 661µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; post 546µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; diff 121µs
+ align 1073741824&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pre 570µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on 719µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; post 563µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; diff 153µs
+ align 536870912 pre 551µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on 700µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; post 547µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; diff 151µs
+ align 268435456 pre 574µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on 708µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; post 569µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; diff 137µs
+ align 134217728 pre 548µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on 676µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; post 542µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; diff 131µs
+ align 67108864&nbsp; pre 555µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on 681µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; post 541µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; diff 133µs
+ align 33554432&nbsp; pre 548µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on 691µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; post 548µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; diff 143µs
+ align 16777216&nbsp; pre 550µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on 680µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; post 542µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; diff 134µs
+ align 8388608&nbsp;&nbsp; pre 566µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on 707µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; post 581µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; diff 133µs
+ align 4194304&nbsp;&nbsp; pre 544µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on 558µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; post 525µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; diff 23.2µs
+ align 2097152&nbsp;&nbsp; pre 539µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on 551µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; post 535µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; diff 13.5µs
+ align 1048576&nbsp;&nbsp; pre 538µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on 548µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; post 535µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; diff 11.5µs
+ align 524288&nbsp;&nbsp;&nbsp; pre 537µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on 545µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; post 535µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; diff 8.74µs
+ align 262144&nbsp;&nbsp;&nbsp; pre 538µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on 548µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; post 536µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; diff 10.7µs
+ align 131072&nbsp;&nbsp;&nbsp; pre 536µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on 547µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; post 532µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; diff 12.8µs
+ align 65536&nbsp;&nbsp;&nbsp;&nbsp; pre 536µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on 547µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; post 533µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; diff 12µs
+ align 32768&nbsp;&nbsp;&nbsp;&nbsp; pre 536µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on 548µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; post 533µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; diff 13.1µs
+ align 16384&nbsp;&nbsp;&nbsp;&nbsp; pre 536µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on 549µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; post 535µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; diff 13.1µs
+ align 8192&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pre 512µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on 555µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; post 546µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; diff 25.4µs
+ align 4096&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pre 555µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on 562µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; post 563µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; diff 2.68µs
+ align 2048&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pre 537µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on 538µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; post 534µs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; diff 2.79µs</pre>
+</blockquote>
+<p>Analysis:</p>
+<ol>
+<li>Interesting parts of this result are the diff changes drastically at two places:
+<ol>
+<li>from&nbsp; 8388608 (8Mb) to 4194304 (4MB): Based in example readme in flashbench, this indicates that there was no performance overhead reading two blocks over the 4mb boundary, but there was for 8mb boundary. The guess is then that the erasure block is 8mb large on my sd-card</li>
+<li>before 8192 and after. I would really like to know why there is a bump at 8k, but times after that are so much lower, so 8k is obviously some sort of boundary point.</li>
+</ol>
+</li>
+<li>From this, I deduce two things,
+<ol>
+<li>Ext4 should have a block size of 4k, and the “stride” value should be 2. This will cause ext4 to think that units of 2 blocks (8k) can and should be treated as one.</li>
+<li>Ext4 should have the stripe-size set to 1024. This value was calculated by taking 8M (guessed erasure block size) dividing by 8K (size of a stride, 2 times block size (4K)). This will (hopefully) cause Ext4 to try to align writes so that while erasure blocks are written continuously and make it avoid sub-block updates.</li>
+</ol>
+</li>
+</ol>
+<h2>Repartition and reformat of the sd-card with new settings</h2>
+<p>Note that I start the partition on an erasure block, i.e. at 8mb into the SD card, to make absolutely sure that everything becomes aligned. Fdisk uses blocks of 512 bytes, so that means that we want to start at 8*1024^2/512 = 16384.</p>
+<blockquote>
+<pre>[root@megan ~]# <strong>fdisk /dev/mmcblk0</strong>
+Command (m for help): n
+ Partition type:
+ p&nbsp;&nbsp; primary (0 primary, 0 extended, 4 free)
+ e&nbsp;&nbsp; extended
+ Select (default p):
+ Using default response p
+ Partition number (1-4, default 1):
+ Using default value 1
+ First sector (2048-15759359, default 2048): <strong>16384</strong>
+ Last sector, +sectors or +size{K,M,G} (16384-15759359, default 15759359):
+ Using default value 15759359
+Command (m for help): p
+Disk /dev/mmcblk0: 8068 MB, 8068792320 bytes
+ 4 heads, 16 sectors/track, 246240 cylinders, total 15759360 sectors
+ Units = sectors of 1 * 512 = 512 bytes
+ Sector size (logical/physical): 512 bytes / 512 bytes
+ I/O size (minimum/optimal): 512 bytes / 512 bytes
+ Disk identifier: 0x00000000
+Device Boot&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Start&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Blocks&nbsp;&nbsp; Id&nbsp; System
+ /dev/mmcblk0p1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 16384&nbsp;&nbsp;&nbsp; 15759359&nbsp;&nbsp;&nbsp;&nbsp; 7871488&nbsp;&nbsp; 83&nbsp; Linux
+Command (m for help): w
+ The partition table has been altered!
+Calling ioctl() to re-read partition table.
+ Syncing disks.
+ [root@megan ~]#</pre>
+</blockquote>
+<p>Reformat the filesystem, this time with Ext4 with block size of 4k, without journaling, but with additional parameters to encourage Ext4 to do the right thing with respect to the erasure block:</p>
+<blockquote>
+<pre>[root@megan ~]# <strong>mkfs.ext4 -O ^has_journal -E stride=2,stripe-width=1024 -b 4096 -L Fedora14Arm&nbsp; /dev/mmcblk0p1</strong>
+ mke2fs 1.41.14 (22-Dec-2010)
+ Filesystem label=Fedora14Arm
+ OS type: Linux
+ Block size=4096 (log=2)
+ Fragment size=4096 (log=2)
+ Stride=2 blocks, Stripe width=1024 blocks
+ 492880 inodes, 1967872 blocks
+ 98393 blocks (5.00%) reserved for the super user
+ First data block=0
+ Maximum filesystem blocks=2017460224
+ 61 block groups
+ 32768 blocks per group, 32768 fragments per group
+ 8080 inodes per group
+ Superblock backups stored on blocks:
+ 32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632
+Writing inode tables: done
+ Writing superblocks and filesystem accounting information: done
+This filesystem will be automatically checked every 28 mounts or
+ 180 days, whichever comes first.&nbsp; Use tune2fs -c or -i to override.
+[root@megan ~]#</pre>
+</blockquote>
+<h2>Changes to mount</h2>
+<p>To further reduce IO and increase performance, the following seem to be common recommendations, that I did.</p>
+<ol>
+<li>Change /etc/fstab so that entry for root partition fourth parameter is changed from “default” to “default,noatime,nodiratime”</li>
+<li>Add linux boot parameter “elevator=noop” in u-boot so that the kernel does not assume that the disk is a spinning medium and does not try to incorrectly optimize the IO.</li>
+</ol>
+<h2>Simple performance test after all the changes</h2>
+<ol>
+<li>Single large file write: 8.2mb/s (commands: “sync; rm testing; sync; time ( dd if=/dev/zero of=testing bs=16k count=10000; sync)”)</li>
+<li>Many small-ish files write: 2.7mb/s (commands: “sync; rm -rf testing*; sync; time ( for item in `seq 1 1000`; do dd if=/dev/zero of=testing.$item bs=16k count=10; sync; done; )”)</li>
+</ol>
+<p><strong>RESULT: nearly 10 times performance increase for small-ish files!!!!</strong></p>
+<h2>Sources:</h2>
+<ul>
+<li><a title="http://lwn.net/Articles/428584/" href="http://lwn.net/Articles/428584/">http://lwn.net/Articles/428584/</a></li>
+<li><a title="http://www.raspberrypi.org/forum/projects-and-collaboration-general/optimizing-linux-for-flash-memory" href="http://www.raspberrypi.org/forum/projects-and-collaboration-general/optimizing-linux-for-flash-memory">http://www.raspberrypi.org/forum/projects-and-collaboration-general/optimizing-linux-for-flash-memory</a></li>
+</ul>
+
+<div class="wpadvert" style="position: relative; width: 300px; text-align: center; padding: 0px; margin: 10px auto; overflow: hidden; clear: both;">
+<a style="position: absolute; text-align: left; display: block; font: 9px/1 sans-serif; text-decoration: underline;" href="http://en.wordpress.com/about-these-ads/" rel="nofollow">About these ads</a>
+
+</div>
+
+
+<div id="jp-post-flair" class="sharedaddy sd-like-enabled sd-sharing-enabled"><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow" class="share-twitter sd-button share-icon" href="http://blogofterje.wordpress.com/2012/01/14/optimizing-fs-on-sd-card/?share=twitter&amp;nb=1" title="Click to share on Twitter" id="sharing-twitter-35"><span>Twitter<span class="share-count">3</span></span></a></li><li class="share-facebook"><a rel="nofollow" class="share-facebook sd-button share-icon" href="http://blogofterje.wordpress.com/2012/01/14/optimizing-fs-on-sd-card/?share=facebook&amp;nb=1" title="Share on Facebook" id="sharing-facebook-35"><span>Facebook<span class="share-count">11</span></span></a></li><li class="share-end"></li></ul><div class="sharing-clear"></div></div></div></div><div class="sharedaddy sd-block sd-like jetpack-likes-widget-wrapper jetpack-likes-widget-loaded" id="like-post-wrapper-30144108-35" data-src="http://widgets.wp.com/likes/#blog_id=30144108&amp;post_id=35&amp;origin=http://blogofterje.wordpress.com" data-name="like-post-frame-30144108-35"><h3 class="sd-title">Like this:</h3><div class="post-likes-widget-placeholder" style="height: 55px; display: none;"><span class="button"><span>Like</span></span> <span class="loading">Loading...</span></div><iframe style="display: inline;" class="post-likes-widget jetpack-likes-widget" name="like-post-frame-30144108-35" src="index_1.html" width="100%" frameborder="0" height="55px"></iframe><span class="sd-text-color"></span><a class="sd-link-color"></a></div></div>
+								
+				<p class="postmetadata alt">
+					<small>
+												This entry was posted on 2012/01/14 at 5:55 pm and is filed under <a href="http://blogofterje.wordpress.com/category/linux/" title="View all posts in Linux" rel="category tag">Linux</a>.						You can follow any responses to this entry through the <a href="http://blogofterje.wordpress.com/2012/01/14/optimizing-fs-on-sd-card/feed/">RSS 2.0</a> feed.
+													You can <a href="#respond">leave a response</a>, or <a href="http://blogofterje.wordpress.com/2012/01/14/optimizing-fs-on-sd-card/trackback/" rel="trackback">trackback</a> from your own site.
+						
+					</small>
+				</p>
+
+			</div>
+		</div>
+
+	
+<!-- You can start editing here. -->
+	<h3 id="comments">2 Responses to “Optimizing fs on sd-card for Linux/Fedora on&nbsp;Dreamplug”</h3>
+
+	<ol class="commentlist">
+					<li class="pingback even thread-even depth-1 highlander-comment" id="comment-27">
+						<cite><a href="http://rglinuxtech.com/2012/04/21/linux-arm-and-sd-card-performance-let-the-fun-begin/" rel="external nofollow" class="url">Linux ARM and SD Card Performance – Let the Fun Begin! « Adventures with Linux…</a></cite> Says:						<br>
+
+			<small class="commentmetadata"><a href="#comment-27" title="">2012/04/21 at 1:14 am</a> | <a class="comment-reply-link" href="http://blogofterje.wordpress.com/2012/01/14/optimizing-fs-on-sd-card/?replytocom=27#respond" onclick="return addComment.moveForm(&quot;comment-27&quot;, &quot;27&quot;, &quot;respond&quot;, &quot;35&quot;)">Reply</a> </small>
+
+			<p>[...] <a href="http://blogofterje.wordpress.com/2012/01/14/optimizing-fs-on-sd-card/%C2%A0%C2%A0%C2%A0%C2%A0" rel="nofollow">http://blogofterje.wordpress.com/2012/01/14/optimizing-fs-on-sd-card/&nbsp;&nbsp;&nbsp;&nbsp;</a> and&nbsp;&nbsp;&nbsp; <a href="http://www.raspberrypi.org/forum/projects-and-collaboration-general/optimizing-linux-for-flash-memory" rel="nofollow">http://www.raspberrypi.org/forum/projects-and-collaboration-general/optimizing-linux-for-flash-memory</a> [...]</p>
+</li>
+			<li class="comment odd alt thread-odd thread-alt depth-1 highlander-comment" id="comment-29">
+			<img id="grav-a610f8ff037b91215b8140a51d279ad6-0" alt="" src="a610f8ff037b91215b8140a51d279ad6" class="avatar avatar-32 grav-hashed grav-hijack" width="32" height="32">			<cite>chris</cite> Says:						<br>
+
+			<small class="commentmetadata"><a href="#comment-29" title="">2012/05/01 at 7:44 pm</a> | <a class="comment-reply-link" href="http://blogofterje.wordpress.com/2012/01/14/optimizing-fs-on-sd-card/?replytocom=29#respond" onclick="return addComment.moveForm(&quot;comment-29&quot;, &quot;29&quot;, &quot;respond&quot;, &quot;35&quot;)">Reply</a> </small>
+
+			<p>You are a total LEGEND!!!!!!</p>
+<p>I happened to be looking for the “how to turn journaling off” switch, because my new 32gig MicroSD was stupidly formatted fat32 – and I needed to fit big files (&gt;4gb) on it – and by happy chance, your post caught my eye.</p>
+</li>
+	</ol>
+
+	<div class="navigation">
+		<div class="alignleft"></div>
+		<div class="alignright"></div>
+	</div>
+
+
+
+								<div class="js" id="respond">
+				<h3 id="reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://blogofterje.wordpress.com/2012/01/14/optimizing-fs-on-sd-card/#respond" style="display: none;">Cancel reply</a></small></h3>
+									<form action="http://blogofterje.wordpress.com/wp-comments-post.php" method="post" id="commentform">
+																										
+
+
+												
+<input name="hc_post_as" id="hc_post_as" value="guest" type="hidden">
+
+<div class="comment-form-field comment-textarea">
+	
+	<div id="comment-form-comment"><textarea tabindex="-1" style="height: 36px; resize: none; overflow-y: hidden; position: absolute; top: 0px; left: -9999px; width: 428px; line-height: 16px; text-decoration: none; letter-spacing: 0px;" placeholder="Enter your comment here..."></textarea><textarea style="height: 36px; resize: none; overflow-y: hidden;" placeholder="Enter your comment here..." id="comment" name="comment"></textarea></div>
+</div>
+
+<div style="display: none;" id="comment-form-identity">
+
+	<div id="comment-form-nascar">
+		<p>Fill in your details below or click an icon to log in:</p>
+		<ul>
+			<li class="selected" style="display: none;">
+				<a href="#comment-form-guest" id="postas-guest" title="Guest">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="#comment-form-load-service:WordPress.com" id="postas-wordpress" title="WordPress.com">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="#comment-form-load-service:Twitter" id="postas-twitter" title="Twitter">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="#comment-form-load-service:Facebook" id="postas-facebook" title="Facebook">
+					<span></span>
+				</a>
+			</li>
+		</ul>
+	</div>
+
+	<div id="comment-form-guest" class="comment-form-service selected">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+<a href="https://gravatar.com/site/signup/" target="_top">				<img src="ad516503a11cd5ca435acc9bb6523536" alt="Gravatar" class="no-grav" width="25">
+</a>			</div>
+
+				<div class="comment-form-fields">
+				<div class="comment-form-field comment-form-email">
+					<label for="email">Email <span class="required">(required)</span> <span class="nopublish">(Address never made public)</span></label>
+					<div class="comment-form-input"><input id="email" name="email" value="" type="email"></div>
+				</div>
+				<div class="comment-form-field comment-form-author">
+					<label for="author">Name <span class="required">(required)</span></label>
+					<div class="comment-form-input"><input id="author" name="author" value="" type="text"></div>
+				</div>
+				<div class="comment-form-field comment-form-url">
+					<label for="url">Website</label>
+					<div class="comment-form-input"><input id="url" name="url" value="" type="text"></div>
+				</div> 
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-wordpress" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="wplogo.png" alt="WordPress.com Logo" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<input name="wp_avatar" id="wordpress-avatar" class="comment-meta-wordpress" value="" type="hidden">
+				<input name="wp_user_id" id="wordpress-user_id" class="comment-meta-wordpress" value="" type="hidden">
+				<input name="wp_access_token" id="wordpress-access_token" class="comment-meta-wordpress" value="" type="hidden">
+				<p class="comment-form-posting-as pa-wordpress"><strong></strong> You are commenting using your WordPress.com account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout(%20'wordpress'%20);">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-twitter" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="ad516503a11cd5ca435acc9bb6523536" alt="Twitter picture" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<input name="twitter_avatar" id="twitter-avatar" class="comment-meta-twitter" value="" type="hidden">
+				<input name="twitter_user_id" id="twitter-user_id" class="comment-meta-twitter" value="" type="hidden">
+				<input name="twitter_access_token" id="twitter-access_token" class="comment-meta-twitter" value="" type="hidden">
+				<p class="comment-form-posting-as pa-twitter"><strong></strong> You are commenting using your Twitter account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout(%20'twitter'%20);">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-facebook" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="ad516503a11cd5ca435acc9bb6523536" alt="Facebook photo" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<input name="fb_avatar" id="facebook-avatar" class="comment-meta-facebook" value="" type="hidden">
+				<input name="fb_user_id" id="facebook-user_id" class="comment-meta-facebook" value="" type="hidden">
+				<input name="fb_access_token" id="facebook-access_token" class="comment-meta-facebook" value="" type="hidden">
+				<p class="comment-form-posting-as pa-facebook"><strong></strong> You are commenting using your Facebook account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout(%20'facebook'%20);">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+
+	<div id="comment-form-load-service" class="comment-form-service">
+		<div class="comment-form-posting-as-cancel"><a href="javascript:HighlanderComments.cancelExternalWindow();">Cancel</a></div>
+		<p>Connecting to %s</p>
+	</div>
+	
+	
+</div>
+
+
+
+<div style="display: none;" id="comment-form-subscribe"> 
+	<p class="comment-subscription-form"><input name="subscribe" id="subscribe" value="subscribe" style="width: auto;" tabindex="6" type="checkbox"> <label class="subscribe-label" id="subscribe-label" for="subscribe" style="display: inline;">Notify me of follow-up comments via email.</label></p></div>
+
+												<p style="display: none;" class="form-submit">
+							<input name="submit" id="comment-submit" value="Post Comment" type="submit">
+							<input name="comment_post_ID" value="35" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+						</p>
+						
+<input name="genseq" value="1363593647" type="hidden">
+<p style="display: none;"><input id="akismet_comment_nonce" name="akismet_comment_nonce" value="992c30ade7" type="hidden"></p>
+<p style="display: none;"><input id="ak_js" name="ak_js" value="1363593651276" type="hidden"></p>					</form>
+							</div><!-- #respond -->
+			<div style="clear: both;"></div>			
+
+	
+	</div>
+
+
+<hr>
+<div id="footer">
+	<p>
+		Theme: <a href="http://theme.wordpress.com/themes/kubrick/" title="Learn more about this theme">Kubrick</a>. <a href="http://wordpress.com/?ref=footer" rel="generator">Blog at WordPress.com</a>.
+		<br><a href="http://blogofterje.wordpress.com/feed/">Entries (RSS)</a> and <a href="http://blogofterje.wordpress.com/comments/feed/">Comments (RSS)</a>.	</p>
+</div>
+</div>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+	<div class="grofile-hash-map-a610f8ff037b91215b8140a51d279ad6">
+	</div>
+	</div>
+
+
+
+	<div style="bottom: -205px;" id="bit" class="loggedout-follow-normal">
+		<a class="bsub" href="javascript:void(0)"><span id="bsub-text">Follow</span></a>
+		<div id="bitsubscribe">
+
+					<h3><label for="loggedout-follow-field">Follow “blogofterje”</label></h3>
+
+			<form action="https://subscribe.wordpress.com/" method="post" accept-charset="utf-8" id="loggedout-follow">
+			<p>Get every new post delivered to your Inbox.</p>
+
+			<p id="loggedout-follow-error" style="display: none;"></p>
+
+			
+			<p><input name="email" style="width: 95%; padding: 1px 2px;" value="Enter your email address" onfocus="this.value=(this.value==&quot;Enter your email address&quot;) ? &quot;&quot; : this.value;" onblur="this.value=(this.value==&quot;&quot;) ? &quot;Enter email address&quot; : this.value;" id="loggedout-follow-field" type="email"></p>
+
+			<input name="action" value="subscribe" type="hidden">
+			<input name="blog_id" value="30144108" type="hidden">
+			<input name="source" value="http://blogofterje.wordpress.com/2012/01/14/optimizing-fs-on-sd-card/" type="hidden">
+			<input name="sub-type" value="loggedout-follow" type="hidden">
+
+			<input id="_wpnonce" name="_wpnonce" value="3c99f8ee8d" type="hidden"><input name="_wp_http_referer" value="/2012/01/14/optimizing-fs-on-sd-card/" type="hidden">
+			<p id="bsub-subscribe-button"><input value="Sign me up" type="submit"></p>
+			</form>
+					<div id="bsub-credit"><a href="http://wordpress.com/signup/?ref=lof">Powered by WordPress.com</a></div>
+		</div><!-- #bitsubscribe -->
+	</div><!-- #bit -->
+
+	
+
+		
+				
+				<iframe src="index_3.html" id="likes-master" name="likes-master" style="display: none;"></iframe>
+		<div id="likes-other-gravatars"><div class="likes-text"><span>%d</span> bloggers like this:</div><ul class="wpl-avatars sd-like-gravatars"></ul></div>
+		
+
+
+
+
+
+</body>
+</html>

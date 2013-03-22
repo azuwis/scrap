@@ -1,0 +1,42 @@
+/* ::::: http://s0.wp.com//i/noticons/noticons.css?ver=20130228 ::::: */
+
+@font-face {
+	font-family: "Noticons";
+	src: url('noticons-regular-webfont.eot');
+}
+@font-face {
+	font-family: "Noticons";
+	font-style: normal;
+	font-weight: normal;
+	src: url('undefined') format("woff"), url('noticons-regular-webfont.ttf') format("truetype"), url('noticons-regular-webfont.svg') format("svg");
+}
+/* ::::: http://widgets.wp.com/likes/style.css?ver=20130228 ::::: */
+
+ul, li { margin: 0px; padding: 0px; list-style: none outside none; border: medium none; background: none repeat scroll 0% 0% transparent; }
+html { font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 12px; clear: both; }
+body { margin: 0px; width: 99%; }
+div { border-radius: 0px 0px 0px 0px ! important; }
+ul, li { margin: 0px; padding: 0px; text-indent: 0px; }
+li:before { content: ""; }
+a, a:link, a:visited { font-style: normal; }
+.sd-block:before, .sd-block:after, ul:before, ul:after { content: " "; display: block; height: 0px; overflow: hidden; }
+.sd-block:after, ul:after { clear: both; }
+.sd-block, ul {  }
+.sd-content ul { margin: 0px; }
+.sd-content li { float: left; margin: 0px 5px 5px 0px ! important; display: block; }
+a.sd-button { margin: 0px; padding: 0px; display: inline-block; background: -moz-linear-gradient(center top , rgb(247, 247, 247) 0%, rgb(239, 239, 239) 100%) repeat scroll 0% 0% transparent; border-radius: 3px 3px 3px 3px; border: 1px solid rgb(221, 221, 221) ! important; box-shadow: 0px 1px 0px rgb(255, 255, 255) inset; color: rgb(0, 0, 0) ! important; text-decoration: none; line-height: 1; font-size: 12px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-weight: normal; }
+a.sd-button:hover { color: rgb(0, 0, 0); text-shadow: 0px 1px 0px rgb(255, 255, 255); border-color: rgb(204, 204, 204); background: -moz-linear-gradient(center top , rgb(239, 239, 239) 0%, rgb(238, 238, 238) 100%) repeat scroll 0% 0% transparent; }
+a.sd-button:active { background-color: rgb(239, 239, 239); box-shadow: 0px -1px 0px rgb(255, 255, 255) inset; border-color: rgb(221, 221, 221); }
+a.sd-button span { padding: 4px 8px; display: block; opacity: 0.8; line-height: 1.5em; text-shadow: none; }
+a.sd-button:hover span { opacity: 1; }
+.sd-social-icon-text a.sd-button span, a.sd-button span { padding: 1px 5px 1px 23px; background-position: 2px center; background-repeat: no-repeat; }
+.wpl-likebox { margin-right: 0px ! important; margin-left: 0px ! important; padding-right: 0px ! important; padding-left: 0px ! important; }
+.wpl-button { float: left; margin: 0px 5px 0px 0px; }
+.wpl-count { line-height: 1; text-align: left; margin: 0px; font-size: 12px; clear: both; padding-top: 20px; }
+ul.wpl-avatars { overflow: hidden; display: block; height: 37px; position: absolute; left: 65px; }
+ul.wpl-avatars li { width: 32px; height: 32px; }
+ul.wpl-avatars li a { margin: 0px 2px 0px 0px; border-bottom: medium none ! important; display: block; }
+ul.wpl-avatars li a img { background: none repeat scroll 0% 0% transparent; border: medium none; margin: 0px ! important; padding: 0px ! important; position: static; }
+.wpl-button a.sd-button span { padding: 1px 5px 1px 2px; text-shadow: none; }
+.wpl-button a.sd-button span:before { color: rgb(46, 162, 204); font-family: "Noticons"; content: "★"; font-size: 16px; line-height: 0; text-shadow: 0px 1px 0px rgb(255, 255, 255); position: relative; top: 3px; }
+.wpl-likebox { position: static ! important; bottom: auto ! important; }

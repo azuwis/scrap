@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta charset="">
+<meta name="viewport" content="width=device-width">
+
+
+<title>Raspberry Pi • View topic - Optimizing Linux for Flash memory.</title>
+	
+<link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+<link rel="icon" href="favicon.ico" type="image/x-ico">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+
+
+
+<!--[if lt IE 8]>
+<link rel="stylesheet" type="text/css" href="./styles/raspite/theme/css/ie7.css">
+<![endif]-->
+
+<!--[if lt IE 9]>
+<script src="./styles/raspite/theme/js/html5shiv.js"></script>
+<![endif]-->
+<link rel="pingback" href="http://www.raspberrypi.org/phpBB3/viewtopic.php?f=9&amp;t=850">
+
+<link rel="alternate" type="application/atom+xml" title="Feed - Raspberry Pi" href="http://www.raspberrypi.org/phpBB3/feed.php"><link rel="alternate" type="application/atom+xml" title="Feed - New Topics" href="http://www.raspberrypi.org/phpBB3/feed.php?mode=topics"><link rel="alternate" type="application/atom+xml" title="Feed - Forum - Other projects" href="http://www.raspberrypi.org/phpBB3/feed.php?f=9"><link rel="alternate" type="application/atom+xml" title="Feed - Topic - Optimizing Linux for Flash memory." href="http://www.raspberrypi.org/phpBB3/feed.php?f=9&amp;t=850">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body>
+<div class="container" role="main">
+<!--DOCUMENT_FRAGMENT-->
+<div id="p12916" class="post row-fluid even"><div class="postbody span9"><div class="author">by <strong><a href="http://www.raspberrypi.org/phpBB3/memberlist.php?mode=viewprofile&amp;u=638">obarthelemy</a></strong> » Sun Sep 25, 2011 1:24 pm </div>
+
+			
+
+			<div class="content">The Pi will run mainly off flash memory, which works very differently than mechanical hard drives. Linux, by default, is tweaked for hard drives, which has a negative impact on the performance and longevity of flash-based Linux installs. Luckily, Linux is very flexible and we can re-configure it to work much better with flash.<br>The goal of this project is to<br>1- Inventory tweaks. There's a lot of info around the web, and even in the Pi forum. Let's gather it all here.<br>2- Test and validate those tweaks. Some may work only for SSDs, not SD nor USB sticks. Or only for different versions of Linux/kernels/controllers...<br>3- Recap that knowledge in a noob-friendly tutorial<br>4- maybe produce a script to apply the tweaks automagically, if that can be done reliably.<br><br>I'm reserving the next 3 posts for<br>1- list of sources<br>2- tutorials<br>3- script<br>and will try to consolidate all relevant info (from the forum, this thread, and the web) in those 3 posts, to avoid the ever-growing, confusing thread of death syndrome.<br><br><strong><u>More details on how Flash memory is different from a hard disk:</u></strong><br>- while any byte of info on flash is independently readable and writable, internally, flash is accessed by "blocks" of typically 128 KB. So writing a single byte of data actually means reading a full 128KB block, changing the required byte, and writing the new block back. Contrary to hard disks, flash knows of no "small" writes.<br>- on top of that, flash writes are fairly slow<br>- flash memory supports a somewhat limited number of write cycles, so limiting writes as much as possible increases longevity.<br>Hard disks have none of those 3 issues.</div>
+
+			
+
+		</div>
+
+		
+		<dl class="postprofile span3" id="profile12916">
+			<dt>
+				
+			</dt>
+		<dd><strong>Posts:</strong> 1399</dd><dd><strong>Joined:</strong> Tue Aug 09, 2011 10:53 pm</dd>
+
+		</dl>
+	
+
+	
+	</div>
+
+
+	<div id="p13002" class="post row-fluid odd">
+	
+		<div class="postbody span9">
+			
+
+			<div class="author">by <strong><a href="http://www.raspberrypi.org/phpBB3/memberlist.php?mode=viewprofile&amp;u=638">obarthelemy</a></strong> » Sun Sep 25, 2011 1:24 pm </div>
+
+			
+
+			<div class="content"><u><strong>1- List of sources</strong></u><br><br><a href="http://bernaerts.dyndns.org/linux/53-debian-server-compact-flash" rel="nofollow" target="_top">http://bernaerts.dyndns.org/li.....pact-flash</a><br><a href="http://linux-howto-guide.blogspot.com/2009/10/increase-usb-flash-drive-write-speed.html" rel="nofollow" target="_top">http://linux-howto-guide.blogs.....speed.html</a><br><a href="http://blog.smartlogicsolutions.com/2009/06/04/mount-options-to-improve-ext4-file-system-performance/" rel="nofollow" target="_top">http://blog.smartlogicsolution.....rformance/</a><br><a href="http://www.linuxfoundation.org/news-media/blogs/browse/2009/02/aligning-filesystems-ssd%E2%80%99s-erase-block-size" rel="nofollow" target="_top">http://www.linuxfoundation.org.....block-size</a><br><a href="http://cptl.org/wp/index.php/2010/03/30/tuning-solid-state-drives-in-linux/" rel="nofollow" target="_top">http://cptl.org/wp/index.php/2.....-in-linux/</a><br><a href="http://www.styryx.com/en/computers/operating-systems/unix-linux/linux-installation-to-usb-flash" rel="nofollow" target="_top">http://www.styryx.com/en/compu.....-usb-flash</a><br><a href="https://wiki.archlinux.org/index.php/Solid_State_Drives" rel="nofollow" target="_top">https://wiki.archlinux.org/index.php/Solid_State_Drives</a></div>
+
+			
+
+		</div>
+
+		
+		<dl class="postprofile span3" id="profile13002">
+			<dt>
+				
+			</dt>
+		<dd><strong>Posts:</strong> 1399</dd><dd><strong>Joined:</strong> Tue Aug 09, 2011 10:53 pm</dd>
+
+		</dl>
+	
+
+	
+	</div>
+
+
+	<div id="p13018" class="post row-fluid even">
+	
+		<div class="postbody span9">
+			
+
+			<div class="author">by <strong><a href="http://www.raspberrypi.org/phpBB3/memberlist.php?mode=viewprofile&amp;u=638">obarthelemy</a></strong> » Sun Sep 25, 2011 1:25 pm </div>
+
+			
+
+			<div class="content"><strong><u>2- Tutorials</u></strong><br><br><strong><u>Step 1: Theory</u></strong><br><br><strong><u>- SD or USB ? Which specifications ? Let's gor for SD class 4, even though...</u></strong><br>Jamesh tests on an alpha board show that SD performance is bad compared to USB (thread here: <a href="http://www.raspberrypi.org/forum/?mingleforumaction=viewtopic&amp;t=499.0" rel="nofollow" target="_top">http://www.raspberrypi.org/for.....38;t=499.0</a>).<br>Even though the conclusion is that USB sticks are faster the SD cards, we'll still choose the sdcard: things may get better in the final Pi; adapting SD tweaks for Flash is fairly trivial (everything that works for SD also applies for USB); we need the USB ports for other things; SD cards are more protected (inside the Pi); and finally since everything connected to the USB or Ethernet competes for bandwidth, better segregate as much as we can away from the USB interface.<br>SD cards are available in different "classes" of speed. There seem to be compatibility issues with faster cards, so going for slowpoke class 4 cards seems the best choice at the moment. All tweaks work regardless of class/speed anyway.<br><br><strong><u>- Choosing the right format and filesystem: ext4 &gt; ext2, avoid others.</u></strong><br>There are a number of flash-optimized formats and filesystems, but these are targetted at straight flash ram that has no controller. SD cards and USB sticks always include a controller, and are designed for use with regular formats/filesystems. In the Linux world, we can safely use the mainstays: ext 2/3/4 or the upcoming btrfs. I could not find much info on the still-somewhat-new btrfs for flash, and ext3 is really an intermediate step between 2 and 4, so we can rule those 2 out. The main advantage of ext2 over ext4 is that it does not offer journalling at all. ext4 can turn off journalling, and offers a number of small extras over ext2, let's choose ext4, though ext2 would be OK, too.<br><br><strong><u>- how bad are FAT and NTFS ? Pretty bad, avoid if possible</u></strong><br>It would be nice to use FAT (FAT32, exFAT) or NTFS as much as possible on the Pi, especially since while Linux can read/write those, Windows can't really access ext partitions. Alas, these are non-native formats for Linux, inherently less speedy and reliable. Plus, optimizing them on Linux for flash use is undocumented, so we have to avoid them. The recommendation for easy data exchange with Windows is to have a separate USB stick, or at least a separate partition, and copy data to/from that as needed.<br>I've had very limited success with the ext2fsd ext driver for Windows (<a href="http://www.ubuntugeek.com/how-to-read-ext3ext4-linux-partition-from-windows-7.html" rel="nofollow" target="_top">http://www.ubuntugeek.com/how-.....ows-7.html</a>) use carefully and with backups ^^<br><br><u><strong>Step 2: Prepare a Boot SD</strong></u><br>IMPORTANT: You need working Pi boot files in a separate location to copy onto the SD once it has been formatted.<br>Small logistics problem here: we need to format the SD card, but can't format the one we're running the Pi from. Solutions<br>- use another Linux PC<br>- boot the Pi off a USB stick (if that's possible) so the SD card can be messed with<br>- connect an SD card reader to you Pi and use a second SD card.<br><br><u><strong>- swap or no swap ?</strong></u><br><a href="http://distilledb.com/blog/archives/date/2009/02/22/swap-files-in-linux.page" rel="nofollow" target="_top">http://distilledb.com/blog/arc.....linux.page</a><br>Since the Pi  doesn't have much RAM, I'm going to assume a swap partition is needed. Probably 128, 256 or 512 MB, it really depends of what software you're running and your usage patterns. Let's go for 256 MB.<br><br><strong><u>- Create partitions aligned on Flash blocks</u></strong><br>TBD: tool to confirm flash block size. Assuming 128K.<br>Issue: hard to describe precisely without a real Pi (drive letters, fdisk options)<br>unfinalized odds and ends:<br><a href="http://www.styryx.com/en/computers/operating-systems/unix-linux/linux-installation-to-usb-flash" rel="nofollow" target="_top">http://www.styryx.com/en/compu.....-usb-flash</a><br><a href="http://linux-howto-guide.blogspot.com/2009/10/increase-usb-flash-drive-write-speed.html" rel="nofollow" target="_top">http://linux-howto-guide.blogs.....speed.html</a><br><br><strong><u>- Format partitions with journalling disabled</u></strong><br><a href="http://cptl.org/wp/index.php/2010/03/30/tuning-solid-state-drives-in-linux/" rel="nofollow" target="_top">http://cptl.org/wp/index.php/2.....-in-linux/</a><br>This cannot be done on the system drive, so let's do it while we're booting off another drive, at the same time we're formatting it:<br><div class="sfcode">sudo mkfs.ext4 -O ^has_journal -L PiBoot /dev/sdx1<br>sudo fsck.ext4 -f /dev/sdx1</div><br><br><u><strong>Step 3: Optimize your boot SD</strong></u><br>At this point, copy the boot files to the SD, put it in the internal SD slot, disconnect all other mass storage for safety, and reboot.<br><br><u><strong>- Disable superfluous writes access time</strong></u><br>by default, inux keeps track of the last time a file has been read, which genererates a disk write for every file read. We want to disable that for all drives:<br>Open the hard drive config file with<br><div class="sfcode">sudo nano /etc/fstab</div><br>Add the noatime (no access time), no diratime (same for directories instead of files) and data=writeback options after the defaults parameters for each drive, except swap. Modified line should read something like:<br><div class="sfcode">/dev/sda2 / ext4 defaults<u><strong>,data=writeback,noatime,nodiratime</strong></u> 0 0</div><br>Do that for each drive, save, and remount your drives with<br><div class="sfcode">mount -o remount /</div><br><br>NOTE: the data=writeback option means than when you save/update a file, the OS will take a few seconds to update the directory to point to the new file. If your computer crashes/stops in the mean time, you'll lose your changes.<br><br><strong><u>- Change the disk scheduler</u></strong> <a href="http://www.redhat.com/magazine/008jun05/features/schedulers/" rel="nofollow" target="_top">http://www.redhat.com/magazine.....chedulers/</a><br>add block/sda/queue/scheduler = noop to your /etc/sysfs.conf (requires the sysutils package) or elevator=noop to the kernel boot parameters in your /etc/default/grub<br><br><u><strong>-Reduce swappiness </strong></u> <a href="http://community.linuxmint.com/tutorial/view/293" rel="nofollow" target="_top">http://community.linuxmint.com.....l/view/293</a><br>Reduce swappiness to make the operating system avoid the use of the swap area and prefer to use the memory modules instead. Open your /etc/sysctl.conf file with the gedit text editor,  make a new line at the bottom of the file and add this:<br><div class="sfcode">vm.swappiness=10</div><br><br><u><strong>- disable/relocate to RAM transient logs and variables</strong></u><br><a href="http://tombuntu.com/index.php/2008/09/04/four-tweaks-for-using-linux-with-solid-state-drives/" rel="nofollow" target="_top">http://tombuntu.com/index.php/.....te-drives/</a><br><a href="http://www.styryx.com/en/computers/operating-systems/unix-linux/linux-installation-to-usb-flash" rel="nofollow" target="_top">http://www.styryx.com/en/compu.....-usb-flash</a><br><br>NOTE: This eats up a lot of RAM. It s not recommended for the Model A, nor for the model B if your apps use up a lot of RAM. It is best for a "server" model B with no X11.<br><br><strong><u>- Misc</u></strong><br>Avoid logical volumes: hard to control alignment.</div></div></div>
+<!--/DOCUMENT_FRAGMENT-->
+</div>
+</body>
+</html>

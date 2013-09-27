@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html xmlns:expr="http://www.google.com/2005/gml/expr" xmlns:data="http://www.google.com/2005/gml/data" xmlns:b="http://www.google.com/2005/gml/b" xmlns="http://www.w3.org/1999/xhtml" dir="ltr" class="v2 wf-coveredbyyourgrace-n4-active wf-active" b:version="2">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<!-- added by WangLu for Google Webmaster Tools -->
+<meta content="1gi/ggcdg4W7FkUQo0egaL+BUfCeVMPsZS+bHf0X6Fg=" name="verify-v1">
+<meta content="IE=EmulateIE7" http-equiv="X-UA-Compatible">
+<meta content="width=1100" name="viewport">
+
+
+<meta content="true" name="MSSmartTagsPreventParsing">
+<meta content="blogger" name="generator">
+<link href="favicon.ico" rel="icon" type="image/x-icon">
+<link href="http://coolwanglu.blogspot.com/2007/05/figlet.html" rel="canonical">
+<link rel="alternate" type="application/atom+xml" title="WangLu's Tech Notes - Atom" href="http://coolwanglu.blogspot.com/feeds/posts/default">
+<link rel="alternate" type="application/rss+xml" title="WangLu's Tech Notes - RSS" href="http://coolwanglu.blogspot.com/feeds/posts/default?alt=rss">
+<link rel="service.post" type="application/atom+xml" title="WangLu's Tech Notes - Atom" href="http://www.blogger.com/feeds/33534782/posts/default">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.blogger.com/rsd.g?blogID=33534782">
+<!--[if IE]><script type="text/javascript" src="//www.blogger.com/static/v1/jsbin/738241589-ieretrofit.js"></script>
+<![endif]-->
+<link href="https://plus.google.com/105428884118582724757" rel="publisher">
+<!--[if IE]> <script> (function() { var html5 = ("abbr,article,aside,audio,canvas,datalist,details," + "figure,footer,header,hgroup,mark,menu,meter,nav,output," + "progress,section,time,video").split(','); for (var i = 0; i < html5.length; i++) { document.createElement(html5[i]); } try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {} })(); </script> <![endif]-->
+<title>WangLu's Tech Notes: figlet 中文支持</title>
+
+
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body class="">
+<div class="navbar section" id="navbar"><div class="widget Navbar" id="Navbar1">
+<div id="navbar-iframe-container"><iframe src="index_1.html" name="navbar-iframe" id="navbar-iframe" vspace="0" tabindex="0" style="" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div>
+
+
+</div></div>
+<div class="body-fauxcolumns">
+<div class="fauxcolumn-outer body-fauxcolumn-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="content-fauxcolumns">
+<div class="fauxcolumn-outer content-fauxcolumn-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</div>
+<div class="content-outer">
+<div class="content-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left content-fauxborder-left">
+<div class="fauxborder-right content-fauxborder-right"></div>
+<div class="content-inner">
+<header>
+<div class="header-outer">
+<div class="header-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left header-fauxborder-left">
+<div class="fauxborder-right header-fauxborder-right"></div>
+<div class="region-inner header-inner">
+<div class="header section" id="header"><div class="widget Header" id="Header1">
+<div id="header-inner">
+<div class="titlewrapper">
+<h1 class="title">
+<a href="http://coolwanglu.blogspot.jp/">WangLu's Tech Notes</a>
+</h1>
+</div>
+<div class="descriptionwrapper">
+<p class="description"><span>久病成医 | Prolonged Illness Makes the Patient a Good Doctor</span></p>
+</div>
+</div>
+</div></div>
+</div>
+</div>
+<div class="header-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</header>
+<div class="tabs-outer">
+<div class="tabs-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left tabs-fauxborder-left">
+<div class="fauxborder-right tabs-fauxborder-right"></div>
+<div class="region-inner tabs-inner">
+<div class="tabs section" id="crosscol"></div>
+<div class="tabs section" id="crosscol-overflow"></div>
+</div>
+</div>
+<div class="tabs-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<div class="main-outer">
+<div class="main-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left main-fauxborder-left">
+<div class="fauxborder-right main-fauxborder-right"></div>
+<div class="region-inner main-inner">
+<div class="columns fauxcolumns">
+<div class="fauxcolumn-outer fauxcolumn-center-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<div class="fauxcolumn-outer fauxcolumn-left-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<div class="fauxcolumn-outer fauxcolumn-right-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<!-- corrects IE6 width calculation -->
+<div class="columns-inner">
+<div class="column-center-outer">
+<div class="column-center-inner">
+<div class="main section" id="main"><div class="widget Blog" id="Blog1">
+<div class="blog-posts hfeed">
+<!-- google_ad_section_start(name=default) -->
+
+          <div class="date-outer">
+        
+<h2 class="date-header"><span>2007-05-16</span></h2>
+
+          <div class="date-posts">
+        
+<div class="post-outer">
+<div class="post hentry" itemprop="blogPost" itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+<meta content="33534782" itemprop="blogId">
+<meta content="6031979491468435662" itemprop="postId">
+<a name="6031979491468435662"></a>
+<h3 class="post-title entry-title" itemprop="name">
+figlet 中文支持
+</h3>
+<div class="post-header">
+<div class="post-header-line-1"></div>
+</div>
+<div class="post-body entry-content" id="post-body-6031979491468435662" itemprop="description articleBody">
+figlet的帮助里说它支持多字节字符，如CJK字符。<br><br>不过这肯定需要字体文件，我查到它叫figfonts-CJK，但是不大容易下到，后来发现Debian里虽然package下不来，但是src可以，解开以后赫然发现了gb16fs.flf，呵呵，把里面所有的flf和flc文件放到/usr/share/figlet里就好了，注意要去掉目录，只把文件拷过来。<br><br>本以为现在就行了，可是“figlet -f gb16fs 王璐”是乱码，又查了查帮助，说是需要control file, figfonts-CJK自带了一些,叫unshift, iso2022, big5等，但是都试了一遍还是不行。<br><br>仔细看了figfont.txt, 它描述了figlet的字体文件和控制文件的格式，我发现控制文件中应当用b命令，但是后来发现用了也不行。<br><br>再看一眼figfont.txt中关于command的说明，发现h命令类似，只不过是针对HZ编码的，是以"~{"为开始符，然后把以后每两个字节都当成一个汉字处理，直到遇到"~}"为止。我写个CPP看“王”的GB编码，是0xcdf5, 在gb16fs 对应于0x4d75, 我又看了下unshift.flc,这不就是我想要的么，unshift里定义的编码转换就是把每个字节的首二进制位清零，那么0xcdf5就应该变成0x4d75，但是仔细一看又不对了，每个t命令接的两个区间应该等大，而它里面第一个区间都是以\0x??7E结尾的，显然不对，应该改为\0x??FE,于是我另存了个wl.flc，修正了这个bug<br><br>现在试“figlet -f wl 王璐” 仍然不行，直觉告诉了我，它仍没有按多字节处理，又查了下gb16fs.flf，果然乱码的第一个符号就是202,即0xcd,“王”的第一个字节！<br><br>于是改用h命令强制处理双字节，并把输入改为"~{王璐~}"，字体仍用gb16fs,控制文件用wl(已加入wl.flc),于是， 出现了！！！<br><br>这就是成功的一大步了，说明了h命令是好的，字体文件也是好的，figlet也确实具有处理多字节字符的能力，于是目标锁定在b命令上<br><br>文档上说b命令每次读一个字符，如果小于0x80则当单字节字符输出，否则再读入一个字符，一起当作双字节字符输出。看似这应当正常工作，但是就是不行。<br><br>然后我怒了，下了个源码看(是到官方地址下的，源里只有2.2.1，没有2.2.2，但是差别应该不大)，在figlet.c中，742行附近为判断输入命令的，可见b命令使得multibyte值为1.而getinchr中对<br>multibyte不同值对应的模式都有说明，看似multibyte=1对应的DBCS模式也是正常的。<br><br>但是，具体一看getinchr()函数，赫然发现multibyte==1时执行的竟然是只把0x80~0x94和0xE0~0xEF区间的字节当作双字节起始字节！！多么大的bug啊。这个应该是和<br>SHIFT-JIS相同（如果它对SHIFT-JIS的描述是正确的），不过也难怪，毕竟老外不了解CJK,另外它们也不会去测试这个，因此这个bug一直没发现（至少主页上没说）。<br><br>那当然改掉它了，改成0x80~0xFF区间就行了，另外我还在wl.flc上加了一行t \0xFFA1-\0xFFFE \0x7F21-\0x7F7E<br><br>编译时要设一下font目录，然后编译安装，然后还要把/usr/share/figlet里的字体和控制文件拷出来一份。<br><br>然后。。。哇哈哈哈。。。终于出现了！！！
+<div style="clear: both;"></div>
+</div>
+<div class="post-footer">
+<div class="post-footer-line post-footer-line-1"><span class="post-author vcard">
+Posted by
+<span class="fn" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+<meta content="https://plus.google.com/105428884118582724757" itemprop="url">
+<a href="https://plus.google.com/105428884118582724757" rel="author" title="author profile">
+<span itemprop="name">王璐</span>
+</a>
+</span>
+</span>
+<span class="post-timestamp">
+at
+<meta content="http://coolwanglu.blogspot.com/2007/05/figlet.html" itemprop="url">
+<a class="timestamp-link" href="http://coolwanglu.blogspot.jp/2007/05/figlet.html" rel="bookmark" title="permanent link"><abbr class="published" itemprop="datePublished" title="2007-05-16T08:40:00+08:00">08:40</abbr></a>
+</span>
+<span class="post-comment-link">
+</span>
+<span class="post-icons">
+<span class="item-action">
+<a href="http://www.blogger.com/email-post.g?blogID=33534782&amp;postID=6031979491468435662" title="通过电子邮件发送该帖">
+<img alt="" class="icon-action" src="icon18_email.gif" height="13" width="18">
+</a>
+</span>
+<span class="item-control blog-admin pid-846926778">
+<a href="http://www.blogger.com/post-edit.g?blogID=33534782&amp;postID=6031979491468435662&amp;from=pencil" title="修改帖子">
+<img alt="" class="icon-action" src="icon18_edit_allbkg.gif" height="18" width="18">
+</a>
+</span>
+</span>
+<span class="post-backlinks post-comment-link">
+</span>
+<div class="post-share-buttons goog-inline-block">
+<a class="goog-inline-block share-button sb-email" href="http://www.blogger.com/share-post.g?blogID=33534782&amp;postID=6031979491468435662&amp;target=email" target="_top" title="通过电子邮件发送"><span class="share-button-link-text">通过电子邮件发送</span></a><a class="goog-inline-block share-button sb-blog" href="http://www.blogger.com/share-post.g?blogID=33534782&amp;postID=6031979491468435662&amp;target=blog" onclick="window.open(this.href, &quot;_blank&quot;, &quot;height=270,width=475&quot;); return false;" target="_top" title="BlogThis!"><span class="share-button-link-text">BlogThis!</span></a><a class="goog-inline-block share-button sb-twitter" href="http://www.blogger.com/share-post.g?blogID=33534782&amp;postID=6031979491468435662&amp;target=twitter" target="_top" title="共享给 Twitter"><span class="share-button-link-text">共享给 Twitter</span></a><a class="goog-inline-block share-button sb-facebook" href="http://www.blogger.com/share-post.g?blogID=33534782&amp;postID=6031979491468435662&amp;target=facebook" onclick="window.open(this.href, &quot;_blank&quot;, &quot;height=430,width=640&quot;); return false;" target="_top" title="共享给 Facebook"><span class="share-button-link-text">共享给 Facebook</span></a><div class="goog-inline-block dummy-container"><div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 300px; height: 20px;"><iframe title="+1" data-gapiattached="true" allowtransparency="true" src="index_2.html" name="I0_1365576442197" id="I0_1365576442197" vspace="0" tabindex="0" style="position: static; top: 0px; width: 300px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div></div>
+</div>
+</div>
+<div class="post-footer-line post-footer-line-2"><span class="post-labels">
+Labels:
+<a href="http://coolwanglu.blogspot.jp/search/label/c%2Fc%2B%2B" rel="tag">c/c++</a>,
+<a href="http://coolwanglu.blogspot.jp/search/label/code" rel="tag">code</a>,
+<a href="http://coolwanglu.blogspot.jp/search/label/configuration%2Fusage" rel="tag">configuration/usage</a>
+</span>
+</div>
+<div class="post-footer-line post-footer-line-3"></div>
+</div>
+</div>
+<div class="comments" id="comments">
+<a name="comments"></a>
+<h4>3 条评论:</h4>
+<div id="Blog1_comments-block-wrapper">
+<dl class="" id="comments-block">
+<dt class="comment-author blogger-comment-icon" id="c5851064327917909626">
+<a name="c5851064327917909626"></a>
+<a href="http://www.blogger.com/profile/15527467890444210518" rel="nofollow">ESN</a>
+说...
+</dt>
+<dd class="comment-body" id="Blog1_cmt-5851064327917909626">
+<p>
+“于是改用h命令强制处理双字节，并把输入改为"~{王璐~}"，字体仍用gb16fs,控制文件用wl(已加入wl.flc),于是， 出现了！！！”<br><br>请问上面说的h命令是直接放到unshift.flc中的单独一行吗？你的终端locale是zh_CN.UTF-8吗？我这里没有输出，请指教，谢谢
+</p>
+</dd>
+<dd class="comment-footer">
+<span class="comment-timestamp">
+<a href="http://coolwanglu.blogspot.com/2007/05/figlet.html?showComment=1265520444045#c5851064327917909626" title="comment permalink">
+2010年2月7日 下午1:27:00
+</a>
+<span class="item-control blog-admin pid-591432475">
+<a class="comment-delete" href="http://www.blogger.com/delete-comment.g?blogID=33534782&amp;postID=5851064327917909626" title="删除评论">
+<img src="icon_delete13.gif">
+</a>
+</span>
+</span>
+</dd>
+<dt class="comment-author blog-author blogger-comment-icon" id="c1460688300396605286">
+<a name="c1460688300396605286"></a>
+<a href="http://www.blogger.com/profile/00576609954224192924" rel="nofollow">coolwanglu</a>
+说...
+</dt>
+<dd class="comment-body" id="Blog1_cmt-1460688300396605286">
+<p>
+啊，说实话已经忘了，都这么长时间了。<br><br>但是根据情况，当时我的终端应该是zh_CN.GBK，否则编码也不可能按照gb来读入<br><br>h应该是放在unshift.flc里<br><br>另外我看现在有个controlfile是utf8，不知道是不是可以利用一下<br><br>figfonts-cjk你是从哪里下的呢，我现在倒找不到了。
+</p>
+</dd>
+<dd class="comment-footer">
+<span class="comment-timestamp">
+<a href="http://coolwanglu.blogspot.com/2007/05/figlet.html?showComment=1265527350065#c1460688300396605286" title="comment permalink">
+2010年2月7日 下午3:22:00
+</a>
+<span class="item-control blog-admin pid-846926778">
+<a class="comment-delete" href="http://www.blogger.com/delete-comment.g?blogID=33534782&amp;postID=1460688300396605286" title="删除评论">
+<img src="icon_delete13.gif">
+</a>
+</span>
+</span>
+</dd>
+<dt class="comment-author blogger-comment-icon" id="c6458120999093478966">
+<a name="c6458120999093478966"></a>
+<a href="http://www.blogger.com/profile/15527467890444210518" rel="nofollow">ESN</a>
+说...
+</dt>
+<dd class="comment-body" id="Blog1_cmt-6458120999093478966">
+<p>
+谢谢你的回复。<br><br>我在这里下载到的：<br>http://archive.debian.net/en/slink/figfonts-cjk<br>下载链接：<br>http://archive.debian.org/debian/dists/slink/non-free/source/text/figfonts_2.2.orig.tar.gz<br><br>我也试过utf8.flc，但是一样没有输出。<br><br>另外，那张女孩的画很棒，用什么软件画的？我喜欢用手机画，不过水平很低，呵呵。另外，能否给我发邮件？在这里聊有碍观瞻哈
+</p>
+</dd>
+<dd class="comment-footer">
+<span class="comment-timestamp">
+<a href="http://coolwanglu.blogspot.com/2007/05/figlet.html?showComment=1265560935620#c6458120999093478966" title="comment permalink">
+2010年2月8日 上午12:42:00
+</a>
+<span class="item-control blog-admin pid-591432475">
+<a class="comment-delete" href="http://www.blogger.com/delete-comment.g?blogID=33534782&amp;postID=6458120999093478966" title="删除评论">
+<img src="icon_delete13.gif">
+</a>
+</span>
+</span>
+</dd>
+</dl>
+</div>
+<p class="comment-footer">
+<a href="http://www.blogger.com/comment.g?blogID=33534782&amp;postID=6031979491468435662" onclick="">发表评论</a>
+</p>
+<div id="backlinks-container">
+<div id="Blog1_backlinks-container"><a name="links"></a><h4>Links to this post</h4>
+<p class="comment-footer">
+<a class="comment-link" href="http://www.blogger.com/blog-this.g" id="Blog1_backlinks-create-link" target="_top">创建链接</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+
+        </div></div>
+      
+<!-- google_ad_section_end -->
+</div>
+<div class="blog-pager" id="blog-pager">
+<span id="blog-pager-newer-link">
+<a class="blog-pager-newer-link" href="http://coolwanglu.blogspot.jp/2007/05/fcitx.html" id="Blog1_blog-pager-newer-link" title="较新的帖子">较新的帖子</a>
+</span>
+<span id="blog-pager-older-link">
+<a class="blog-pager-older-link" href="http://coolwanglu.blogspot.jp/2007/05/ubuntu.html" id="Blog1_blog-pager-older-link" title="较早的帖子">较早的帖子</a>
+</span>
+<a class="home-link" href="http://coolwanglu.blogspot.jp/">主页</a>
+</div>
+<div class="clear"></div>
+<div class="post-feeds">
+</div>
+
+</div><div class="widget AdSense" id="AdSense2">
+<div class="widget-content">
+
+
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=33534782&amp;widgetType=AdSense&amp;widgetId=AdSense2&amp;action=editWidget&amp;sectionId=main" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;AdSense2&quot;));" target="configAdSense2" title="修改">
+<img alt="" src="icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div></div>
+</div>
+</div>
+<div class="column-left-outer">
+<div class="column-left-inner">
+<aside>
+</aside>
+</div>
+</div>
+<div class="column-right-outer">
+<div class="column-right-inner">
+<aside>
+<div class="sidebar section" id="sidebar-right-1"><div class="widget HTML" id="HTML5">
+<h2 class="title">订阅</h2>
+<div class="widget-content">
+<a href="http://feeds.feedburner.com/coolwanglu" rel="alternate" title="Subscribe to my feed" type="application/rss+xml"><img alt="" style="border: 0px none;" src="feed-icon32x32.png"></a><a href="http://feeds.feedburner.com/coolwanglu" rel="alternate" title="订阅 Feed" type="application/rss+xml">订阅 Feed</a>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=33534782&amp;widgetType=HTML&amp;widgetId=HTML5&amp;action=editWidget&amp;sectionId=sidebar-right-1" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;HTML5&quot;));" target="configHTML5" title="修改">
+<img alt="" src="icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div><div class="widget HTML" id="HTML3">
+<h2 class="title">My Stuffs</h2>
+<div class="widget-content">
+<iframe src="index_3.html" frameborder="0" height="16"></iframe>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=33534782&amp;widgetType=HTML&amp;widgetId=HTML3&amp;action=editWidget&amp;sectionId=sidebar-right-1" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;HTML3&quot;));" target="configHTML3" title="修改">
+<img alt="" src="icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div><div class="widget LinkList" id="LinkList1">
+<h2>Links</h2>
+<div class="widget-content">
+<ul>
+<li><a href="http://domino.research.ibm.com/Comm/wwwr_ponder.nsf/pages/index.html">IBM Ponder This</a></li>
+<li><a href="http://www.cut-the-knot.org/index.shtml">Interactive Mathematics Miscellany and Puzzles 数学趣题</a></li>
+<li><a href="http://ipsc.ksp.sk/">Internet Problem Solving Contest</a></li>
+<li><a href="http://projecteuler.net/">Project Euler</a></li>
+<li><a href="http://code.google.com/p/scanmem/">scanmem &amp; GameConqueror</a></li>
+<li><a href="http://www.strimko.com/">Strimko 类似数独的谜题</a></li>
+<li><a href="http://www.pythonchallenge.com/">The Python Challenge</a></li>
+<li><a href="http://www.brand.site.co.il/riddles/usingyourhead.html">Using your Head is Permitted</a></li>
+<li><a href="http://lonelyhedgehog.blogspot.com/">Wanglu's Blog</a></li>
+<li><a href="http://www.wolframalpha.com/">Wolfram|Alpha</a></li>
+</ul>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=33534782&amp;widgetType=LinkList&amp;widgetId=LinkList1&amp;action=editWidget&amp;sectionId=sidebar-right-1" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;LinkList1&quot;));" target="configLinkList1" title="修改">
+<img alt="" src="icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget HTML" id="HTML4">
+<h2 class="title">ubuntu countdown</h2>
+<div class="widget-content">
+<a href="http://www.ubuntu.com/"><img src="banner1.png" alt="The next version of Ubuntu is coming soon" height="150" border="0" width="180"></a>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=33534782&amp;widgetType=HTML&amp;widgetId=HTML4&amp;action=editWidget&amp;sectionId=sidebar-right-1" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;HTML4&quot;));" target="configHTML4" title="修改">
+<img alt="" src="icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div><div class="widget BlogArchive" id="BlogArchive1">
+<h2>博客归档</h2>
+<div class="widget-content">
+<div id="ArchiveList">
+<div id="BlogArchive1_ArchiveList">
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/search?updated-min=2013-01-01T00:00:00%2B08:00&amp;updated-max=2014-01-01T00:00:00%2B08:00&amp;max-results=5">2013</a>
+<span class="post-count" dir="ltr">(5)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2013_04_01_archive.html">四月</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2013_02_01_archive.html">二月</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/search?updated-min=2012-01-01T00:00:00%2B08:00&amp;updated-max=2013-01-01T00:00:00%2B08:00&amp;max-results=6">2012</a>
+<span class="post-count" dir="ltr">(6)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2012_10_01_archive.html">十月</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2012_08_01_archive.html">八月</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2012_04_01_archive.html">四月</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2012_01_01_archive.html">一月</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/search?updated-min=2011-01-01T00:00:00%2B08:00&amp;updated-max=2012-01-01T00:00:00%2B08:00&amp;max-results=24">2011</a>
+<span class="post-count" dir="ltr">(24)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2011_11_01_archive.html">十一月</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2011_08_01_archive.html">八月</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2011_07_01_archive.html">七月</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2011_05_01_archive.html">五月</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2011_04_01_archive.html">四月</a>
+<span class="post-count" dir="ltr">(11)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2011_03_01_archive.html">三月</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2011_02_01_archive.html">二月</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2011_01_01_archive.html">一月</a>
+<span class="post-count" dir="ltr">(4)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/search?updated-min=2010-01-01T00:00:00%2B08:00&amp;updated-max=2011-01-01T00:00:00%2B08:00&amp;max-results=32">2010</a>
+<span class="post-count" dir="ltr">(32)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2010_12_01_archive.html">十二月</a>
+<span class="post-count" dir="ltr">(5)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2010_09_01_archive.html">九月</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2010_08_01_archive.html">八月</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2010_07_01_archive.html">七月</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2010_06_01_archive.html">六月</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2010_05_01_archive.html">五月</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2010_04_01_archive.html">四月</a>
+<span class="post-count" dir="ltr">(12)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2010_03_01_archive.html">三月</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2010_02_01_archive.html">二月</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2010_01_01_archive.html">一月</a>
+<span class="post-count" dir="ltr">(5)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/search?updated-min=2009-01-01T00:00:00%2B08:00&amp;updated-max=2010-01-01T00:00:00%2B08:00&amp;max-results=30">2009</a>
+<span class="post-count" dir="ltr">(30)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2009_12_01_archive.html">十二月</a>
+<span class="post-count" dir="ltr">(4)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2009_11_01_archive.html">十一月</a>
+<span class="post-count" dir="ltr">(4)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2009_10_01_archive.html">十月</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2009_09_01_archive.html">九月</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2009_08_01_archive.html">八月</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2009_06_01_archive.html">六月</a>
+<span class="post-count" dir="ltr">(7)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2009_05_01_archive.html">五月</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2009_03_01_archive.html">三月</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2009_02_01_archive.html">二月</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2009_01_01_archive.html">一月</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/search?updated-min=2008-01-01T00:00:00%2B08:00&amp;updated-max=2009-01-01T00:00:00%2B08:00&amp;max-results=50">2008</a>
+<span class="post-count" dir="ltr">(75)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2008_11_01_archive.html">十一月</a>
+<span class="post-count" dir="ltr">(4)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2008_10_01_archive.html">十月</a>
+<span class="post-count" dir="ltr">(6)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2008_09_01_archive.html">九月</a>
+<span class="post-count" dir="ltr">(4)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2008_08_01_archive.html">八月</a>
+<span class="post-count" dir="ltr">(4)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2008_07_01_archive.html">七月</a>
+<span class="post-count" dir="ltr">(5)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2008_06_01_archive.html">六月</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2008_05_01_archive.html">五月</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2008_04_01_archive.html">四月</a>
+<span class="post-count" dir="ltr">(19)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2008_03_01_archive.html">三月</a>
+<span class="post-count" dir="ltr">(13)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2008_02_01_archive.html">二月</a>
+<span class="post-count" dir="ltr">(10)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2008_01_01_archive.html">一月</a>
+<span class="post-count" dir="ltr">(7)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate expanded">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy toggle-open">▼&nbsp;</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/search?updated-min=2007-01-01T00:00:00%2B08:00&amp;updated-max=2008-01-01T00:00:00%2B08:00&amp;max-results=50">2007</a>
+<span class="post-count" dir="ltr">(161)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2007_12_01_archive.html">十二月</a>
+<span class="post-count" dir="ltr">(12)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2007_11_01_archive.html">十一月</a>
+<span class="post-count" dir="ltr">(6)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2007_10_01_archive.html">十月</a>
+<span class="post-count" dir="ltr">(16)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2007_09_01_archive.html">九月</a>
+<span class="post-count" dir="ltr">(19)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2007_08_01_archive.html">八月</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2007_07_01_archive.html">七月</a>
+<span class="post-count" dir="ltr">(4)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2007_06_01_archive.html">六月</a>
+<span class="post-count" dir="ltr">(18)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate expanded">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy toggle-open">▼&nbsp;</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2007_05_01_archive.html">五月</a>
+<span class="post-count" dir="ltr">(22)</span>
+<ul class="posts">
+<li><a href="http://coolwanglu.blogspot.jp/2007/05/windows-api.html">Windows API 获得用户目录</a></li>
+<li><a href="http://coolwanglu.blogspot.jp/2007/05/flash-html.html">本地 flash 与 html 交互</a></li>
+<li><a href="http://coolwanglu.blogspot.jp/2007/05/artstudio.html">ArtStudio</a></li>
+<li><a href="http://coolwanglu.blogspot.jp/2007/05/emule.html">[转]删除eMule搜索历史记录</a></li>
+<li><a href="http://coolwanglu.blogspot.jp/2007/05/vim.html">vim 集成调试</a></li>
+<li><a href="http://coolwanglu.blogspot.jp/2007/05/runauto.html">runauto.. 查杀</a></li>
+<li><a href="http://coolwanglu.blogspot.jp/2007/05/linux.html">Linux 纯终端字体配置</a></li>
+<li><a href="http://coolwanglu.blogspot.jp/2007/05/fcitx.html">fcitx 异常退出</a></li>
+<li><a href="http://coolwanglu.blogspot.jp/2007/05/figlet.html">figlet 中文支持</a></li>
+<li><a href="http://coolwanglu.blogspot.jp/2007/05/ubuntu.html">ubuntu 控制台登陆信息</a></li>
+<li><a href="http://coolwanglu.blogspot.jp/2007/05/ascii-art-figlet.html">Ascii Art: figlet</a></li>
+<li><a href="http://coolwanglu.blogspot.jp/2007/05/mplayer-ascii-art.html">mplayer 与 ascii art</a></li>
+<li><a href="http://coolwanglu.blogspot.jp/2007/05/aalib.html">AAlib &amp; bb</a></li>
+<li><a href="http://coolwanglu.blogspot.jp/2007/05/console-jfbterm.html">中文 console jfbterm</a></li>
+<li><a href="http://coolwanglu.blogspot.jp/2007/05/ubuntu-704-latex.html">ubuntu 7.04 latex 中文支持</a></li>
+<li><a href="http://coolwanglu.blogspot.jp/2007/05/ubuntu-704.html">ubuntu 7.04 之改进</a></li>
+<li><a href="http://coolwanglu.blogspot.jp/2007/05/links2.html">控制台下浏览器 links2</a></li>
+<li><a href="http://coolwanglu.blogspot.jp/2007/05/linux-qq_11.html">Linux 控制台 使用QQ</a></li>
+<li><a href="http://coolwanglu.blogspot.jp/2007/05/w3m-gmail.html">w3m 上 GMail</a></li>
+<li><a href="http://coolwanglu.blogspot.jp/2007/05/firefox-xmlhttprequest.html">Firefox 中 xmlhttprequest 跨域访问</a></li>
+<li><a href="http://coolwanglu.blogspot.jp/2007/05/blog-post.html">一些电视台/电台的直播地址</a></li>
+<li><a href="http://coolwanglu.blogspot.jp/2007/05/sniffer.html">[转] 几个Sniffer(嗅探器)工具</a></li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2007_04_01_archive.html">四月</a>
+<span class="post-count" dir="ltr">(17)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2007_03_01_archive.html">三月</a>
+<span class="post-count" dir="ltr">(28)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://coolwanglu.blogspot.jp/2007_02_01_archive.html">二月</a>
+<span class="post-count" dir="ltr">(16)</span>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=33534782&amp;widgetType=BlogArchive&amp;widgetId=BlogArchive1&amp;action=editWidget&amp;sectionId=sidebar-right-1" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;BlogArchive1&quot;));" target="configBlogArchive1" title="修改">
+<img alt="" src="icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget Label" id="Label1">
+<h2>标签</h2>
+<div class="widget-content list-label-widget-content">
+<ul>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/linux">linux</a>
+<span dir="ltr">(182)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/configuration%2Fusage">configuration/usage</a>
+<span dir="ltr">(123)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/software">software</a>
+<span dir="ltr">(59)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/%E8%AF%84%E8%AE%BA%E5%92%8C%E8%AE%B0%E4%BA%8B">评论和记事</a>
+<span dir="ltr">(43)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/Windows">Windows</a>
+<span dir="ltr">(40)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/code">code</a>
+<span dir="ltr">(20)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/hardware">hardware</a>
+<span dir="ltr">(19)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/firefox">firefox</a>
+<span dir="ltr">(18)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/game">game</a>
+<span dir="ltr">(17)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/looking">looking</a>
+<span dir="ltr">(17)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/TeX%2FLaTeX">TeX/LaTeX</a>
+<span dir="ltr">(11)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/resource">resource</a>
+<span dir="ltr">(11)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/blog">blog</a>
+<span dir="ltr">(10)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/font">font</a>
+<span dir="ltr">(10)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/network">network</a>
+<span dir="ltr">(10)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/Flash">Flash</a>
+<span dir="ltr">(9)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/c%2Fc%2B%2B">c/c++</a>
+<span dir="ltr">(9)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/anti-virus">anti-virus</a>
+<span dir="ltr">(7)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/python">python</a>
+<span dir="ltr">(7)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/web">web</a>
+<span dir="ltr">(7)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/crack">crack</a>
+<span dir="ltr">(5)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/vim">vim</a>
+<span dir="ltr">(5)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/Visual%20C%2B%2B">Visual C++</a>
+<span dir="ltr">(4)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/css">css</a>
+<span dir="ltr">(4)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/javascript">javascript</a>
+<span dir="ltr">(3)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/asm">asm</a>
+<span dir="ltr">(2)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/c%23">c#</a>
+<span dir="ltr">(2)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/cheat">cheat</a>
+<span dir="ltr">(2)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/gameconqueror">gameconqueror</a>
+<span dir="ltr">(2)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/gmail">gmail</a>
+<span dir="ltr">(2)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/ipad">ipad</a>
+<span dir="ltr">(2)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/mathematics">mathematics</a>
+<span dir="ltr">(2)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/perl">perl</a>
+<span dir="ltr">(2)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/Visual%20Basic">Visual Basic</a>
+<span dir="ltr">(1)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/digg">digg</a>
+<span dir="ltr">(1)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/freebsd">freebsd</a>
+<span dir="ltr">(1)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/gnome-shell">gnome-shell</a>
+<span dir="ltr">(1)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/gtk">gtk</a>
+<span dir="ltr">(1)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/ios">ios</a>
+<span dir="ltr">(1)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/programming">programming</a>
+<span dir="ltr">(1)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/script">script</a>
+<span dir="ltr">(1)</span>
+</li>
+<li>
+<a dir="ltr" href="http://coolwanglu.blogspot.jp/search/label/xpcom">xpcom</a>
+<span dir="ltr">(1)</span>
+</li>
+</ul>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=33534782&amp;widgetType=Label&amp;widgetId=Label1&amp;action=editWidget&amp;sectionId=sidebar-right-1" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;Label1&quot;));" target="configLabel1" title="修改">
+<img alt="" src="icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div></div>
+<table class="section-columns columns-2" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td class="first columns-cell">
+<div class="sidebar section" id="sidebar-right-2-1"></div>
+</td>
+<td class="columns-cell">
+<div class="sidebar section" id="sidebar-right-2-2"><div class="widget HTML" id="HTML2">
+<div class="widget-content">
+
+
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=33534782&amp;widgetType=HTML&amp;widgetId=HTML2&amp;action=editWidget&amp;sectionId=sidebar-right-2-2" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;HTML2&quot;));" target="configHTML2" title="修改">
+<img alt="" src="icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div></div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sidebar section" id="sidebar-right-3"><div class="widget AdSense" id="AdSense1">
+<div class="widget-content">
+
+
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=33534782&amp;widgetType=AdSense&amp;widgetId=AdSense1&amp;action=editWidget&amp;sectionId=sidebar-right-3" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;AdSense1&quot;));" target="configAdSense1" title="修改">
+<img alt="" src="icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div></div>
+</aside>
+</div>
+</div>
+</div>
+<div style="clear: both;"></div>
+<!-- columns -->
+</div>
+<!-- main -->
+</div>
+</div>
+<div class="main-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<footer>
+<div class="footer-outer">
+<div class="footer-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left footer-fauxborder-left">
+<div class="fauxborder-right footer-fauxborder-right"></div>
+<div class="region-inner footer-inner">
+<div class="foot section" id="footer-1"></div>
+<table class="section-columns columns-2" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td class="first columns-cell">
+<div class="foot section" id="footer-2-1"></div>
+</td>
+<td class="columns-cell">
+<div class="foot section" id="footer-2-2"></div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- outside of the include in order to lock Attribution widget -->
+<div class="foot section" id="footer-3"><div class="widget Attribution" id="Attribution1">
+<div class="widget-content" style="text-align: center;">
+Simple模板. 由 <a href="http://www.blogger.com/" target="_top">Blogger</a> 强力驱动.
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=33534782&amp;widgetType=Attribution&amp;widgetId=Attribution1&amp;action=editWidget&amp;sectionId=footer-3" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;Attribution1&quot;));" target="configAttribution1" title="修改">
+<img alt="" src="icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div></div>
+</div>
+</div>
+<div class="footer-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</footer>
+<!-- content -->
+</div>
+</div>
+<div class="content-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+</body>
+</html>

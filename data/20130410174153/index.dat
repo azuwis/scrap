@@ -1,0 +1,7 @@
+id	20130410174153
+type	
+title	WangLu's Tech Notes: figlet 中文支持
+chars	UTF-8
+icon	resource://scrapbook/data/20130410174153/favicon.ico
+source	http://coolwanglu.blogspot.jp/2007/05/figlet.html
+comment	$ cp gb16fs.flf gb16st.flf unshift.flc /usr/share/figlet/ __BR__ $ sed -i -e 's/7E /FE /' /usr/share/figlet/unshift.flc __BR__ $ echo '~{测试}~' | iconv -f utf8 -t gbk | figlet -f gb16fs -C hz -C unshift -c -t -p

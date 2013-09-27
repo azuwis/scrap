@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html style="" class=" js no-flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths filereader">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# githubog: http://ogp.me/ns/fb/githubog#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>virt-install command for Debian with serial console</title>
+
+  <meta content="authenticity_token" name="csrf-param">
+<meta content="EZrAxP/kAXK7OZBFqhMeGmz21IHIv1FckWJPHQn6KDs=" name="csrf-token">
+  <meta name="viewport" content="width=960">
+
+  <link type="text/plain" rel="author" href="http://github.com/humans.txt">
+
+  
+  
+
+    <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@github">
+  <meta property="og:title" content="sunnyone/gist:1047564">
+  <meta property="og:type" content="githubog:gist">
+  <meta property="og:url" content="https://gist.github.com/sunnyone/1047564">
+  <meta property="og:image" content="https://secure.gravatar.com/avatar/a1c506f412e3ff8198661e0988d148de?s=140&amp;d=https://github.com/images/gravatars/gravatar-140.png">
+  <meta property="og:site_name" content="GitHub Gists">
+  <meta property="og:description" content="virt-install command for Debian with serial console - Gist is a simple way to share snippets of text and code with others.">
+  <meta name="description" content="virt-install command for Debian with serial console - Gist is a simple way to share snippets of text and code with others.">
+
+
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body class="logged_in">
+<div id="wrapper">
+<div class="site-content" id="js-pjax-container" data-pjax-container="">
+<div class=" site-container js-site-container" data-url="/sunnyone/1047564">
+<div class="gist container">
+<div class="column files">
+<div id="file-gistfile1-bash" class="bubble">
+<div class="file-box ">
+<div class="file-data">
+<table class="lines highlight" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td class="line-data">
+<pre class="line-pre">
+<!--DOCUMENT_FRAGMENT-->
+<div class="line" id="file-gistfile1-bash-LC1">virt-install --connect qemu:///system <span class="se">\</span></div><div class="line" id="file-gistfile1-bash-LC2"> --name<span class="o">=</span>HOSTNAME --ram<span class="o">=</span>128 --vcpus<span class="o">=</span>1 <span class="se">\</span></div><div class="line" id="file-gistfile1-bash-LC3"> --disk <span class="nv">path</span><span class="o">=</span>/dev/vg0/HOSTNAME-root <span class="se">\</span></div><div class="line" id="file-gistfile1-bash-LC4"> --disk <span class="nv">path</span><span class="o">=</span>/dev/vg0/HOSTNAME-swap <span class="se">\</span></div><div class="line" id="file-gistfile1-bash-LC5"> --os-type linux --os-variant debianlenny <span class="se">\</span></div><div class="line" id="file-gistfile1-bash-LC6"> --accelerate --network network:DMZ <span class="se">\</span></div><div class="line" id="file-gistfile1-bash-LC7"> --nographics <span class="se">\</span></div><div class="line" id="file-gistfile1-bash-LC8"> --location<span class="o">=</span><span class="s1">'http://ftp.jp.debian.org/debian/dists/squeeze/main/installer-amd64/'</span> <span class="se">\</span></div><div class="line" id="file-gistfile1-bash-LC9"> --extra-args<span class="o">=</span><span class="s1">'console=tty0 console=ttyS0,115200n8'</span></div>
+<!--/DOCUMENT_FRAGMENT-->
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

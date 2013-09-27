@@ -1,0 +1,7 @@
+id	20130328130230
+type	
+title	virt-install --connect qemu:///system \
+chars	UTF-8
+icon	favicon.ico
+source	https://gist.github.com/sunnyone/1047564
+comment	

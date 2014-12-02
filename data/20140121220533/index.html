@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>:emenu for context menu? - Google Groups</title>
+<link rel="icon" href="favicon.ico">
+<link rel="shortcut icon" href="favicon.ico">
+
+<meta name="description" content="Google Groups allows you to create and participate in online forums and email-based groups with a rich experience for community conversations.">
+<meta name="gwt:property" content="locale=en">
+<meta name="standalone::gwt:property" content="baseUrl=/forum/">
+
+
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body class="dragdrop-dropTarget dragdrop-boundary GIPOEOIOHC GIPOEOIOIC GIPOEOIIEC">
+<div class="GIPOEOIJVB">
+<div class="GIPOEOIPUB">
+<div style="margin-left: 228px;" class="GIPOEOIMTB GIPOEOIFTB" role="main">
+<div class="GIPOEOIHDC">
+<div class="GIPOEOIKVB">
+<div class="GIPOEOIJ0B GIPOEOIN2B">
+<div style="height: 997px;" class="GIPOEOIL1B">
+<div role="list" class="GIPOEOIBHC">
+<div style="position: relative;">
+<div class="GIPOEOIJDC" style="overflow: auto; height: 997px;">
+<div style="position: relative;">
+<div style="height: 1px;" class="GIPOEOIKDC">
+<div id="tm-tl" class="GIPOEOIA2B">
+<div class="GIPOEOIHEB GIPOEOIH0B GIPOEOIJEB GIPOEOIEHC GIPOEOIIEB" tabindex="0">
+<div class="GIPOEOIHEB">
+<div class="GIPOEOIGDB">
+<div class="GIPOEOIOCB">
+<div class="GIPOEOINSD">
+<div class="GIPOEOIAEB" tabindex="0">
+<div>
+<div style="overflow: auto;">
+<!--DOCUMENT_FRAGMENT-->
+Well, I've been doing some digging, and I'm very impressed with
+<br>Pentadactyl! &nbsp;The :js autocompletion is great. &nbsp;After digging around
+<br>in that for far too long, and finally looking in the ScrapBook
+<br>extension's XUL files, I came up with these:
+<br>
+<br>* :js ScrapBookBrowserOverlay.<wbr>execCapture(0, null, true,
+<br>'urn:scrapbook:root')
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* This gets the current page and prompts for details (save as)
+<br>* :js ScrapBookBrowserOverlay.<wbr>execCapture(0, null, false,
+<br>'ScrapBookContextPicking')
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* This gets the current page and prompts just for the folder to save
+<br>it in
+<br>* :js ScrapBookBrowserOverlay.<wbr>execCapture(0, null, false,
+<br>'urn:scrapbook:root')
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* This immediately saves the current page to the root folder
+<br>
+<br>
+<br>All that remains is to map them to a key of your choosing.
+<br>
+<br>I'd like to be able to dump a page straight into the last-used folder,
+<br>but ScrapBook doesn't provide that functionality itself, so that would
+<br>require some custom JS. &nbsp;Maybe someday. &nbsp;:)
+<br>
+<br>Hope someone finds this useful.
+<!--/DOCUMENT_FRAGMENT-->
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

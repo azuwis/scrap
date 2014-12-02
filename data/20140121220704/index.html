@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    
+    <title>Find packages installed from a certain repository with aptitude - Super User</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon image_src" href="http://cdn.sstatic.net/superuser/img/apple-touch-icon.png">
+    <link rel="search" type="application/opensearchdescription+xml" title="Super User" href="http://superuser.com/opensearch.xml">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@super_user">
+    <meta name="twitter:domain" content="superuser.com">
+    <meta name="og:type" content="website">
+    <meta name="og:image" content="http://cdn.sstatic.net/superuser/img/apple-touch-icon@2.png?v=e869e4459439">
+    <meta name="og:title" content="Find packages installed from a certain repository with aptitude">
+    <meta name="og:description" content="I'm in search for something analog to this question: Zypper: How do I display all packages from a certain repository?
+
+Since I'm on Ubuntu, I need an aptitude based solution: How can I get a list of ">
+    <meta name="og:url" content="http://superuser.com/questions/132346/find-packages-installed-from-a-certain-repository-with-aptitude">
+    <link rel="canonical" href="http://superuser.com/questions/132346/find-packages-installed-from-a-certain-repository-with-aptitude">
+
+    
+    
+    
+    
+    
+    
+    <link rel="alternate" type="application/atom+xml" title="Feed for question 'Find packages installed from a certain repository with aptitude'" href="http://superuser.com/feeds/question/132346">
+    
+
+
+    
+    
+    
+        
+
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body class="question-page new-topbar">
+<div class="container">
+<div id="content">
+<div itemscope="" itemtype="http://schema.org/Article">
+<div id="mainbar">
+<div id="answers">
+<div id="answer-138726" class="answer" data-answerid="138726">
+<table>
+<tbody>
+<tr>
+<td class="answercell">
+<div class="post-text">
+<!--DOCUMENT_FRAGMENT-->
+<p>After reading info page of aptitude and a dozen of attempts, I finally got this :</p>
+
+<pre><code>aptitude search '?narrow(?installed,?not(?archive(testing)) ?archive(unstable))'
+</code></pre>
+
+<p>or (equivalent) :</p>
+
+<pre><code>aptitude search '~S ~i (!~Atesting ~Aunstable)'
+</code></pre>
+
+<p>It will search packages installed from unstable archives of <em>any</em> repository. You have to filter out packages from your default archive (testing in above example).</p>
+
+<p>If you want to filter packages installed from www.debian-multimedia.org/unstable :</p>
+
+<pre><code>aptitude search '~S ~i (!~Atesting ~Aunstable ~O"Unofficial Multimedia Packages")
+</code></pre>
+
+<p>You get archive, origin, etc. for each repository from <em>apt-cache policy</em> command, on the <em>release</em> lines.</p>
+<!--/DOCUMENT_FRAGMENT-->
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en" class=" mod-js mod-rgba mod-backgroundsize mod-textshadow mod-csstransforms">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <title>Coping with the TCP TIME-WAIT state on busy Linux servers | Vincent Bernat</title>
+  <meta name="keywords" content="linux, tcp, timewait, documentation, tcp_tw_recycle, tcp_tw_reuse">
+  <meta name="author" content="Vincent Bernat">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="apple-touch-icon-precomposed" href="http://d1g3mdmxf8zbo9.cloudfront.net/images/l/apple-touch-icon.png">
+  <link rel="canonical" href="http://vincent.bernat.im/en/blog/2014-tcp-time-wait-state-linux.html">
+  <link rel="alternate" href="http://vincent.bernat.im/en/blog/atom.xml" type="application/atom+xml" title="ATOM feed">
+  
+  
+  
+
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body class="lf-article">
+
+    <nav id="lf-navbar">
+    <div id="lf-homeicon">
+      <a class="lf-sprite-strawhat" rel="author" href="http://vincent.bernat.im/en/"></a>
+    </div>
+    <div id="lf-menubar">
+      <form id="lf-search" action="http://www.google.com/search">
+	<i id="lf-search-glass"><input class="lf-sprite-search" value="" type="submit"></i>
+	<input name="hl" value="en" type="hidden">
+	<input name="q" value="site:vincent.bernat.im/en/*" type="hidden">
+	<input id="lf-search-query" name="q" value="" type="text">
+      </form>
+      <ul>
+    <li>
+    <a href="http://vincent.bernat.im/en/projects.html">
+      Projects
+    </a>
+  </li>
+    <li class="active">
+    <a href="http://vincent.bernat.im/en/blog">
+      Blog
+    </a>
+  </li>
+  </ul>    </div>
+  </nav>
+  <div id="lf-search-results">
+    <div id="lf-search-results-results"></div>
+    <span id="lf-search-results-close" class="lf-sprite-slimbox-close"></span>
+  </div>
+
+    <div id="lf-pages">
+    <div style="height: 15588.5px; width: 720px; display: block;" id="lf-page-1"></div>
+    <div style="height: 15588.5px; width: 720px; display: block;" id="lf-page-2"></div>
+    <div id="lf-page"><div class="lf-scrolling-header"></div>
+      <article>
+		<header>
+	  <h1>Coping with the <span class="caps">TCP</span> <span class="caps">TIME</span>-<span class="caps">WAIT</span> state on busy Linux servers</h1>
+          <div id="lf-sideblock">
+	  	  <h2>Vincent Bernat</h2>
+	  	  	  <time title="February 24, 2014" class="timeago" datetime="2014-02-24T20:28:13+01:00" pubdate="">9 months ago</time>
+
+          <nav id="lf-links">
+      <div class="lf-link">
+      <p>Also available in</p>
+      <ul>
+		<li><a href="http://vincent.bernat.im/fr/blog/2014-tcp-time-wait-state-linux.html">
+	    Français
+	</a></li>
+	      </ul>
+  </div>
+        <div class="lf-link">
+      <p>Filed under</p>
+      <ul>
+		<li>
+	  <a href="http://vincent.bernat.im/en/blog#tag-network">
+	    Network
+	</a></li>
+	      </ul>
+  </div>
+          <div class="lf-link lf-share">
+      <p>Share this article</p>
+      <ul>
+	        	<li><a class="lf-sprite-twitter" href="https://twitter.com/share?url=http%3A//vincent.bernat.im/en/blog/2014-tcp-time-wait-state-linux.html&amp;via=vince2_&amp;text=Coping%20with%20the%20TCP%20TIME-WAIT%20state%20on%20busy%20Linux%20servers" title="Share on Twitter">Twitter</a></li>
+	<li><a class="lf-sprite-google" href="https://plus.google.com/share?url=http%3A//vincent.bernat.im/en/blog/2014-tcp-time-wait-state-linux.html" title="Share on Google+">Google+</a></li>
+	<li><a class="lf-sprite-facebook" href="http://www.facebook.com/sharer.php?u=http%3A//vincent.bernat.im/en/blog/2014-tcp-time-wait-state-linux.html&amp;t=Coping%20with%20the%20TCP%20TIME-WAIT%20state%20on%20busy%20Linux%20servers" title="Share on Facebook">Facebook</a></li>
+	<li><a class="lf-sprite-reddit" href="http://www.reddit.com/submit?url=http%3A//vincent.bernat.im/en/blog/2014-tcp-time-wait-state-linux.html&amp;title=Coping%20with%20the%20TCP%20TIME-WAIT%20state%20on%20busy%20Linux%20servers" title="Share on reddit">reddit</a></li>
+	<li><a class="lf-sprite-hackernews" href="http://news.ycombinator.com/submitlink?u=http%3A//vincent.bernat.im/en/blog/2014-tcp-time-wait-state-linux.html&amp;t=Coping%20with%20the%20TCP%20TIME-WAIT%20state%20on%20busy%20Linux%20servers" title="Share on Hacker News">Hacker News</a></li>
+	<li><a class="lf-sprite-mail" href="mailto:?subject=Coping%20with%20the%20TCP%20TIME-WAIT%20state%20on%20busy%20Linux%20servers&amp;body=http%3A//vincent.bernat.im/en/blog/2014-tcp-time-wait-state-linux.html" title="Share by mail">Mail</a></li>
+      </ul>
+  </div>
+</nav>          </div>
+	</header>
+			<div id="lf-main" role="main">
+	  <p><strong><span class="caps">TL</span>;<span class="caps">DR</span></strong>: Do not enable <code>net.ipv4.tcp_tw_recycle</code>.</p>
+<p>The Linux kernel documentation is not very helpful about what
+<code>net.ipv4.tcp_tw_recycle</code> does:</p>
+<blockquote>
+<p>Enable fast recycling <code>TIME-WAIT</code> sockets. Default value is 0.  It
+should not be changed without advice/request of technical&nbsp;experts.</p>
+</blockquote>
+<p>Its sibling, <code>net.ipv4.tcp_tw_reuse</code> is a little bit more documented
+but the language is about the&nbsp;same:</p>
+<blockquote>
+<p>Allow to reuse <code>TIME-WAIT</code> sockets for new connections when it is
+safe from protocol viewpoint. Default value is 0.  It should not be
+changed without advice/request of technical&nbsp;experts.</p>
+</blockquote>
+<p>The mere result of this lack of documentation is that we find numerous
+tuning guides advising to set both these settings to 1 to reduce the
+number of entries in the <code>TIME-WAIT</code> state. However, as stated by
+<code>tcp(7)</code> manual page, the <code>net.ipv4.tcp_tw_recycle</code> option is quite
+problematic for public-facing servers as it won’t handle connections
+from two different computers behind the same <abbr title="Network Address Translation"><span class="caps">NAT</span></abbr> device, which is a
+problem hard to detect and waiting to bite&nbsp;you:</p>
+<blockquote>
+<p>Enable fast recycling of <code>TIME-WAIT</code> sockets.  Enabling this option
+is not recommended since this causes problems when working with <abbr title="Network Address Translation"><span class="caps">NAT</span></abbr>
+(Network Address&nbsp;Translation).</p>
+</blockquote>
+<p>I will provide here a more detailed explanation in the hope to teach
+people who are <a href="http://xkcd.com/386/" title="xkcd: Duty Calls">wrong on the Internet</a>.</p>
+<p class="lf-captioned"><img alt="xkcd illustration" src="duty_calls.png" title="xkcd: Duty Calls — Someone is wrong on the Internet"><div class="lf-caption">xkcd: Duty Calls — Someone is wrong on the Internet</div></p>
+<p>As a sidenote, despite the use of <code>ipv4</code> in its name, the
+<code>net.ipv4.tcp_tw_recycle</code> control also applies to IPv6. Also, keep in
+mind we are looking at the <abbr title="Transmission Control Protocol"><span class="caps">TCP</span></abbr> stack of Linux. This is completely
+unrelated to <em>Netfilter</em> connection tracking which may be tweaked in
+other ways<sup id="fnref:netfilter"><a href="#fn:netfilter" rel="footnote">1</a></sup>.</p>
+<div class="toc">
+<ul>
+<li><a href="#about-time-wait-state">About <span class="caps">TIME</span>-<span class="caps">WAIT</span> state</a><ul>
+<li><a href="#purpose">Purpose</a></li>
+<li><a href="#problems">Problems</a><ul>
+<li><a href="#connection-table-slot">Connection table slot</a></li>
+<li><a href="#memory">Memory</a></li>
+<li><a href="#cpu"><span class="caps">CPU</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#other-solutions">Other solutions</a><ul>
+<li><a href="#socket-lingering">Socket lingering</a></li>
+<li><a href="#netipv4tcp_tw_reuse">net.ipv4.tcp_tw_reuse</a></li>
+<li><a href="#netipv4tcp_tw_recycle">net.ipv4.tcp_tw_recycle</a></li>
+</ul>
+</li>
+<li><a href="#summary">Summary</a></li>
+</ul>
+</div>
+<h1 id="about-time-wait-state">About <code>TIME-WAIT</code> state</h1>
+<p>Let’s rewind a bit and have a close look at this <code>TIME-WAIT</code> state.
+What is it? See the <abbr title="Transmission Control Protocol"><span class="caps">TCP</span></abbr> state diagram below<sup id="fnref:source"><a href="#fn:source" rel="footnote">2</a></sup>:</p>
+<p class="lf-captioned"><img alt="TCP state diagram" src="tcp-state-diagram.png" title="TCP state diagram" height="720" width="599"><div class="lf-caption">TCP state diagram</div></p>
+<p>Only the <strong>end closing the connection first</strong> will reach the
+<code>TIME-WAIT</code> state. The other end will follow a path which usually
+permits to quickly get rid of the&nbsp;connection.</p>
+<p>You can have a look at the current state of connections with <code>ss
+-tan</code>:</p>
+<div class="codehilite"><pre><span class="gp">$</span> ss -tan | head -5
+<span class="go"><span class="caps">LISTEN</span>     0  511             *:80              *:*     </span>
+<span class="go"><span class="caps">SYN</span>-<span class="caps">RECV</span>   0  0     192.0.2.145:80    203.0.113.5:35449</span>
+<span class="go"><span class="caps">SYN</span>-<span class="caps">RECV</span>   0  0     192.0.2.145:80   203.0.113.27:53599</span>
+<span class="go"><span class="caps">ESTAB</span>      0  0     192.0.2.145:80   203.0.113.27:33605</span>
+<span class="go"><span class="caps">TIME</span>-<span class="caps">WAIT</span>  0  0     192.0.2.145:80   203.0.113.47:50685</span>
+</pre></div>
+
+
+<h2 id="purpose">Purpose</h2>
+<p>There are two purposes for the <code>TIME-WAIT</code> state:</p>
+<ul>
+<li>The most known one is to <strong>prevent delayed segments</strong> from one
+    connection being accepted by a later connection relying on the
+    same quadruplet (source address, source port, destination address,
+    destination port). The sequence number also needs to be in a
+    certain range to be accepted. This narrows a bit the problem but
+    it still exists, especially on fast connections with large receive
+    windows. <a href="http://tools.ietf.org/html/rfc1337" title="RFC 1337: TIME-WAIT Assassination Hazards in TCP"><span class="caps">RFC</span> 1337</a> explains in details what happens when the
+    <code>TIME-WAIT</code> state is deficient<sup id="fnref:rfc1337"><a href="#fn:rfc1337" rel="footnote">3</a></sup>. Here is an example of
+    what could be avoided if the <code>TIME-WAIT</code> state wasn’t&nbsp;shortened:</li>
+</ul>
+<p class="lf-captioned"><img alt="Duplicate segments accepted in another connection" src="duplicate-segment.png" title="Due to a shortened TIME-WAIT state, a delayed TCP segment has been accepted in an unrelated connection." height="511" width="500"><div class="lf-caption">Due to a shortened TIME-WAIT state, a delayed TCP segment has been accepted in an unrelated connection.</div></p>
+<ul>
+<li>The other purpose is to ensure <strong>the remote end has closed the
+    connection</strong>. When the last <em><span class="caps">ACK</span></em> is lost, the remote end stays in
+    the <code>LAST-ACK</code> state<sup id="fnref:lastack"><a href="#fn:lastack" rel="footnote">4</a></sup>. Without the <code>TIME-WAIT</code> state, a
+    connection could be reopened while the remote end still thinks the
+    previous connection is valid. When it receives a <em><span class="caps">SYN</span></em> segment (and
+    the sequence number matches), it will answer with a <em><span class="caps">RST</span></em> as it is
+    not expecting such a segment. The new connection will be aborted
+    with an&nbsp;error:</li>
+</ul>
+<p class="lf-captioned"><img alt="Last ACK lost" src="last-ack.png" title="If the remote end stays in LAST-ACK state because the last ACK was lost, opening a new connection with the same quadruplet will not work." height="336" width="500"><div class="lf-caption">If the remote end stays in LAST-ACK state because the last ACK was lost, opening a new connection with the same quadruplet will not work.</div></p>
+<p><a href="http://tools.ietf.org/html/rfc793" title="RFC 793: Transmission Control Protocol"><span class="caps">RFC</span> 793</a> requires the <code>TIME-WAIT</code> state to last twice the time of the
+<abbr title="Maximum Segment Lifetime"><span class="caps">MSL</span></abbr>. On Linux, this duration is <strong>not</strong> tunable and is defined in
+<code>include/net/tcp.h</code> as one&nbsp;minute:</p>
+<div class="codehilite"><pre><span class="cp">#define TCP_TIMEWAIT_LEN (60*<span class="caps">HZ</span>) </span><span class="cm">/* how long to wait to destroy <span class="caps">TIME</span>-<span class="caps">WAIT</span></span>
+<span class="cm">                                  * state, about 60 seconds     */</span><span class="cp"></span>
+</pre></div>
+
+
+<p>There have been
+<a href="http://comments.gmane.org/gmane.linux.network/244411" title="[RFC PATCH net-next] tcp: introduce tcp_tw_interval to specifiy the time of TIME-WAIT">propositions to turn this into a tunable value</a> but
+it has been refused on the ground the <code>TIME-WAIT</code> state is a good&nbsp;thing.</p>
+<h2 id="problems">Problems</h2>
+<p>Now, let’s see why this state can be annoying on a server handling a
+lot of connections. There are three aspects of the&nbsp;problem:</p>
+<ul>
+<li>the slot taken in the connection table preventing <strong>new
+   connections</strong> of the same&nbsp;kind,</li>
+<li>the <strong>memory</strong> occupied by the socket structure in the kernel, and</li>
+<li>the additional <strong><span class="caps">CPU</span> usage</strong>.</li>
+</ul>
+<p>The result of <code>ss -tan state time-wait | wc -l</code> is not a problem per&nbsp;se!</p>
+<h3 id="connection-table-slot">Connection table slot</h3>
+<p>A connection in the <code>TIME-WAIT</code> state is kept for one minute in the
+connection table. This means, another connection with the same
+<em>quadruplet</em> (source address, source port, destination address,
+destination port) cannot&nbsp;exist.</p>
+<p>For a web server, the destination address and the destination port are
+likely to be constant. If your web server is behind a L7
+load-balancer, the source address will also be constant. On Linux, the
+client port is by default allocated in a port range of about 30,000
+ports (this can be changed by tuning
+<code>net.ipv4.ip_local_port_range</code>). This means that only 30,000
+connections can be established between the web server and the
+load-balancer every minute, so about <strong>500 connections per second</strong>.</p>
+<p>If the <code>TIME-WAIT</code> sockets are on the client side, such a situation is
+easy to detect. The call to <code>connect()</code> will return <code>EADDRNOTAVAIL</code>
+and the application will log some error message about that. On the
+server side, this is more complex as there is no log and no counter to
+rely on. In doubt, you should just try to come with something sensible
+to list the number of used&nbsp;quadruplets:</p>
+<div class="codehilite"><pre><span class="gp">$</span> ss -tan <span class="s1">'sport = :80'</span> | awk <span class="s1">'{print $(<span class="caps">NF</span>)" "$(<span class="caps">NF</span>-1)}'</span> | <span class="se">\</span>
+<span class="gp">&gt;</span>     sed <span class="s1">'s/:[^ ]*//g'</span> | sort | uniq -c
+<span class="go">    696 10.24.2.30 10.33.1.64</span>
+<span class="go">   1881 10.24.2.30 10.33.1.65</span>
+<span class="go">   5314 10.24.2.30 10.33.1.66</span>
+<span class="go">   5293 10.24.2.30 10.33.1.67</span>
+<span class="go">   3387 10.24.2.30 10.33.1.68</span>
+<span class="go">   2663 10.24.2.30 10.33.1.69</span>
+<span class="go">   1129 10.24.2.30 10.33.1.70</span>
+<span class="go">  10536 10.24.2.30 10.33.1.73</span>
+</pre></div>
+
+
+<p>The solution is <strong>more quadruplets</strong><sup id="fnref:outgoing"><a href="#fn:outgoing" rel="footnote">5</a></sup>. This can be done in
+several ways (in the order of difficulty to&nbsp;setup):</p>
+<ul>
+<li>use <strong>more client ports</strong> by setting <code>net.ipv4.ip_local_port_range</code> to
+   a wider&nbsp;range,</li>
+<li>use <strong>more server ports</strong> by asking the web server to listen to several
+   additional ports (81, 82, 83,&nbsp;…),</li>
+<li>use <strong>more client <span class="caps">IP</span></strong> by configuring additional <span class="caps">IP</span> on the load
+   balancer and use them in a round-robin&nbsp;fashion,</li>
+<li>use <strong>more server <span class="caps">IP</span></strong> by configuring additional <span class="caps">IP</span> on the web
+   server<sup id="fnref:others"><a href="#fn:others" rel="footnote">6</a></sup>.</li>
+</ul>
+<p>Of course, a last solution is to tweak <code>net.ipv4.tcp_tw_reuse</code> and
+<code>net.ipv4.tcp_tw_recycle</code>. Don’t do that yet, we will cover those
+settings&nbsp;later.</p>
+<h3 id="memory">Memory</h3>
+<p>With many connections to handle, leaving a socket open for one
+additional minute may cost your server some memory. For example, if
+you want to handle about 10,000 new connections per second, you will
+have about 600,000 sockets in the <code>TIME-WAIT</code> state. How much memory
+does it represent? Not that&nbsp;much!</p>
+<p>First, from the application point of view, a <code>TIME-WAIT</code> socket does
+not consume any memory: the socket has been closed. In the kernel, a
+<code>TIME-WAIT</code> socket is present in three structures (for three different&nbsp;purposes):</p>
+<ol>
+<li>
+<p>A <strong>hash table of connections</strong>, named the “<abbr title="Transmission Control Protocol"><span class="caps">TCP</span></abbr> established hash
+    table” (despite containing connections in other states) is used to
+    locate an existing connection, for example when receiving a new&nbsp;segment.</p>
+<p>Each bucket of this hash table contains both a list of connections
+in the <code>TIME-WAIT</code> state and a list of regular active
+connections. The size of the hash table depends on the system
+memory and is printed at&nbsp;boot:</p>
+<div class="codehilite"><pre><span class="gp">$</span> dmesg | grep <span class="s2">"<span class="caps">TCP</span> established hash table"</span>
+<span class="go">[    0.169348] <span class="caps">TCP</span> established hash table entries: 65536 (order: 8, 1048576 bytes)</span>
+</pre></div>
+
+
+<p>It is possible to override it by specifying the number of entries
+on the kernel command line with the <code>thash_entries</code> parameter.</p>
+<p>Each element of the list of connections in the <code>TIME-WAIT</code> state
+is a <code>struct tcp_timewait_sock</code>, while the type for other
+states is <code>struct tcp_sock</code><sup id="fnref:tcptimewaitsock"><a href="#fn:tcptimewaitsock" rel="footnote">7</a></sup>:</p>
+<div class="codehilite"><pre><span class="k">struct</span> <span class="n">tcp_timewait_sock</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="n">inet_timewait_sock</span> <span class="n">tw_sk</span><span class="p">;</span>
+    <span class="n">u32</span>    <span class="n">tw_rcv_nxt</span><span class="p">;</span>
+    <span class="n">u32</span>    <span class="n">tw_snd_nxt</span><span class="p">;</span>
+    <span class="n">u32</span>    <span class="n">tw_rcv_wnd</span><span class="p">;</span>
+    <span class="n">u32</span>    <span class="n">tw_ts_offset</span><span class="p">;</span>
+    <span class="n">u32</span>    <span class="n">tw_ts_recent</span><span class="p">;</span>
+    <span class="kt">long</span>   <span class="n">tw_ts_recent_stamp</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">inet_timewait_sock</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="n">sock_common</span>  <span class="n">__tw_common</span><span class="p">;</span>
+
+    <span class="kt">int</span>                     <span class="n">tw_timeout</span><span class="p">;</span>
+    <span class="k">volatile</span> <span class="kt">unsigned</span> <span class="kt">char</span>  <span class="n">tw_substate</span><span class="p">;</span>
+    <span class="kt">unsigned</span> <span class="kt">char</span>           <span class="n">tw_rcv_wscale</span><span class="p">;</span>
+    <span class="n">__be16</span> <span class="n">tw_sport</span><span class="p">;</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">tw_ipv6only</span>     <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                 <span class="n">tw_transparent</span>  <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                 <span class="n">tw_pad</span>          <span class="o">:</span> <span class="mi">6</span><span class="p">,</span>
+                 <span class="n">tw_tos</span>          <span class="o">:</span> <span class="mi">8</span><span class="p">,</span>
+                 <span class="n">tw_ipv6_offset</span>  <span class="o">:</span> <span class="mi">16</span><span class="p">;</span>
+    <span class="kt">unsigned</span> <span class="kt">long</span>            <span class="n">tw_ttd</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">inet_bind_bucket</span> <span class="o">*</span><span class="n">tw_tb</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">hlist_node</span>        <span class="n">tw_death_node</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>A <strong>set of lists of connections</strong>, called the “death row”, is used
+    to expire the connections in the <code>TIME-WAIT</code> state. They are
+    ordered by how much time left before&nbsp;expiration.</p>
+<p>It uses the same memory space as for the entries in the hash table
+of connections. This is the <code>struct hlist_node tw_death_node</code>
+member of <code>struct inet_timewait_sock</code>.</p>
+</li>
+<li>
+<p>A <strong>hash table of bound ports</strong>, holding the locally bound ports
+    and the associated parameters, is used to determine if it is safe
+    to listen to a given port or to find a free port in the case of
+    dynamic bind. The size of this hash table is the same as the size
+    of the hash table of&nbsp;connections:</p>
+<div class="codehilite"><pre><span class="gp">$</span> dmesg | grep <span class="s2">"<span class="caps">TCP</span> bind hash table"</span>
+<span class="go">[    0.169962] <span class="caps">TCP</span> bind hash table entries: 65536 (order: 8, 1048576 bytes)</span>
+</pre></div>
+
+
+<p>Each element is a <code>struct inet_bind_socket</code>. There is
+one element for each locally bound port. A <code>TIME-WAIT</code> connection
+to a web server is locally bound to the port 80 and shares the
+same entry as its sibling <code>TIME-WAIT</code> connections. On the other
+hand, a connection to a remote service is locally bound to some
+random port and does not share its&nbsp;entry.</p>
+</li>
+</ol>
+<p>So, we are only concerned by the space occupied by <code>struct
+tcp_timewait_sock</code> and <code>struct inet_bind_socket</code>. There is one <code>struct
+tcp_timewait_sock</code> for each connection in the <code>TIME-WAIT</code> state,
+inbound or outbound. There is one dedicated <code>struct inet_bind_socket</code>
+for each outbound connection and none for an inbound&nbsp;connection.</p>
+<p>A <code>struct tcp_timewait_sock</code> is only 168 bytes while a <code>struct
+inet_bind_socket</code> is 48&nbsp;bytes:</p>
+<div class="codehilite"><pre><span class="gp">$</span> sudo apt-get install linux-image-<span class="k">$(</span>uname -r<span class="k">)</span>-dbg
+<span class="go">[...]</span>
+<span class="gp">$</span> gdb /usr/lib/debug/boot/vmlinux-<span class="k">$(</span>uname -r<span class="k">)</span>
+<span class="go">(gdb) print sizeof(struct tcp_timewait_sock)</span>
+<span class="go"> $1 = 168</span>
+<span class="go">(gdb) print sizeof(struct tcp_sock)</span>
+<span class="go"> $2 = 1776</span>
+<span class="go">(gdb) print sizeof(struct inet_bind_bucket)</span>
+<span class="go"> $3 = 48</span>
+</pre></div>
+
+
+<p>So, if you have about 40,000 inbound connections in the <code>TIME-WAIT</code>
+state, it should eat less than <span class="caps">10MB</span> of memory. If you have about
+40,000 outbound connections in the <code>TIME-WAIT</code> state, you need to
+account for 2.<span class="caps">5MB</span> of additional memory.  Let’s check that by looking
+at the output of <code>slabtop</code>. Here is the result on a server with about
+50,000 connections in the <code>TIME-WAIT</code> state, 45,000 of which are
+outbound&nbsp;connections:</p>
+<div class="codehilite"><pre><span class="gp">$</span> sudo slabtop -o | grep -E <span class="s1">'(^  <span class="caps">OBJS</span>|tw_sock_TCP|tcp_bind_bucket)'</span>
+<span class="go">  <span class="caps">OBJS</span> <span class="caps">ACTIVE</span>  <span class="caps">USE</span> <span class="caps">OBJ</span> <span class="caps">SIZE</span>  <span class="caps">SLABS</span> <span class="caps">OBJ</span>/<span class="caps">SLAB</span> <span class="caps">CACHE</span> <span class="caps">SIZE</span> <span class="caps">NAME</span>                   </span>
+<span class="go"> 50955  49725  97%    0.25K   3397       15     13588K tw_sock_TCP            </span>
+<span class="go"> 44840  36556  81%    0.06K    760       59      3040K tcp_bind_bucket</span>
+</pre></div>
+
+
+<p>There is nothing to change here: the memory used by <code>TIME-WAIT</code>
+connections is <strong>really small</strong>. If your server need to handle
+thousands of new connections per second, you need far more memory to
+be able to efficiently push data to clients. The overhead of
+<code>TIME-WAIT</code> connections is&nbsp;negligible.</p>
+<h3 id="cpu"><span class="caps">CPU</span></h3>
+<p>On the <span class="caps">CPU</span> side, searching for a free local port can be a bit
+expensive. The work is done by the
+<a href="http://lxr.free-electrons.com/source/net/ipv4/inet_connection_sock.c?v=3.12#L104" title="Definition of inet_csk_get_port()"><code>inet_csk_get_port()</code> function</a> which uses a lock
+and iterate on locally bound ports until a free port is found. A large
+number of entries in this hash table is usually not a problem if you
+have a lot of outbound connections in the <code>TIME-WAIT</code> state (like
+ephemeral connections to a <em>memcached</em> server): the connections
+usually share the same profile, the function will quickly find a free
+port as it iterates on them&nbsp;sequentially.</p>
+<h1 id="other-solutions">Other solutions</h1>
+<p>If you still think you have a problem with <code>TIME-WAIT</code>
+connections after reading the previous section, there are three
+additional solutions to solve&nbsp;them:</p>
+<ul>
+<li>disable socket&nbsp;lingering,</li>
+<li><code>net.ipv4.tcp_tw_reuse</code>, and</li>
+<li><code>net.ipv4.tcp_tw_recycle</code>.</li>
+</ul>
+<h2 id="socket-lingering">Socket lingering</h2>
+<p>When <code>close()</code> is called, any remaining data in the kernel buffers
+will be sent in the background and the socket will eventually
+transition to the <code>TIME-WAIT</code> state. The application can continue to
+work immediatly and assume that all data will eventually be safely&nbsp;delivered.</p>
+<p>However, an application can choose to disable this behaviour, known as
+<em>socket lingering</em>. There are two&nbsp;flavors:</p>
+<ol>
+<li>
+<p>In the first one, <strong>any remaining data will be discarded</strong> and
+    instead of closing the connection with the normal four-packet
+    connection termination sequence, the connection will be closed
+    with a <em><span class="caps">RST</span></em> (and therefore, the peer will detect an error) and
+    will be immediatly destroyed. No <code>TIME-WAIT</code> state in this&nbsp;case.</p>
+</li>
+<li>
+<p>With the second flavor, if there is any data still remaining in
+    the socket send buffer, the process will sleep when calling
+    <code>close()</code> until either all the data is sent and acknowledged by
+    the peer or the configured linger timer expires. It is possible
+    for a process to not sleep by setting the socket as
+    non-blocking. In this case, the same process happens in the
+    background. It permits the remaining data to be sent during a
+    configured timeout but if the data is succesfully sent, the normal
+    close sequence is run and you get a <code>TIME-WAIT</code> state. And on the
+    other case, you’ll get the connection close with a <em><span class="caps">RST</span></em> and the
+    remaining data is&nbsp;discarded.</p>
+</li>
+</ol>
+<p>In both cases, <strong>disabling socket lingering is not a one-size-fits-all
+solution</strong>. It may be used by some applications like <a href="http://haproxy.org/" title="HAProxy: The Reliable, High Performance TCP/HTTP Load Balancer">HAProxy</a> or
+<a href="http://nginx.org/" title="Nginx">Nginx</a> when it is safe to use from the upper protocol point of
+view. There are good reasons to not disable it&nbsp;unconditionnaly.</p>
+<h2 id="netipv4tcp_tw_reuse"><code>net.ipv4.tcp_tw_reuse</code></h2>
+<p>The <code>TIME-WAIT</code> state prevents delayed segments to be accepted in an
+unrelated connection. However, on certain conditions, it is possible
+to assume a new connection’s segment cannot be misinterpreted with an
+old connection’s&nbsp;segment.</p>
+<p><a href="http://tools.ietf.org/html/rfc1323" title="RFC 1323: TCP Extensions for High Performance"><span class="caps">RFC</span> 1323</a> presents a set of <abbr title="Transmission Control Protocol"><span class="caps">TCP</span></abbr> extensions to improve performance
+over high-bandwidth paths. Among other things, it defines a new <abbr title="Transmission Control Protocol"><span class="caps">TCP</span></abbr>
+option carrying two four-byte <strong>timestamp fields</strong>. The first one is
+the current value of the timestamp clock of the <abbr title="Transmission Control Protocol"><span class="caps">TCP</span></abbr> sending the option
+while the second one is the most recent timestamp received from the
+remote&nbsp;host.</p>
+<p>By enabling <code>net.ipv4.tcp_tw_reuse</code>, Linux will reuse an existing
+connection in the <code>TIME-WAIT</code> state for a new <strong>outgoing connection</strong>
+if the new timestamp is strictly bigger than the most recent timestamp
+recorded for the previous connection: an outgoing connection in the
+<code>TIME-WAIT</code> state can be reused after just one&nbsp;second.</p>
+<p>How is it safe? The first purpose of the <code>TIME-WAIT</code> state was to
+avoid duplicate segments to be accepted in an unrelated
+connection. Thanks to the use of timestamps, such a duplicate segments
+will come with an outdated timestamp and therefore be&nbsp;discarded.</p>
+<p>The second purpose was to ensure the remote end is not in the
+<code>LAST-ACK</code> state because of the lost of the last <em><span class="caps">ACK</span></em>. The remote end
+will retransmit the <em><span class="caps">FIN</span></em> segment&nbsp;until:</p>
+<ol>
+<li>it gives up (and tear down the connection), or</li>
+<li>it receives the <em><span class="caps">ACK</span></em> it is waiting (and tear down the connection), or</li>
+<li>it receives a <em><span class="caps">RST</span></em> (and tear down the&nbsp;connection).</li>
+</ol>
+<p>If the <em><span class="caps">FIN</span></em> segments are received in a timely manner, the local end
+socket will still be in the <code>TIME-WAIT</code> state and the expected <em><span class="caps">ACK</span></em>
+segments will be&nbsp;sent.</p>
+<p>Once a new connection replaces the <code>TIME-WAIT</code> entry, the <em><span class="caps">SYN</span></em>
+segment of the new connection is ignored (thanks to the timestamps)
+and won’t be answered by a <em><span class="caps">RST</span></em> but only by a retransmission of the
+<em><span class="caps">FIN</span></em> segment. The <em><span class="caps">FIN</span></em> segment will then be answered with a <em><span class="caps">RST</span></em>
+(because the local connection is in the <code>SYN-SENT</code> state) which will
+allow the transition out of the <code>LAST-ACK</code> state. The initial <em><span class="caps">SYN</span></em>
+segment will eventually be resent (after one second) because there was
+no answer and the connection will be established without apparent
+error, except a slight&nbsp;delay:</p>
+<p class="lf-captioned"><img alt="Last ACK lost and timewait reuse" src="last-ack-reuse.png" title="If the remote end stays in LAST-ACK state because the last ACK was lost, the remote connection will be reset when the local end transition to the SYN-SENT state." height="492" width="500"><div class="lf-caption">If the remote end stays in LAST-ACK state because the last ACK was lost, the remote connection will be reset when the local end transition to the SYN-SENT state.</div></p>
+<p>It should be noted that when a connection is reused, the <em>TWRecycled</em>
+counter is increased (despite its&nbsp;name).</p>
+<h2 id="netipv4tcp_tw_recycle"><code>net.ipv4.tcp_tw_recycle</code></h2>
+<p>This mechanism also relies on the timestamp option but affects <strong>both
+incoming and outgoing connections</strong> which is handy when the server
+usually closes the connection first<sup id="fnref:serverfirst"><a href="#fn:serverfirst" rel="footnote">8</a></sup>.</p>
+<p>The <code>TIME-WAIT</code> state is scheduled to expire sooner: it will be
+removed after the retransmission timeout (<em><abbr title="Retransmission Timeout"><abbr title="Retransmission Timeout"><span class="caps">RTO</span></abbr></abbr></em>) interval which is
+computed from the <abbr title="Round-Trip Time"><span class="caps">RTT</span></abbr> and its variance. You can spot the appropriate
+values for a living connection with the <code>ss</code> command:</p>
+<div class="codehilite"><pre><span class="gp">$</span> ss --info  <span class="nv">sport</span> <span class="o">=</span> :2112 <span class="nv">dport</span> <span class="o">=</span> :4057
+<span class="go">State      Recv-Q Send-Q    Local Address:Port        Peer Address:Port   </span>
+<span class="go"><span class="caps">ESTAB</span>      0      1831936   10.47.0.113:2112          10.65.1.42:4057    </span>
+<span class="go">         cubic wscale:7,7 rto:564 rtt:352.5/4 ato:40 cwnd:386 ssthresh:200 send 4.5Mbps rcv_space:5792</span>
+</pre></div>
+
+
+<p>To keep the same guarantees the <code>TIME-WAIT</code> state was providing, while
+reducing the expiration timer, when a connection enters the
+<code>TIME-WAIT</code> state, the latest timestamp is remembered in a dedicated
+structure containing various metrics for previous known
+destinations. Then, Linux will drop any segment from the remote host
+whose timestamp is not strictly bigger than the latest recorded
+timestamp, unless the <code>TIME-WAIT</code> state would have&nbsp;expired:</p>
+<div class="codehilite"><pre><span class="k">if</span> <span class="p">(</span><span class="n">tmp_opt</span><span class="p">.</span><span class="n">saw_tstamp</span> <span class="o">&amp;&amp;</span>
+    <span class="n">tcp_death_row</span><span class="p">.</span><span class="n">sysctl_tw_recycle</span> <span class="o">&amp;&amp;</span>
+    <span class="p">(</span><span class="n">dst</span> <span class="o">=</span> <span class="n">inet_csk_route_req</span><span class="p">(</span><span class="n">sk</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">fl4</span><span class="p">,</span> <span class="n">req</span><span class="p">,</span> <span class="n">want_cookie</span><span class="p">))</span> <span class="o">!=</span> <span class="nb"><span class="caps">NULL</span></span> <span class="o">&amp;&amp;</span>
+    <span class="n">fl4</span><span class="p">.</span><span class="n">daddr</span> <span class="o">==</span> <span class="n">saddr</span> <span class="o">&amp;&amp;</span>
+    <span class="p">(</span><span class="n">peer</span> <span class="o">=</span> <span class="n">rt_get_peer</span><span class="p">((</span><span class="k">struct</span> <span class="n">rtable</span> <span class="o">*</span><span class="p">)</span><span class="n">dst</span><span class="p">,</span> <span class="n">fl4</span><span class="p">.</span><span class="n">daddr</span><span class="p">))</span> <span class="o">!=</span> <span class="nb"><span class="caps">NULL</span></span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">inet_peer_refcheck</span><span class="p">(</span><span class="n">peer</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">u32</span><span class="p">)</span><span class="n">get_seconds</span><span class="p">()</span> <span class="o">-</span> <span class="n">peer</span><span class="o">-&gt;</span><span class="n">tcp_ts_stamp</span> <span class="o">&lt;</span> <span class="n">TCP_PAWS_MSL</span> <span class="o">&amp;&amp;</span>
+            <span class="p">(</span><span class="n">s32</span><span class="p">)(</span><span class="n">peer</span><span class="o">-&gt;</span><span class="n">tcp_ts</span> <span class="o">-</span> <span class="n">req</span><span class="o">-&gt;</span><span class="n">ts_recent</span><span class="p">)</span> <span class="o">&gt;</span>
+                                        <span class="n">TCP_PAWS_WINDOW</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">NET_INC_STATS_BH</span><span class="p">(</span><span class="n">sock_net</span><span class="p">(</span><span class="n">sk</span><span class="p">),</span> <span class="n">LINUX_MIB_PAWSPASSIVEREJECTED</span><span class="p">);</span>
+                <span class="k">goto</span> <span class="n">drop_and_release</span><span class="p">;</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>When the remote host is in fact a <strong><abbr title="Network Address Translation"><abbr title="Network Address Translation"><span class="caps">NAT</span></abbr></abbr> device</strong>, the condition on
+timestamps will forbid allof the hosts except one behind the <abbr title="Network Address Translation"><span class="caps">NAT</span></abbr>
+device to connect during one minute because they do not share the same
+timestamp clock. In doubt, this is far better to disable this option
+since it leads to <strong>difficult to detect</strong> and <strong>difficult to
+diagnose</strong>&nbsp;problems.</p>
+<p>The <code>LAST-ACK</code> state is handled in the exact same way as for
+<code>net.ipv4.tcp_tw_recycle</code>.</p>
+<h1 id="summary">Summary</h1>
+<p>The universal solution is to <strong>increase the number of possible
+quadruplets</strong> by using, for example, more server ports. This will
+allow you to not exhaust the possible connections with <code>TIME-WAIT</code>
+entries.</p>
+<p>On the <strong>server side</strong>, do not enable <code>net.ipv4.tcp_tw_recycle</code> unless
+you are pretty sure you will never have <abbr title="Network Address Translation"><span class="caps">NAT</span></abbr> devices in the
+mix. Enabling <code>net.ipv4.tcp_tw_reuse</code> is useless for incoming&nbsp;connections.</p>
+<p>On the <strong>client side</strong>, enabling <code>net.ipv4.tcp_tw_reuse</code> is another
+almost-safe solution. Enabling <code>net.ipv4.tcp_tw_recycle</code> in addition
+to <code>net.ipv4.tcp_tw_reuse</code> is mostly&nbsp;useless.</p>
+<p>And a final quote by <a href="http://www.kohala.com/start/" title="W. Richard Stevens' Home Page">W. Richard Stevens</a>, in <a href="http://www.amazon.com/Unix-Network-Programming-Volume-Networking/dp/0131411551" title="Unix Network Programming, Volume 1: The Sockets Networking API">Unix Network Programming</a>:</p>
+<blockquote>
+<p>The <code>TIME_WAIT</code> state is our friend and is there to help us (i.e.,
+to let old duplicate segments expire in the network). Instead of
+trying to avoid the state, we should understand&nbsp;it.</p>
+</blockquote>
+<div class="footnote">
+<hr>
+<ol>
+<li id="fn:netfilter">
+<p>Notably, fiddling with <code>net.netfilter.nf_conntrack_tcp_timeout_time_wait</code>
+          won’t change anything on how the <abbr title="Transmission Control Protocol"><abbr title="Transmission Control Protocol"><abbr title="Transmission Control Protocol"><span class="caps">TCP</span></abbr></abbr></abbr> stack will handle the <code>TIME-WAIT</code> state.&nbsp;<a href="#fnref:netfilter" rev="footnote" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+<li id="fn:source">
+<p>This diagram is licensed under the <a href="http://www.latex-project.org/lppl.txt" title="LaTeX Project Public License 1.3">LaTeX Project Public License 1.3</a>. The original file is
+       available on this <a href="http://www.texample.net/tikz/examples/tcp-state-machine/" title="Original TCP state diagram by Ivan Griffin">page</a>.&nbsp;<a href="#fnref:source" rev="footnote" title="Jump back to footnote 2 in the text">↩</a></p>
+</li>
+<li id="fn:rfc1337">
+<p>The first work-around proposed in <a href="http://tools.ietf.org/html/rfc1337" title="RFC 1337: TIME-WAIT Assassination Hazards in TCP"><span class="caps">RFC</span> 1337</a> is to
+        ignore <em><span class="caps">RST</span></em> segments in the <code>TIME-WAIT</code> state. This
+        behaviour is controlled by <code>net.ipv4.rfc1337</code> which is not
+        enabled by default on Linux because this is not a complete
+        solution to the problem described in the <span class="caps">RFC</span>.&nbsp;<a href="#fnref:rfc1337" rev="footnote" title="Jump back to footnote 3 in the text">↩</a></p>
+</li>
+<li id="fn:lastack">
+<p>While in the <code>LAST-ACK</code> state, a connection will
+        retransmit the last <em><span class="caps">FIN</span></em> segment until it gets the
+        expected <em><span class="caps">ACK</span></em> segment. Therfore, it is unlikely we stay
+        long in this state.&nbsp;<a href="#fnref:lastack" rev="footnote" title="Jump back to footnote 4 in the text">↩</a></p>
+</li>
+<li id="fn:outgoing">
+<p>On the client side, older kernels also have to find a <strong>free
+         local tuple</strong> (source address and source port) for each
+         outgoing connection. Increasing the number of server
+         ports or <span class="caps">IP</span> won’t help in this case. Linux 3.2 is recent
+         enough to be able to share the same local tuple for
+         different destinations. Thanks to Willy Tarreau for his <a href="http://marc.info/?l=haproxy&amp;m=139315382127339&amp;w=2">insight</a> on this aspect.&nbsp;<a href="#fnref:outgoing" rev="footnote" title="Jump back to footnote 5 in the text">↩</a></p>
+</li>
+<li id="fn:others">
+<p>This last solution may seem a bit dumb since you could just
+       use more ports but some servers are not able to be
+       configured this way. The before last solution can also be
+       quite cumbersome to setup, depending on the load-balancing
+       software, but uses less <span class="caps">IP</span> than the last solution.&nbsp;<a href="#fnref:others" rev="footnote" title="Jump back to footnote 6 in the text">↩</a></p>
+</li>
+<li id="fn:tcptimewaitsock">
+<p>The use of a dedicated memory structure for sockets
+                in the <code>TIME-WAIT</code> is here since Linux 2.6.14.
+                The <a href="http://lxr.free-electrons.com/source/include/net/sock.h?v=3.12#L157" title="Definition of struct sock_common"><code>struct sock_common</code> structure</a> is a
+                bit more verbose and I won’t copy it here.&nbsp;<a href="#fnref:tcptimewaitsock" rev="footnote" title="Jump back to footnote 7 in the text">↩</a></p>
+</li>
+<li id="fn:serverfirst">
+<p>When the server closes the connection first, it gets
+            the <code>TIME-WAIT</code> state while the client will consider
+            the corresponding quadruplet free and hence may reuse
+            it for a new connection.&nbsp;<a href="#fnref:serverfirst" rev="footnote" title="Jump back to footnote 8 in the text">↩</a></p>
+</li>
+</ol>
+</div>	</div>
+	      </article>
+      <div id="disqus_thread">
+  <div style="display: block;" id="lf-disqus">View or add a new comment (with Disqus)</div>
+</div>
+
+    </div>
+  </div>
+
+    <footer>
+    <div>
+      <h3>Other stuff</h3>
+      <ul>
+	<li><a href="https://github.com/vincentbernat">GitHub</a></li>
+	<li><a href="http://www.linkedin.com/in/vincentbernat">LinkedIn</a></li>
+	<li><a href="http://qa.debian.org/developer.php?login=bernat">Debian</a></li>
+	<li><a href="http://delicious.com/vbernat/">Delicious</a></li>
+	<li><a href="http://twitter.com/vince2_">@vince2_</a></li>
+      </ul>
+    </div>
+ 
+    <div>
+      <h3>Sources</h3>
+      <ul>
+	<li>Powered by <a href="http://ringce.com/hyde">Hyde</a></li>
+	<li><a href="https://github.com/vincentbernat/www.luffy.cx">Site</a></li>
+	<li>
+	  <a href="https://github.com/vincentbernat/www.luffy.cx/tree/master/content/en/blog/2014-tcp-time-wait-state-linux.html">Page</a>
+	</li>
+      </ul>
+    </div>
+    <address class="vcard author">
+      © 2014 <a class="fn email" href="mailto:vincent@bernat.im">Vincent Bernat</a>
+      <a class="lf-sprite-rss" href="http://vincent.bernat.im/en/blog/atom.xml">
+	&nbsp;
+      </a>
+    </address>
+  </footer>
+
+    
+  
+  
+
+<div style="display: none;" id="lfb-overlay"></div><div style="display: none;" id="lfb-center"><div id="lfb-close" class="lf-sprite-slimbox-close"></div><div id="lfb-image"><div style="position: relative;"><a id="lfb-prevlink" href="#"><span id="lfb-prevlink-ico" class="lf-sprite-slimbox-left"></span></a><a id="lfb-nextlink" href="#"><span id="lfb-nextlink-ico" class="lf-sprite-slimbox-right"></span></a></div></div></div></body>
+</html>

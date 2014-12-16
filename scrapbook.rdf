@@ -333,6 +333,14 @@
                    NS1:icon=""
                    NS1:source=""
                    NS1:comment="" />
+  <RDF:Description RDF:about="urn:scrapbook:item20141216155759"
+                   NS1:id="20141216155759"
+                   NS1:type=""
+                   NS1:title="Debian: switch to UEFI boot"
+                   NS1:chars="UTF-8"
+                   NS1:comment=""
+                   NS1:source="http://tanguy.ortolo.eu/blog/article51/debian-efi"
+                   NS1:icon="resource://scrapbook/data/20141216155759/favicon_001.png" />
   <RDF:Description RDF:about="urn:scrapbook:item20120104122528"
                    NS1:id="20120104122528"
                    NS1:type=""
@@ -774,6 +782,7 @@
   <RDF:Seq RDF:about="urn:scrapbook:item20111128092900">
     <RDF:li RDF:resource="urn:scrapbook:item20111128092908"/>
     <RDF:li RDF:resource="urn:scrapbook:item20140121220704"/>
+    <RDF:li RDF:resource="urn:scrapbook:item20141216155759"/>
   </RDF:Seq>
   <RDF:Description RDF:about="urn:scrapbook:item20111128092900"
                    NS1:id="20111128092900"

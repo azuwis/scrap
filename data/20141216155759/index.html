@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+	<title>Debian: switch to UEFI boot - Tanguy Ortolo</title>
+
+	
+	<meta name="description" content="Expert guide for switching a Debian system to UEFI boot">
+	<meta name="keywords" content="Debian, EFI, BIOS, boot, GRUB, motherboard">
+	<meta name="author" content="Tanguy">
+
+	<link rel="icon" href="favicon.png">
+	
+	
+	<link rel="alternate" type="application/rss+xml" title="Rss feeds articles" href="http://tanguy.ortolo.eu/blog/feed/rss">
+	<link rel="alternate" type="application/rss+xml" title="Rss feeds comments" href="http://tanguy.ortolo.eu/blog/feed/rss/commentaires">
+
+
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body id="top">
+<div id="section">
+<div id="content">
+<div class="article">
+<!--DOCUMENT_FRAGMENT-->
+<h2 class="art-title">Debian: switch to UEFI boot</h2>
+                                <div class="art-topinfos">
+                                    <p class="art-author">Written by Tanguy</p>
+                                    <p class="art-cat">Classified in : <a class="active" href="http://tanguy.ortolo.eu/blog/" title="Homepage">Homepage</a>, <a class="noactive" href="http://tanguy.ortolo.eu/blog/categorie2/debian" title="Debian">Debian</a></p>
+                                </div>
+				<div class="art-content"><a href="http://commons.wikimedia.org/wiki/File:Uefi_logo.svg" title="From Wikimedia Commons, public domain"><img src="uefi.png" alt="UEFI logo: a cube with u, e and fi written on each visible face" style="float: right; margin: 0.5em 0px 0px 1em;"></a>
+
+<p>For those interested, here is a way to install Debian and boot it with UEFI
+if you have an UEFI motherboard.
+Using UEFI with Debian requires expert knowledge so if you do not feel up to
+it, keep your BIOS system.</p>
+
+<h2>1&nbsp;&nbsp;Background</h2>
+
+<p>UEFI is a specification for motherboard's firmwares which is replacing the old
+BIOS. For now, UEFI motherboards still include a BIOS compatibility layer.</p>
+
+<p>The UEFI boot process is quite different from the BIOS one. It involves one
+specific piece of the motherboard's firmware, the UEFI Boot Manager, which is
+able to load boot loaders from FAT file systems on specially-typed partitions.
+It can offer a boot menu (boot: Debian from HDD, Windows from HDD, USB stick,
+DVD?), which can be configured <em>from a running operating system</em>.</p>
+
+<p>So, basically, to boot a system with UEFI, you need two things:</p>
+
+<ul>
+    <li>to install an UEFI boot loader on a FAT-formated EFI System
+    Partition;</li>
+    <li>to tell the UEFI Boot Manager to create an entry for that boot
+    loader.</li>
+</ul>
+<h2>2&nbsp;&nbsp;Installation or preparation</h2>
+
+<p>If you are installing a new Debian system, read the first part. If you
+already have a BIOS-bootable Debian system installed, read the second one.</p>
+
+<p>In both cases you will have to use Debian testing, because stable's GRUB has
+problems with UEFI. You can also use Debian stable while taking only GRUB from
+testing though.</p>
+
+<h3>2.1&nbsp;&nbsp;Installation of a new Debian system</h3>
+
+<p>There is no installer image for UEFI, so you can either:</p>
+
+<ul>
+    <li>make your own, by installing an UEFI boot loader to an USB stick, which
+    will load a regular installer kernel and initrd;</li>
+    <li>use a regular BIOS installer image, using the compatibility mode of your
+    motherboard.</li>
+</ul>
+
+<p>The installer does not provide a convenient way to install an UEFI boot
+loader, so you are going to install a regular BIOS boot loader at first, and
+switch to UEFI later.</p>
+
+<p>Use the expert mode and format your hard drive with a GUID Partition Table
+(GPT). Create a small partition (1 MiB would be far enough), type it as a BIOS
+Boot Partition (this is the untitled flag above the “bootable” one in Partman),
+do not format it and do not mount it: this will be needed for BIOS booting.
+Create another small partition (same kind of size), type it as an EFI System
+Partition (this is the“bootable” flag), format it as FAT and mount it on <em class="filename">/boot/efi</em>: this will be needed for UEFI booting.</p>
+
+<p>Finish the installation as usual, installing GRUB for BIOS, and boot your new
+system.</p>
+
+<h3>2.2&nbsp;&nbsp;Preparation of an existing Debian system for UEFI</h3>
+
+<p>You need to use a GUID Partition Table on your hard drive. If you used an
+MBR, you lost; you may try to convert it to GPT using a tool such as <a href="http://www.rodsbooks.com/gdisk/">gdisk</a>, but that means operating
+without a net, loosing your current boot loader in the process.</p>
+
+<p>If there is no space left on your hard drive, use <a href="http://live.debian.net/">Debian Live</a> to make some. Create a small
+partition (1 MiB would be far enough), type it as an EFI System Partition, format
+it as FAT and mount it (permanently, using the <em class="filename">fstab</em>)
+on <em class="filename">/boot/efi</em> (that directory will not exist, so create
+it first).</p>
+
+<h2>3&nbsp;&nbsp;Switch to GRUB UEFI</h2>
+
+<p>Install the package <em class="package">grub-efi-amd64</em>. Prepare it by
+running the command (assuming your hard drive is <em class="filename">/dev/sda</em>):</p>
+
+<pre class="cli"># grub-install /dev/sda</pre>
+
+<p>That will do three things:</p>
+
+<ol>
+    <li>generate a GRUB image;</li>
+    <li>install it to the EFI partition at <em class="filename">efi/debian/grubx64.efi</em> (relatively to this filesystem's root, which means <em class="filename">/boot/efi/efi/debian/grubx64.efi</em> in absolute);</li>
+    <li><em>try</em> to configure the UEFI Boot Manager (the motherboard's boot
+    menu) to load it on start-up</li>
+</ol>
+
+<p>That last step will fail. This is expected, because the UEFI Boot Manager can
+only be configured from an operating system that was started from UEFI. So if
+you stop here, you get an unbootable system.</p>
+
+<p>Now, copy (a symlink would be relevant here, but that cannot be done on a FAT
+file system!) the GRUB image to that other path on the EFI System Partition: <em class="filename">efi/boot/bootx64.efi</em> (again, relatively to the ESP filesystem's root, which means <em class="filename">/boot/efi/efi/boot/bootx64.efi</em> in absolute). This is where the UEFI firmware
+looks for a boot loader when it has not been configured for a specific path,
+typically on removable media. Reboot to check that…</p>
+
+<p>If that trick worked, you are now on UEFI-booted system. Run
+<code>grub-install</code> again, which should now succeed to configure the UEFI
+Boot Manager. Reboot to check that you get a “debian” entry on the motherboard's
+boot menu, and remove <em class="filename">efi/boot/bootx64.efi</em> which is
+no longer needed.</p>
+</div>
+                                <div class="art-infos">
+                                    <span class="art-tags">Tags : <a class="noactive" href="http://tanguy.ortolo.eu/blog/tag/debian" title="Debian">Debian</a>, <a class="noactive" href="http://tanguy.ortolo.eu/blog/tag/efi" title="EFI">EFI</a>, <a class="noactive" href="http://tanguy.ortolo.eu/blog/tag/bios" title="BIOS">BIOS</a>, <a class="noactive" href="http://tanguy.ortolo.eu/blog/tag/boot" title="boot">boot</a>, <a class="noactive" href="http://tanguy.ortolo.eu/blog/tag/grub" title="GRUB">GRUB</a>, <a class="noactive" href="http://tanguy.ortolo.eu/blog/tag/motherboard" title="motherboard">motherboard</a></span></div>
+<!--/DOCUMENT_FRAGMENT-->
+</div>
+</div>
+</div>
+</body>
+</html>

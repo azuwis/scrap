@@ -223,6 +223,17 @@
                    NS1:icon=""
                    NS1:source=""
                    NS1:comment="" />
+  <RDF:Seq RDF:about="urn:scrapbook:item20141216160539">
+    <RDF:li RDF:resource="urn:scrapbook:item20141216160536"/>
+  </RDF:Seq>
+  <RDF:Description RDF:about="urn:scrapbook:item20141216160539"
+                   NS1:id="20141216160539"
+                   NS1:type="folder"
+                   NS1:title="config"
+                   NS1:chars=""
+                   NS1:icon=""
+                   NS1:source=""
+                   NS1:comment="" />
   <RDF:Description RDF:about="urn:scrapbook:item20111013172255"
                    NS1:id="20111013172255"
                    NS1:type=""
@@ -239,6 +250,14 @@
                    NS1:comment=""
                    NS1:source="http://sourceforge.net/apps/trac/lxc-provider/"
                    NS1:icon="resource://scrapbook/data/20111028114616/trac.ico" />
+  <RDF:Description RDF:about="urn:scrapbook:item20141216160536"
+                   NS1:id="20141216160536"
+                   NS1:type=""
+                   NS1:title="Moving away from puppet: SaltStack or Ansible? | Ryan D Lane"
+                   NS1:chars="UTF-8"
+                   NS1:comment=""
+                   NS1:icon=""
+                   NS1:source="http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/" />
   <RDF:Description RDF:about="urn:scrapbook:item20120104183645"
                    NS1:id="20120104183645"
                    NS1:type=""
@@ -702,6 +721,7 @@
     <RDF:li RDF:resource="urn:scrapbook:item20120104122531"/>
     <RDF:li RDF:resource="urn:scrapbook:item20120117170508"/>
     <RDF:li RDF:resource="urn:scrapbook:item20130318152422"/>
+    <RDF:li RDF:resource="urn:scrapbook:item20141216160539"/>
   </RDF:Seq>
   <RDF:Description RDF:about="urn:scrapbook:item20111206144826"
                    NS1:id="20111206144826"

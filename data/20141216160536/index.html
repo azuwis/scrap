@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moving away from puppet: SaltStack or Ansible? | Ryan D Lane</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="http://ryandlane.com/blog/xmlrpc.php">
+
+<link rel="alternate" type="application/rss+xml" title="Ryan D Lane » Feed" href="http://ryandlane.com/blog/feed/">
+<link rel="alternate" type="application/rss+xml" title="Ryan D Lane » Comments Feed" href="http://ryandlane.com/blog/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Ryan D Lane » Moving away from Puppet: SaltStack or Ansible? Comments Feed" href="http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/feed/">
+
+
+
+
+<!--[if IE]>
+<link rel='stylesheet' id='ie7-style-css'  href='http://ryandlane.com/blog/wp-content/themes/editor/inc/styles/ie.css?ver=4.0.1' type='text/css' media='all' />
+<![endif]-->
+
+
+
+
+
+
+
+
+
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://ryandlane.com/blog/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://ryandlane.com/blog/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Truly ordered execution using SaltStack" href="http://ryandlane.com/blog/2014/07/14/truly-ordered-execution-using-saltstack/">
+<link rel="next" title="SaltStack AWS Orchestration and Masterless Bootstrapping" href="http://ryandlane.com/blog/2014/08/26/saltstack-masterless-bootstrapping/">
+<meta name="generator" content="WordPress 4.0.1">
+<link rel="shortlink" href="http://wp.me/pkHAY-ap">
+
+<!-- Bad Behavior 2.2.16 run time: 17.140 ms -->
+
+				<link rel="alternate" type="application/rss+xml" title="Ryan D Lane This Post's Comments RSS 2.0 Feed" href="http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/feed/">
+		
+<!-- All in One SEO Pack 2.2.3.1 by Michael Torbert of Semper Fi Web Design[135,202] -->
+<meta name="description" itemprop="description" content="A comparison of Salt and Ansible, evaluated by porting an infrastructure away from Puppet.">
+
+<meta name="keywords" itemprop="keywords" content="salt,saltstack,ansible,puppet,devops">
+
+<link rel="canonical" href="http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/">
+<!-- /all in one seo pack -->
+<!-- Google Analytics Tracking by Google Analyticator 6.4.8: http://www.videousermanuals.com/google-analyticator/ -->
+
+
+
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body class="single single-post postid-645 single-format-standard custom-background">
+
+<div id="page" class="hfeed site container">
+
+	<!-- Get sidebar color option (Appearance -> Customize -> Theme Options) -->
+		<header id="masthead" class="site-header dark" role="banner">
+		<!-- Tab navigation -->
+		<ul class="toggle-bar">
+		    <!-- Main navigation -->
+		    <li>
+		    	<a href="#tabs-1" class="current nav-toggle" data-tab="tab-1"><i class="fa fa-bars"></i></a>
+		    </li>
+
+		    <!-- Featured Posts navigation -->
+		    
+		    <!-- Sidebar widgets navigation -->
+		    <li>
+		    	<a href="#tab-3" class="folder-toggle" data-tab="tab-3"><i class="fa fa-folder"></i><i class="fa fa-folder-open"></i></a>
+		    </li>
+		</ul>
+
+		<div id="tabs" class="toggle-tabs">
+			<div class="site-header-inside">
+				<!-- Logo, description and main navigation -->
+				<div id="tab-1" class="tab-content current animated fadeIn">
+					<div class="site-branding">
+						<!-- Get the site branding -->
+													<h1 class="site-title"><a href="http://ryandlane.com/blog/" rel="home">Ryan D Lane</a></h1>
+							<h2 class="site-description">A blog with rants about DevOps.</h2>
+											</div>
+
+					<nav id="site-navigation" class="main-navigation" role="navigation">
+											</nav><!-- #site-navigation -->
+				</div><!-- #tab-1 -->
+
+				<!-- Featured Posts template (template-featured-posts.php) -->
+				
+				
+				<!-- Sidebar widgets -->
+				<div id="tab-3" class="tab-content animated fadeIn">
+						<div id="secondary" class="widget-area" role="complementary">
+		<aside id="search-4" class="widget widget_search"><form role="search" method="get" class="search-form" action="http://ryandlane.com/blog/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input class="search-field" placeholder="Search …" value="" name="s" title="Search for:" type="search">
+				</label>
+				<input class="search-submit" value="Search" type="submit">
+			</form></aside><aside id="text-4" class="widget widget_text"><h2 class="widget-title">support me</h2>			<div class="textwidget"><iframe src="index_1.html" style="border: 0px none; margin: 0px; padding: 0px; width: 0px; height: 0px;"></iframe></div>
+		</aside>		<aside id="recent-posts-4" class="widget widget_recent_entries">		<h2 class="widget-title">Recent Posts</h2>		<ul>
+					<li>
+				<a href="http://ryandlane.com/blog/2014/12/11/using-lua-in-nginx-for-unique-request-ids-and-millisecond-times-in-logs/">Using Lua in Nginx for unique request IDs and millisecond times in logs</a>
+						</li>
+					<li>
+				<a href="http://ryandlane.com/blog/2014/12/10/reloading-grains-and-pillars-during-a-saltstack-run/">Reloading grains and pillars during a SaltStack run</a>
+						</li>
+					<li>
+				<a href="http://ryandlane.com/blog/2014/10/08/config-management-code-reuse-isnt-always-the-right-approach/">Config Management Code Reuse isn’t Always the Right Approach</a>
+						</li>
+					<li>
+				<a href="http://ryandlane.com/blog/2014/09/08/saltstack-development-behavior-of-exceptions-in-modules/">SaltStack Development: Behavior of Exceptions in Modules</a>
+						</li>
+					<li>
+				<a href="http://ryandlane.com/blog/2014/09/05/dealing-with-splunkforwarder-via-config-management/">Dealing with splunkforwarder via Config Management</a>
+						</li>
+				</ul>
+		</aside><aside id="categories-229002041" class="widget widget_categories"><h2 class="widget-title">Categories</h2>		<ul>
+	<li class="cat-item cat-item-33"><a href="http://ryandlane.com/blog/category/aws/">AWS</a>
+</li>
+	<li class="cat-item cat-item-23"><a href="http://ryandlane.com/blog/category/cygwin/">Cygwin</a>
+</li>
+	<li class="cat-item cat-item-28"><a href="http://ryandlane.com/blog/category/devops/">Devops</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="http://ryandlane.com/blog/category/ldap/">LDAP</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="http://ryandlane.com/blog/category/mediawiki/">MediaWiki</a>
+</li>
+	<li class="cat-item cat-item-26"><a href="http://ryandlane.com/blog/category/openstack/">OpenStack</a>
+</li>
+	<li class="cat-item cat-item-18"><a href="http://ryandlane.com/blog/category/os-x/">OS X</a>
+</li>
+	<li class="cat-item cat-item-10"><a href="http://ryandlane.com/blog/category/pki/" title="Articles related to PKI.">pki</a>
+</li>
+	<li class="cat-item cat-item-19"><a href="http://ryandlane.com/blog/category/red-hat/">Red Hat</a>
+</li>
+	<li class="cat-item cat-item-30"><a href="http://ryandlane.com/blog/category/saltstack/">SaltStack</a>
+</li>
+	<li class="cat-item cat-item-21"><a href="http://ryandlane.com/blog/category/semantic-mediawiki/">Semantic MediaWiki</a>
+</li>
+	<li class="cat-item cat-item-20"><a href="http://ryandlane.com/blog/category/solaris/">Solaris</a>
+</li>
+	<li class="cat-item cat-item-22"><a href="http://ryandlane.com/blog/category/ubuntu/">Ubuntu</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://ryandlane.com/blog/category/uncategorized/">Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-24"><a href="http://ryandlane.com/blog/category/virtualization/">Virtualization</a>
+</li>
+	<li class="cat-item cat-item-25"><a href="http://ryandlane.com/blog/category/wikimedia/">Wikimedia</a>
+</li>
+	<li class="cat-item cat-item-27"><a href="http://ryandlane.com/blog/category/workflow/">Workflow</a>
+</li>
+		</ul>
+</aside><aside id="linkcat-6" class="widget widget_links"><h2 class="widget-title">My Online Profiles</h2>
+	<ul class="xoxo blogroll">
+<li><a href="http://www.google.com/profiles/rlane32" rel="me" title="My google profile">My google profile</a></li>
+<li><a href="http://www.linkedin.com/in/ryandlane" rel="me" title="My LinkedIn profile">My LinkedIn profile</a></li>
+<li><a href="http://www.mediawiki.org/wiki/User:Ryan_lane" rel="me" title="My mediawiki.org user page">My mediawiki.org user page</a></li>
+<li><a href="http://twitter.com/SquidDLane" rel="me" title="My twitter stream">My twitter stream</a></li>
+
+	</ul>
+</aside>
+<aside id="nav_menu-3" class="widget widget_nav_menu"><h2 class="widget-title">Meta</h2><div class="menu-meta-container"><ul id="menu-meta" class="menu"><li id="menu-item-620" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-620"><a href="http://ryandlane.com/blog/wp-admin/">Site Admin</a></li>
+<li id="menu-item-618" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-618"><a href="http://ryandlane.com/blog/feed/">Entries RSS</a></li>
+<li id="menu-item-619" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-619"><a href="http://ryandlane.com/blog/comments/feed/">Comments RSS</a></li>
+</ul></div></aside>	</div><!-- #secondary -->
+				</div><!-- #tab-3 -->
+			</div><!-- .site-header-inside -->
+		</div><!-- #tabs -->
+	</header><!-- #masthead -->
+
+	<div id="content" class="site-content animated-faster fadeIn">
+
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+			
+<article id="post-645" class="post-645 post type-post status-publish format-standard hentry category-devops category-saltstack">
+	<!-- Grab the featured image -->
+	
+	<header class="entry-header">
+				<div class="entry-date">
+			<span class="posted-on"><a href="http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/" rel="bookmark"><time class="entry-date published" datetime="2014-08-04T17:48:24+00:00">August 4, 2014</time><time class="updated" datetime="2014-10-21T06:40:39+00:00">October 21, 2014</time></a></span><span class="byline"> by </span> <span class="author vcard"><a class="url fn n" href="http://ryandlane.com/blog/author/laner/">Ryan Lane</a></span>		</div><!-- .entry-meta -->
+		
+		<h1 class="entry-title"><a href="http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/" rel="bookmark">Moving away from Puppet: SaltStack or Ansible?</a></h1>
+	</header><!-- .entry-header -->
+
+	
+<div class="entry-meta">
+	
+	<ul class="meta-list">
+					<li class="meta-cat"><a href="http://ryandlane.com/blog/category/devops/" rel="category tag">Devops</a>, <a href="http://ryandlane.com/blog/category/saltstack/" rel="category tag">SaltStack</a></li>
+								<li class="meta-comment">
+			<span class="comments-link"><a href="http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/#comments" title="Comment on Moving away from Puppet: SaltStack or Ansible?">77 Comments</a></span>
+		</li>
+					</ul>
+</div>
+	<div class="entry-content">
+		<p>Over the past month at Lyft we’ve been working on porting our infrastructure code away from Puppet. We had some difficulty coming to agreement on whether we wanted to use SaltStack (Salt) or Ansible. We were already using Salt for AWS orchestration, but we were divided on whether Salt or Ansible would be better for configuration management. We decided to settle it the thorough way by implementing the port in both Salt and Ansible, comparing them over multiple criteria.</p>
+<p>First, let me start by explaining why we decided to port away from Puppet: We had a complex puppet code base that has around 10,000 lines of actual Puppet code. This code was originally spaghetti-code oriented and in the past year or so was being converted to a new pattern that used Hiera and Puppet modules split up into <em>services</em> and&nbsp;<em>components</em>. It’s roughly the <em>role</em> pattern, for those familiar with Puppet. The code base was a mixture of these two patterns and our DevOps team was comprised of almost all recently hired members who were not very familiar with Puppet and were unfamiliar with the code base. It was large, unwieldy and complex, especially for our core application. Our DevOps team was getting accustom to the Puppet infrastructure; however, Lyft is strongly rooted in the concept of ‘If you build it you run it’. The DevOps team felt that the Puppet infrastructure was too difficult to pick up quickly and would be impossible to introduce to our developers as the tool they’d use to manage their own services.</p>
+<p>Before I delve into the comparison, we had some requirements of the new infrastructure:</p>
+<ol>
+<li>No masters. For Ansible this meant using ansible-playbook locally, and for Salt this meant using salt-call locally. Using a master for configuration management adds an unnecessary point of failure and sacrifices performance.</li>
+<li>Code should be as simple as possible. Configuration management abstractions generally lead to complicated, convoluted and difficult to understand code.</li>
+<li>No optimizations that would make the code read in an illogical order.</li>
+<li>Code must be split into two parts: base and service-specific, where each would reside in separate repositories. We want the base section of the code to cover configuration and services that would be deployed for every service (monitoring, alerting, logging, users, etc.) and we want the service-specific code to reside in the application repositories.</li>
+<li>The code must work for multiple environments (development, staging, production).</li>
+<li>The code should read and run in sequential order.</li>
+</ol>
+<p>Here’s how we compared:</p>
+<ol>
+<li>Simplicity/Ease of Use</li>
+<li>Maturity</li>
+<li>Performance</li>
+<li>Community</li>
+</ol>
+<a class="toc-anchor" name="simplicityease-of-use"></a><a class="toc-anchor" name="toc-anchor-645-1"></a><h2>Simplicity/Ease of Use</h2>
+<p>Ansible:</p>
+<p>A couple team members had a strong preference to using Ansible as they felt it was easier to use than Salt, so I started by implementing the port in Ansible, then implementing it again in Salt.</p>
+<p>As I started Ansible was indeed simple. The documentation was clearly structured which made learning the syntax and general workflow relatively simple. The documentation is oriented to running Ansible from a controller and not locally, which made the initial work slightly more difficult to pick up, but it wasn’t a major stumbling block. The biggest issue was needing to have an inventory file with ‘localhost’ defined and needing to use -c local on the command line. Additionally, Ansible’s playbook’s structure is very simple. There’s tasks, handlers, variables and facts. Tasks do the work in order and can notify handlers to do actions at the end of the run. The variables can be used via Jinja in the playbooks or in templates. Facts are gathered from the system and can be used like variables.</p>
+<p>Developing the playbook was straightforward. Ansible always runs in order and exits immediately when an error occurs. This made development relatively easy and consistent. For the most part this also meant that when I destroyed my vagrant instance and recreated it that my playbook was consistently run.</p>
+<p>That said, as I was developing I noticed that my ordering was occasionally problematic and needed to move things around. As I finished porting sections of the code I’d occasionally destroy and up my vagrant instance and re-run the playbook, then noticed errors in my execution. Overall using ordered execution was far more reliable than Puppet’s unordered execution, though.</p>
+<p>My initial playbook was a single file. As I went to split base and service apart I noticed some complexity creeping in. Ansible includes tasks and handlers separately and when included the format changes, which was confusing at first. My playbook was now: playbook.yml, base.yml, base-handlers.yml, service.yml, and service-handlers.yml. For variables I had: user.yml and common.yml. As I was developing I generally needed to keep the handlers open so that I could easily reference them for the tasks.</p>
+<p>The use of Jinja in Ansible is well executed. Here’s an example of adding users from a dictionary of users:</p>
+<pre>- name: Ensure groups exist
+  group: name={{ item.key }} gid={{ item.value.id }}
+  with_dict: users
+
+- name: Ensure users exist
+  user: name={{ item.key }} uid={{ item.value.id }} group={{ item.key }} groups=vboxsf,syslog comment="{{ item.value.full_name }}" shell=/bin/bash
+  with_dict: users
+</pre>
+<p>For playbooks Ansible uses Jinja for variables, but not for logic. Looping and conditionals are built into the DSL. with/when/etc. control how individual tasks are handled. This is important to note because that means you can only loop over individual tasks. A downside of Ansible doing logic via the DSL is that I found myself constantly needing to look at the documentation for looping and conditionals. Ansible has a pretty powerful feature since it controls its logic itself, though: variable registration. Tasks can register data into variables for use in later tasks. Here’s an example:</p>
+<pre>- name: Check test pecl module
+  shell: "pecl list | grep test | awk '{ print $2 }'"
+  register: pecl_test_result
+  ignore_errors: True
+  changed_when: False
+
+- name: Ensure test pecl module is installed
+  command: pecl install -f test-1.1.1
+  when: pecl_test_result.stdout != ‘1.1.1’
+</pre>
+<p>This is one of Ansible’s most powerful tools, but unfortunately Ansible also relies on this for pretty basic functionality. Notice in the above what’s happening. The first task checks the status of a shell command then registers it to a variable so that it can be used in the next task. I was displeased to see it took this much effort to do very basic functionality. This should be a feature of the DSL. Puppet, for instance, has a much more elegant syntax for this:</p>
+<pre>exec { ‘Ensure redis pecl module is installed’:
+  command =&gt; ‘pecl install -f redis-2.2.4’,
+  unless  =&gt; ‘pecl list | grep redis | awk \’{ print $2 }\’’;
+}
+</pre>
+<p>I was initially very excited about this feature, thinking I’d use it often in interesting ways, but as it turned out I only used the feature for cases where I needed to shell out in the above pattern because a module didn’t exist for what I needed to do.</p>
+<p>Some of the module functionality was broken up into a number of different modules, which made it difficult to figure out how to do some basic tasks. For instance, basic file operations are split between the file, copy, fetch, get_url, lineinfile, replace, stat and template modules. This was annoying when referencing documentation, where I needed to jump between modules until I found the right one. The shell/command module split is much more annoying, as command will only run basic commands and won’t warn you when it’s stripping code. A few times I wrote a task using the command module, then later changed the command being run. The new command actually required the use of the shell module, but I didn’t realize it and spent quite a while trying to figure out what was wrong with the execution.</p>
+<p>I found the input, output, DSL and configuration formats of Ansible perplexing. Here’s some examples:</p>
+<ul>
+<li>Ansible and inventory configuration: INI format</li>
+<li>Custom facts in facts.d: INI format</li>
+<li>Variables: YAML format</li>
+<li>Playbooks: YAML format, with key=value format inline</li>
+<li>Booleans: yes/no format in some places and True/False format in other places</li>
+<li>Output for introspection of facts: JSON format</li>
+<li>Output for playbook runs: no idea what format</li>
+</ul>
+<p>Output for playbook runs was terse, which was generally nice. Each playbook task output a single line, except for looping, which printed the task line, then each sub-action. Loop actions over dictionaries printed the dict item with the task, which was a little unexpected and cluttered the output. There is little to no control over the output.</p>
+<p>Introspection for Ansible was lacking. To see the value of variables in the format actually presented inside of the language it’s necessary to use the debug task inside of a playbook, which means you need to edit a file and do a playbook run to see the values. Getting the facts available was more straightforward: ‘ansible -m setup hostname’. Note that hostname must be provided here, which is a little awkward when you’re only ever going to run locally. Debug mode was helpful, but getting in-depth information about what Ansible was actually doing inside of tasks was impossible without diving into the code, since every task copies a python script to /tmp and executes it, hiding any real information.</p>
+<p>When I finished writing the playbooks, I had the following line length/character count:</p>
+<pre> 15&nbsp;&nbsp;&nbsp;&nbsp; 48&nbsp;&nbsp;&nbsp;&nbsp; 472   service-handlers.yml
+ 463&nbsp;&nbsp;&nbsp; 1635&nbsp;&nbsp; 17185 service.yml
+ 27&nbsp;&nbsp;&nbsp;&nbsp; 70&nbsp;&nbsp;&nbsp;&nbsp; 555   base-handlers.yml
+ 353&nbsp;&nbsp;&nbsp; 1161&nbsp;&nbsp; 11986 base.yml
+ 15&nbsp;&nbsp;&nbsp;&nbsp; 55&nbsp;&nbsp;&nbsp;&nbsp; 432   playbook.yml
+ 873&nbsp;&nbsp;&nbsp; 2969&nbsp;&nbsp; 30630 total
+</pre>
+<p>There were 194 tasks in total.</p>
+<p>Salt:</p>
+<p>Salt is initially difficult. The organization of the documentation is poor and the text of the documentation is dense, making it difficult for newbies. Salt assumes you’re running in master/minion mode and uses absolute paths for its states, modules, etc.. Unless you’re using the default locations, which are poorly documented for masterless mode, it’s necessary to create a configuration file. The documentation for configuring the minion is dense and there’s no guides for normal configuration modes. States and pillars both require a ‘top.sls’ file which define what will be included per-host (or whatever host matching scheme you’re using); this is somewhat confusing at first.</p>
+<p>Past the initial setup, Salt was straightforward. Salt’s state system has states, pillars and grains. States are the YAML DSL used for configuration management, pillars are user defined variables and grains are variables gathered from the system. All parts of the system except for the configuration file are templated through Jinja.</p>
+<p>Developing Salt’s states was straightforward. Salt’s default mode of operation is to execute states in order, but it also has a requisite system, like Puppet’s, which can change the order of the execution. Triggering events (like restarting a service) is documented using the watch or watch_in requisite, which means that following the default documentation will generally result in out-of-order execution. Salt also provides the listen/listen_in global state arguments which execute at the end of a state run and do not modify ordering. By default Salt does not immediately halt execution when a state fails, but runs all states and returns the results with a list of failures and successes. It’s possible to modify this behavior via the configuration. Though Salt didn’t exit on errors, I found that I had errors after destroying my vagrant instance then rebuilding it at a similar rate to Ansible. That said, I did eventually set the configuration to hard fail since our team felt it would lead to more consistent runs.</p>
+<p>My initial state definition was in a single file. Splitting this apart into base and service states was very straightforward. I split the files apart and included base from service. Salt makes no distinction between states and commands being notified (handlers in Ansible); there’s just states, so base and service each had their associated notification states in their respective files. At this point I had: top.sls, base.sls and service.sls for states. For pillars I had top.sls, users.sls and common.sls.</p>
+<p>The use of Jinja in Salt is well executed. Here’s an example of adding users from a dictionary of users:</p>
+<pre>{% for name, user in pillar['users'].items() %}
+  Ensure user {{ name }} exist:
+    user.present:
+      - name: {{ name }}
+      - uid: {{ user.id }}
+      - gid_from_name: True
+      - shell: /bin/bash
+      - groups:
+        - vboxsf
+        - syslog
+        - fullname: {{ user.full_name }}
+{% endfor %}
+</pre>
+<p>Salt uses Jinja for both state logic and templates. It’s important to note that Salt uses Jinja for state logic because it means that the Jinja is executed before the state. A negative of this is that you can’t do something like this:</p>
+<pre>Ensure myelb exists:
+  boto_elb.present:
+    - name: myelb
+    - availability_zones:
+      - us-east-1a
+    - listeners:
+      - elb_port: 80
+        instance_port: 80
+        elb_protocol: HTTP
+      - elb_port: 443
+        instance_port: 80
+        elb_protocol: HTTPS
+        instance_protocol: HTTP
+        certificate: 'arn:aws:iam::879879:server-certificate/mycert'
+      - health_check:
+          target: 'TCP:8210'
+    - profile: myprofile
+
+{% set elb = salt['boto_elb.get_elb_config']('myelb', profile='myprofile') %}
+
+{% if elb %}
+Ensure myrecord.example.com cname points at ELB:
+  boto_route53.present:
+    - name: myrecord.example.com.
+    - zone: example.com.
+    - type: CNAME
+    - value: {{ elb.dns_name }}
+{% endif %}
+</pre>
+<p>That’s not possible because the Jinja running ’set elb’ is going to run before ‘Ensure myelb exists’, since the Jinja is always rendered before the states are executed.</p>
+<p>On the other hand, since Jinja is executed first, it means you can wrap multiple states in a single loop:</p>
+<pre>{% for module, version in {
+&nbsp;&nbsp;     ‘test’: (‘1.1.1’, 'stable'),
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ‘hello’: (‘1.2.1’, 'stable'),
+       ‘world’: (‘2.2.2’, 'beta')
+   }.items() %}
+Ensure {{ module }} pecl module is installed:
+  pecl.installed:
+    - name: {{ module }}
+    - version: {{ version[0] }}
+    - preferred_state: {{ version[1] }}
+
+Ensure {{ module }} pecl module is configured:
+  file.managed:
+    - name: /etc/php5/mods-available/{{ module }}.ini
+    - contents: "extension={{ module }}.so"
+    - listen_in:
+      - cmd: Restart apache
+
+Ensure {{ module }} pecl module is enabled for cli:
+  file.symlink:
+    - name: /etc/php5/cli/conf.d/{{ module }}.ini
+    - target: /etc/php5/mods-available/{{ module }}.ini
+
+Ensure {{ module }} pecl module is enabled for apache:
+  file.symlink:
+    - name: /etc/php5/apache2/conf.d/{{ module }}.ini
+    - target: /etc/php5/mods-available/{{ module }}.ini
+    - listen_in:
+      - cmd: Restart apache
+{% endfor %}
+</pre>
+<p>Of course something similar to Ansible’s register functionality isn’t available either. This turned out to be fine, though, since Salt has a very feature rich DSL. Here’s an example of a case where it was necessary to shell out:</p>
+<pre># We need to ensure the current link points to src.git initially
+# but we only want to do so if there’s not a link there already,
+# since it will point to the current deployed version later.
+Ensure link from current to src.git exists if needed:
+  file.symlink:
+    - name: /srv/service/current
+    - target: /srv/service/src.git
+    - unless: test -L /srv/service/current
+</pre>
+<p>Additionally, as a developer who wanted to switch to either Salt or Ansible because it was Python, it was very refreshing to use Jinja for logic in the states rather than something built into the DSL, since I didn’t need to look at the DSL specific documentation for looping or conditionals.</p>
+<p>Salt is very consistent when it comes to input, output and configuration. Everything is YAML by default. Salt will happily give you output in a number of different formats, including ones you create yourself via outputter modules. The default output of state runs shows the status of all states, but can be configured in multiple ways. I ended up using the following configuration:</p>
+<pre># Show terse output for successful states and full output for failures.
+state_output: mixed
+# Only show changes
+state_verbose: False
+</pre>
+<p>State runs that don’t change anything show nothing. State runs that change things will show the changes as single lines, but failures show full output so that it’s possible to see stacktraces.</p>
+<p>Introspection for Salt was excellent. Both grains and pillars were accessible from the CLI in a consistent manner (salt-call grains.items; salt-call pillar.items). Salt’s info log level shows in-depth information of what is occurring per module. Using the debug log level even shows how the code is being loaded, the order it’s being loaded in, the OrderedDict that’s generated for the state run, the OrderedDict that’s used for the pillars, the OrderedDict that’s used for the grains, etc.. I found it was very easy to trace down bugs in Salt to report issues and even quickly fix some of the bugs myself.</p>
+<p>When I finished writing the states, I had the following word/character count:</p>
+<pre>527&nbsp;&nbsp;&nbsp; 1629&nbsp;&nbsp; 14553 api.sls
+6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 18&nbsp;&nbsp;&nbsp;&nbsp; 109   top.sls
+576&nbsp;&nbsp;&nbsp; 1604&nbsp;&nbsp; 13986 base/init.sls
+1109&nbsp;&nbsp; 3251&nbsp;&nbsp; 28648 total
+</pre>
+<p>There were 151 salt states in total.</p>
+<p>Notice that though there’s 236 more lines of Salt, there’s in total fewer characters. This is because Ansible has a short format which makes its lines longer, but uses less lines overall. This makes it difficult to directly compare by lines of code. Number of states/tasks is a better metric to go by anyway, though.</p>
+<a class="toc-anchor" name="maturity"></a><a class="toc-anchor" name="toc-anchor-645-2"></a><h2>Maturity</h2>
+<p>Both Salt and Ansible are currently more than mature enough to replace Puppet. At no point was I unable to continue because a necessary feature was missing from either.</p>
+<p>That said, Salt’s execution and state module support is more mature than Ansible’s, overall. An example is how to add users. It’s common to add a user with a group of the same name. Doing this in Ansible requires two tasks:</p>
+<pre>- name: Ensure groups exist
+  group: name={{ item.key }} gid={{ item.value.id }}
+  with_dict: users
+
+- name: Ensure users exist
+  user: name={{ item.key }} uid={{ item.value.id }} group={{ item.key }} groups=vboxsf,syslog comment="{{ item.value.full_name }}" shell=/bin/bash
+  with_dict: users
+</pre>
+<p>Doing the same in Salt requires one:</p>
+<pre>{% for name, user in pillar['users'].items() %}
+Ensure user {{ name }} exist:
+  user.present:
+    - name: {{ name }}
+    - uid: {{ user.id }}
+    - gid_from_name: True
+    - shell: /bin/bash
+    - groups:
+      - vboxsf
+      - syslog
+    - fullname: {{ user.full_name }}
+{% endfor %}
+</pre>
+<p>Additionally, Salt’s user module supports shadow attributes, where Ansible’s does not.</p>
+<p>Another example is installing a debian package from a url. Doing this in Ansible is two tasks:</p>
+<pre>- name: Download mypackage debian package
+  get_url: url=https://s3.amazonaws.com/mybucket/mypackage/mypackage_0.1.0-1_amd64.deb dest=/tmp/mypackage_0.1.0-1_amd64.deb
+
+- name: Ensure mypackage is installed
+  apt: deb=/tmp/mypackage_0.1.0-1_amd64.deb
+</pre>
+<p>Doing the same in Salt requires one:</p>
+<pre>Ensure mypackage is installed:
+  pkg.installed:
+    - sources:
+    - mypackage: https://s3.amazonaws.com/mybucket/mypackage/mypackage_0.1.0-1_amd64.deb
+</pre>
+<p>Another example is fetching files from S3. Salt has native support for this where files are referenced in many modules, while in Ansible you must use the s3 module to download a file to a temporary location on the filesystem, then use one of the file modules to manage it.</p>
+<p>Salt has state modules for the following things that Ansible did not have:</p>
+<ul>
+<li>pecl</li>
+<li>mail aliases</li>
+<li>ssh known hosts</li>
+</ul>
+<p>Ansible had a few broken modules:</p>
+<ul>
+<li>copy: when content is used, it writes POSIX non-compliant files by default. I opened an issue for this and was marked as won’t fix. More on this in the Community section.</li>
+<li>apache2_module: always reports changes for some modules. I opened an issue it was marked as a duplicate. Fix in a pull request, open as of this writing with no response since June 24, 2014.</li>
+<li>supervisorctl: doesn’t handle a race condition properly where a service starts after it checks its status. Fix in a pull request, open as of this writing with no response since June 29, 2014. Unsuccessfully fixed in a pull request on Aug 30, 2013, issue still marked as closed, though there are reports of it still being broken.</li>
+</ul>
+<p>Salt had broken modules as well, both of which were broken in the same way as the Ansible equivalents, which was amusing:</p>
+<ul>
+<li>apache_module: always reports changes for some modules. Fixed in upcoming release.</li>
+<li>supervisorctl: doesn’t handle a race condition properly where a service starts after it checks its status. Fixed in upcoming release.</li>
+</ul>
+<p>Past basic module support, Salt is more far more feature rich:</p>
+<ul>
+<li>Salt can output in a number of different formats, including custom ones (via outputters)</li>
+<li>Salt can output to other locations like mysql, redis, mongo, or custom locations (via returners)</li>
+<li>Salt can load its pillars from a number of locations, including custom ones (via external pillars)</li>
+<li>If running an agent, Salt can fire local events that can be reacted upon (via reactors); if using a master it’s also possible to react to events from minions.</li>
+</ul>
+<a class="toc-anchor" name="performance"></a><a class="toc-anchor" name="toc-anchor-645-3"></a><h2>Performance</h2>
+<p>Salt was faster than Ansible for state/playbook runs. For no-change runs Salt was considerably faster. Here’s some performance data for each, for full runs and no-change runs. Note that these runs were relatively consistent across large numbers of system builds in both vagrant and AWS and the full run times were mostly related to package/pip/npm/etc installations:</p>
+<p>Salt:</p>
+<ul>
+<li>Full run: 12m 30s</li>
+<li>No change run: 15s</li>
+</ul>
+<p>Ansible:</p>
+<ul>
+<li>Full run: 16m</li>
+<li>No change run: 2m</li>
+</ul>
+<p>I was very surprised at how slow Ansible was when making no changes. Nearly all of this time was related to user accounts, groups, and ssh key management. In fact, <a href="https://github.com/ansible/ansible/issues/7846">I opened an issue for it</a>. Ansible takes on average .5 seconds per user, but this extends to other modules that use loops over large dictionaries. As the number of users managed grows our no-change (and full-change) runs will grow with it. If we double our managed users we’ll be looking at 3-4 minute no-change runs.</p>
+<p>I mentioned in the Simplicity/Ease of Use section that I had started this project by developing with Ansible and then re-implementing in Salt, but as time progressed I started implementing in Salt while Ansible was running. By the time I got half-way through implementing in Ansible I had already finished implementing everything in Salt.</p>
+<a class="toc-anchor" name="community"></a><a class="toc-anchor" name="toc-anchor-645-4"></a><h2>Community</h2>
+<p>There’s a number of ways to rate a community. For Open Source projects I generally consider a few things:</p>
+<ol>
+<li>Participation</li>
+</ol>
+<p>In terms of development participation Salt has 4 times the number of merged pull requests (471 for Salt and 112 for Ansible) in a one month period at the time of this writing. It also three times the number of total commits. Salt is also much more diverse from a perspective of community contribution. Ansible is almost solely written by mpdehaan. Nearly the top 10 Salt contributors have more commits than the #2 committer for Ansible. That said, Ansible has more stars and forks on GitHub, which may imply a larger user community.</p>
+<p>Both Salt and Ansible have a very high level of participation. They are generally always in the running with each other for the most active GitHub project, so in either case you should feel assured the community is strong.</p>
+<ol>
+<li>Friendliness</li>
+</ol>
+<p>Ansible has a somewhat bad reputation here. I’ve heard anecdotal stories of people being kicked out of the Ansible community. While originally researching Ansible I had found <a href="http://reclass.pantsfullofunix.net/ansible.html?highlight=ansible">some</a> <a href="https://groups.google.com/forum/#!msg/ansible-project/mpRFULSiIQw/jIIQdOSubnUJ">examples</a> of rude behavior to well meaning contributors. I did get a “pull request welcome” response on a legitimate bug, which is an anti-pattern in the open source world. That said, the IRC channel was incredibly friendly and all of the mailing list posts I read during this project were friendly as well.</p>
+<p>Salt has an excellent reputation here. They thank users for bug reports and code. They are very receptive and open to feature requests. They respond quickly on the lists, email, twitter and IRC in a very friendly manner. The only complaint that I have here is that they are sometimes less rigorous than they should be when it comes to accepting code (I’d like to see more code review).</p>
+<ol>
+<li>Responsiveness</li>
+</ol>
+<p>I opened 4 issues while working on the Ansible port. 3 were closed won’t fix and 1 was marked as a duplicate. Ansible’s issue reporting process is somewhat laborious. All issues must use a template, which requires a few clicks to get to and copy/paste. If you don’t use the template they won’t help you (and will auto-close the issue after a few days).</p>
+<p>Of the issues marked won’t fix:</p>
+<ol>
+<li><a href="https://github.com/ansible/ansible/issues/7846">user/group module slow</a>: Not considered a bug that Ansible can do much about. Issue was closed with basically no discussion. I was welcomed to start a discussion on the mailing list about it. (For comparison: Salt checks all users, groups and ssh keys in roughly 1 second)</li>
+<li><a href="https://github.com/ansible/ansible/issues/7852">Global ignore_errors</a>: Feature request. Ansible was disinterested in the feature and the issue was closed without discussion.</li>
+<li><a href="https://github.com/ansible/ansible/issues/7855">Content argument of copy module doesn’t add end of file character</a>: The issue was closed won’t fix without discussion. When I linked to the POSIX spec showing why it was a bug the issue wasn’t reopened and I was told I could submit a patch. At this point I stopped submitting further bug reports.</li>
+</ol>
+<p>Salt was incredibly responsive when it comes to issues. I opened 19 issues while working on the port. 3 of these issues weren’t actually bugs and I closed them on my own accord after discussion in the issues. 4 were documentation issues. Let’s take a look at the rest of the issues:</p>
+<ol>
+<li><a href="https://github.com/saltstack/salt/issues/13774">pecl state missing argument</a>: I submitted an issue with a pull request. It was merged and closed the same day.</li>
+<li><a href="https://github.com/saltstack/salt/issues/13731">Stacktrace when fetching directories using the S3 module</a>: I submitted an issue with a pull request. It was merged the same day and the issue was closed the next.</li>
+<li><a href="https://github.com/saltstack/salt/issues/13436">grains_dir is not a valid configuration option</a>: I submitted an issue with no pull request. I was thanked for the report and the issue was marked as Approved the same day. The bug was fixed and merged in 4 days later.</li>
+<li><a href="https://github.com/saltstack/salt/issues/13400">Apache state should have enmod and dismod capability</a>: I submitted an issue with a pull request. It was merged and closed the same day.</li>
+<li><a href="https://github.com/saltstack/salt/issues/13352">The hold argument is broken for pkg.installed</a>: I submitted an issue without a pull request. I got a response the same day. The bug was fixed and merged the next day.</li>
+<li><a href="https://github.com/saltstack/salt/issues/13657">Sequential operation relatively impossible currently</a>: I submitted an issue without a pull request. I then went into IRC and had a long discussion with the developers about how this could be fixed. The issue was with the use of watch/watch_in requisites and how it modifies the order of state runs. I proposed a new set of requisites that would work like Ansible’s handlers. The issue was marked Approved after the IRC conversation. Later that night the founder (Thomas Hatch) wrote and merged the fix and <a href="https://twitter.com/thatch45/status/481258348696719361">let me know about it via Twitter</a>. The bug was closed the following day.</li>
+<li><a href="https://github.com/saltstack/salt/issues/13744">Stacktrace with listen/listen_in when key is not valid</a>: This bug was a followup to the listen/listen_in feature. It was fixed/merged and closed the same day.</li>
+<li><a href="https://github.com/saltstack/salt/issues/13726">Stacktrace using new listen/listen_in feature</a>: This bug was an additional followup to the listen/listen_in feature and was reported at the same time as the previous one. It was fixed/merged and closed the same day.</li>
+<li><a href="https://github.com/saltstack/salt/issues/13361">pkgrepo should only run refresh_db once</a>: This is a feature request to save me 30 seconds on occasional state runs. It’s still open at the time of this writing, but was marked as Approved and the discussion has a recommended solution.</li>
+<li><a href="https://github.com/saltstack/salt/issues/13349">refresh=True shouldn’t run when package specifies version and it matches</a>. This is a feature request to save me 30 seconds on occasional state runs. It was fixed and merged 24 days later, but the bug still shows open (it’s likely waiting for me to verify).</li>
+<li><a href="https://github.com/saltstack/salt/issues/13340">Add an enforce option to the ssh_auth state</a>: This is a feature request. It’s still open at the time of this writing, but it was approved the same day.</li>
+<li><a href="https://github.com/saltstack/salt/issues/13515">Allow minion config options to be modified from salt-call</a>: This is a feature request. It’s still open at the time of this writing, but it was approved the same day and a possible solution was listed in the discussion.</li>
+</ol>
+<p>All of these bugs, except for the listen/listen_in feature could have easily been worked around, but I felt confident that if I submitted an issue the bug would get fixed, or I’d be given a reasonable workaround. When I submitted issues I was usually thanked for the issue submission and I got confirmation on whether or not my issue was approved to be fixed or not. When I submitted code I was always thanked and my code was almost always merged in the same day. Most of the issues I submitted were fixed within 24 hours, even a relatively major change like the listen/listen_in feature.</p>
+<ol>
+<li>Documentation</li>
+</ol>
+<p>For new users Ansible’s documentation is much better. The organization of the docs and the brevity of the documentation make it very easy to get started. Salt’s documentation is poorly organized and is very dense, making it difficult to get started.</p>
+<p>While implementing the port, I found the density of Salt’s docs to be immensely helpful and the brevity of Ansible’s docs to be be infuriating. I spent much longer periods of time trying to figure out the subtleties of Ansible’s modules since they were relatively undocumented. Not a single module has the variable registration dictionary documented in Ansible, which required me to write a debug task and run the playbook every time I needed to register a variable, which was annoyingly often.</p>
+<p>Salt’s docs are unnecessarily broken up, though. There’s multiple sections on states. There’s multiple sections on global state arguments. There’s multiple sections on pillars. The list goes on. Many of these docs are overlapping, which makes searching for the right doc difficult. The split of execution modules and state modules (which I rather enjoy when doing salt development) make searching for modules more difficult when writing states.</p>
+<p>I’m a harsh critic of documentation though, so for both Salt and Ansible, you should take this with a grain of salt (ha ha) and take a look at the docs yourself.</p>
+<a class="toc-anchor" name="conclusion"></a><a class="toc-anchor" name="toc-anchor-645-5"></a><h2>Conclusion</h2>
+<p>At this point both Salt and Ansible are viable and excellent options for replacing Puppet. As you may have guessed by now, I’m more in favor of Salt. I feel the language is more mature, it’s much faster and the community is friendlier and more responsive. If I couldn’t use Salt for a project, Ansible would be my second choice. Both Salt and Ansible are easier, faster, and more reliable than Puppet or Chef.</p>
+<p>As you may have noticed earlier in this post, we had 10,000 lines of puppet code and reduced that to roughly 1,000 in both Salt and Ansible. That alone should speak highly of both.</p>
+<p>After implementing the port in both Salt and Ansible, the Lyft DevOps team all agreed to go with Salt.</p>
+<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing"><div class="sd-content"><ul><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-645" class="share-google-plus-1 sd-button share-icon no-text" href="http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/?share=google-plus-1&amp;nb=1" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+</span></a></li><li class="share-custom"><a rel="nofollow" data-shared="" class="share-custom sd-button share-icon no-text" href="http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/?share=custom-1322970713&amp;nb=1" title="Click to share"><span style="background-image: url('favicon.ico');"></span><span class="sharing-screen-reader-text">Click to share</span></a></li><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-645" class="share-twitter sd-button share-icon no-text" href="http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/?share=twitter&amp;nb=1" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-645" class="share-facebook sd-button share-icon no-text" href="http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/?share=facebook&amp;nb=1" title="Share on Facebook"><span></span><span class="sharing-screen-reader-text">Share on Facebook</span></a></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-645" class="share-linkedin sd-button share-icon no-text" href="http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/?share=linkedin&amp;nb=1" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn</span></a></li><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/?share=reddit&amp;nb=1" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit</span></a></li><li class="share-tumblr"><a rel="nofollow" data-shared="" class="share-tumblr sd-button share-icon no-text" href="http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/?share=tumblr&amp;nb=1" title="Click to share on Tumblr"><span></span><span class="sharing-screen-reader-text">Click to share on Tumblr</span></a></li><li><a href="#" class="sharing-anchor sd-button share-more"><span>More</span></a></li><li class="share-end"></li></ul><div class="sharing-hidden"><div class="inner" style="display: none;"><ul><li class="share-email share-service-visible"><a rel="nofollow" data-shared="" class="share-email sd-button share-icon no-text" href="http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/?share=email&amp;nb=1" title="Click to email this to a friend"><span></span><span class="sharing-screen-reader-text">Click to email this to a friend</span></a></li><li class="share-stumbleupon"><a rel="nofollow" data-shared="" class="share-stumbleupon sd-button share-icon no-text" href="http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/?share=stumbleupon&amp;nb=1" title="Click to share on StumbleUpon"><span></span><span class="sharing-screen-reader-text">Click to share on StumbleUpon</span></a></li><li class="share-end"></li><li class="share-end"></li></ul></div></div></div></div></div><div class="yarpp-related">
+<p>Related posts:</p><ol>
+<li><a href="http://ryandlane.com/blog/2014/08/29/a-saltstack-highstate-killswitch/" rel="bookmark" title="A SaltStack Highstate Killswitch">A SaltStack Highstate Killswitch </a></li>
+<li><a href="http://ryandlane.com/blog/2014/09/02/concurrent-and-queued-saltstack-state-runs/" rel="bookmark" title="Concurrent and Queued SaltStack State Runs">Concurrent and Queued SaltStack State Runs </a></li>
+<li><a href="http://ryandlane.com/blog/2014/09/08/saltstack-development-behavior-of-exceptions-in-modules/" rel="bookmark" title="SaltStack Development: Behavior of Exceptions in Modules">SaltStack Development: Behavior of Exceptions in Modules </a></li>
+<li><a href="http://ryandlane.com/blog/2014/07/14/truly-ordered-execution-using-saltstack/" rel="bookmark" title="Truly ordered execution using SaltStack">Truly ordered execution using SaltStack </a></li>
+<li><a href="http://ryandlane.com/blog/2014/12/10/reloading-grains-and-pillars-during-a-saltstack-run/" rel="bookmark" title="Reloading grains and pillars during a SaltStack run">Reloading grains and pillars during a SaltStack run </a></li>
+</ol>
+</div>
+			</div><!-- .entry-content -->
+
+</article><!-- #post-## -->
+
+				<nav class="navigation post-navigation" role="navigation">
+		<h1 class="screen-reader-text">Post navigation</h1>
+		<div class="nav-links">
+			<div class="nav-previous"><a href="http://ryandlane.com/blog/2014/07/14/truly-ordered-execution-using-saltstack/" rel="prev"><span class="meta-nav">← Previous Post</span> Truly ordered execution using SaltStack</a></div><div class="nav-next"><a href="http://ryandlane.com/blog/2014/08/26/saltstack-masterless-bootstrapping/" rel="next"><span class="meta-nav">Next Post →</span> SaltStack AWS Orchestration and Masterless Bootstrapping</a></div>		</div><!-- .nav-links -->
+	</nav><!-- .navigation -->
+	
+			
+<div id="comments" class="comments-area">
+
+	
+			<h3 class="comments-title">
+			77 Comments		</h3>
+
+				<nav id="comment-nav-above" class="comment-navigation" role="navigation">
+			<h1 class="screen-reader-text">Comment navigation</h1>
+			<div class="nav-previous"><a href="http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/comment-page-2/#comments">← Older Comments</a></div>
+			<div class="nav-next"></div>
+		</nav><!-- #comment-nav-above -->
+		
+		<ol class="comment-list">
+			<li class="comment even thread-even depth-1 clearfix" id="li-comment-94033">
+
+	<div class="comment-block" id="comment-94033">
+
+		<img scale="0" alt="" src="94dedc4463f12480731299e283658f98-s75.jpg" class="avatar avatar-75" height="75" width="75">
+		<div class="comment-wrap">
+			<div class="comment-info">
+				<cite class="comment-cite">Kawika</cite>				<a class="comment-time" href="http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/comment-page-3/#comment-94033">November 30, 2014 at 6:52 am</a>			</div>
+
+			<div class="comment-content">
+				<p>Thanks for the great write-up. We started using Salt earlier this year and have about 5K lines of SLS code. There is some overlap but it’s about right for what we do. I was considering playing with Ansible but Salt is more than enough for what we need. Thanks again.</p>
+				<p class="reply">
+					<a class="comment-reply-link" href="http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/?replytocom=94033#respond" onclick="return addComment.moveForm(&quot;comment-94033&quot;, &quot;94033&quot;, &quot;respond&quot;, &quot;645&quot;)">Reply</a>				</p>
+			</div>
+
+					</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="pingback odd alt thread-odd thread-alt depth-1 clearfix" id="li-comment-95130">
+
+	<div class="comment-block" id="comment-95130">
+
+		<img scale="0" alt="" src="ad2b41613c8702b5372bbdc9a8107040-s75.jpg" class="avatar avatar-75" height="75" width="75">
+		<div class="comment-wrap">
+			<div class="comment-info">
+				<cite class="comment-cite"><a href="http://www.dereckson.be/blog/2014/12/01/november-2014-links/" rel="external nofollow" class="url">November 2014 links | DcK Area</a></cite>				<a class="comment-time" href="http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/comment-page-3/#comment-95130">December 1, 2014 at 7:50 am</a>			</div>
+
+			<div class="comment-content">
+				<p>[…] formerly in Wikimedia ops team,&nbsp; blogged this summer about a Puppet alternative at his new job: Moving away from Puppet: SaltStack or Ansible? For Ryan, 10K+ lines of Puppet codes is now only 1K of SaltStack or Ansible code. The winner of […]</p>
+				<p class="reply">
+					<a class="comment-reply-link" href="http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/?replytocom=95130#respond" onclick="return addComment.moveForm(&quot;comment-95130&quot;, &quot;95130&quot;, &quot;respond&quot;, &quot;645&quot;)">Reply</a>				</p>
+			</div>
+
+					</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment even thread-even depth-1 clearfix" id="li-comment-100324">
+
+	<div class="comment-block" id="comment-100324">
+
+		<img scale="0" alt="" src="bc0af30976d1cca4d75be3098539608a-s75.jpg" class="avatar avatar-75" height="75" width="75">
+		<div class="comment-wrap">
+			<div class="comment-info">
+				<cite class="comment-cite">Tchoppa</cite>				<a class="comment-time" href="http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/comment-page-3/#comment-100324">December 5, 2014 at 3:47 pm</a>			</div>
+
+			<div class="comment-content">
+				<p>Hey,<br>
+nice article, but what do you think about Rudder ?</p>
+				<p class="reply">
+					<a class="comment-reply-link" href="http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/?replytocom=100324#respond" onclick="return addComment.moveForm(&quot;comment-100324&quot;, &quot;100324&quot;, &quot;respond&quot;, &quot;645&quot;)">Reply</a>				</p>
+			</div>
+
+					</div>
+	</div>
+<ol class="children">
+<li class="comment byuser comment-author-laner bypostauthor odd alt depth-2 clearfix" id="li-comment-105176">
+
+	<div class="comment-block" id="comment-105176">
+
+		<img scale="0" alt="" src="9e01017cb8ebbf3e70dd1688556a033d-s75.jpg" class="avatar avatar-75" height="75" width="75">
+		<div class="comment-wrap">
+			<div class="comment-info">
+				<cite class="comment-cite"><a href="https://www.google.com/accounts/o8/id?id=AItOawnSRJ2KXHBNJKIX_wYq_cXoXI4HVvuBtiE" rel="external nofollow" class="url">Ryan Lane</a></cite>				<a class="comment-time" href="http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/comment-page-3/#comment-105176">December 9, 2014 at 11:45 pm</a>			</div>
+
+			<div class="comment-content">
+				<p>I hadn’t heard of Rudder before. I gave it a very brief look. It seems to be very web oriented, which I usually avoid. Maybe I’ll give it a more in-depth look later.</p>
+				<p class="reply">
+					<a class="comment-reply-link" href="http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/?replytocom=105176#respond" onclick="return addComment.moveForm(&quot;comment-105176&quot;, &quot;105176&quot;, &quot;respond&quot;, &quot;645&quot;)">Reply</a>				</p>
+			</div>
+
+					</div>
+	</div>
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		</ol><!-- .comment-list -->
+
+				<nav id="comment-nav-below" class="comment-navigation" role="navigation">
+			<h1 class="screen-reader-text">Comment navigation</h1>
+			<div class="nav-previous"><a href="http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/comment-page-2/#comments">← Older Comments</a></div>
+			<div class="nav-next"></div>
+		</nav><!-- #comment-nav-below -->
+		
+	
+	
+									<div id="respond" class="comment-respond">
+				<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/#respond" style="display: none;">Cancel reply</a></small></h3>
+									<form action="http://ryandlane.com/blog/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate="">
+																			<p class="comment-notes">Your email address will not be published. Required fields are marked <span class="required">*</span></p>							<p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" value="" size="30" aria-required="true" type="text"></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" value="" size="30" aria-required="true" type="email"></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" value="" size="30" type="url"></p>
+												<p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>						<p class="form-allowed-tags">You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:  <code>&lt;a href="" title=""&gt; &lt;abbr title=""&gt; &lt;acronym title=""&gt; &lt;b&gt; &lt;blockquote cite=""&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=""&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=""&gt; &lt;strike&gt; &lt;strong&gt; </code></p>						<p class="form-submit">
+							<input name="submit" id="submit" value="Post Comment" type="submit">
+							<input name="comment_post_ID" value="645" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+						</p>
+						<p style="display: none;"><input id="akismet_comment_nonce" name="akismet_comment_nonce" value="3fcc673085" type="hidden"></p><p class="comment-subscription-form"><input name="subscribe_comments" id="subscribe_comments" value="subscribe" style="width: auto; -moz-appearance: checkbox;" type="checkbox"> <label class="subscribe-label" id="subscribe-label" for="subscribe_comments">Notify me of follow-up comments by email.</label></p><p class="comment-subscription-form"><input name="subscribe_blog" id="subscribe_blog" value="subscribe" style="width: auto; -moz-appearance: checkbox;" type="checkbox"> <label class="subscribe-label" id="subscribe-blog-label" for="subscribe_blog">Notify me of new posts by email.</label></p><p style="display: none;"></p>					<input id="ak_js" name="ak_js" value="1418716983938" type="hidden"><input value="1418715410 121.244.87.117 121.244.87.117" name="bb2_screener_" type="hidden"></form>
+							</div><!-- #respond -->
+			
+</div><!-- #comments -->
+
+		
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+
+	</div><!-- #content -->
+
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="site-info">
+		</div><!-- .site-info -->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+
+	<div style="display: none;">
+	<div class="grofile-hash-map-25013a0e83c5a0faa37b7c43df3eabee">
+	</div>
+	<div class="grofile-hash-map-3126e998fb1ae6c25f77a960fe8d1665">
+	</div>
+	<div class="grofile-hash-map-68d9302d20535d4e50630acab625b6c2">
+	</div>
+	</div>
+
+	
+		
+				
+				
+				
+				
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+<div id="sharing_email" style="display: none;">
+		<form action="http://ryandlane.com/blog/2014/08/04/moving-away-from-puppet-saltstack-or-ansible/" method="post">
+			<label for="target_email">Send to Email Address</label>
+			<input name="target_email" id="target_email" value="" type="email">
+
+			
+				<label for="source_name">Your Name</label>
+				<input name="source_name" id="source_name" value="" type="text">
+
+				<label for="source_email">Your Email Address</label>
+				<input name="source_email" id="source_email" value="" type="email">
+
+			
+			
+			<img scale="0" style="float: right; display: none;" class="loading" src="loading.gif" alt="loading" height="16" width="16">
+			<input value="Send Email" class="sharing_send" type="submit">
+			<a href="#cancel" class="sharing_cancel">Cancel</a>
+
+			<div class="errors errors-1" style="display: none;">
+				Post was not sent - check your email addresses!			</div>
+
+			<div class="errors errors-2" style="display: none;">
+				Email check failed, please try again			</div>
+
+			<div class="errors errors-3" style="display: none;">
+				Sorry, your blog cannot share posts by email.			</div>
+		<input value="1418715410 121.244.87.117 121.244.87.117" name="bb2_screener_" type="hidden"></form>
+	</div></body>
+</html>
